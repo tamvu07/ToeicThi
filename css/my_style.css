@@ -1,0 +1,14 @@
+.m_a_top_menu
+{
+	padding:0px 20px 0px 20px !important;
+	background: #17a2b8;
+	border-radius: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+.m_a_top_menu:hover{
+	background: #007bff;
+}
+.m_a_top_menu_2:hover{
+	color: #17a2b8;
+}
