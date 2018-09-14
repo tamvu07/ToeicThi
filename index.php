@@ -8,7 +8,7 @@ $toeic=new toiec();
 <head>
   <title>TOEIC Online</title>
   <script src="js/jquery.min.js"></script>
-  <base href="<?=BASE_URL?>"/>
+  <base href="<?=BASE_URL?>/"/>
   <meta charset="utf-8">
   <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -437,7 +437,7 @@ $toeic=new toiec();
   <script src="js/owl-carousel.min.js"></script>
   <script src="js/flickity.pkgd.min.js"></script>
   <script src="js/twitterFetcher_min.js"></script>
-  <script src="js/jquery.newsTicker.min.js"></script>  
+  <script src="js/jquery.newsTicker.min.js"></script>
   <script src="js/modernizr.min.js"></script>
   <script src="js/scripts.js"></script>
 
