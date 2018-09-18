@@ -37,7 +37,7 @@
     	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	    <div class="row card-row">
 	    	<div class="col-lg-12">
-		    	<h1 style="text-align: center;">Đăng Ký</h1>
+		    	<h1 style="text-align: center;">Đăng Kýyyyyyy</h1>
 		    </div>
 
 		    <div class="col-lg-2">
