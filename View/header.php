@@ -21,7 +21,7 @@
     <!-- Nav -->
     <nav class="sidenav__menu-container">
         <ul class="sidenav__menu" role="menubar">
-            <li><a href="View/" class="sidenav__menu-url">Trang chủ</a></li>
+            <li><a href="View/" class="sidenav__menu-url">Trang chủ !</a></li>
             <li>
                 <a class="sidenav__menu-url">Bài giảng</a>
                 <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i
