@@ -412,13 +412,13 @@ hr {
 	display: inline-block;
 	text-decoration: none;
 	text-align: center;
-	border: 0;
+	/*border: 0;*/
 	text-transform: uppercase;
 	letter-spacing: 0.04em;
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 	color: #fff;
-	background-color: #171821;
+	/*background-color: #171821;*/
 	-webkit-backface-visibility: hidden;
 	backface-visibility: hidden;
 	position: relative;
@@ -433,8 +433,8 @@ hr {
 	-ms-user-select: none;
 	user-select: none; }
 	.btn:hover {
-		color: #fff;
-		background-color: #171821;
+		/*color: #fff;*/
+		/*background-color: #171821;*/
 		border-color: transparent; }
 	.btn:focus {
 		outline: none;
@@ -449,7 +449,7 @@ hr {
 	.btn-sm, .btn-sm.btn-button {
 		font-size: 11px;
 		padding: 0 20px;
-		line-height: 28px; }
+		line-height: 26px; }
 	.btn-sm.btn-button {
 		height: 30px; }
 	.btn-color {
@@ -501,7 +501,7 @@ hr {
 		width: 100%; }
 	.btn-button:hover, .btn-button:focus {
 		color: #fff;
-		background-color: #171821; }
+	}
 
 /*-------------------------------------------------------*/
 /* Form Elements
@@ -509,7 +509,7 @@ hr {
 input,
 select,
 textarea {
-	height: 46px;
+	height: 40px;
 	border: 1px solid #E3E4E8;
 	background-color: #fff;
 	width: 100%;
@@ -587,7 +587,7 @@ label {
 /* Checkboxes & Radio Buttons
 -------------------------------------------------------*/
 input[type="checkbox"] {
-	display: none; }
+	display: inline-block; }
 
 input[type="checkbox"] + label:before {
 	width: 20px;
@@ -3750,7 +3750,9 @@ input.nav__search-mobile-input:-ms-input-placeholder {
 /* Sticky Nav
 -------------------------------------------------------*/
 .nav--sticky {
-	height: 48px; }
+	height: 48px;
+	width: 100%;
+}
 	.nav--sticky.offset {
 		-webkit-transform: translate3d(0, -100%, 0);
 		transform: translate3d(0, -100%, 0);
@@ -4743,7 +4745,7 @@ dd {
 .style-rounded .entry__play-time,
 .style-rounded .pagination__page,
 .style-rounded #back-to-top,
-.style-rounded .btn,
+.style-rounded ,
 .style-rounded .sidebar .widget {
 	border-radius: 5px; }
 
@@ -4772,7 +4774,7 @@ dd {
 	.style-politics h1, .style-politics h2, .style-politics h3, .style-politics h4, .style-politics h5, .style-politics h6,
 	.style-politics .nav__menu > li > a,
 	.style-politics .entry__meta-category,
-	.style-politics .btn,
+	.style-politics ,
 	.style-politics .all-posts-url,
 	.style-politics .sidenav__menu-url,
 	.style-politics .trending-now__label,
@@ -4806,7 +4808,7 @@ dd {
 		color: #171821; }
 	.style-fashion .nav__menu > li > a,
 	.style-fashion .sidenav__menu-url,
-	.style-fashion .btn,
+	.style-fashion ,
 	.style-fashion .entry__meta-category,
 	.style-fashion .widget_tag_cloud a,
 	.style-fashion .entry__tags a,
@@ -4870,7 +4872,7 @@ dd {
 		line-height: 1.2;
 		font-family: "Barlow", sans-serif;
 		font-weight: 700; }
-	.style-games .btn,
+	.style-games ,
 	.style-games .nav__menu > li > a,
 	.style-games .trending-now__label,
 	.style-games .sidenav__menu-url,
@@ -4909,7 +4911,7 @@ dd {
 	.style-videos .section-title,
 	.style-videos .widget-title {
 		font-weight: 700; }
-	.style-videos .btn,
+	.style-videos ,
 	.style-videos .nav__menu > li > a,
 	.style-videos .trending-now__label,
 	.style-videos .sidenav__menu-url,
@@ -4937,7 +4939,7 @@ dd {
 		font-family: "Rubik", sans-serif; }
 	.style-music p {
 		font-family: "Roboto", sans-serif; }
-	.style-music .btn,
+	.style-music ,
 	.style-music .nav__menu > li > a,
 	.style-music .trending-now__label,
 	.style-music .sidenav__menu-url,

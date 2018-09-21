@@ -53,7 +53,7 @@
                 <a href="#" class="sidenav__menu-url">Giới thiệu</a>
             </li>
             <li>
-                <a class="sidenav__menu-url" data-toggle="modal" href="#myModal">Đăng nhập</a>
+                <a href="View/Login.html" class="sidenav__menu-url">Đăng nhập</a>
             </li>
             <li>
                 <a href="#" class="sidenav__menu-url">Đăng kí</a>
@@ -62,19 +62,19 @@
     </nav>
 
     <div class="socials sidenav__socials">
-        <a class="social social-facebook" href="#" target="_blank" aria-label="facebook">
+        <a class="social social-facebook" href="http://www.facebook.com" target="_blank" aria-label="facebook">
             <i class="ui-facebook"></i>
         </a>
-        <a class="social social-twitter" href="#" target="_blank" aria-label="twitter">
+        <a class="social social-twitter" href="http://www.twitter.com" target="_blank" aria-label="twitter">
             <i class="ui-twitter"></i>
         </a>
-        <a class="social social-google-plus" href="#" target="_blank" aria-label="google">
+        <a class="social social-google-plus" href="http://www.google.com" target="_blank" aria-label="google">
             <i class="ui-google"></i>
         </a>
-        <a class="social social-youtube" href="#" target="_blank" aria-label="youtube">
+        <a class="social social-youtube" href="http://www.youtube.com" target="_blank" aria-label="youtube">
             <i class="ui-youtube"></i>
         </a>
-        <a class="social social-instagram" href="#" target="_blank" aria-label="instagram">
+        <a class="social social-instagram" href="http://www.instagram.com" target="_blank" aria-label="instagram">
             <i class="ui-instagram"></i>
         </a>
     </div>
@@ -87,7 +87,7 @@
             <!-- Socials -->
             <div class="col-lg-12">
                 <div id="top-sign-in-out">
-                    <a class="btn btn-sm btn-light" data-toggle="modal" href="#myModal">
+                    <a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false">
                         <span>Đăng nhập</span>
                     </a>
                     <a href="#" class="btn btn-sm btn-light">
@@ -118,31 +118,6 @@
                     </a>
                 </div>
 
-            </div>
-            <!-- The Modal -->
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <form method="post" action="">
-                            <!-- Modal Header -->
-                            <div class="modal-header">
-                                <h4 class="modal-title">ĐĂNG NHẬP</h4>
-                            </div>
-                            <!-- Modal body -->
-                            <div class="modal-body">
-                                Email:<input type="text" name="email">
-                                password:<input type="password" name="password">
-                            </div>
-                            <!-- Modal footer -->
-                            <div class="modal-footer">
-                                <button style="border:1px solid red;" type="button" class="btn"
-                                        data-dismiss="modal">Đăng nhập
-                                </button>
-                                <button type="button" class="btn" data-dismiss="modal">Hủy bỏ</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
