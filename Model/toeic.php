@@ -16,6 +16,15 @@ class toiec extends connection{
         if($kq->num_rows>0) return $kq;
         return false;
     }
+
+    function checkusername($username){
+        $username = $this->db->escape_string(trim(strip_tags($username)));
+        $sql = "select * from nguoidung where IdUser = '$username' ";
+        $kq = $this->db->query($sql);
+        if($kq->num_rows != 0){
+            return 1;
+        }else return 0;
+    }
 }
 //cac method
 ?>
