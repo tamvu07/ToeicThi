@@ -4,28 +4,24 @@
         <div></div>
     </div>
 </div>
-
 <!-- Bg Overlay -->
 <div class="content-overlay"></div>
-
 <!-- Sidenav -->
 <header class="sidenav" id="sidenav">
-
     <!-- close -->
     <div class="sidenav__close">
         <button class="sidenav__close-button" id="sidenav__close-button" aria-label="close sidenav">
             <i class="ui-close sidenav__close-icon"></i>
         </button>
     </div>
-
     <!-- Nav -->
     <nav class="sidenav__menu-container">
         <ul class="sidenav__menu" role="menubar">
-            <li><a href="View/" class="sidenav__menu-url">Trang chủ !</a></li>
+            <li><a href="View/" class="sidenav__menu-url">Trang chủ</a></li>
             <li>
                 <a class="sidenav__menu-url">Bài giảng</a>
                 <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i
-                        class="ui-arrow-down"></i></button>
+                            class="ui-arrow-down"></i></button>
                 <ul class="sidenav__menu-dropdown">
                     <li><a href="#" class="sidenav__menu-url">Listening</a></li>
                     <li><a href="#" class="sidenav__menu-url">Reading</a></li>
@@ -36,7 +32,7 @@
             <li>
                 <a class="sidenav__menu-url">Test</a>
                 <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i
-                        class="ui-arrow-down"></i></button>
+                            class="ui-arrow-down"></i></button>
                 <ul class="sidenav__menu-dropdown">
                     <li><a href="shortcodes.html" class="sidenav__menu-url">Listening</a></li>
                     <li><a href="shortcodes.html" class="sidenav__menu-url">Reading</a></li>
@@ -44,7 +40,6 @@
                     <li><a href="shortcodes.html" class="sidenav__menu-url">Speaking</a></li>
                 </ul>
             </li>
-
             <!-- Categories -->
             <li>
                 <a href="#" class="sidenav__menu-url">Liên hệ</a>
@@ -60,7 +55,6 @@
             </li>
         </ul>
     </nav>
-
     <div class="socials sidenav__socials">
         <a class="social social-facebook" href="http://www.facebook.com" target="_blank" aria-label="facebook">
             <i class="ui-facebook"></i>
@@ -79,7 +73,6 @@
         </a>
     </div>
 </header> <!-- end sidenav -->
-
 <!-- Top Bar -->
 <div class="top-bar d-none d-lg-block">
     <div class="container">
@@ -94,7 +87,6 @@
                         <span>Đăng kí</span>
                     </a>
                 </div>
-
                 <div class="socials nav__socials socials--nobase socials--white justify-content-end">
                     <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
                        aria-label="facebook">
@@ -123,43 +115,34 @@
     </div>
 </div>
 <!-- end top bar -->
-
 <!-- Navigation -->
 <header class="nav">
-
     <div class="nav__holder nav--sticky">
         <div class="container relative">
             <div class="flex-parent">
-
                 <!-- Side Menu Button -->
                 <button class="nav-icon-toggle" id="nav-icon-toggle" aria-label="Open side menu">
               <span class="nav-icon-toggle__box">
                 <span class="nav-icon-toggle__inner"></span>
               </span>
                 </button>
-
-
                 <!-- Logo -->
                 <a href="View/" class="logo">
                     <img class="logo__img" src="img/logo_default.png"
                          srcset="img/logo_default.png 1x, img/logo_default@2x.png 2x" alt="logo">
                 </a>
-
                 <!-- Nav-wrap -->
                 <nav class="flex-child nav__wrap d-none d-lg-block">
                     <ul class="nav__menu">
-
                         <li class="active">
                             <a href="View/">Trang chủ</a>
                         </li>
-
                         <li class="nav__dropdown">
                             <a>Bài giảng</a>
                             <ul class="nav__dropdown-menu nav__megamenu">
                                 <li>
                                     <div class="nav__megamenu-wrap">
                                         <div class="row">
-
                                             <div class="col nav__megamenu-item">
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
@@ -172,7 +155,6 @@
                                                     </div>
                                                 </article>
                                             </div>
-
                                             <div class="col nav__megamenu-item">
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
@@ -185,7 +167,6 @@
                                                     </div>
                                                 </article>
                                             </div>
-
                                             <div class="col nav__megamenu-item">
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
@@ -198,7 +179,6 @@
                                                     </div>
                                                 </article>
                                             </div>
-
                                             <div class="col nav__megamenu-item">
                                                 <article class="entry">
                                                     <div class="entry__img-holder">
@@ -211,13 +191,11 @@
                                                     </div>
                                                 </article>
                                             </div>
-
                                         </div>
                                     </div>
                                 </li>
                             </ul> <!-- end megamenu -->
                         </li>
-
                         <li class="nav__dropdown">
                             <a>Test</a>
                             <ul class="nav__dropdown-menu">
@@ -227,22 +205,16 @@
                                 <li><a href="categories.html">Speaking</a></li>
                             </ul>
                         </li>
-
                         <li>
                             <a href="#">Liên hệ</a>
                         </li>
-
                         <li>
                             <a href="#">giới thiệu</a>
                         </li>
-
-
                     </ul> <!-- end menu -->
                 </nav> <!-- end nav-wrap -->
-
                 <!-- Nav Right -->
                 <div class="nav__right">
-
                     <!-- Search -->
                     <div class="nav__right-item nav__search">
                         <a href="#" class="nav__search-trigger" id="nav__search-trigger">
@@ -257,12 +229,9 @@
                             </form>
                         </div>
                     </div>
-
                 </div> <!-- end nav right -->
-
             </div> <!-- end flex-parent -->
         </div> <!-- end container -->
-
     </div>
 </header>
-<!-- end navigation -->
+<!-- end Navigation -->

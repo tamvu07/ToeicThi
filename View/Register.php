@@ -73,9 +73,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
 <script>
     $(document).ready(function () {
-        $('#username').blur(function () { 
+        $('#username').blur(function () {
             $.get(
-                    'View/checkValidate.php',
+                    'control/checkValidate.php',
                     "username="+$('#username').val(),
                     function(data){
                         if(data == 1){  

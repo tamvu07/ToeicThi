@@ -3,11 +3,16 @@ require_once "../Model/toeic.php";
 $toeic=new toiec();
 if(isset($_GET['email'])){
     $email=$_GET['email'];
+
     if($email=="") echo "<span>xin mời nhập email !!!</span>";
     elseif (!preg_match('/[@]{1}/',$email)){
      echo "<span>email gì mà thiếu @ vậy ???</span>";
     }
     
+
+    if($email=="") echo "<strong>CHƯA NHẬP EMAIL !</strong>";
+    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) echo "<strong>EMAIL KHÔNG PHÙ HỢP !</strong>";
+
 }
 /**
  * Created by PhpStorm.
@@ -21,11 +26,11 @@ if(isset($_GET['email'])){
     		echo 1;
     		return;
     	}
-        elseif(!preg_match("/^[ a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/",$username)) 
+        /*elseif(!preg_match("/^[ a-zA-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ]+$/",$username)) 
     {
         echo 2;
         return;
-    }
+    }*/
         else if($username != ""){
             $kq = $toeic->checkusername($username);
             if($kq != 0){

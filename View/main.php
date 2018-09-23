@@ -106,10 +106,10 @@
 
     <div class="main-container container content-box content-box--pt-108" id="main-container">
 
-        <!-- Upcoming Events -->
+        <!-- Tin tuc -->
         <section class="section mb-0">
             <div class="title-wrap title-wrap--line title-wrap--pr">
-                <h3 class="section-title">Upcoming Events</h3>
+                <h3 class="section-title">TIN TỨC</h3>
             </div>
 
             <!-- Slider -->
@@ -273,7 +273,7 @@
                 </article>
             </div> <!-- end slider -->
 
-        </section> <!-- end upcoming events -->
+        </section> <!-- end tin tuc -->
 
 
         <!-- Ad Banner 970 -->
@@ -283,94 +283,10 @@
             </a>
         </div>
 
-        <!-- Newest Videos -->
-        <section class="pb-32">
-            <div class="title-wrap title-wrap--line">
-                <h2 class="section-title">newest videos</h2>
-            </div>
-            <div class="video-playlist">
-
-                <div class="video-playlist__content thumb-container">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe src="https://www.youtube.com/embed/E0wW9RwpG7M?feature=oembed"
-                                class="video-playlist__content-video">
-                        </iframe>
-                    </div>
-                </div>
-
-                <div class="video-playlist__list">
-                    <a href="https://www.youtube.com/embed/E0wW9RwpG7M?feature=oembed&autoplay=1"
-                       class="video-playlist__list-item video-playlist__list-item--active">
-                        <div class="video-playlist__list-item-thumb">
-                            <img data-src="https://i.ytimg.com/vi/E0wW9RwpG7M/default.jpg"
-                                 src="https://i.ytimg.com/vi/E0wW9RwpG7M/default.jpg"
-                                 class="video-playlist__list-item-img lazyload" alt="">
-                        </div>
-                        <div class="video-playlist__list-item-description">
-                            <h4 class="video-playlist__list-item-title">Heaven - Bryan Adams (cover) Megan Nicole
-                                and
-                                Boyce Avenue</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/embed/7TWkmy5ELJc?feature=oembed&autoplay=1"
-                       class="video-playlist__list-item">
-                        <div class="video-playlist__list-item-thumb">
-                            <img data-src="https://i.ytimg.com/vi/7TWkmy5ELJc/default.jpg"
-                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
-                                 class="video-playlist__list-item-img lazyload" alt="">
-                        </div>
-                        <div class="video-playlist__list-item-description">
-                            <h4 class="video-playlist__list-item-title">Santa Cruz - Young Blood Rising (Official
-                                Music
-                                Video)</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/embed/hXnMSaK6C2w?feature=oembed&autoplay=1"
-                       class="video-playlist__list-item">
-                        <div class="video-playlist__list-item-thumb">
-                            <img data-src="https://i.ytimg.com/vi/hXnMSaK6C2w/default.jpg"
-                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
-                                 class="video-playlist__list-item-img lazyload" alt="">
-                        </div>
-                        <div class="video-playlist__list-item-description">
-                            <h4 class="video-playlist__list-item-title">Cardi B - Bartier Cardi (feat. 21 Savage)
-                                [Official Video]</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/embed/xMTsul4UFl8?feature=oembed&autoplay=1"
-                       class="video-playlist__list-item">
-                        <div class="video-playlist__list-item-thumb">
-                            <img data-src="https://i.ytimg.com/vi/xMTsul4UFl8/default.jpg"
-                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
-                                 class="video-playlist__list-item-img lazyload" alt="">
-                        </div>
-                        <div class="video-playlist__list-item-description">
-                            <h4 class="video-playlist__list-item-title">Nothing Makes Sense Anymore (Official Video)
-                                -
-                                Mike Shinoda</h4>
-                        </div>
-                    </a>
-                    <a href="https://www.youtube.com/embed/2Vv-BfVoq4g?feature=oembed&autoplay=1"
-                       class="video-playlist__list-item">
-                        <div class="video-playlist__list-item-thumb">
-                            <img data-src="https://i.ytimg.com/vi/2Vv-BfVoq4g/default.jpg"
-                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
-                                 class="video-playlist__list-item-img lazyload" alt="">
-                        </div>
-                        <div class="video-playlist__list-item-description">
-                            <h4 class="video-playlist__list-item-title">Ed Sheeran - Perfect (Official Music
-                                Video)</h4>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-        </section> <!-- end newest videos -->
-
-        <!-- Most Popular -->
+        <!-- tin tieng anh -->
         <section class="section mb-24">
             <div class="title-wrap title-wrap--line">
-                <h3 class="section-title">Most Popular</h3>
+                <h3 class="section-title">TIN TIẾNG ANH</h3>
             </div>
             <div class="row row-20">
                 <div class="col-md-3">
@@ -572,12 +488,96 @@
                     </article>
                 </div>
             </div>
-        </section> <!-- end most popular -->
+        </section> <!-- end tin tieng anh -->
 
-        <!-- Featured Albums -->
+        <!-- Bai giang Videos -->
+        <section class="pb-32">
+            <div class="title-wrap title-wrap--line">
+                <h2 class="section-title">BÀI GIẢNG</h2>
+            </div>
+            <div class="video-playlist">
+
+                <div class="video-playlist__content thumb-container">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe src="https://www.youtube.com/embed/E0wW9RwpG7M?feature=oembed"
+                                class="video-playlist__content-video">
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="video-playlist__list">
+                    <a href="https://www.youtube.com/embed/E0wW9RwpG7M?feature=oembed&autoplay=1"
+                       class="video-playlist__list-item video-playlist__list-item--active">
+                        <div class="video-playlist__list-item-thumb">
+                            <img data-src="https://i.ytimg.com/vi/E0wW9RwpG7M/default.jpg"
+                                 src="https://i.ytimg.com/vi/E0wW9RwpG7M/default.jpg"
+                                 class="video-playlist__list-item-img lazyload" alt="">
+                        </div>
+                        <div class="video-playlist__list-item-description">
+                            <h4 class="video-playlist__list-item-title">Heaven - Bryan Adams (cover) Megan Nicole
+                                and
+                                Boyce Avenue</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/embed/7TWkmy5ELJc?feature=oembed&autoplay=1"
+                       class="video-playlist__list-item">
+                        <div class="video-playlist__list-item-thumb">
+                            <img data-src="https://i.ytimg.com/vi/7TWkmy5ELJc/default.jpg"
+                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
+                                 class="video-playlist__list-item-img lazyload" alt="">
+                        </div>
+                        <div class="video-playlist__list-item-description">
+                            <h4 class="video-playlist__list-item-title">Santa Cruz - Young Blood Rising (Official
+                                Music
+                                Video)</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/embed/hXnMSaK6C2w?feature=oembed&autoplay=1"
+                       class="video-playlist__list-item">
+                        <div class="video-playlist__list-item-thumb">
+                            <img data-src="https://i.ytimg.com/vi/hXnMSaK6C2w/default.jpg"
+                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
+                                 class="video-playlist__list-item-img lazyload" alt="">
+                        </div>
+                        <div class="video-playlist__list-item-description">
+                            <h4 class="video-playlist__list-item-title">Cardi B - Bartier Cardi (feat. 21 Savage)
+                                [Official Video]</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/embed/xMTsul4UFl8?feature=oembed&autoplay=1"
+                       class="video-playlist__list-item">
+                        <div class="video-playlist__list-item-thumb">
+                            <img data-src="https://i.ytimg.com/vi/xMTsul4UFl8/default.jpg"
+                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
+                                 class="video-playlist__list-item-img lazyload" alt="">
+                        </div>
+                        <div class="video-playlist__list-item-description">
+                            <h4 class="video-playlist__list-item-title">Nothing Makes Sense Anymore (Official Video)
+                                -
+                                Mike Shinoda</h4>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/embed/2Vv-BfVoq4g?feature=oembed&autoplay=1"
+                       class="video-playlist__list-item">
+                        <div class="video-playlist__list-item-thumb">
+                            <img data-src="https://i.ytimg.com/vi/2Vv-BfVoq4g/default.jpg"
+                                 src="https://i.ytimg.com/vi/mn6Ia5e_suY/default.jpg"
+                                 class="video-playlist__list-item-img lazyload" alt="">
+                        </div>
+                        <div class="video-playlist__list-item-description">
+                            <h4 class="video-playlist__list-item-title">Ed Sheeran - Perfect (Official Music
+                                Video)</h4>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section> <!-- end bai giang videos -->
+
+        <!-- De thi thu -->
         <section class="section mb-0">
             <div class="title-wrap title-wrap--line title-wrap--pr">
-                <h3 class="section-title">featured albums</h3>
+                <h3 class="section-title">ĐỀ THI THỬ</h3>
             </div>
 
             <!-- Slider -->
@@ -596,6 +596,7 @@
                         <a href="single-post-music.html" class="thumb-url"></a>
                     </div>
                 </article>
+
                 <article class="entry thumb thumb--size-1">
                     <div class="entry__img-holder thumb__img-holder"
                          style="background-image: url('img/content/carousel/carousel_post_17.jpg');">
@@ -609,6 +610,7 @@
                         <a href="single-post-music.html" class="thumb-url"></a>
                     </div>
                 </article>
+
                 <article class="entry thumb thumb--size-1">
                     <div class="entry__img-holder thumb__img-holder"
                          style="background-image: url('img/content/carousel/carousel_post_18.jpg');">
@@ -622,6 +624,7 @@
                         <a href="single-post-music.html" class="thumb-url"></a>
                     </div>
                 </article>
+
                 <article class="entry thumb thumb--size-1">
                     <div class="entry__img-holder thumb__img-holder"
                          style="background-image: url('img/content/carousel/carousel_post_19.jpg');">
@@ -634,6 +637,7 @@
                         <a href="single-post-music.html" class="thumb-url"></a>
                     </div>
                 </article>
+
                 <article class="entry thumb thumb--size-1">
                     <div class="entry__img-holder thumb__img-holder"
                          style="background-image: url('img/content/carousel/carousel_post_17.jpg');">
@@ -649,7 +653,7 @@
                 </article>
             </div> <!-- end slider -->
 
-        </section> <!-- end featured albums -->
+        </section> <!-- end de thi thu -->
 
     </div> <!-- end main container -->
 
