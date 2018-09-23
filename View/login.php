@@ -2,12 +2,39 @@
 
 <?php
 if (isset($_POST['email']) && isset($_POST['password'])) {
-    $kq = $toeic->checkLogin($_POST['email'], $_POST['password']);
-    if (!$kq) {
-        echo "<script>alert('Chưa đăng nhập');</script>";
+    $email=$_POST['email'];
+    $pass=$_POST['password'];
+    $kq = $toeic->login($email, $pass);
+    if (!$kq) { ?>
+        <script>
+            $(document).ready(function () {
+                $("#email").val("<?=$email?>");
+                $("#checkValidate").html("<strong>Sai email hoặc password !</strong>").show();
+            });
+        </script>
+        <?php
     } else {
-        $row=$kq->fetch_assoc();
-        echo "<script>alert('Đã đăng nhập: ".$row['IdUser']."');</script>";
+        $row = $kq->fetch_assoc();
+        if ($row['KichHoat'] == 1) {
+            if(isset($_SESSION['back'])) {
+                $back = $_SESSION['back'];
+                unset($_SESSION['back']);
+                header("location: $back");
+            }
+        } else { ?>
+            <script>
+                $(document).ready(function () {
+                    $("#email").val("<?=$email?>");
+                    $("#checkValidate").html("<strong>Tài khoản chưa được kích hoạt !</strong>").show();
+                });
+            </script>
+            <?php
+        }
+    }
+    if (isset($_POST['remember']) && $row['KichHoat'] == 1) {
+        $_SESSION['login_id'] = $row['IdUser'];
+        $_SESSION['login_level'] = $row['Quyen'];
+        $_SESSION['login_email'] = $row['Mail'];
     }
 }
 ?>
@@ -25,15 +52,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     <td colspan="3"><h1>ĐĂNG NHẬP</h1></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><input type="email" name="email" id="email" placeholder="Email" autofocus><br><span
-                                id="checkValidate"></span></td>
+                    <td colspan="3"><input type="text" name="email" id="email" placeholder="Email" autofocus><br>
+                        <div id="checkValidate" class="alert alert-warning"></div>
+                    </td>
                 </tr>
                 <tr>
                     <td colspan="3"><input type="password" name="password" id="password" placeholder="Password"></td>
                 </tr>
                 <tr>
                     <td style="padding-top:14px">
-                        <input type="checkbox" value="remember-me" name="remember-me">
+                        <input type="checkbox" value="remember" name="remember">
                         <label>Ghi nhớ đăng nhập ?</label>
                     </td>
                     <td>
@@ -60,23 +88,36 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         z-index: 2;
         height: 30px;
         width: 300px;
-        border: 1px solid red;
         text-align: left;
         top: 348px;
         left: 90px;
-        background-color: white;
+        line-height: 6px;
+        color: red;
     }
 </style>
 
 <script>
+    $("#checkValidate").hide();
     $(document).ready(function () {
         $('#email').blur(function () {
             $.get(
-                'View/checkValidate.php',
+                'Control/checkValidate.php',
                 "email=" + $('#email').val(),
-                function(d){
-                    $("#checkValidate").html(d)
+                function (d) {
+                    if (d != "")
+                        $("#checkValidate").html(d).show();
+                    else {
+                        $("#checkValidate").html("");
+                        $("#checkValidate").hide();
+                    }
                 });
+        });
+    });
+    $(document).ready(function () {
+        $("form").submit(function () {
+            var text = $("#checkValidate").html();
+            if (text != "") return false;
+            return true;
         });
     });
 </script>

@@ -14,11 +14,6 @@
     margin-left: 5px;
 }
 
-.modal .modal-dialog .modal-content h4 {
-    width: 450px;
-    text-align: center;
-}
-
 #container {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -47,6 +42,7 @@
 
 table {
     border: 3px solid #e9eeee;
+    text-align: center;
 }
 
 label, h1 {
@@ -73,7 +69,7 @@ input[type="checkbox"] {
     opacity: 0;
 }
 
-input[type="email"], input[type="password"] {
+input[type="text"], input[type="password"] {
     border-radius: 20px;
     padding-left: 40px;
     width: 80%;
