@@ -79,7 +79,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
                     "username="+$('#username').val(),
                     function(data){
                         if(data == 1){  
-                            $data = "<h4><span class='alert alert-warning' >chưa nhập họ tên !</span></h4>";
+                            $data = "<h4><span class='alert alert-warning' >chưa nhập họ tên !!!!</span></h4>";
                             $('#label_username').html($data).show();
                             setTimeout(function(){$('#label_username').hide();},3000);
                              console.log(data);
