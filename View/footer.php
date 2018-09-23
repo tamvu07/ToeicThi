@@ -6,7 +6,7 @@
             <div class="footer__widgets-top">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-md-4">
-                        <a href="index.html">
+                        <a href="View/">
                             <img src="img/logo_default_white.png"
                                  srcset="img/logo_default_white.png 1x, img/logo_default_white@2x.png 2x"
                                  class="logo__img" alt="">
@@ -15,15 +15,15 @@
 
                     <div class="col-md-6">
                         <div class="socials socials--large socials--nobase justify-content-md-end">
-                            <a href="#" class="social social-facebook" aria-label="facebook"><i
+                            <a href="http://www.facebook.com" class="social social-facebook" aria-label="facebook" target="_blank"><i
                                     class="ui-facebook"></i></a>
-                            <a href="#" class="social social-twitter" aria-label="twitter"><i
+                            <a href="http://www.twitter.com" class="social social-twitter" aria-label="twitter" target="_blank"><i
                                     class="ui-twitter"></i></a>
-                            <a href="#" class="social social-google-plus" aria-label="google+"><i
+                            <a href="http://www.google.com" class="social social-google-plus" aria-label="google+" target="_blank"><i
                                     class="ui-google"></i></a>
-                            <a href="#" class="social social-youtube" aria-label="youtube"><i
+                            <a href="http://www.youtube.com" class="social social-youtube" aria-label="youtube" target="_blank"><i
                                     class="ui-youtube"></i></a>
-                            <a href="#" class="social social-instagram" aria-label="instagram"><i
+                            <a href="http://www.instagram.com" class="social social-instagram" aria-label="instagram" target="_blank"><i
                                     class="ui-instagram"></i></a>
                         </div>
                     </div>

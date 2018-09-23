@@ -1,13 +1,18 @@
 <?php
 session_start();
+ob_start();
 require_once "../Model/toeic.php";
 $toeic = new toiec();
+if (isset($_GET['p']))
+    $p = $_GET['p'];
+if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ThiToeic/View/Login.html")
+    $_SESSION['back'] = "http://localhost" . $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Deus | Toeic Testing</title>
-    <base href="<?=BASE_URL?>">
+    <base href="<?= BASE_URL ?>">
     <meta charset="utf-8">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
@@ -38,23 +43,35 @@ $toeic = new toiec();
 </head>
 
 <body class="bg-dark style-music">
-
-<?php include "header.php"?>
-
+<?php include "header.php" ?>
 <main class="main oh" id="main">
+
 <?php
 if(isset($_GET['p'])){
     $p=$_GET['p'];
     if($p=="login")
+    {
         include "login.php";
+    }
+    if($p=="register")
+    {
+        include "Register.php";
+    }
+
 }
 else include "main.php";
 ?>
+
+   
+
 </main>
 <!-- end main-wrapper -->
 
 <!-- footer -->
-<?php include "footer.php"?>
+<?php
+include "footer.php";
+ob_end_flush();
+?>
 <!-- end footer -->
 
 <!-- jQuery Scripts -->
