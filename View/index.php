@@ -1,8 +1,8 @@
 <?php
 session_start();
 ob_start();
-require_once "../Model/toeic.php";
-$toeic = new toiec();
+require_once "../Model/Model.php";
+$toeic = new toeic();
 if (isset($_GET['p']))
     $p = $_GET['p'];
 if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ThiToeic/View/Login.html")
