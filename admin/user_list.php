@@ -1,4 +1,3 @@
-
 <div class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -28,7 +27,7 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            include("connect.php");
+                                            /*require_once("../Controller/controller.php");
                                             $sql = "SELECT * FROM nguoidung";
                                             $result = mysql_query($sql);
                                             if(mysql_num_rows($result) > 0)
@@ -52,7 +51,7 @@
                                             {
                                                 echo '<tr><td>No record</td><td>No record</td><td>No record</td><td>No record</td><td>No record</td></tr>';
                                             }
-                                            mysql_close();
+                                            mysql_close();*/
                                         ?>
                                     </tbody>
                                 </table>

@@ -1,6 +1,6 @@
 <?php
-require_once "connection.php";
-class toiec extends connection{
+require_once "../database/connection.php";
+class toeic extends connection{
     function login($email,$pass){
         $email=$this->db->escape_string(trim(strip_tags($email)));
         $pass=$this->db->escape_string(trim(strip_tags($pass)));
