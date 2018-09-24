@@ -27,31 +27,8 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            /*require_once("../Controller/controller.php");
-                                            $sql = "SELECT * FROM nguoidung";
-                                            $result = mysql_query($sql);
-                                            if(mysql_num_rows($result) > 0)
-                                            {
-                                                $i = 1;
-                                                while($row = mysql_fetch_assoc($result))
-                                                {
-                                                    echo '<tr><td>'.$IdUser.'</td><td>'.$row["HoTen"].'</td><td>'.$row["HoTen"].'</td><td>'.$row["HoTen"].'</td><td>'.$row["HoTen"].'</td><td class="td-actions">
-                                                    <a href="index.php?u=edit?uid='.$row["HoTen"].'"><button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                        <i class="fa fa-edit"></i>
-                                                    </button></a>
-                                                    <a href="index.php?u=remove?uid='.$row["HoTen"].'"><button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                        <i class="fa fa-times"></i>
-                                                    </button></a>
-                                                </td></tr>';
-
-                                                    $i++;
-                                                }
-                                            }
-                                            else
-                                            {
-                                                echo '<tr><td>No record</td><td>No record</td><td>No record</td><td>No record</td><td>No record</td></tr>';
-                                            }
-                                            mysql_close();*/
+                                            require_once("../Controller/controller.php");
+                                            
                                         ?>
                                     </tbody>
                                 </table>
