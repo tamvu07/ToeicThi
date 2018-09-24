@@ -29,18 +29,18 @@
                                     <tbody>
                                         <?php
                                             include("connect.php");
-                                            $sql = "SELECT * FROM user";
+                                            $sql = "SELECT * FROM nguoidung";
                                             $result = mysql_query($sql);
                                             if(mysql_num_rows($result) > 0)
                                             {
                                                 $i = 1;
                                                 while($row = mysql_fetch_assoc($result))
                                                 {
-                                                    echo '<tr><td>'.$i.'</td><td>'.$row["Username"].'</td><td>'.$row["Username"].'</td><td>'.$row["Username"].'</td><td>'.$row["Username"].'</td><td class="td-actions">
-                                                    <a href="index.php?u=edit?uid='.$row["Username"].'"><button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
+                                                    echo '<tr><td>'.$IdUser.'</td><td>'.$row["HoTen"].'</td><td>'.$row["HoTen"].'</td><td>'.$row["HoTen"].'</td><td>'.$row["HoTen"].'</td><td class="td-actions">
+                                                    <a href="index.php?u=edit?uid='.$row["HoTen"].'"><button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
                                                         <i class="fa fa-edit"></i>
                                                     </button></a>
-                                                    <a href="index.php?u=remove?uid='.$row["Username"].'"><button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                                    <a href="index.php?u=remove?uid='.$row["HoTen"].'"><button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
                                                         <i class="fa fa-times"></i>
                                                     </button></a>
                                                 </td></tr>';
