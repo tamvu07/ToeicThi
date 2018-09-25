@@ -19,16 +19,18 @@
                                 <table class="table table-hover table-striped">
                                     <thead>
                                         <th>ID</th> 
-                                    	<th>Name</th>
-                                    	<th>Salary</th>
-                                    	<th>Country</th>
-                                    	<th>City</th>
-                                        <th>Action</th>
+                                    	<th>Họ tên</th>
+                                    	<th>Giới tính</th>
+                                    	<th>Email</th>
+                                    	<th>Quyền</th>
+                                        <th>Ngày tham gia</th>
+                                        <th>Trạng thái</th>
                                     </thead>
                                     <tbody>
                                         <?php
                                             require_once("../Controller/controller.php");
-                                            
+                                            $p = new Controller();
+											$p->get_list_users();
                                         ?>
                                     </tbody>
                                 </table>
