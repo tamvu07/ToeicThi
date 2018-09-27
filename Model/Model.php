@@ -1,6 +1,6 @@
 <?php
 require_once "../database/connection.php";
-class Model extends connection{
+class model extends connection{
     function login($email,$pass){
         $email=$this->db->escape_string(trim(strip_tags($email)));
         $pass=$this->db->escape_string(trim(strip_tags($pass)));
@@ -10,14 +10,7 @@ class Model extends connection{
         if($kq->num_rows>0) return $kq;
         return false;
     }
-
-    function listUser(){
-        $sql="select * from nguoidung";
-        $kq=$this->db->query($sql);
-        if($kq->num_rows>0) return $kq;
-        return false;
-    }
-
+    
     function checkusername($username){
         $username = $this->db->escape_string(trim(strip_tags($username)));
         $sql = "select * from nguoidung where IdUser = '$username' ";
