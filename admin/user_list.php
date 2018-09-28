@@ -7,7 +7,7 @@
                                 <h4 class="title text-center">QUẢN LÝ NGƯỜI DÙNG</h4>
                                 
                                 
-                                <p class="category"><form method="post"><button type="submit" class="btn btn-info" name="btn_add_user"><span class="pe-7s-plus"></span> Thêm người dùng</button></form></p>
+                                <p class="category"><form method="post"><button type="submit" class="btn btn-info btn-fill btn-wd" name="btn_add_user"><span class="pe-7s-plus"></span> Thêm người dùng</button></form></p>
                                 
                             <div class="content table-responsive table-full-width">
                             
@@ -36,7 +36,7 @@
                                             <option value="1">1 - Quản trị viên</option>
                                         </select></td></tr>
                                         <tr><td>Email:</td><td><br><input class="form-control" type="text" name="email" placeholder="Email"><br></td></tr>
-                                        <tr><td colspan="2"><center><button type="submit" class="btn btn-success" name="add-user"><span class="pe-7s-check"></span> Hoàn tất! <span class="pe-7s-check"></span></button></td></tr></center>
+                                        <tr><td colspan="2"><center><button type="submit" class="btn btn-success btn-fill" name="add-user"><span class="pe-7s-check"></span> Hoàn tất! <span class="pe-7s-check"></span></button></td></tr></center>
                                         </table></center></form>
                                     <?php 
 									}
@@ -46,11 +46,11 @@
                                 <form class="form-inline" method="post">
                                 <span>Hiển thị danh sách</span>
                                 <select name="select_role" class="form-control form-control-lg" id="user_select_box">
-                                    <option <?php if (isset($_POST['select_role']) && $_POST['select_role'] == '0') echo "selected=\"selected\"";  ?> value="0">Tất cả người dùng</option>
+                                    <option value="0">Tất cả người dùng</option>
                                     <option <?php if (isset($_POST['select_role']) && $_POST['select_role'] == '1') echo "selected=\"selected\"";  ?> value="1">Quản trị viên</option>
                                     <option <?php if (isset($_POST['select_role']) && $_POST['select_role'] == '2') echo "selected=\"selected\"";  ?> value="2">Giảng viên</option>
                                     <option <?php if (isset($_POST['select_role']) && $_POST['select_role'] == '3') echo "selected=\"selected\"";  ?> value="3">Học viên</option>
-                                </select> <button type="submit" name="btn_select_role" class="btn ">Xác nhận</button></form></div>
+                                </select> <button type="submit" name="btn_select_role" class="btn btn-warning btn-fill">Xác nhận</button></form></div>
                                 
                                         <?php
                                             $p = new controller_admin();
