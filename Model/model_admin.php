@@ -2,6 +2,7 @@
 require_once("Model.php");
 
 class model_admin extends Model {
+	
 	function get_list_users() {
 		$sql = "SELECT * FROM nguoidung";
 		return $sql;
@@ -33,6 +34,23 @@ class model_admin extends Model {
 		$sql = "INSERT INTO nguoidung(HoTen,GioiTinh,MatKhau,Quyen,Mail) 
 		VALUES('$hoten','$gioitinh','$matkhau','$quyen','$mail')";
 		$this->execute_no_return($sql);
+	}
+	
+	//Lấy danh sách câu hỏi, trắc nghiệm theo mã đề, loại câu hỏi
+	function test_get_list_questions($loaicauhoi,$made) {
+		$sql = "
+		SELECT ch.MaCauHoi,ch.NoiDung,tl.A,tl.B,tl.C,tl.D 
+		FROM cauhoi ch 
+		JOIN dethi dt ON ch.MaDe=dt.MaDe 
+		JOIN traloi tl ON ch.MaCauHoi=tl.MaCauHoi WHERE ch.LoaiCauHoi LIKE '$loaicauhoi%' AND dt.MaDe='$made'
+		";
+		return $sql;
+	}
+	
+	//Đáp án của câu hỏi theo mã câu hỏi
+	function test_get_question_with_right_answer() {
+		$sql = "SELECT o.MaCauHoi,NoiDung,DapAn FROM cauhoi o JOIN traloi t ON o.MaCauHoi=t.MaCauHoi";
+		return $sql;
 	}
 }
 ?>
