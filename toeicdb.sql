@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 23, 2018 at 02:08 PM
+-- Generation Time: Sep 27, 2018 at 07:18 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -332,7 +332,7 @@ CREATE TABLE `nguoidung` (
   `Mail` varchar(50) NOT NULL,
   `KichHoat` tinyint(1) NOT NULL DEFAULT '0',
   `Avatar` varchar(255) DEFAULT NULL,
-  `NgayThamGia` datetime DEFAULT NULL
+  `NgayThamGia` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -340,32 +340,34 @@ CREATE TABLE `nguoidung` (
 --
 
 INSERT INTO `nguoidung` (`IdUser`, `HoTen`, `GioiTinh`, `MatKhau`, `Quyen`, `Mail`, `KichHoat`, `Avatar`, `NgayThamGia`) VALUES
-(1, 'Nguyễn Văn Ý Thiên', 'Nam', '123456', 1, 'thiennguyen0897@gmail.com', 1, NULL, NULL),
-(2, 'Nguyễn Văn 1', 'Nam', '123456', 2, 'giangvien1@gmail.com', 1, NULL, NULL),
-(3, 'Nguyễn Văn 2', 'Nam', '123456', 2, 'giangvien2@gmail.com', 1, NULL, NULL),
-(4, 'Nguyễn Văn 3', 'Nam', '123456', 2, 'giangvien3@gmail.com', 1, NULL, NULL),
-(5, 'Nguyễn Văn 4', 'Nam', '123456', 2, 'giangvien4@gmail.com', 1, NULL, NULL),
-(6, 'Nguyễn Văn 5', 'Nam', '123456', 2, 'giangvien5@gmail.com', 1, NULL, NULL),
-(7, 'Nguyễn Văn 6', 'Nam', '123456', 2, 'giangvien6@gmail.com', 1, NULL, NULL),
-(8, 'Nguyễn Văn 7', 'Nam', '123456', 2, 'giangvien7@gmail.com', 1, NULL, NULL),
-(9, 'Nguyễn Văn 8', 'Nam', '123456', 2, 'giangvien8@gmail.com', 1, NULL, NULL),
-(10, 'Nguyễn Văn 9', 'Nam', '123456', 2, 'giangvien9@gmail.com', 1, NULL, NULL),
-(11, 'Nguyễn Văn 10', 'Nam', '123456', 2, 'giangvien10@gmail.com', 1, NULL, NULL),
-(12, 'Nguyễn Thị 11', 'Nữ', '123456', 3, 'hocvien11@gmail.com', 1, NULL, NULL),
-(13, 'Nguyễn Thị 12', 'Nữ', '123456', 3, 'hocvien12@gmail.com', 1, NULL, NULL),
-(14, 'Nguyễn Thị 13', 'Nữ', '123456', 3, 'hocvien13@gmail.com', 1, NULL, NULL),
-(15, 'Nguyễn Thị 14', 'Nữ', '123456', 3, 'hocvien14@gmail.com', 1, NULL, NULL),
-(16, 'Nguyễn Thị 15', 'Nữ', '123456', 3, 'hocvien15@gmail.com', 1, NULL, NULL),
-(17, 'Nguyễn Thị 16', 'Nữ', '123456', 3, 'hocvien16@gmail.com', 1, NULL, NULL),
-(18, 'Nguyễn Thị 17', 'Nữ', '123456', 3, 'hocvien17@gmail.com', 1, NULL, NULL),
-(19, 'Nguyễn Thị 18', 'Nữ', '123456', 3, 'hocvien18@gmail.com', 1, NULL, NULL),
-(20, 'Nguyễn Thị 19', 'Nữ', '123456', 3, 'hocvien19@gmail.com', 1, NULL, NULL),
-(21, 'Nguyễn Thị 20', 'Nữ', '123456', 3, 'hocvien20@gmail.com', 1, NULL, NULL),
-(22, 'Nguyễn Thị 21', 'Nữ', '123456', 3, 'hocvien21@gmail.com', 1, NULL, NULL),
-(23, 'Nguyễn Thị 22', 'Nữ', '123456', 3, 'hocvien22@gmail.com', 1, NULL, NULL),
-(24, 'Nguyễn Thị 23', 'Nữ', '123456', 3, 'hocvien23@gmail.com', 1, NULL, NULL),
-(25, 'Nguyễn Thị 24', 'Nữ', '123456', 3, 'hocvien24@gmail.com', 1, NULL, NULL),
-(26, 'Nguyễn Thị 25', 'Nữ', '123456', 3, 'hocvien25@gmail.com', 1, NULL, NULL);
+(1, 'Nguyễn Văn Ý Thiên', 'Nam', '123456', 1, 'thiennguyen0897@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(2, 'Nguyễn Văn 1', 'Nam', '123456', 2, 'giangvien1@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(3, 'Nguyễn Văn 2', 'Nam', '123456', 2, 'giangvien2@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(4, 'Nguyễn Văn 3', 'Nam', '123456', 2, 'giangvien3@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(5, 'Nguyễn Văn 4', 'Nam', '123456', 2, 'giangvien4@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(6, 'Nguyễn Văn 5', 'Nam', '123456', 2, 'giangvien5@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(7, 'Nguyễn Văn 6', 'Nam', '123456', 2, 'giangvien6@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(8, 'Nguyễn Văn 7', 'Nam', '123456', 2, 'giangvien7@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(9, 'Nguyễn Văn 8', 'Nam', '123456', 2, 'giangvien8@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(10, 'Nguyễn Văn 9', 'Nam', '123456', 2, 'giangvien9@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(11, 'Nguyễn Văn 10', 'Nam', '123456', 2, 'giangvien10@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(12, 'Nguyễn Thị 11', 'Nữ', '123456', 3, 'hocvien11@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(13, 'Nguyễn Thị 12', 'Nữ', '123456', 3, 'hocvien12@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(14, 'Nguyễn Thị 13', 'Nữ', '123456', 3, 'hocvien13@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(15, 'Nguyễn Thị 14', 'Nữ', '123456', 3, 'hocvien14@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(16, 'Nguyễn Thị 15', 'Nữ', '123456', 3, 'hocvien15@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(17, 'Nguyễn Thị 16', 'Nữ', '123456', 3, 'hocvien16@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(18, 'Nguyễn Thị 17', 'Nữ', '123456', 3, 'hocvien17@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(19, 'Nguyễn Thị 18', 'Nữ', '123456', 3, 'hocvien18@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(20, 'Nguyễn Thị 19', 'Nữ', '123456', 3, 'hocvien19@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(21, 'Nguyễn Thị 20', 'Nữ', '123456', 3, 'hocvien20@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(22, 'Nguyễn Thị 21', 'Nữ', '123456', 3, 'hocvien21@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(23, 'Nguyễn Thị 22', 'Nữ', '123456', 3, 'hocvien22@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(24, 'Nguyễn Thị 23', 'Nữ', '123456', 3, 'hocvien23@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(25, 'Nguyễn Thị 24', 'Nữ', '123456', 3, 'hocvien24@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(26, 'Nguyễn Thị 25', 'Nữ', '123456', 3, 'hocvien25@gmail.com', 1, NULL, '2018-09-25 00:00:00'),
+(27, 'asdsad', 'Nam', 'vvvvvv', 1, 'asdasd@gmail.com', 0, NULL, '2018-09-27 11:09:43'),
+(28, 'vvvvv', 'Nam', 'vvvvvv', 1, 'lo@gmail.com', 0, NULL, '2018-09-27 12:48:24');
 
 -- --------------------------------------------------------
 
@@ -754,7 +756,7 @@ ALTER TABLE `dethi`
 -- AUTO_INCREMENT for table `nguoidung`
 --
 ALTER TABLE `nguoidung`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `thongbao`
 --
