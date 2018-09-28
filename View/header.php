@@ -83,7 +83,7 @@
                     <a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false">
                         <span>Đăng nhập</span>
                     </a>
-                    <a href="#" class="btn btn-sm btn-light">
+                    <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false">
                         <span>Đăng kí</span>
                     </a>
                 </div>

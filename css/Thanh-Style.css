@@ -69,7 +69,11 @@ input[type="checkbox"] {
     opacity: 0;
 }
 
+<<<<<<< HEAD
+input[type="email"], input[type="password"],input[type="text"] {
+=======
 input[type="text"], input[type="password"] {
+>>>>>>> 4d7499579f489aa3c23d228374395f3166e2e32e
     border-radius: 20px;
     padding-left: 40px;
     width: 80%;

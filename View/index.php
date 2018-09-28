@@ -1,8 +1,8 @@
 <?php
 session_start();
 ob_start();
-require_once "../Model/toeic.php";
-$toeic = new toiec();
+require_once "../Model/Model.php";
+$toeic = new model();
 if (isset($_GET['p']))
     $p = $_GET['p'];
 if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Login.html")
@@ -45,16 +45,25 @@ if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/
 <body class="bg-dark style-music">
 <?php include "header.php" ?>
 <main class="main oh" id="main">
-    <?php
-    if (isset($p)) {
-        switch ($p) {
-            case 'login':
-                include "login.php";
-                break;
-        }
-    } else
-        include "main.php";
-    ?>
+
+<?php
+if(isset($_GET['p'])){
+    $p=$_GET['p'];
+    if($p=="login")
+    {
+        include "login.php";
+    }
+    if($p=="register")
+    {
+        include "Register.php";
+    }
+
+}
+else include "main.php";
+?>
+
+   
+
 </main>
 <!-- end main-wrapper -->
 
