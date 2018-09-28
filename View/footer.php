@@ -34,106 +34,38 @@
 
                 <div class="col-lg-2 col-md-6">
                     <aside class="widget widget_nav_menu">
-                        <h4 class="widget-title">Useful Links</h4>
+                        <h4 class="widget-title">Bài giảng</h4>
                         <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="single-post-music.html">Projects</a></li>
-                            <li><a href="single-post-music.html">Wordpress Themes</a></li>
-                            <li><a href="categories.html">Advertise</a></li>
+                            <li><a href="about.html">Listening</a></li>
+                            <li><a href="contact.html">Reading</a></li>
+                            <li><a href="single-post-music.html">Writing</a></li>
+                            <li><a href="single-post-music.html">Speaking</a></li>
                         </ul>
                     </aside>
                 </div>
 
                 <div class="col-lg-4 col-md-6">
                     <aside class="widget widget-twitter">
-                        <h4 class="widget-title">Latest Tweets</h4>
-                        <div class="tweets-container">
-                            <div id="tweets"></div>
-                        </div>
-                    </aside>
-                </div>
-
-                <div class="col-lg-3 col-md-6">
-                    <aside class="widget widget-popular-posts">
-                        <h4 class="widget-title">Most Popular</h4>
-                        <ul class="post-list-small post-list-small--1">
-                            <li class="post-list-small__item">
-                                <article class="post-list-small__entry clearfix">
-                                    <div class="post-list-small__img-holder">
-                                        <div class="thumb-container thumb-80">
-                                            <a href="single-post-music.html">
-                                                <img data-src="img/content/post_small/post_small_46.jpg"
-                                                     src="img/empty.png" alt="" class="lazyload">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="post-list-small__body">
-                                        <h3 class="post-list-small__entry-title">
-                                            <a href="single-post-music.html">WATCH Suprise Performance, Shoots
-                                                Whiskey at Nashville’s</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </li>
-                            <li class="post-list-small__item">
-                                <article class="post-list-small__entry clearfix">
-                                    <div class="post-list-small__img-holder">
-                                        <div class="thumb-container thumb-80">
-                                            <a href="single-post-music.html">
-                                                <img data-src="img/content/post_small/post_small_47.jpg"
-                                                     src="img/empty.png" alt="" class="lazyload">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="post-list-small__body">
-                                        <h3 class="post-list-small__entry-title">
-                                            <a href="single-post-music.html">Jack, Chris &amp; More to Headline
-                                                2018
-                                                Pilgrimage Festival</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </li>
-                            <li class="post-list-small__item">
-                                <article class="post-list-small__entry clearfix">
-                                    <div class="post-list-small__img-holder">
-                                        <div class="thumb-container thumb-80">
-                                            <a href="single-post-music.html">
-                                                <img data-src="img/content/post_small/post_small_48.jpg"
-                                                     src="img/empty.png" alt="" class="lazyload">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="post-list-small__body">
-                                        <h3 class="post-list-small__entry-title">
-                                            <a href="single-post-music.html">Meghan Trainor and 'Queer Eye' Cast
-                                                Team Up for Spotify ...</a>
-                                        </h3>
-                                    </div>
-                                </article>
-                            </li>
+                        <h4 class="widget-title">Test</h4>
+                        <ul>
+                            <li><a href="about.html">Listening</a></li>
+                            <li><a href="contact.html">Reading</a></li>
+                            <li><a href="single-post-music.html">Writing</a></li>
+                            <li><a href="single-post-music.html">Speaking</a></li>
                         </ul>
                     </aside>
                 </div>
 
                 <div class="col-lg-3 col-md-6">
+                    <aside class="widget widget-popular-posts">
+                        <h4 class="widget-title">Giới thiệu</h4>
+                    </aside>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
                     <aside class="widget widget_mc4wp_form_widget">
-                        <h4 class="widget-title">Newsletter</h4>
-                        <p class="newsletter__text">
-                            <i class="ui-email newsletter__icon"></i>
-                            Subscribe for our daily news
-                        </p>
-                        <form class="mc4wp-form" method="post">
-                            <div class="mc4wp-form-fields">
-                                <div class="form-group">
-                                    <input type="email" name="EMAIL" placeholder="Your email" required="">
-                                </div>
-                                <div class="form-group">
-                                    <input type="submit" class="btn btn-lg btn-color" value="Sign Up">
-                                </div>
-                            </div>
-                        </form>
+                        <h4 class="widget-title">Liên hệ</h4>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31353.79246693036!2d106.66453519999999!3d10.7941441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f2c20173a6b%3A0x8575b78ef860e0d0!2zQuG7h25oIHZp4buHbiBUYWkgTcWpaSBI4buNbmcgVGjDoG5oIFBo4buRIEjhu5MgQ2jDrSBNaW5o!5e0!3m2!1svi!2s!4v1538062850836" width="300" height="150" frameborder="0" style="border:0" allowfullscreen></iframe>
                     </aside>
                 </div>
 
@@ -144,15 +76,8 @@
 
     <div class="footer__bottom footer__bottom--dark">
         <div class="container text-center">
-            <ul class="footer__nav-menu footer__nav-menu--1">
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">News</a></li>
-                <li><a href="categories.html">Advertise</a></li>
-                <li><a href="shortcodes.html">Support</a></li>
-                <li><a href="shortcodes.html">Contact</a></li>
-            </ul>
             <p class="copyright">
-                © 2018 Deus | Made by <a href="https://deothemes.com">DeoThemes</a>
+                Copyright © 2017. All Rights Reserved by <a>Flint Pham</a>.
             </p>
         </div>
     </div> <!-- end footer bottom -->
