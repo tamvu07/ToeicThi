@@ -2,10 +2,10 @@
 session_start();
 ob_start();
 require_once "../Model/Model.php";
-$toeic = new toeic();
+$toeic = new model();
 if (isset($_GET['p']))
     $p = $_GET['p'];
-if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ThiToeic/View/Login.html")
+if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Login.html")
     $_SESSION['back'] = "http://localhost" . $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE html>
