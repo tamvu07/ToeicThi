@@ -213,7 +213,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Liên hệ</a>
+                            <a href="View/Contact.html">Liên hệ</a>
                         </li>
                         <li>
                             <a href="#">giới thiệu</a>

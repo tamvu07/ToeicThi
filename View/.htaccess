@@ -3,3 +3,6 @@ RewriteEngine on
 RewriteRule ^Login.html$ index.php?p=login [L]
 
 RewriteRule ^Register.html$ index.php?p=register [L]
+
+RewriteRule ^Contact.html$ index.php?p=contact [L]
+
