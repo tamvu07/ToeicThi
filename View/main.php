@@ -110,6 +110,7 @@
     <!-- Tin tuc -->
     <?php
     $kq=$toeic->getTinTuc('vi');
+    date_default_timezone_set('Asia/Ho_Chi_Minh');//để không bị lỗi timezone, nếu không có thì sẽ có thể gặp lỗi trên php 5.6
     ?>
 
     <section class="section mb-0">
