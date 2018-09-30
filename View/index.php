@@ -1,7 +1,6 @@
 <?php
 session_start();
 ob_start();
-require_once "../database/connection.php";
 require_once "../Controller/controller_main.php";
 $toeic=new controller_main();
 if (isset($_GET['p']))
