@@ -68,7 +68,7 @@
          </div>
 
          <div class="form-group">
-         	<label <i class="ui ui-email"></i> Tin nhắn</label>
+         	<label><i class="ui ui-email"></i> Tin nhắn</label>
          	<textarea  class="form-control" rows="7" placeholder="Message.."></textarea>
          </div>
 
