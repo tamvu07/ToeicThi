@@ -1,50 +1,17 @@
 <link rel="stylesheet" href="../css/Thanh-Style.css"/>
 
 <?php
-if (isset($_POST['email']) && isset($_POST['password'])) {
+if(isset($_POST['email'])&&isset($_POST['password'])){
     $email=$_POST['email'];
     $pass=$_POST['password'];
-    $kq = $toeic->login($email, $pass);
-    if (!$kq) { ?>
-        <script>
-            $(document).ready(function () {
-                $("#email").val("<?=$email?>");
-                $("#checkValidate").html("<strong>Sai email hoặc password !</strong>").show();
-            });
-        </script>
-        <?php
-    } else {
-        $row = $kq->fetch_assoc();
-        if ($row['KichHoat'] == 1) {
-            if (isset($_POST['remember'])) {
-                $_SESSION['login_id'] = $row['IdUser'];
-                $_SESSION['login_level'] = $row['Quyen'];
-                $_SESSION['login_email'] = $row['Mail'];
-                $_SESSION['login_name']=$row['HoTen'];
-                $_SESSION['avatar']=$row['avatar'];
-            }
-            if(isset($_SESSION['back'])) {
-                $back = $_SESSION['back'];
-                unset($_SESSION['back']);
-                header("location: $back");
-            }
-        } else { ?>
-            <script>
-                $(document).ready(function () {
-                    $("#email").val("<?=$email?>");
-                    $("#checkValidate").html("<strong>Tài khoản chưa được kích hoạt !</strong>").show();
-                });
-            </script>
-            <?php
-        }
-    }
+    $kq=$toeic->xulyLogin($email,$pass);
 }
 ?>
 
 <div id="container">
     <div id="background"></div>
     <div id="login-form" class="col-xl-3">
-        <form method="post">
+        <form method="post" action="">
             <table width="100%">
                 <tr>
                     <td height="200" colspan="3"><img src="img/layout/login-logo.jpg"
