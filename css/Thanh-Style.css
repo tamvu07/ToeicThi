@@ -63,17 +63,13 @@ input[type="checkbox"] {
     box-sizing: border-box;
     top: 2px;
     left: 20px;
-    height: 0px;
-    width: 0px;
+    height: 3px;
+    width: 3px;
     z-index: 3;
     opacity: 0;
 }
 
-<<<<<<< HEAD
-input[type="email"], input[type="password"],input[type="text"] {
-=======
 input[type="text"], input[type="password"] {
->>>>>>> 4d7499579f489aa3c23d228374395f3166e2e32e
     border-radius: 20px;
     padding-left: 40px;
     width: 80%;

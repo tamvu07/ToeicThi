@@ -125,7 +125,7 @@
                 <div class="entry__img-holder card__img-holder">
                     <a href="single-post-music.html">
                         <div class="thumb-container thumb-70">
-                            <img data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                            <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
                                  class="entry__img lazyload" alt="<?=$row['TieuDe']?>" title="<?=$row['TieuDe']?>"/>
                             <div class="entry-date-label">
                                 <div class="entry-date-label__weekday"><?=date('D',strtotime($row['NgayTao']))?></div>
@@ -189,7 +189,7 @@
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img data-src="<?=$row['AnhMinhHoa']?>"  src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>"  src="<?=$row['AnhMinhHoa']?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -197,8 +197,8 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title">
-                                <a href="single-post-music.html"><?=$row['TieuDe']?></a>
+                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html" ><?=$row['TieuDe']?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
@@ -224,7 +224,7 @@
                          style="background-image: url('<?=$row['AnhMinhHoa']?>');">
                         <div class="bottom-gradient"></div>
                         <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
+                            <h2 class="thumb-entry-title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
                                 <a href="single-post-music.html"><?=$row['TieuDe']?></a>
                             </h2>
                             <ul class="entry__meta">
@@ -250,7 +250,7 @@
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -258,7 +258,7 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title">
+                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
                                 <a href="single-post-music.html"><?=$row['TieuDe']?></a>
                             </h2>
                             <ul class="entry__meta">
@@ -288,7 +288,7 @@
                          style="background-image: url('<?=$row['AnhMinhHoa']?>');">
                         <div class="bottom-gradient"></div>
                         <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title">
+                            <h2 class="thumb-entry-title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
                                 <a href="single-post-music.html"><?=$row['TieuDe']?></a>
                             </h2>
                             <ul class="entry__meta">
@@ -314,7 +314,7 @@
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -322,7 +322,7 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title">
+                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
                                 <a href="single-post-music.html"><?=$row['TieuDe']?></a>
                             </h2>
                             <ul class="entry__meta">
@@ -348,7 +348,7 @@
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -356,7 +356,7 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title">
+                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
                                 <a href="single-post-music.html"><?=$row['TieuDe']?></a>
                             </h2>
                             <ul class="entry__meta">

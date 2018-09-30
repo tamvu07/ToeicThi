@@ -7,7 +7,7 @@ class model extends connection
     {
         $email = $this->con->escape_string(trim(strip_tags($email)));
         $pass = $this->con->escape_string(trim(strip_tags($pass)));
-        $pass = md5($pass);
+        //$pass = md5($pass);
         $sql = "select * from nguoidung where Mail='$email' and MatKhau='$pass'";
         $kq = $this->con->query($sql);
         if ($kq->num_rows > 0) return $kq;
@@ -30,7 +30,7 @@ class model extends connection
             if ($kq->num_rows > 0) return $kq;
         }
         return $this->con->error;
-    }
+    } // end getTinTuc
 
     function getIdUser($idUser)
     {
@@ -38,7 +38,7 @@ class model extends connection
         $kq = $this->con->query($sql);
         if ($kq->num_rows > 0) return $kq;
         return $this->con->error();
-    }
+    } // end getIdUser
 
     function checkusername($username)
     {
@@ -48,7 +48,7 @@ class model extends connection
         if ($kq->num_rows != 0) {
             return 1;
         } else return 0;
-    }
+    } // end checkusername
 }
 
 //cac method
