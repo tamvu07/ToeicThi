@@ -1,5 +1,5 @@
 <?php
-require_once("Model.php");
+require_once("model.php");
 
 class model_admin extends Model {
 	

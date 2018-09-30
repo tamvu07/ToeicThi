@@ -14,7 +14,6 @@ class connection
 
     public function select($sql)
     {
-        $this->connect();
         $this->result = $this->con->query($sql);
     }
 
@@ -30,7 +29,6 @@ class connection
 
     public function execute_no_return($sql)
     {
-        $this->connect();
         $this->con->query($sql);
     }
 
