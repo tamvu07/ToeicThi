@@ -70,7 +70,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
     $(document).ready(function () {
         $('#email').blur(function () {
             $.get(
-                'Control/checkValidate.php',
+                'Controller/checkValidate.php',
                 "email=" + $('#email').val(),
                 function (d) {
                     if (d != "")
