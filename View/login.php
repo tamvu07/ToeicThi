@@ -30,7 +30,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
                 </tr>
                 <tr>
                     <td style="padding-top:14px">
-                        <input type="checkbox" value="remember" name="remember">
+                        <input type="checkbox" value="remember" name="remember" checked>
                         <label>Ghi nhớ đăng nhập ?</label>
                     </td>
                     <td>
