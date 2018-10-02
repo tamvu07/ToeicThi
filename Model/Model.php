@@ -40,6 +40,13 @@ class model extends connection
         return $this->con->error();
     } // end getIdUser
 
+    function layDeThi(){
+        $sql="select * from dethi";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error;
+    }
+
     function checkusername($username)
     {
         $username = $this->con->escape_string(trim(strip_tags($username)));

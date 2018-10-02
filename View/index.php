@@ -31,7 +31,7 @@ if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors/cyan.css"/>
 
-    <link rel="stylesheet" href="css/Thanh-Style.css"/>
+    <link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
@@ -60,12 +60,13 @@ if(isset($_GET['p'])){
     {
         include "Register.php";
     }
-
+    if($p=="testing")
+    {
+        include "testing.php";
+    }
 }
 else include "main.php";
 ?>
-
-   
 
 </main>
 <!-- end main-wrapper -->

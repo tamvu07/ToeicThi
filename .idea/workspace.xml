@@ -14,29 +14,8 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-              <folding>
-                <element signature="n#head#0;n#html#0;n#!!top" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller_main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controller/controller_main.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="controller.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controller/controller.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            <state relative-caret-position="550">
+              <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -44,31 +23,26 @@
       <file leaf-file-name="model.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Model/model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state relative-caret-position="924">
+              <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/View/main.php">
+      <file leaf-file-name="controller_main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/controller_main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#article#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#1;n#section#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#0;n#div#0;n#!!top" />
-                <element signature="e#7353#7358#0#PHP" />
-                <element signature="n#div#0;n#section#1;n#div#0;n#!!top" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#0;n#div#1;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#article#0;n#div#1;n#div#1;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#2;n#div#1;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#article#0;n#div#0;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#article#0;n#div#0;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#1;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#2;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="1034">
+              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".htaccess" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/.htaccess">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="88">
+              <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -76,26 +50,26 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/View/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+            <state>
+              <caret column="57" lean-forward="true" selection-start-column="57" selection-end-column="57" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="checkValidate.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Controller/checkValidate.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="102" selection-start-line="6" selection-start-column="102" selection-end-line="6" selection-end-column="102" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Thanh-Style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/Thanh-Style.css">
+      <file leaf-file-name="testing.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/testing.php">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
+              <caret column="29" selection-start-column="29" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thanh-Style-testing.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/Thanh-Style-testing.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -134,6 +108,7 @@
       <find>BÀI</find>
       <find>&lt;div class=&quot;col-md-4&quot;&gt;</find>
       <find>entry__body</find>
+      <find>p</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -149,22 +124,27 @@
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/View/checkValidate.php" />
-        <option value="$PROJECT_DIR$/View/header.php" />
         <option value="$PROJECT_DIR$/Model/config.php" />
         <option value="$PROJECT_DIR$/Model/toeic.php" />
         <option value="$PROJECT_DIR$/View/footer.php" />
         <option value="$PROJECT_DIR$/database/config.php" />
         <option value="$PROJECT_DIR$/Model/Model.php" />
         <option value="$PROJECT_DIR$/database/connection.php" />
-        <option value="$PROJECT_DIR$/View/main.php" />
         <option value="$PROJECT_DIR$/Controller/controller.php" />
-        <option value="$PROJECT_DIR$/Model/model.php" />
         <option value="$PROJECT_DIR$/Controller/xulyLogin.php" />
-        <option value="$PROJECT_DIR$/css/Thanh-Style.css" />
-        <option value="$PROJECT_DIR$/View/index.php" />
-        <option value="$PROJECT_DIR$/Controller/controller_main.php" />
-        <option value="$PROJECT_DIR$/View/login.php" />
         <option value="$PROJECT_DIR$/Controller/checkValidate.php" />
+        <option value="$PROJECT_DIR$/Model/model.php" />
+        <option value="$PROJECT_DIR$/Controller/controller_main.php" />
+        <option value="$PROJECT_DIR$/View/Bailam.php" />
+        <option value="$PROJECT_DIR$/View/.htaccess" />
+        <option value="$PROJECT_DIR$/View/main.php" />
+        <option value="$PROJECT_DIR$/css/Thanh-Style.css" />
+        <option value="$PROJECT_DIR$/View/header.php" />
+        <option value="$PROJECT_DIR$/View/index.php" />
+        <option value="$PROJECT_DIR$/View/testing.php" />
+        <option value="$PROJECT_DIR$/View/login.php" />
+        <option value="$PROJECT_DIR$/css/Thanh-Style-Login.css" />
+        <option value="$PROJECT_DIR$/css/Thanh-Style-testing.css" />
       </list>
     </option>
   </component>
@@ -189,18 +169,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="ToeicThi" type="b2602c69:ProjectViewProjectNode" />
               <item name="ToeicThi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ToeicThi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ToeicThi" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ToeicThi" type="b2602c69:ProjectViewProjectNode" />
@@ -216,12 +190,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/XAMPP/htdocs/ThiToeic/Model/config.php" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../banhang" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -289,18 +264,20 @@
       <workItem from="1537975732387" duration="2799000" />
       <workItem from="1538061120170" duration="1924000" />
       <workItem from="1538121996257" duration="6088000" />
-      <workItem from="1538293240093" duration="8874000" />
+      <workItem from="1538293240093" duration="13469000" />
+      <workItem from="1538446951351" duration="8145000" />
+      <workItem from="1538486709731" duration="4187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113773000" />
+    <option name="totallyTimeSpent" value="130700000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19402985" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19829424" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -333,8 +310,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Model/connection.php" />
-    <entry file="file://$PROJECT_DIR$/index.php" />
     <entry file="file://$PROJECT_DIR$/View/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4268">
@@ -414,27 +389,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/connection.php" />
-    <entry file="file://$PROJECT_DIR$/htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="473" column="34" selection-start-line="473" selection-start-column="34" selection-end-line="473" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="46" selection-start-line="2" selection-start-column="46" selection-end-line="2" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/htaccess" />
     <entry file="file://$PROJECT_DIR$/Model/config.php" />
     <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -452,36 +407,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Control/checkValidate.php" />
     <entry file="file://$PROJECT_DIR$/Model/toeic.php" />
-    <entry file="file://$PROJECT_DIR$/View/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="60" column="59" selection-start-line="60" selection-start-column="59" selection-end-line="60" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
-          <caret line="87" column="24" selection-start-line="87" selection-start-column="24" selection-end-line="87" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_lambaithi/index.php">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/model_admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/admin/index.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -504,6 +431,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/xulyLogin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/controller_admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -511,45 +445,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/main.php">
+    <entry file="file://$PROJECT_DIR$/Model/model_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="55" lean-forward="true" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#article#0;n#div#0;n#div#0;n#section#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#1;n#section#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#0;n#div#0;n#!!top" />
-            <element signature="e#7353#7358#0#PHP" />
-            <element signature="n#div#0;n#section#1;n#div#0;n#!!top" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#0;n#div#1;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#article#0;n#div#1;n#div#1;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#2;n#div#1;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#article#0;n#div#0;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#1;n#div#0;n#article#0;n#div#0;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#1;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h2#0;n#div#0;n#div#1;n#article#0;n#div#2;n#div#2;n#section#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/Thanh-Style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="42" column="7" lean-forward="true" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/xulyLogin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="44" lean-forward="true" selection-start-line="20" selection-start-column="44" selection-end-line="20" selection-end-column="44" />
+        <state relative-caret-position="946">
+          <caret line="43" column="38" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
         </state>
       </provider>
     </entry>
@@ -560,34 +459,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/index.php">
+    <entry file="file://$PROJECT_DIR$/Controller/checkValidate.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-          <folding>
-            <element signature="n#head#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="352">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="112" column="29" lean-forward="true" selection-start-line="112" selection-start-column="29" selection-end-line="112" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/header.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="27" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Model/model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="42" column="16" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="485" column="26" selection-start-line="485" selection-start-column="26" selection-end-line="485" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/controller_main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="26" lean-forward="true" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+        <state relative-caret-position="1034">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-Login.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="72" column="22" selection-start-line="72" selection-start-column="22" selection-end-line="72" selection-end-column="22" />
+        <state>
+          <caret column="57" lean-forward="true" selection-start-column="57" selection-end-column="57" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/checkValidate.php">
+    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-testing.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="102" selection-start-line="6" selection-start-column="102" selection-end-line="6" selection-end-column="102" />
+        <state relative-caret-position="212">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/testing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="29" selection-start-column="29" selection-end-column="29" />
         </state>
       </provider>
     </entry>

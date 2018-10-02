@@ -38,6 +38,13 @@ class controller_main extends model
             </script>";
             }
         }
+    } // end function xulyLogin
+
+    function lay_DeThi(){
+        $con=new model();
+        $kq=$con->layDeThi();
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error;
     }
 }
 ?>

@@ -1,5 +1,5 @@
 RewriteEngine on
 
 RewriteRule ^Login.html$ index.php?p=login [L]
-
 RewriteRule ^Register.html$ index.php?p=register [L]
+RewriteRule ^TOEIC-([0-9]+).html$ index.php?p=testing&id=$1 [L]
