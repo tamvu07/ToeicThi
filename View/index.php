@@ -55,7 +55,7 @@ if(isset($_GET['p'])){
     {
         case "login": include("login.php"); break;
         case "register": include("Register.php"); break;
-        case "contact": include("lien-he.php"); break;
+        case "contact": include("contact.php"); break;
         default: include("main.php"); break;
     }
     if($p=="testing")
