@@ -1,7 +1,6 @@
 <?php
 session_start();
 ob_start();
-require_once "../database/connection.php";
 require_once "../Controller/controller_main.php";
 $toeic=new controller_main();
 if (isset($_GET['p']))
@@ -52,13 +51,12 @@ if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/
 <?php
 if(isset($_GET['p'])){
     $p=$_GET['p'];
-    if($p=="login")
+    switch($p)
     {
-        include "login.php";
-    }
-    if($p=="register")
-    {
-        include "Register.php";
+        case "login": include("login.php"); break;
+        case "register": include("Register.php"); break;
+        case "contact": include("lien-he.php"); break;
+        default: include("main.php"); break;
     }
     if($p=="testing")
     {

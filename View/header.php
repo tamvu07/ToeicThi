@@ -81,12 +81,19 @@
             <!-- Socials -->
             <div class="col-lg-12">
                 <div id="top-sign-in-out">
-                    <a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false">
-                        <span>Đăng nhập</span>
-                    </a>
-                    <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false">
-                        <span>Đăng kí</span>
-                    </a>
+                    <?php
+                        if(!isset($_SESSION['login_email']))
+                        {
+                            echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
+                                <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
+                        }
+                        else
+                        {
+                            echo '<a class="btn btn-sm btn-light" href="#" onfocus="false"><span>Xin chào '.$_SESSION['login_name'].'</span></a>
+                                <a  class="btn btn-sm btn-light" href="../ToeicThi/logout.php" onfocus="false"><span>Đăng xuất</span></a>';
+                        }
+                    ?>
+                    
                 </div>
                 <div class="socials nav__socials socials--nobase socials--white justify-content-end">
                     <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
@@ -207,7 +214,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Liên hệ</a>
+                            <a href="View/Contact.html">Liên hệ</a>
                         </li>
                         <li>
                             <a href="#">giới thiệu</a>
