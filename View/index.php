@@ -30,7 +30,7 @@ if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors/cyan.css"/>
 
-    <link rel="stylesheet" href="css/Thanh-Style.css"/>
+    <link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
@@ -55,15 +55,16 @@ if(isset($_GET['p'])){
     {
         case "login": include("login.php"); break;
         case "register": include("Register.php"); break;
-        case "contact": include("lien-he.php"); break;
+        case "contact": include("contact.php"); break;
         default: include("main.php"); break;
     }
-
+    if($p=="testing")
+    {
+        include "testing.php";
+    }
 }
 else include "main.php";
 ?>
-
-   
 
 </main>
 <!-- end main-wrapper -->

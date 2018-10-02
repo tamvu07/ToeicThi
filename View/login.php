@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../css/Thanh-Style.css"/>
+<link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
 
 <?php
 if(isset($_POST['email'])&&isset($_POST['password'])){

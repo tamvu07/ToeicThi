@@ -469,71 +469,25 @@
         </div>
 
         <!-- Slider -->
+        <?php
+        $kq=$toeic->lay_DeThi();
+        ?>
         <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
+            <?php while($row=$kq->fetch_assoc()){ ?>
             <article class="entry thumb thumb--size-1">
                 <div class="entry__img-holder thumb__img-holder"
                      style="background-image: url('img/logo.dethi.jpeg');">
                     <div class="bottom-gradient"></div>
                     <div class="thumb-text-holder">
                         <h2 class="thumb-entry-title">
-                            <a href="single-post-music.html"><strong>ĐỀ THI SỐ 01</strong></a>
+                            <?php $dethi=str_replace(" ","-",$row['TieuDe'])?>
+                            <a href="View/<?=$dethi?>.html"><strong>Đề Thi <?=$row['TieuDe']?></strong></a>
                         </h2>
                     </div>
-                    <a href="single-post-music.html" class="thumb-url"></a>
+                    <a href="View/<?=$dethi?>.html" class="thumb-url"></a>
                 </div>
             </article>
-
-            <article class="entry thumb thumb--size-1">
-                <div class="entry__img-holder thumb__img-holder"
-                     style="background-image: url('img/logo.dethi.jpeg');">
-                    <div class="bottom-gradient"></div>
-                    <div class="thumb-text-holder">
-                        <h2 class="thumb-entry-title">
-                            <a href="single-post-music.html"><strong>ĐỀ THI SỐ 02</strong></a>
-                        </h2>
-                    </div>
-                    <a href="single-post-music.html" class="thumb-url"></a>
-                </div>
-            </article>
-
-            <article class="entry thumb thumb--size-1">
-                <div class="entry__img-holder thumb__img-holder"
-                     style="background-image: url('img/logo.dethi.jpeg');">
-                    <div class="bottom-gradient"></div>
-                    <div class="thumb-text-holder">
-                        <h2 class="thumb-entry-title">
-                            <a href="single-post-music.html"><strong>ĐỀ THI SỐ 03</strong></a>
-                        </h2>
-                    </div>
-                    <a href="single-post-music.html" class="thumb-url"></a>
-                </div>
-            </article>
-
-            <article class="entry thumb thumb--size-1">
-                <div class="entry__img-holder thumb__img-holder"
-                     style="background-image: url('img/logo.dethi.jpeg');">
-                    <div class="bottom-gradient"></div>
-                    <div class="thumb-text-holder">
-                        <h2 class="thumb-entry-title">
-                            <a href="single-post-music.html"><strong>ĐỀ THI SỐ 04</strong></a>
-                        </h2>
-                    </div>
-                    <a href="single-post-music.html" class="thumb-url"></a>
-                </div>
-            </article>
-
-            <article class="entry thumb thumb--size-1">
-                <div class="entry__img-holder thumb__img-holder"
-                     style="background-image: url('img/content/carousel/carousel_post_17.jpg');">
-                    <div class="bottom-gradient"></div>
-                    <div class="thumb-text-holder">
-                        <h2 class="thumb-entry-title">
-                            <a href="single-post-music.html"><strong>ĐỀ THI SỐ 05</strong></a>
-                        </h2>
-                    </div>
-                    <a href="single-post-music.html" class="thumb-url"></a>
-                </div>
-            </article>
+            <?php } ?>
         </div> <!-- end slider -->
 
     </section> <!-- end de thi thu -->

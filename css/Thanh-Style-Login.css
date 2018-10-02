@@ -31,7 +31,7 @@
 }
 
 #background {
-    background-image: url("http://localhost/ThiToeic/img/layout/background.jpg");
+    background-image: url("../img/layout/background.jpg");
     height: 885px;
     width: 100%;
     position: relative;
