@@ -3,8 +3,8 @@
 <head>
    <style>
 	    body{
-	    	background-image: url(img/contact-background.jpg);
-	    	background-size: cover;
+	    	background-image: url(img/layout/background.jpg);
+			position:relative;
 	    }
 	    hr{
 	    	background: white;	
