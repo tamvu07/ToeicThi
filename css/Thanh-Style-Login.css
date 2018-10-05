@@ -5,13 +5,14 @@
 #top-sign-in-out {
     position: absolute;
     z-index: 1;
-    left: 850px;
+    
     top: 2px;
 }
 
 #top-sign-in-out a {
     border-radius: 8px;
     margin-left: 5px;
+    width:150px;
 }
 
 #container {
