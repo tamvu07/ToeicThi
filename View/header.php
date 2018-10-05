@@ -86,7 +86,7 @@
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
                         } else {
-                            echo '<a class="btn btn-sm btn-light" href="#" onfocus="false"><span>Xin chào ' . $_SESSION['login_name'] . '</span></a>
+                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><span>'.$_SESSION['login_name'].'</span></a>
                                 <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php" onfocus="false"><span>Đăng xuất</span></a>';
                         }
                         ?>
