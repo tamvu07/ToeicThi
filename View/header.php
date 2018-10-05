@@ -1,4 +1,3 @@
-
 <!-- Preloader -->
 <div class="loader-mask">
     <div class="loader">
@@ -80,22 +79,20 @@
         <div class="row">
             <!-- Socials -->
             <div class="col-lg-12">
-                <div id="top-sign-in-out">
-                    <?php
-                        if(!isset($_SESSION['login_email']))
-                        {
+                <div class="socials nav__socials socials--nobase socials--white justify-content-end">
+                    <div id="top-sign-in-out">
+                        <?php
+                        if (!isset($_SESSION['login_email'])) {
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
+                        } else {
+                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><span>'.$_SESSION['login_name'].'</span></a>
+                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php" onfocus="false"><span>Đăng xuất</span></a>';
                         }
-                        else
-                        {
-                            echo '<a class="btn btn-sm btn-light" href="#" onfocus="false"><span>Xin chào '.$_SESSION['login_name'].'</span></a>
-                                <a  class="btn btn-sm btn-light" href="../ToeicThi/logout.php" onfocus="false"><span>Đăng xuất</span></a>';
-                        }
-                    ?>
-                    
-                </div>
-                <div class="socials nav__socials socials--nobase socials--white justify-content-end">
+                        ?>
+                    </div>
+
+                    <div id="social">
                     <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
                        aria-label="facebook">
                         <i class="ui-facebook"></i>
@@ -116,8 +113,8 @@
                        aria-label="instagram">
                         <i class="ui-instagram"></i>
                     </a>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

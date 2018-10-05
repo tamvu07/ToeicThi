@@ -49,3 +49,22 @@
     margin:10px 0px;
     border:1px solid lightgray;
 }
+
+#container #test{
+    border:2px solid lightgray;
+    margin: 5px auto;
+}
+
+#container #feedback{
+    border-top:2px solid lightgray;
+    margin: 5px auto;
+}
+
+#container #test #ready-stage button{
+    color:#ee4b53;
+    width:200px;
+    margin:0px 10px;
+}
+#container #test #ready-stage button:hover{
+    color:white;
+}

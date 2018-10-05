@@ -3,15 +3,23 @@
 }
 
 #top-sign-in-out {
-    position: absolute;
+    position: relative;
     z-index: 1;
-    left: 850px;
     top: 2px;
 }
 
 #top-sign-in-out a {
     border-radius: 8px;
-    margin-left: 5px;
+    width:100px;
+    color:white;
+    font-weight: bold;
+}
+
+#top-sign-in-out #hello-user{
+    border-radius: 8px;
+    width:auto;
+    color:white;
+    font-weight: bold;
 }
 
 #container {
