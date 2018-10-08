@@ -1,88 +1,31 @@
-<?php
-session_start();
-ob_start();
-require_once "../Controller/controller_main.php";
-$toeic=new controller_main();
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Deus | Toeic Testing</title>
-    <base href="<?= BASE_URL ?>">
-    <meta charset="utf-8">
-    <!--[if IE]>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content="">
-
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Rubik:400,600,700%7CRoboto:400,700' rel='stylesheet'>
-
-    <!-- Css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="css/font-icons.css"/>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/colors/cyan.css"/>
-
-    <link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
-
-    <link rel="stylesheet" href="css/Thanh-Style-toeic-testing.css"/>
-
-    <!-- Favicons -->
-    <link rel="shortcut icon" href="img/favicon.ico">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
-
-    <!-- Lazyload (must be placed in head in order to work) -->
-    <script src="js/lazysizes.min.js"></script>
-    <!-- jQuery library -->
-    <script src="js/jquery.min.js"></script>
-</head>
-
-<body class="bg-dark style-music">
-<?php include "header.php" ?>
-<main class="main oh" id="main">
-    <div id="container" class="col-md-6 text-md-center">
+<link rel="stylesheet" href="css/Thanh-Style-testing.css"/>
+    <div id="container">
+    <div id="main-contain" class="col-md-8" style="height:1000px; overflow:auto;">
         <p>THI THỬ TOEIC</p>
         <div><span id="m">180:</span><span id="s">00</span></div>
-        <button  id="countdown" onclick="start()">Bắt đầu đếm</button>
+        <button id="countdown" onclick="start()">Bắt đầu đếm</button>
         <br>
         <br>
-        <form method="post">
-        <div id="question">
-            <p>Câu 1: ABC?ABC?ABC?ABC?ABC?ABC?ABC?ABC?ABC?ABC?ABC?ABC?ABC?</p>
-        </div>
-        </form>
+           <?php
+				require_once("../Controller/controller_lambaithi.php");
+				session_start();
+				$loaicauhoi = 'R';
+				$made = 1;
+				$p = new controller_lambaithi();
+				$p->test_get_list_questions($loaicauhoi,$made); // in ra câu hỏi và trắc nghiệm
+				if(isset($_POST['submit-test']))
+				{
+					$p->count_scores($loaicauhoi,$made); // tính điểm dựa trên số câu người dùng chọn
+				}
+			?>
+            </div>
     </div>
-</main>
-<!-- end main-wrapper -->
-
-<!-- footer -->
-<?php
-include "footer.php";
-ob_end_flush();
-?>
-<!-- end footer -->
-
-<!-- jQuery Scripts -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/easing.min.js"></script>
-<script src="js/owl-carousel.min.js"></script>
-<script src="js/flickity.pkgd.min.js"></script>
-<script src="js/twitterFetcher_min.js"></script>
-<script src="js/jquery.newsTicker.min.js"></script>
-<script src="js/modernizr.min.js"></script>
-<script src="js/scripts.js"></script>
-
-</body>
-</html>
-
-<script language="JavaScript">
-    var m=180;
-    var s=0;
-    var timeout=null;
-    function start(){
+    
+    <script>
+        var m=180;
+        var s=0;
+        var timeout=null;
+        function start(){
         if(s==-1){
             m=m-1;
             s=59;
@@ -101,5 +44,4 @@ ob_end_flush();
         }, 1000);
         document.getElementById('countdown').setAttribute("disabled","true");
     }
-
-</script>
+    </script>

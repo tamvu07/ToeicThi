@@ -21,7 +21,8 @@ class controller_main extends model
                     $_SESSION['login_id'] = $row['IdUser'];
                     $_SESSION['login_level'] = $row['Quyen'];
                     $_SESSION['login_email'] = $row['Mail'];
-                    $_SESSION['login_name'] = $row['HoTen'];
+					$_SESSION['login_lname'] = $row['Ho'];
+                    $_SESSION['login_fname'] = $row['Ten'];
                     $_SESSION['avatar'] = $row['Avatar'];
                 }
                 if (isset($_SESSION['back'])) {

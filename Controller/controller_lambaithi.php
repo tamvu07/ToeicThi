@@ -13,10 +13,11 @@ class controller_lambaithi extends model_general {
 		echo '<form method="post">';
 		while($rows=$p->load_rows()) {
 			echo ''.$i++.'.'.$rows["NoiDung"].'<br>';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'">A. '.$rows["A"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'">B. '.$rows["B"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'" checked>C. '.$rows["C"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'">D. '.$rows["D"].'<br><br>';
+			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> A. '.$rows["A"].' ';
+			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> B. '.$rows["B"].' ';
+			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'" checked> C. '.$rows["C"].' ';
+			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"].'<br><br>';
+			echo '<hr width="50%">';
 		}
 		echo '
 		<br><button type="submit" name="submit-test">Nộp bài</button>
@@ -59,6 +60,7 @@ class controller_lambaithi extends model_general {
 			}
 		}
 			$_SESSION['Diem'] = $diem;
+			//header("location:View/index.php?p=testing?score=".$_SESSION['Diem']);
 			echo $_SESSION['Diem'];
 	}
 
