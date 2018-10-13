@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 13, 2018 at 10:15 AM
+-- Generation Time: Oct 13, 2018 at 10:28 AM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -747,6 +747,7 @@ ALTER TABLE `loaicauhoi`
 --
 ALTER TABLE `nguoidung`
   ADD PRIMARY KEY (`IdUser`),
+  ADD UNIQUE KEY `Mail_UNIQUE` (`Mail`),
   ADD KEY `fk_nguoidung_quyen1` (`Quyen`);
 
 --
