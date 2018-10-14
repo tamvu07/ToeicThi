@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 13, 2018 at 10:28 AM
+-- Generation Time: Oct 14, 2018 at 03:58 PM
 -- Server version: 5.7.17-log
 -- PHP Version: 5.6.30
 
@@ -303,6 +303,7 @@ CREATE TABLE `dethi` (
   `MoTa` varchar(200) NOT NULL,
   `ThoiLuong` int(11) NOT NULL DEFAULT '120',
   `SoCau` int(11) NOT NULL DEFAULT '200',
+  `MP3` varchar(255) DEFAULT NULL,
   `NguoiTao` int(11) NOT NULL,
   `NgayTao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `SoLanThi` int(11) NOT NULL DEFAULT '0',
@@ -313,9 +314,9 @@ CREATE TABLE `dethi` (
 -- Dumping data for table `dethi`
 --
 
-INSERT INTO `dethi` (`MaDe`, `TieuDe`, `MoTa`, `ThoiLuong`, `SoCau`, `NguoiTao`, `NgayTao`, `SoLanThi`, `TrangThai`) VALUES
-(1, 'TOEIC 1', 'Đề thi mẫu TOEIC số 1', 120, 200, 3, '2018-09-23 00:00:00', 0, 1),
-(2, 'TOEIC 2', 'Đề thi TOEIC mẫu số 2', 120, 200, 2, '2018-09-23 00:00:00', 0, 1);
+INSERT INTO `dethi` (`MaDe`, `TieuDe`, `MoTa`, `ThoiLuong`, `SoCau`, `MP3`, `NguoiTao`, `NgayTao`, `SoLanThi`, `TrangThai`) VALUES
+(1, 'TOEIC 1', 'Đề thi mẫu TOEIC số 1', 120, 200, 'http://localhost/ToeicThi/TOEIC-upload/MP3/listening1.mp3', 3, '2018-09-23 00:00:00', 0, 1),
+(2, 'TOEIC 2', 'Đề thi TOEIC mẫu số 2', 120, 200, 'http://localhost/ToeicThi/TOEIC-upload/MP3/listening2.mp3', 2, '2018-09-23 00:00:00', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -734,6 +735,7 @@ ALTER TABLE `cauhoi`
 --
 ALTER TABLE `dethi`
   ADD PRIMARY KEY (`MaDe`),
+  ADD UNIQUE KEY `MP3_UNIQUE` (`MP3`),
   ADD KEY `fk_dethi_nguoidung` (`NguoiTao`);
 
 --
