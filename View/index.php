@@ -30,8 +30,6 @@ if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors/cyan.css"/>
 
-    <link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
-
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">

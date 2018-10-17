@@ -2,26 +2,6 @@
     height: 165px;
 }
 
-#top-sign-in-out {
-    position: relative;
-    z-index: 1;
-    top: 2px;
-}
-
-#top-sign-in-out a {
-    border-radius: 8px;
-    width:100px;
-    color:white;
-    font-weight: bold;
-}
-
-#top-sign-in-out #hello-user{
-    border-radius: 8px;
-    width:auto;
-    color:white;
-    font-weight: bold;
-}
-
 #container {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -53,7 +33,7 @@ table {
     text-align: center;
 }
 
-label, h1 {
+#container label, h1 {
     color: #ff3d72;
 }
 

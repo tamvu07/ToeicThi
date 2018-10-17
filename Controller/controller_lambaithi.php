@@ -16,11 +16,11 @@ class controller_lambaithi extends model_general {
 			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> A. '.$rows["A"].' ';
 			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> B. '.$rows["B"].' ';
 			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'" checked> C. '.$rows["C"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"].'<br><br>';
+			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"];
 			echo '<hr width="50%">';
 		}
 		echo '
-		<br><button type="submit" name="submit-test">Nộp bài</button>
+		<button type="submit" id="submit-test" name="submit-test" class="disabled-button"></button>
 		</form>';
 	}
 	
