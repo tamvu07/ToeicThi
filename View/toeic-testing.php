@@ -82,12 +82,3 @@
     	}
 		window.onbeforeunload=function(){return 'Are you sure you want to leave? PLZ STAY!!!'}
     </script>
-    <input type="text" name="asdsa">
-    <?php
-	if(isset($_POST['test-btn']))
-	{
-		$m = $_REQUEST['asdsa'];
-		echo "asasdasd";
-		echo $m;
-	}
-	?>

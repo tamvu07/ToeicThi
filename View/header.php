@@ -42,7 +42,7 @@
             </li>
             <!-- Categories -->
             <li>
-                <a href="#" class="sidenav__menu-url">Liên hệ</a>
+                <a href="View/Contact.html" class="sidenav__menu-url">Liên hệ</a>
             </li>
             <li>
                 <a href="#" class="sidenav__menu-url">Giới thiệu</a>
@@ -51,7 +51,7 @@
                 <a href="View/Login.html" class="sidenav__menu-url">Đăng nhập</a>
             </li>
             <li>
-                <a href="#" class="sidenav__menu-url">Đăng kí</a>
+                <a href="View/Register.html" class="sidenav__menu-url">Đăng kí</a>
             </li>
         </ul>
     </nav>
@@ -86,8 +86,9 @@
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
                         } else {
-                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><span>'.$_SESSION['login_lname'].' '.$_SESSION['login_fname'].'</span></a>
-                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php" onfocus="false"><span>Đăng xuất</span></a>';
+							$return=$_SERVER['REQUEST_URI'];
+                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><i class="fas fa-address-card"></i><span>'.$_SESSION['login_lname'].' '.$_SESSION['login_fname'].'</span></a>
+                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return='.$return.'" onfocus="false"><span>Đăng xuất</span></a>';
                         }
                         ?>
                     </div>
@@ -204,10 +205,11 @@
                         <li class="nav__dropdown">
                             <a>Test</a>
                             <ul class="nav__dropdown-menu">
-                                <li><a href="about.html">Listening</a></li>
-                                <li><a href="contact.html">Reading</a></li>
-                                <li><a href="search-results.html">Writing</a></li>
-                                <li><a href="categories.html">Speaking</a></li>
+                                <li><a href="View/Exam">Đề thi Toeic</a></li>
+                                <li><a href="#">Listening</a></li>
+                                <li><a href="#">Reading</a></li>
+                                <li><a href="#">Writing</a></li>
+                                <li><a href="#">Speaking</a></li>
                             </ul>
                         </li>
                         <li>
