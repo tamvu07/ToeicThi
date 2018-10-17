@@ -21,23 +21,17 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
                     <td colspan="3"><h1>ĐĂNG NHẬP</h1></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><input type="text" name="email" id="email" placeholder="Email" autofocus><br>
+                    <td colspan="3"><i class="fa fa-envelope icon" style="position: relative;left:30px;"></i><input type="text" name="email" id="email" placeholder="Email" autofocus><br>
                         <div id="checkValidate" class="alert alert-warning"></div>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="3"><input type="password" name="password" id="password" placeholder="Password"></td>
+                    <td colspan="3"><i class="fa fa-key icon" style="position: relative;left:30px;"></i><input type="password" name="password" id="password" placeholder="Password"></td>
                 </tr>
                 <tr>
                     <td style="padding-top:14px">
                         <input type="checkbox" value="remember" name="remember" checked>
                         <label>Ghi nhớ đăng nhập ?</label>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-primary">Facebook</button>
-                    </td>
-                    <td>
-                        <button type="button" class="btn btn-outline-danger">Google+</button>
                     </td>
                 </tr>
                 <tr>

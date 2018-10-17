@@ -1,7 +1,6 @@
 <!-- Hero Slider -->
 <section class="hero-slider-1">
     <div id="flickity-hero" class="carousel-main">
-
         <div class="carousel-cell hero-slider-1__item">
             <article class="hero-slider-1__entry entry">
                 <div class="hero-slider-1__thumb-img-holder"
@@ -11,13 +10,12 @@
                 <div class="hero-slider-1__thumb-text-holder">
                     <div class="container">
                         <h2 class="hero-slider-1__entry-title">
-                            <a href="single-post-music.html">abc</a>
+<!--                            <a href="single-post-music.html">abc</a>-->
                         </h2>
                     </div>
                 </div>
             </article>
         </div>
-
         <div class="carousel-cell hero-slider-1__item">
             <article class="hero-slider-1__entry entry">
                 <div class="hero-slider-1__thumb-img-holder"
@@ -27,13 +25,12 @@
                 <div class="hero-slider-1__thumb-text-holder">
                     <div class="container">
                         <h2 class="hero-slider-1__entry-title">
-                            <a href="single-post-music.html">abc</a>
+<!--                            <a href="single-post-music.html">abc</a>-->
                         </h2>
                     </div>
                 </div>
             </article>
         </div>
-
         <div class="carousel-cell hero-slider-1__item">
             <article class="hero-slider-1__entry entry">
                 <div class="hero-slider-1__thumb-img-holder"
@@ -43,13 +40,12 @@
                 <div class="hero-slider-1__thumb-text-holder">
                     <div class="container">
                         <h2 class="hero-slider-1__entry-title">
-                            <a href="single-post-music.html">abc</a>
+<!--                            <a href="single-post-music.html">abc</a>-->
                         </h2>
                     </div>
                 </div>
             </article>
         </div>
-
         <div class="carousel-cell hero-slider-1__item">
             <article class="hero-slider-1__entry entry">
                 <div class="hero-slider-1__thumb-img-holder"
@@ -59,7 +55,7 @@
                 <div class="hero-slider-1__thumb-text-holder">
                     <div class="container">
                         <h2 class="hero-slider-1__entry-title">
-                            <a href="single-post-music.html">abc</a>
+<!--                            <a href="single-post-music.html">abc</a>-->
                         </h2>
                     </div>
                 </div>
@@ -109,7 +105,7 @@
 
     <!-- Tin tuc -->
     <?php
-    $kq=$toeic->getTinTuc('vi');
+    $kq = $toeic->lay_TinTuc('vi');
     date_default_timezone_set('Asia/Ho_Chi_Minh');//để không bị lỗi timezone, nếu không có thì sẽ có thể gặp lỗi trên php 5.6
     ?>
 
@@ -120,46 +116,51 @@
 
         <!-- Slider -->
         <div id="owl-posts-3-items" class="owl-carousel owl-theme owl-carousel--arrows-outside">
-            <?php while($row=$kq->fetch_assoc()){?>
-            <article class="entry card card--1">
-                <div class="entry__img-holder card__img-holder">
-                    <a href="single-post-music.html">
-                        <div class="thumb-container thumb-70">
-                            <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
-                                 class="entry__img lazyload" alt="<?=$row['TieuDe']?>" title="<?=$row['TieuDe']?>"/>
-                            <div class="entry-date-label">
-                                <div class="entry-date-label__weekday"><?=date('D',strtotime($row['NgayTao']))?></div>
-                                <div class="entry-date-label__day"><?=date('d',strtotime($row['NgayTao']))?></div>
-                                <div class="entry-date-label__month"><?=date('M',strtotime($row['NgayTao']))?></div>
+            <?php while ($row = $kq->fetch_assoc()) { ?>
+                <article class="entry card card--1">
+                    <div class="entry__img-holder card__img-holder">
+                        <a href="single-post-music.html">
+                            <div class="thumb-container thumb-70">
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
+                                     src="<?= $row['AnhMinhHoa'] ?>"
+                                     class="entry__img lazyload" alt="<?= $row['TieuDe'] ?>"
+                                     title="<?= $row['TieuDe'] ?>"/>
+                                <div class="entry-date-label">
+                                    <div class="entry-date-label__weekday"><?= date('D', strtotime($row['NgayTao'])) ?></div>
+                                    <div class="entry-date-label__day"><?= date('d', strtotime($row['NgayTao'])) ?></div>
+                                    <div class="entry-date-label__month"><?= date('M', strtotime($row['NgayTao'])) ?></div>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="entry__body card__body">
-                    <div class="entry__header">
-                        <ul class="entry__meta">
-                            <li class="entry__meta-category">
-                                <a>News</a>
-                            </li>
-                        </ul>
-                        <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                            <a href="single-post-music.html" title="<?=$row['TieuDe']?>"><?=$row['TieuDe']?></a>
-                        </h2>
-                        <ul class="entry__meta">
-                            <li class="entry__meta-author">
-                                <span>by</span>
-                                <a href="#"><?php $kqi= $toeic->getIdUser($row['NguoiTao']);$rowi=$kqi->fetch_assoc();echo $rowi['HoTen'];?></a>
-                            </li>
-                            <li class="entry__meta-date">
-                                Jan 21, 2018
-                            </li>
-                        </ul>
+                        </a>
                     </div>
 
-                </div>
-            </article>
-            <?php }?>
+                    <div class="entry__body card__body">
+                        <div class="entry__header">
+                            <ul class="entry__meta">
+                                <li class="entry__meta-category">
+                                    <a>News</a>
+                                </li>
+                            </ul>
+                            <h2 class="entry__title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
+                            </h2>
+                            <ul class="entry__meta">
+                                <li class="entry__meta-author">
+                                    <span>by</span>
+                                    <a href="#"><?php $kqi = $toeic->lay_UserTheoId($row['NguoiTao']);
+                                        $rowi = $kqi->fetch_assoc();
+                                        echo $rowi['HoTen']; ?></a>
+                                </li>
+                                <li class="entry__meta-date">
+                                    Jan 21, 2018
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </article>
+            <?php } ?>
         </div> <!-- end slider -->
 
     </section> <!-- end tin tuc -->
@@ -174,7 +175,7 @@
 
     <!-- tin tieng anh -->
     <?php
-    $kq=$toeic->getTinTuc('en');
+    $kq = $toeic->lay_TinTuc('en');
     ?>
     <section class="section mb-24">
         <div class="title-wrap title-wrap--line">
@@ -183,13 +184,14 @@
 
         <div class="row row-20">
 
-            <?php $row=$kq->fetch_assoc();?>
+            <?php $row = $kq->fetch_assoc(); ?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>"  src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
+                                     src="<?= $row['AnhMinhHoa'] ?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -197,13 +199,16 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html" ><?=$row['TieuDe']?></a>
+                            <h2 class="entry__title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
                                     <span>by</span>
-                                    <a href="#"><?php $kq1= $toeic->getIdUser($row['NguoiTao']);$row1=$kq1->fetch_assoc();echo $row1['HoTen'];?></a>
+                                    <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
+                                        $row1 = $kq1->fetch_assoc();
+                                        echo $row1['HoTen']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -211,46 +216,37 @@
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?=$row['TomTat']?><p>
+                            <p><?= $row['TomTat'] ?><p>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <?php $row=$kq->fetch_assoc();?>
+            <?php $row = $kq->fetch_assoc(); ?>
             <div class="col-md-6">
                 <article class="entry thumb thumb--size-3 thumb--mb-20">
                     <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('<?=$row['AnhMinhHoa']?>');">
+                         style="background-image: url('<?= $row['AnhMinhHoa'] ?>');">
                         <div class="bottom-gradient"></div>
                         <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?=$row['TieuDe']?></a>
+                            <h2 class="thumb-entry-title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
                             </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-views">
-                                    <i class="ui-eye"></i>
-                                    <span>1356</span>
-                                </li>
-                                <li class="entry__meta-comments">
-                                    <a href="#">
-                                        <i class="ui-chat-empty"></i>13
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                         <a href="single-post-music.html" class="thumb-url"></a>
                     </div>
                 </article>
             </div>
 
-            <?php $row=$kq->fetch_assoc();?>
+            <?php $row = $kq->fetch_assoc(); ?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
+                                     src="<?= $row['AnhMinhHoa'] ?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -258,13 +254,16 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?=$row['TieuDe']?></a>
+                            <h2 class="entry__title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
                                     <span>by</span>
-                                    <a href="#"><?php $kq1= $toeic->getIdUser($row['NguoiTao']);$row1=$kq1->fetch_assoc();echo $row1['HoTen'];?></a>
+                                    <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
+                                        $row1 = $kq1->fetch_assoc();
+                                        echo $row1['HoTen']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -272,7 +271,7 @@
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?=$row['TomTat']?></p>
+                            <p><?= $row['TomTat'] ?></p>
                         </div>
                     </div>
                 </article>
@@ -281,40 +280,31 @@
 
         <div class="row row-20">
 
-            <?php $row=$kq->fetch_assoc();?>
+            <?php $row = $kq->fetch_assoc(); ?>
             <div class="col-md-6">
                 <article class="entry thumb thumb--size-3 thumb--mb-20">
                     <div class="entry__img-holder thumb__img-holder"
-                         style="background-image: url('<?=$row['AnhMinhHoa']?>');">
+                         style="background-image: url('<?= $row['AnhMinhHoa'] ?>');">
                         <div class="bottom-gradient"></div>
                         <div class="thumb-text-holder thumb-text-holder--2">
-                            <h2 class="thumb-entry-title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?=$row['TieuDe']?></a>
+                            <h2 class="thumb-entry-title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
                             </h2>
-                            <ul class="entry__meta">
-                                <li class="entry__meta-views">
-                                    <i class="ui-eye"></i>
-                                    <span>1356</span>
-                                </li>
-                                <li class="entry__meta-comments">
-                                    <a href="#">
-                                        <i class="ui-chat-empty"></i>13
-                                    </a>
-                                </li>
-                            </ul>
                         </div>
                         <a href="single-post-music.html" class="thumb-url"></a>
                     </div>
                 </article>
             </div>
 
-            <?php $row=$kq->fetch_assoc();?>
+            <?php $row = $kq->fetch_assoc(); ?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
+                                     src="<?= $row['AnhMinhHoa'] ?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -322,13 +312,16 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?=$row['TieuDe']?></a>
+                            <h2 class="entry__title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
                                     <span>by</span>
-                                    <a href="#"><?php $kq1= $toeic->getIdUser($row['NguoiTao']);$row1=$kq1->fetch_assoc();echo $row1['HoTen'];?></a>
+                                    <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
+                                        $row1 = $kq1->fetch_assoc();
+                                        echo $row1['HoTen']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -336,19 +329,20 @@
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?=$row['TomTat']?></p>
+                            <p><?= $row['TomTat'] ?></p>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <?php $row=$kq->fetch_assoc();?>
+            <?php $row = $kq->fetch_assoc(); ?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
                         <a href="single-post-music.html">
                             <div class="thumb-container thumb-65">
-                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?=$row['AnhMinhHoa']?>" src="<?=$row['AnhMinhHoa']?>"
+                                <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
+                                     src="<?= $row['AnhMinhHoa'] ?>"
                                      class="entry__img lazyload" alt="">
                             </div>
                         </a>
@@ -356,13 +350,16 @@
 
                     <div class="entry__body">
                         <div class="entry__header">
-                            <h2 class="entry__title" style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?=$row['TieuDe']?></a>
+                            <h2 class="entry__title"
+                                style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
+                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
                                     <span>by</span>
-                                    <a href="#"><?php $kq1= $toeic->getIdUser($row['NguoiTao']);$row1=$kq1->fetch_assoc();echo $row1['HoTen'];?></a>
+                                    <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
+                                        $row1 = $kq1->fetch_assoc();
+                                        echo $row1['HoTen']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -370,7 +367,7 @@
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?=$row['TomTat']?></p>
+                            <p><?= $row['TomTat'] ?></p>
                         </div>
                     </div>
                 </article>
@@ -465,28 +462,28 @@
     <!-- De thi thu -->
     <section class="section mb-0">
         <div class="title-wrap title-wrap--line title-wrap--pr">
-            <h3 class="section-title">ĐỀ THI THỬ</h3>
+            <h3 class="section-title"><a href="View/Exam">ĐỀ THI THỬ</a></h3>
         </div>
 
         <!-- Slider -->
         <?php
-        $kq=$toeic->lay_DeThi();
+        $kq = $toeic->lay_DeThi();
         ?>
         <div id="owl-posts" class="owl-carousel owl-theme owl-carousel--arrows-outside">
-            <?php while($row=$kq->fetch_assoc()){ ?>
-            <article class="entry thumb thumb--size-1">
-                <div class="entry__img-holder thumb__img-holder"
-                     style="background-image: url('img/logo.dethi.jpeg');">
-                    <div class="bottom-gradient"></div>
-                    <div class="thumb-text-holder">
-                        <h2 class="thumb-entry-title">
-                            <?php $dethi=str_replace(" ","-",$row['TieuDe'])?>
-                            <a href="View/<?=$dethi?>.html"><strong>Đề Thi <?=$row['TieuDe']?></strong></a>
-                        </h2>
+            <?php while ($row = $kq->fetch_assoc()) { ?>
+                <article class="entry thumb thumb--size-1">
+                    <div class="entry__img-holder thumb__img-holder"
+                         style="background-image: url('img/logo.dethi.jpeg');">
+                        <div class="bottom-gradient"></div>
+                        <div class="thumb-text-holder">
+                            <h2 class="thumb-entry-title">
+                                <?php $dethi = str_replace(" ", "-", $row['TieuDe']) ?>
+                                <a href="View/Exam/<?= $dethi ?>"><strong>Đề Thi <?= $row['TieuDe'] ?></strong></a>
+                            </h2>
+                        </div>
+                        <a href="View/Exam/<?= $dethi ?>" class="thumb-url"></a>
                     </div>
-                    <a href="View/<?=$dethi?>.html" class="thumb-url"></a>
-                </div>
-            </article>
+                </article>
             <?php } ?>
         </div> <!-- end slider -->
 

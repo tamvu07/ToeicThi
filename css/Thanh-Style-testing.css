@@ -6,6 +6,8 @@
 #main-contain {
     margin: 0px auto;
     background-color: white;
+    padding-top:25px;
+    padding-bottom:25px;
 }
 
 #container #main-contain #heading {
@@ -21,6 +23,11 @@
     margin: 5px auto;
     color: #fff;
     font-weight: bold;
+}
+
+#container #test{
+    border:2px solid lightgray;
+    margin: 5px auto;
 }
 
 #container #main-contain #describe {
@@ -47,12 +54,28 @@
 
 #container #feedback #comment #client-comment{
     margin:10px 0px;
-    border:1px solid lightgray;
+    background-color: #f2f7f9;
 }
 
-#container #test{
-    border:2px solid lightgray;
-    margin: 5px auto;
+#container #feedback #comment #client-comment table{
+    text-align: left;
+}
+
+#container #feedback #comment #client-comment table td{
+    padding:10px 10px;
+    vertical-align: top;
+    box-sizing: border-box;
+    border:1px lightgray outset;
+}
+
+#container #feedback #comment #client-comment table input[type="submit"]{
+    width:50px;
+    height:30px;
+    margin: 0px auto;
+}
+
+#client-comment #user-comment{
+    text-align: right;
 }
 
 #container #feedback{
@@ -67,4 +90,36 @@
 }
 #container #test #ready-stage button:hover{
     color:white;
+}
+
+#main-contain #feedback #category{
+    line-height: 30px;
+}
+
+#main-contain #feedback #category ul{
+    border:2px solid lightgray;
+    margin:10px 0px;
+    border-radius: 20px;
+}
+
+#main-contain #feedback #category h5{
+    text-align: center;
+}
+
+#main-contain #feedback #category ul li:not(#tag){
+    padding-left:15px;
+}
+
+#main-contain #feedback #category ul li a:hover{
+    color:#ee8411;
+}
+
+#main-contain #feedback #category #tag{
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+    text-align: center;
+    background-color:lightblue;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
 }

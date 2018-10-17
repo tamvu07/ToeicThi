@@ -1,11 +1,11 @@
 <?php
 require_once "../Model/model.php";
-$toeic = new model();
+$con = new model();
 
 if (isset($_POST['email']) && isset($_POST['password'])) {
     $email=$_POST['email'];
     $pass=$_POST['password'];
-    $kq = $toeic->login($email, $pass);
+    $kq = $con->login($email, $pass);
     if (!$kq) { ?>
         <script>
             $(document).ready(function () {

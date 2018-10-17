@@ -1,0 +1,30 @@
+.entry .entry__img-holder a img {
+    height: 165px;
+}
+
+#top-sign-in-out {
+    position: relative;
+    z-index: 1;
+    top: 2px;
+}
+
+#top-sign-in-out a {
+    border-radius: 8px;
+    width:100px;
+    color:white;
+    font-weight: bold;
+}
+
+#top-sign-in-out #hello-user{
+    border-radius: 8px;
+    width:auto;
+    color:white;
+    font-weight: bold;
+}
+
+#top-sign-in-out i{
+    font-size:20px;
+    padding-right:10px;
+    position:relative;
+    top:2px;
+}

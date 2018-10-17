@@ -3,10 +3,8 @@ require_once "../database/connection.php";
 
 class model extends connection
 {
-    function login($email, $pass)
+    protected function login($email, $pass)
     {
-        $email = $this->con->escape_string(trim(strip_tags($email)));
-        $pass = $this->con->escape_string(trim(strip_tags($pass)));
         //$pass = md5($pass);
         $sql = "select * from nguoidung where Mail='$email' and MatKhau='$pass'";
         $kq = $this->con->query($sql);
@@ -14,7 +12,7 @@ class model extends connection
         return false;
     } // end login
 
-    function getTinTuc($param)
+    protected function getTinTuc($param)
     {
         if ($param == 'vi') {
             $sql = "select * from tintuc where NgonNgu='vi'";
@@ -32,7 +30,7 @@ class model extends connection
         return $this->con->error;
     } // end getTinTuc
 
-    function getIdUser($idUser)
+    protected function getUserById($idUser)
     {
         $sql = "select * from nguoidung where IdUser='$idUser'";
         $kq = $this->con->query($sql);
@@ -40,14 +38,21 @@ class model extends connection
         return $this->con->error();
     } // end getIdUser
 
-    function layDeThi(){
+    protected function layDeThi(){
         $sql="select * from dethi";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error;
+    } // end layDeThi
+
+    protected function layDeThiTheoMaDe($maDe){
+        $sql="select * from dethi where MaDe=$maDe";
         $kq=$this->con->query($sql);
         if($kq->num_rows>0) return $kq;
         return $this->con->error;
     }
 
-    function checkusername($username)
+    protected function checkusername($username)
     {
         $username = $this->con->escape_string(trim(strip_tags($username)));
         $sql = "select * from nguoidung where IdUser = '$username' ";
@@ -56,6 +61,14 @@ class model extends connection
             return 1;
         } else return 0;
     } // end checkusername
+
+    protected function layBinhLuan($maDe){
+        $maDe = $this->con->real_escape_string(trim($maDe));
+        $sql="select * from binhluan where MaDe=$maDe";
+        $kq=$this->con->query($sql);
+        if(!$kq) die($this->con->error);
+        return $kq;
+    }
 }
 
 //cac method
