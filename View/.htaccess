@@ -3,6 +3,7 @@ RewriteEngine on
 RewriteRule ^Login.html$ index.php?p=login [L]
 RewriteRule ^Register.html$ index.php?p=register [L]
 RewriteRule ^Exam$ index.php?p=exam [L]
-RewriteRule ^Exam/TOEIC-([0-9]+)$ index.php?p=testing&id=$1 [L]
+RewriteRule ^Exam/TOEIC-([0-9]+)$ index.php?p=testing&id=$1&pageNum=1 [L]
+RewriteRule ^Exam/TOEIC-([0-9]+)/([0-9]+)$ index.php?p=testing&id=$1&pageNum=$2 [L]
 RewriteRule ^Exam/TOEIC-([0-9]+)/Toeic-([0-9]+)-testing.html$ index.php?p=toeic-testing&id=$2 [L]
 RewriteRule ^Contact.html$ index.php?p=contact [L]

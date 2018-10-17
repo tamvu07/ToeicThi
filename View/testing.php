@@ -2,6 +2,7 @@
 
 <?php
 if (isset($_GET['id'])) $maDe = $_GET['id'];
+if(isset($_GET['pageNum'])) $pageNum=$_GET['pageNum'];
 $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
 $kq=$toeic->lay_DeThi_TheoMaDe($maDe);
 $row=$kq->fetch_assoc();
@@ -9,7 +10,7 @@ $row=$kq->fetch_assoc();
 
 <div id="container">
     <div id="main-contain" class="col-md-8">
-        <p>&nbsp;Trang chủ / Đề thi / Toeic-3</p>
+        <p>&nbsp;<a href="#">Trang chủ</a> / <a href="View/Exam"> Đề thi Toeic</a> / <a href="View/Exam/TOEIC-3"> Toeic-3</a></p>
         <!-- thi thu toeic -->
         <div id="test">
             <div id="heading">
@@ -39,15 +40,20 @@ $row=$kq->fetch_assoc();
 
                 <div id="client-comment">
                     <?php
-                    $kq=$toeic->lay_binhluan($maDe,1,5,$totalRows);
+                    $kqbl=$toeic->lay_binhluan($maDe,$pageNum,3,$totalRows);
                     ?>
-
                     <table border="1">
+                        <?php while($rowbl=$kqbl->fetch_assoc()){ ?>
+                            <?php
+                            $kq=$toeic->lay_UserTheoId($rowbl['NguoiDang']);
+                            $row=$kq->fetch_assoc();
+                            ?>
                         <tr>
                             <td style="width: 15%;"><img src="img/logo.dethi.jpeg"></td>
-                            <td style="width:25%">NICK NAME<BR>TRÌNH ĐỘ ANH VĂN<BR>NGÀY THAM GIA<BR>BÀI VIẾT</td>
-                            <td style="width: 60%">TAO THẤY ĐỀ THI CHÁN QUÁ!!</td>
+                            <td style="width:25%">NICK NAME: <?= $row['HoTen'] ?><BR>TRÌNH ĐỘ ANH VĂN: ..<BR>NGÀY ĐĂNG: <?= $rowbl['NgayDang'] ?><BR>BÀI VIẾT: ..</td>
+                            <td style="width: 60%"><?= $rowbl['NoiDung'] ?></td>
                         </tr>
+                        <?php } ?>
                         <tr>
                             <td colspan="3">Phân trang</td>
                         </tr>

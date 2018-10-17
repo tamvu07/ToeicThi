@@ -104,7 +104,7 @@ class controller_main extends model
         return $kq;
     } // end function lay_binhluan
 
-    function phan_Trang($baseURL,$pageNum=1,$pageSize,$totalRows){
+    function phan_Trang($baseURL,$pageNum,$pageSize,$totalRows){
         if($totalRows<=0) return "";
         $totalPages=ceil($totalRows/$pageSize);
         if($totalPages<=1) return "";

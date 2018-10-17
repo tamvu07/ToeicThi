@@ -5,7 +5,7 @@ $kq = $toeic->lay_DeThi();
 <link href="css/Thanh-Style-examList.css" rel="stylesheet"/>
 
 <div id="container" class="col-md-6">
-    <p><a href="#">Trang chủ</a> / <a href="View/Exam"> Các đề thi Toeic</a></p>
+    <p><a href="#">Trang chủ</a> / <a href="View/Exam"> Đề thi Toeic</a></p>
     <p><h1>ĐỀ THI THỬ TOEIC</h1></p>
     <?php while ($row = $kq->fetch_assoc()) {
         $dethi = str_replace(" ", "-", $row['TieuDe'])
