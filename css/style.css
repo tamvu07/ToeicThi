@@ -625,22 +625,11 @@ input[type="radio"] + label {
 .checkbox > li {
 	padding: 7px 0; }
 
-input[type="radio"] {
-	display: none; }
 
-input[type="radio"] + label:before {
-	display: inline-block;
+input[type="radio"] {
 	content: "";
-	width: 20px;
-	height: 20px;
-	-webkit-box-shadow: 0 0 0 1px #dbdce1;
-	        box-shadow: 0 0 0 1px #dbdce1;
-	border-radius: 40px;
-	margin: -3px 10px 0 0;
-	outline: none;
-	vertical-align: middle;
-	cursor: pointer;
-	margin-bottom: 0; }
+	width: 15px;
+	height: 15px; }
 
 input[type="radio"]:checked + label:before {
 	background-color: #000;

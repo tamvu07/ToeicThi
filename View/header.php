@@ -86,34 +86,34 @@
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
                         } else {
-                            $return=$_SERVER['REQUEST_URI'];
-                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><i class="fas fa-address-card"></i><span>'.$_SESSION['login_name'].'</span></a>
-                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return='.$return.'" onfocus="false"><span>Đăng xuất</span></a>';
+                            $return = $_SERVER['REQUEST_URI'];
+                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><i class="fas fa-address-card"></i><span>' . $_SESSION['login_lname'] . ' ' . $_SESSION['login_fname'] . '</span></a>
+                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return=' . $return . '" onfocus="false"><span>Đăng xuất</span></a>';
                         }
                         ?>
                     </div>
 
                     <div id="social">
-                    <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
-                       aria-label="facebook">
-                        <i class="ui-facebook"></i>
-                    </a>
-                    <a class="social social-twitter" href="https://www.twitter.com/" target="_blank"
-                       aria-label="twitter">
-                        <i class="ui-twitter"></i>
-                    </a>
-                    <a class="social social-google-plus" href="https://www.google.com/" target="_blank"
-                       aria-label="google">
-                        <i class="ui-google"></i>
-                    </a>
-                    <a class="social social-youtube" href="https://www.youtube.com/" target="_blank"
-                       aria-label="youtube">
-                        <i class="ui-youtube"></i>
-                    </a>
-                    <a class="social social-instagram" href="https://www.instagram.com/" target="_blank"
-                       aria-label="instagram">
-                        <i class="ui-instagram"></i>
-                    </a>
+                        <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
+                           aria-label="facebook">
+                            <i class="ui-facebook"></i>
+                        </a>
+                        <a class="social social-twitter" href="https://www.twitter.com/" target="_blank"
+                           aria-label="twitter">
+                            <i class="ui-twitter"></i>
+                        </a>
+                        <a class="social social-google-plus" href="https://www.google.com/" target="_blank"
+                           aria-label="google">
+                            <i class="ui-google"></i>
+                        </a>
+                        <a class="social social-youtube" href="https://www.youtube.com/" target="_blank"
+                           aria-label="youtube">
+                            <i class="ui-youtube"></i>
+                        </a>
+                        <a class="social social-instagram" href="https://www.instagram.com/" target="_blank"
+                           aria-label="instagram">
+                            <i class="ui-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
