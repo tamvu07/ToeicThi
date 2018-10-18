@@ -25,7 +25,7 @@ class controller_lambaithi extends model_general {
 	}
 	
 	//Tính điểm bài làm (sử dụng để tính phần thi nghe hoặc đọc)
-	function count_scores($loaicauhoi,$made) {
+	function count_reading_scores($loaicauhoi,$made) {
 		$diem = 5;
 		$mark = 0;
 		$p = new model_general();
@@ -59,9 +59,10 @@ class controller_lambaithi extends model_general {
 				}
 			}
 		}
-			$_SESSION['Diem'] = $diem;
-			//header("location:View/index.php?p=testing?score=".$_SESSION['Diem']);
-			echo $_SESSION['Diem'];
+			$_SESSION['Diem-Reading'] = $diemreading;
+			$_SESSION['Diem-Listening'] = 0;
+			$_SESSION['Diem-Listening'] = $diemlistening;
+
 	}
 
 }

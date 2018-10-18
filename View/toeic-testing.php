@@ -7,22 +7,24 @@
     <div id="test-title" class="col-md-8">
     <h1>Đề thi mẫu TOEIC Số 1</h1>
     <div id="countdown-timer"><span id="m" name="m">120</span>:<span id="s" name="s">00</span></div>
-    <button onClick="local();">click</button>
-    <p id="fuckingshit"></p>
 		
     </div>
     <div id="main-contain-test" class="col-md-8">
            <?php
 				require_once("../Controller/controller_lambaithi.php");
 				session_start();
-				$loaicauhoi = 'R';
-				$made = 1;
-				$p = new controller_lambaithi();
-				$p->test_get_list_questions($loaicauhoi,$made); // in ra câu hỏi và trắc nghiệm
-				if(isset($_POST['submit-test']))
+				if(isset($_GET['id']))
 				{
-					$p->count_scores($loaicauhoi,$made); // tính điểm dựa trên số câu người dùng chọn
+					$made = $_GET['id'];
+					$loaicauhoi = 'R';
+					$p = new controller_lambaithi();
+					$p->test_get_list_questions($loaicauhoi,$made); // in ra câu hỏi và trắc nghiệm
+					if(isset($_POST['submit-test']))
+					{
+					$p->count_reading_scores($loaicauhoi,$made); // tính điểm dựa trên số câu người dùng chọn
+					}
 				}
+				
 			?>
     </div>
     <center><button id="test-bottom" class="col-md-8" onClick="nopbai();">Nộp bài</button></center>
@@ -32,30 +34,36 @@
     <script>
         var m=120;
         var s=0;
+        //lấy số thời gian còn lại trong localStorage của trình duyệt
 		if(localStorage.getItem("minutes-left"))
 		{
 			var m = localStorage.getItem("minutes-left");
 			var s = localStorage.getItem("seconds-left");
 		}
         var timeout=null;
-		window.onload = start();
+		window.onload = start(); //khi page vừa được load thì bộ đếm sẽ chạy ngay lập tức
+
+		//Khi nộp bài thì sẽ có hành động click nào nút submit-test trong form load câu hỏi
 		function nopbai() {
-			document.getElementById('submit-test').click();
+			var subm = confirm("Bạn có chắc chắn muốn nộp phần này?");
+			if(subm == true)
+			{
+				document.getElementById('submit-test').click();
+				saveCurrentTimer(); //Lưu thời gian còn lại vào localStorage
+			}
+			else
+				return;
 		}
-		function local() {
+
+		//Lưu thời gian còn lại vào localStorage
+		function saveCurrentTimer() {
 			var mm = document.getElementById("m").innerHTML;
  			var ss = document.getElementById("s").innerHTML;
 			localStorage.setItem("minutes-left",mm);
 			localStorage.setItem("seconds-left",ss);
 		}
-		function getms() {
-			var mm = document.getElementById('s').innerHTML;
-			document.getElementById("fuckingshit").textContent = mm;
-			//alert(get());
-			//var ss = document.getElementById('s').innerHTML;
-			//document.getElementById('mm').innerHTML = mm.toString();
-			//document.getElementById('ss').innerHTML = ss.toString();
-		}
+
+		//Bắt đầu thực hiện hành động đếm giờ
         function start(){
 			if(s==-1){
 				m=m-1;
@@ -80,5 +88,4 @@
 				start();
 			}, 1000);
     	}
-		window.onbeforeunload=function(){return 'Are you sure you want to leave? PLZ STAY!!!'}
     </script>
