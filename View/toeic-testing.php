@@ -7,12 +7,9 @@
     <div id="test-title" class="col-md-8">
     <h1>Đề thi mẫu TOEIC Số 1</h1>
     <div id="countdown-timer"><span id="m" name="m">120</span>:<span id="s" name="s">00</span></div>
-    <button onClick="local();">click</button>
-    <p id="fuckingshit"></p>
-		
     </div>
     <div id="main-contain-test" class="col-md-8">
-           <?php
+        <?php
 				require_once("../Controller/controller_lambaithi.php");
 				session_start();
 				$loaicauhoi = 'R';

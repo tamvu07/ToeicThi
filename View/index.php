@@ -84,9 +84,9 @@ if(isset($_GET['p'])){
         case "register": include("Register.php"); break;
         case "contact": include("contact.php"); break;
         case "testing": include("testing.php"); break;
-        case "toeic-testing": include "toeic-testing.php";break;
+//        case "toeic-testing": include "toeic-testing.php";break;
         case "exam": include "examList.php";break;
-        case "policy": include "policy.php";break;
+		case "begin-test": include("toeic-testing.php"); break;
         default: include("main.php"); break;
     }
 }
