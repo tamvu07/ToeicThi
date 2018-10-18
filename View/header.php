@@ -94,26 +94,26 @@
                     </div>
 
                     <div id="social">
-                    <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
-                       aria-label="facebook">
-                        <i class="ui-facebook"></i>
-                    </a>
-                    <a class="social social-twitter" href="https://www.twitter.com/" target="_blank"
-                       aria-label="twitter">
-                        <i class="ui-twitter"></i>
-                    </a>
-                    <a class="social social-google-plus" href="https://www.google.com/" target="_blank"
-                       aria-label="google">
-                        <i class="ui-google"></i>
-                    </a>
-                    <a class="social social-youtube" href="https://www.youtube.com/" target="_blank"
-                       aria-label="youtube">
-                        <i class="ui-youtube"></i>
-                    </a>
-                    <a class="social social-instagram" href="https://www.instagram.com/" target="_blank"
-                       aria-label="instagram">
-                        <i class="ui-instagram"></i>
-                    </a>
+                        <a class="social social-facebook" href="https://www.facebook.com/" target="_blank"
+                           aria-label="facebook">
+                            <i class="ui-facebook"></i>
+                        </a>
+                        <a class="social social-twitter" href="https://www.twitter.com/" target="_blank"
+                           aria-label="twitter">
+                            <i class="ui-twitter"></i>
+                        </a>
+                        <a class="social social-google-plus" href="https://www.google.com/" target="_blank"
+                           aria-label="google">
+                            <i class="ui-google"></i>
+                        </a>
+                        <a class="social social-youtube" href="https://www.youtube.com/" target="_blank"
+                           aria-label="youtube">
+                            <i class="ui-youtube"></i>
+                        </a>
+                        <a class="social social-instagram" href="https://www.instagram.com/" target="_blank"
+                           aria-label="instagram">
+                            <i class="ui-instagram"></i>
+                        </a>
                     </div>
                 </div>
             </div>
