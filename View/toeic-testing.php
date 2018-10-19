@@ -5,13 +5,12 @@
 <body>
     <div id="container-test">
     <div id="test-title" class="col-md-8">
-    <h1>Đề thi mẫu TOEIC Số 1</h1>
+    <h1>ĐỀ THI THỬ TOEIC SỐ <?= $_GET['id'] ?></h1>
     <div id="countdown-timer"><span id="m" name="m">120</span>:<span id="s" name="s">00</span></div>
     </div>
     <div id="main-contain-test" class="col-md-8">
         <?php
 				require_once("../Controller/controller_lambaithi.php");
-				session_start();
 				if(isset($_GET['id']))
 				{
 					$made = $_GET['id'];
@@ -30,6 +29,8 @@
     </div>
 </body>
 </html>
+
+	<!-- Javascript đếm giờ cho bài làm -->
     <script>
         var m=120;
         var s=0;

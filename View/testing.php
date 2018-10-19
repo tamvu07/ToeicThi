@@ -39,14 +39,14 @@ img:hover {
                 bài
                 thi mô phỏng dạng đề thi TOEIC thực tế do đội ngũ giáo viên của Desus kì công biên soạn. Bài làm của các
                 bạn
-                sẽ được chấm điểm và thông báo kết quả ngay sau khi các bạn nộp bài.</p>                                                                  height="150"></a>-->
+                sẽ được chấm điểm và thông báo kết quả ngay sau khi các bạn nộp bài.</p>
 
             <p id="describe"><?php $kq = $toeic->lay_DeThi();
                 $row = $kq->fetch_assoc();
                 echo $row['MoTa'] . " - Số câu hỏi: " . $row['SoCau'] . " câu - Thời lượng: " . $row['ThoiLuong'] . " phút - Lượt thi: " . $row['SoLanThi']; ?></p>
             <p style="color:#ee4b53;text-align: center">Bạn hãy click vào nút Start bên dưới để bắt đầu làm bài. Chúc các bạn đạt điểm số thật cao!</p>
             <form style="text-align: center;" onsubmit="return false">
-                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150" height="150"></a>
+                <a href="<?= $url ?>/Toeic-<?= $maDe ?>-testing.html"><img src="img/green-start-button.png" width="150" height="150"></a>
               
             </form>
             <br>
