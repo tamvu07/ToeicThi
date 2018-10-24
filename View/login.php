@@ -10,7 +10,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
 
 <div id="container">
     <div id="background"></div>
-    <div id="login-form" class="col-xl-4">
+    <div id="login-form" class="col-xl-3">
         <form method="post" action="">
             <table width="100%">
                 <tr>

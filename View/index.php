@@ -3,6 +3,12 @@ session_start();
 ob_start();
 require_once "../Controller/controller_main.php";
 $toeic=new controller_main();
+if (isset($_GET['p']))
+    $p = $_GET['p'];
+if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Login.html" && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Register.html"){
+    $_SESSION['back']=str_replace("localhost/ToeicThi/View/","",$_SERVER['REQUEST_URI']);
+}
+$toeic->kiemtra_Login();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,29 +48,6 @@ $toeic=new controller_main();
 
 <body class="bg-dark style-music">
 
-<!-- đoạn script của FB dùng để tải bộ SDK đăng nhập = facebook -->
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '{your-app-id}',
-            cookie     : true,
-            xfbml      : true,
-            version    : '{api-version}'
-        });
-
-        FB.AppEvents.logPageView();
-
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-<!-- end đăng nhập = facebook -->
 <?php include "header.php" ?>
 <main class="main oh" id="main">
 

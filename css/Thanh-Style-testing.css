@@ -9,7 +9,6 @@
     margin: 0px auto;
     background-color: white;
     padding-top:25px;
-    padding-bottom:25px;
 }
 /*-------------------*/
 
@@ -142,22 +141,36 @@ input[type="button"]:hover {
     margin: 0px auto;
 }
 
-#client-comment #user-comment{
-    text-align: right;
-}
-
 #container #feedback{
     border-top:2px solid lightgray;
     margin: 5px auto;
 }
 
-#container #test #ready-stage button{
-    color:#ee4b53;
-    width:200px;
-    margin:0px 10px;
+#container #main-contain #feedback #user-comment{
+    margin: 25px 25px;
+    padding: 0px 15px;
+    padding-top:15px;
+    background-color:#e7e7e7;
 }
-#container #test #ready-stage button:hover{
-    color:white;
+
+#container #main-contain #feedback #user-comment form{
+    margin-top:10px;
+    text-align: right;
+}
+
+#container #main-contain #feedback #user-comment input[type="submit"]{
+    width:150px;
+    border-radius:20px;
+    margin-right:25px;
+    margin-top:-15px;
+}
+
+#container #main-contain #feedback #check-login-comment{
+    background-color:#ffe6e9;
+    position:relative;
+    z-index: 10;
+    opacity: 0.7;
+    text-align: center;
 }
 
 #main-contain #feedback #category{
