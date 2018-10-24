@@ -3,13 +3,6 @@ session_start();
 ob_start();
 require_once "../Controller/controller_main.php";
 $toeic=new controller_main();
-if (isset($_GET['p']))
-    $p = $_GET['p'];
-if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Login.html" && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Register.html"){
-    $_SESSION['back']=str_replace("localhost/ToeicThi/View/","",$_SERVER['REQUEST_URI']);
-}
-$toeic->kiemtra_Login();
-// if(isset($_SESSION['login_id'])) echo "<p>".$_SESSION['login_email']."</p>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +23,8 @@ $toeic->kiemtra_Login();
     <link rel="stylesheet" href="css/font-icons.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors/cyan.css"/>
-
     <link rel="stylesheet" href="css/Thanh-Style-Header.css"/>
-
+    
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -85,9 +77,9 @@ if(isset($_GET['p'])){
         case "register": include("Register.php"); break;
         case "contact": include("contact.php"); break;
         case "testing": include("testing.php"); break;
-//        case "toeic-testing": include "toeic-testing.php";break;
+        case "toeic-testing": include "toeic-testing.php";break;
         case "exam": include "examList.php";break;
-		case "begin-test": include("toeic-testing.php"); break;
+        case "scores": include "scores.php";break;
         default: include("main.php"); break;
     }
 }

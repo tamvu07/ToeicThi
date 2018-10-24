@@ -3,6 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>Untitled Document</title>
+<script>
+	window.onunload = function (){
+  	alert('asd');
+}
+</script>
 </head>
 
 <body>
@@ -12,3 +17,4 @@
 ?>
 </body>
 </html>
+

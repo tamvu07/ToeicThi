@@ -14,10 +14,10 @@
 
 <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="600" height="100" id="flashContent">
 				<param name="movie" value="../TOEIC-upload/swf/mp3_test.swf" />
-				<param name="flashvars" value="mp3url=https://c1-ex-swe.nixcdn.com/NhacCuaTui969/NhuLoiDon-BaoAnh-5700656.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
+				<param name="flashvars" value="mp3url=../TOEIC-upload/MP3/listening1.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
 				<!--[if !IE]>-->
-				<object type="application/x-shockwave-flash" data="swf/mp3_test.swf" width="600" height="100">
-					<param name="flashvars" value="mp3url=https://c1-ex-swe.nixcdn.com/NhacCuaTui969/NhuLoiDon-BaoAnh-5700656.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
+				<object type="application/x-shockwave-flash" data="../TOEIC-upload/swf/mp3_test.swf" width="300" height="40">
+					<param name="flashvars" value="mp3url=../TOEIC-upload/MP3/listening1.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
 				<!--<![endif]-->
 					<a href="http://www.adobe.com/go/getflashplayer">
 						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />

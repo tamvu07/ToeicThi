@@ -41,20 +41,13 @@ class controller_main extends model
         } else {
             $row = $kq->fetch_assoc();
             if ($row['KichHoat'] == 1) {
-                $_SESSION['login_id'] = $row['IdUser'];
-                $_SESSION['login_level'] = $row['Quyen'];
-                $_SESSION['login_email'] = $row['Mail'];
-                $_SESSION['login_name'] = $row['HoTen'];
-                $_SESSION['avatar'] = $row['Avatar'];
                 if (isset($_POST['remember'])) {
-
                     setcookie('cookie_login',1,time() + 2592000,"/");
                     setcookie('login_id',$row['IdUser'],time() + 2592000,"/");
-
                     $_SESSION['login_id'] = $row['IdUser'];
                     $_SESSION['login_level'] = $row['Quyen'];
                     $_SESSION['login_email'] = $row['Mail'];
-					$_SESSION['login_lname'] = $row['Ho'];
+                    $_SESSION['login_lname'] = $row['Ho'];
                     $_SESSION['login_fname'] = $row['Ten'];
                     $_SESSION['avatar'] = $row['Avatar'];
 
