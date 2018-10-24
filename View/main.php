@@ -150,7 +150,7 @@
                                     <span>by</span>
                                     <a href="#"><?php $kqi = $toeic->lay_UserTheoId($row['NguoiTao']);
                                         $rowi = $kqi->fetch_assoc();
-                                        echo $rowi['HoTen']; ?></a>
+                                        echo $rowi['Ho']." ".$rowi['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -208,7 +208,7 @@
                                     <span>by</span>
                                     <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
                                         $row1 = $kq1->fetch_assoc();
-                                        echo $row1['HoTen']; ?></a>
+                                        echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -263,7 +263,7 @@
                                     <span>by</span>
                                     <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
                                         $row1 = $kq1->fetch_assoc();
-                                        echo $row1['HoTen']; ?></a>
+                                        echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -321,7 +321,7 @@
                                     <span>by</span>
                                     <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
                                         $row1 = $kq1->fetch_assoc();
-                                        echo $row1['HoTen']; ?></a>
+                                        echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018
@@ -359,7 +359,7 @@
                                     <span>by</span>
                                     <a href="#"><?php $kq1 = $toeic->lay_UserTheoId($row['NguoiTao']);
                                         $row1 = $kq1->fetch_assoc();
-                                        echo $row1['HoTen']; ?></a>
+                                        echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
                                     Jan 21, 2018

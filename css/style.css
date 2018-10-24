@@ -3115,7 +3115,6 @@ figcaption {
 /* Pagination
 /*-------------------------------------------------------*/
 .pagination {
-	margin-top: 40px;
 	text-align: center; }
 	.pagination__page {
 		font-size: 15px;

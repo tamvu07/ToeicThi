@@ -62,9 +62,9 @@ class model extends connection
         } else return 0;
     } // end checkusername
 
-    protected function layBinhLuan($maDe){
+    protected function layBinhLuan($maDe,$startRow,$pageSize){
         $maDe = $this->con->real_escape_string(trim($maDe));
-        $sql="select * from binhluan where MaDe=$maDe";
+        $sql="select * from binhluan where MaDe=$maDe ORDER BY MaBinhLuan DESC limit $startRow,$pageSize";
         $kq=$this->con->query($sql);
         if(!$kq) die($this->con->error);
         return $kq;

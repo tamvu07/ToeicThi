@@ -44,20 +44,12 @@ class controller_main extends model
                 $_SESSION['login_id'] = $row['IdUser'];
                 $_SESSION['login_level'] = $row['Quyen'];
                 $_SESSION['login_email'] = $row['Mail'];
-                $_SESSION['login_name'] = $row['HoTen'];
+                $_SESSION['login_lname'] = $row['Ho'];
+                $_SESSION['login_fname'] = $row['Ten'];
                 $_SESSION['avatar'] = $row['Avatar'];
                 if (isset($_POST['remember'])) {
-
                     setcookie('cookie_login',1,time() + 2592000,"/");
                     setcookie('login_id',$row['IdUser'],time() + 2592000,"/");
-
-                    $_SESSION['login_id'] = $row['IdUser'];
-                    $_SESSION['login_level'] = $row['Quyen'];
-                    $_SESSION['login_email'] = $row['Mail'];
-					$_SESSION['login_lname'] = $row['Ho'];
-                    $_SESSION['login_fname'] = $row['Ten'];
-                    $_SESSION['avatar'] = $row['Avatar'];
-
                 }
                 if (isset($_SESSION['back'])) {
                     $back = $_SESSION['back'];
@@ -101,7 +93,7 @@ class controller_main extends model
     function lay_binhluan($maDe,$pageNum,$pageSize,&$totalRows){
         $con = new model();
         $startRow=($pageNum-1)*$pageSize;
-        $kq=$con->layBinhLuan($maDe);
+        $kq=$con->layBinhLuan($maDe,$startRow,$pageSize);
         if(!$kq) return $this->con->error;
 
         $sql="select count(*) from binhluan where MaDe=$maDe";
@@ -121,17 +113,17 @@ class controller_main extends model
         $to=$pageNum+3;
         if($from<=0){ $from=1;$to=3*2;}
         if($to>$totalPages){ $to=$totalPages;}
-        $links="<ul class='pagination justify-content-end'>";
+        $links="<ul class='pagination justify-content-center'>";
         for($j=$from;$j<=$to;$j++){
             if($j==$pageNum){
-                $links=$links."<li class='page-item'><a class='page-link active' href='$baseURL/$j/'>$j</a></li>";
+                $links=$links."<li class='page-item active'><a class='page-link' href='$baseURL/$j'>$j</a></li>";
             }
             else{
-                $links=$links."<li class='page-item'><a class='page-link' href='$baseURL/$j/'>$j</a></li>";
+                $links=$links."<li class='page-item'><a class='page-link' href='$baseURL/$j'>$j</a></li>";
             }
-            $links=$links."</ul>";
-            return $links;
         }
+        $links=$links."</ul>";
+        return $links;
     } // end function phan_Trang
 }
 ?>
