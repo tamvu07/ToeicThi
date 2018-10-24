@@ -1,6 +1,8 @@
+/*Trang mô tả đề thi */
 #container {
     background-image: url("../img/layout/background.jpg");
     height: auto;
+	padding-bottom: 30px;
 }
 
 #main-contain {
@@ -8,6 +10,64 @@
     background-color: white;
     padding-top:25px;
 }
+/*-------------------*/
+
+/*Trang làm bài thi */
+#container-test {
+    background-image: url("../img/layout/background.jpg");
+    height: auto;
+	padding:30px;
+}
+
+#main-contain-test {
+    margin: 0px auto;
+    background-color: white;
+	height: 500px; overflow:auto;
+	text-align:center;
+	padding:15px;
+	border-radius:10px;
+}
+
+#test-title {
+	border-radius:10px;
+    margin: 0px auto;
+    background-color: white;
+	padding:10px;
+	margin-bottom: 15px;
+	text-transform:uppercase;
+	font-weight:bold;
+	text-align:center;
+}
+
+#test-bottom {
+	margin: 0px auto;
+	margin-top:10px;
+    background-color: #9CF;
+	color:white;
+	font-size:30px;
+	font-weight:bold;
+	border-radius:10px;
+	padding:10px;
+	text-align:center;
+}
+
+#test-bottom:hover
+{
+	background-color: #F3F;
+}
+
+
+#countdown-timer {
+	padding: 15px;
+	font-size:30px;
+	font-weight:bold;
+	width: 150px;
+	border-radius:10px;
+	background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+	margin:auto;
+}
+
+/*-------------------*/
 
 #container #main-contain #heading {
     box-sizing: border-box;
@@ -37,14 +97,22 @@
     font-size: 20px;
 }
 
-#container #main-contain form input[type="button"] {
-    width: 200px;
+input[type="button"] {
+    width: 300px;
     border-radius: 6px;
-    border-color: black;
     background-color: #00CC00;
     color: white;
     font-weight: bold;
     font-size: 25px;
+}
+
+.disabled-button {
+	opacity: 0;
+    cursor: not-allowed;
+}
+
+input[type="button"]:hover {
+	background-color:lightblue;
 }
 
 #comment,#category{

@@ -9,7 +9,6 @@ if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Lo
     $_SESSION['back']=str_replace("localhost/ToeicThi/View/","",$_SERVER['REQUEST_URI']);
 }
 $toeic->kiemtra_Login();
-// if(isset($_SESSION['login_id'])) echo "<p>".$_SESSION['login_email']."</p>";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,9 +29,8 @@ $toeic->kiemtra_Login();
     <link rel="stylesheet" href="css/font-icons.css"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors/cyan.css"/>
-
     <link rel="stylesheet" href="css/Thanh-Style-Header.css"/>
-
+    
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -50,29 +48,6 @@ $toeic->kiemtra_Login();
 
 <body class="bg-dark style-music">
 
-<!-- đoạn script của FB dùng để tải bộ SDK đăng nhập = facebook -->
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            appId      : '{your-app-id}',
-            cookie     : true,
-            xfbml      : true,
-            version    : '{api-version}'
-        });
-
-        FB.AppEvents.logPageView();
-
-    };
-
-    (function(d, s, id){
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "https://connect.facebook.net/en_US/sdk.js";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-</script>
-<!-- end đăng nhập = facebook -->
 <?php include "header.php" ?>
 <main class="main oh" id="main">
 
@@ -85,9 +60,9 @@ if(isset($_GET['p'])){
         case "register": include("Register.php"); break;
         case "contact": include("contact.php"); break;
         case "testing": include("testing.php"); break;
-//        case "toeic-testing": include "toeic-testing.php";break;
+        case "toeic-testing": include "toeic-testing.php";break;
         case "exam": include "examList.php";break;
-		case "begin-test": include("toeic-testing.php"); break;
+        case "scores": include "scores.php";break;
         default: include("main.php"); break;
     }
 }

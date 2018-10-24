@@ -86,9 +86,9 @@
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
                         } else {
-                            $return = $_SERVER['REQUEST_URI'];
-                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><i class="fas fa-address-card"></i><span>' . $_SESSION['login_lname'] . ' ' . $_SESSION['login_fname'] . '</span></a>
-                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return=' . $return . '" onfocus="false"><span>Đăng xuất</span></a>';
+							$return=$_SERVER['REQUEST_URI'];
+                            echo '<a id="hello-user" class="btn btn-sm btn-light" href="#" onfocus="false"><i class="fas fa-address-card"></i><span>'.$_SESSION['login_lname'].' '.$_SESSION['login_fname'].'</span></a>
+                                <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return='.$return.'" onfocus="false"><span>Đăng xuất</span></a>';
                         }
                         ?>
                     </div>

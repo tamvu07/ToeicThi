@@ -1,5 +1,14 @@
 <link rel="stylesheet" href="css/Thanh-Style-testing.css"/>
 
+<style>
+img {
+    opacity: 0.7;
+}
+img:hover {
+    opacity: 1;
+}
+</style>
+
 <?php
 if (isset($_GET['id'])) $maDe = $_GET['id'];
 if (isset($_GET['pageNum'])) $pageNum = $_GET['pageNum'];
@@ -39,8 +48,10 @@ $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
             <p style="color:#ee4b53;text-align: center">Bạn hãy click vào nút Start bên dưới để bắt đầu làm bài. Chúc
                 các bạn đạt điểm số thật cao!</p>
             <form style="text-align: center;" onsubmit="return false">
-                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150"
-                                                           height="150"></a>
+
+<!--                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150" height="150"></a>-->
+
+                <a href="<?= $url ?>/Toeic-<?= $maDe ?>-testing-1.html"><img src="img/green-start-button.png" width="150" height="150"></a>
 
             </form>
             <br>
@@ -51,7 +62,6 @@ $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
             <!-- binh luan -->
             <div id="comment" class="col-md-10">
                 <p><h5>CÁC Ý KIẾN BÌNH LUẬN - PHẢN HỒI VỀ BÀI THI NÀY</h5></p>
-
                 <div id="client-comment">
                     <?php
                     $kqbl = $toeic->lay_binhluan($maDe, $pageNum, 3, $totalRows);

@@ -50,7 +50,7 @@ class model extends connection
         $kq=$this->con->query($sql);
         if($kq->num_rows>0) return $kq;
         return $this->con->error;
-    }
+    } // end layDeThiTheoMaDe
 
     protected function checkusername($username)
     {
@@ -68,7 +68,7 @@ class model extends connection
         $kq=$this->con->query($sql);
         if(!$kq) die($this->con->error);
         return $kq;
-    }
+    } // end layBinhLuan
 }
 
 //cac method
