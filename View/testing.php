@@ -46,7 +46,7 @@ img:hover {
                 echo $row['MoTa'] . " - Số câu hỏi: " . $row['SoCau'] . " câu - Thời lượng: " . $row['ThoiLuong'] . " phút - Lượt thi: " . $row['SoLanThi']; ?></p>
             <p style="color:#ee4b53;text-align: center">Bạn hãy click vào nút Start bên dưới để bắt đầu làm bài. Chúc các bạn đạt điểm số thật cao!</p>
             <form style="text-align: center;" onsubmit="return false">
-                <a href="<?= $url ?>/Toeic-<?= $maDe ?>-testing.html"><img src="img/green-start-button.png" width="150" height="150"></a>
+                <a href="<?= $url ?>/Toeic-<?= $maDe ?>-testing-1.html"><img src="img/green-start-button.png" width="150" height="150"></a>
               
             </form>
             <br>

@@ -3,29 +3,66 @@
     <link rel="stylesheet" href="css/Thanh-Style-testing.css"/>
 </head>
 <body>
+	<?php
+		if(!isset($_SESSION['login_id'])) //nếu chưa đăng nhập thì chuyển sang trang đăng nhập
+		{
+			echo "<script>alert('Bạn chưa đăng nhập!');</script>";
+			header("location:../../../View/Login.html");
+		}
+
+	?>
     <div id="container-test">
     <div id="test-title" class="col-md-8">
-    <h1>ĐỀ THI THỬ TOEIC SỐ <?= $_GET['id'] ?></h1>
+    <h1>ĐỀ THI THỬ TOEIC SỐ <span id="made"><?= $_GET['id'] ?></span></h1>
     <div id="countdown-timer"><span id="m" name="m">120</span>:<span id="s" name="s">00</span></div>
     </div>
     <div id="main-contain-test" class="col-md-8">
         <?php
 				require_once("../Controller/controller_lambaithi.php");
+				if($_GET['part']==1)
+				{
+					$phan = 'Đọc';
+					$loaicauhoi = 'R';
+				}
+				else
+				{
+					$phan = 'Nghe';
+					$loaicauhoi = 'L';
+				}
 				if(isset($_GET['id']))
 				{
 					$made = $_GET['id'];
-					$loaicauhoi = 'R';
 					$p = new controller_lambaithi();
+					echo '<form method="post">';
 					$p->test_get_list_questions($loaicauhoi,$made); // in ra câu hỏi và trắc nghiệm
+					echo '<button type="submit" id="submit-test" name="submit-test" class="disabled-button"></button>
+					</form>';
 					if(isset($_POST['submit-test']))
 					{
-					$p->count_reading_scores($loaicauhoi,$made); // tính điểm dựa trên số câu người dùng chọn
+						if($_GET['part']==1)
+							$p->count_reading_scores($loaicauhoi,$made); // tính điểm dựa trên số câu người dùng chọn
+						else
+							$p->count_listening_scores($loaicauhoi,$made);
 					}
 				}
 				
 			?>
     </div>
-    <center><button id="test-bottom" class="col-md-8" onClick="nopbai();">Nộp bài</button></center>
+    <center>
+    	<?php
+    		if($_GET['part']==1)
+    			echo '<button id="test-bottom" class="col-md-8" onClick="nopbaiDoc();">Nộp bài phần ĐỌC </button>';
+    		else
+    			echo '<button id="test-bottom" class="col-md-8" onClick="nopbaiNghe();">Nộp bài phần NGHE </button>';
+    		
+		if(!isset($_SESSION['Diem-Reading']) && $_GET['part']==2) //nếu chưa có điểm đọc mà truy cập phần nghe
+			header("location:Toeic-".$_GET['id']."-testing-1.html");
+		if(isset($_SESSION['Diem-Reading']) && $_GET['part']==1) //nếu đã có điểm đọc mà vẫn ở trang thi đọc
+			header("location:Toeic-".$_GET['id']."-testing-2.html");
+		if(isset($_SESSION['Diem-Reading']) && isset($_SESSION['Diem-Listening'])) //nếu đã có cả hai điểm trong session
+			header("location:XemDiem.html")
+    	?>
+    </center>
     </div>
 </body>
 </html>
@@ -34,6 +71,7 @@
     <script>
         var m=120;
         var s=0;
+        var made = document.getElementById("made").innerHTML;
         //lấy số thời gian còn lại trong localStorage của trình duyệt
 		if(localStorage.getItem("minutes-left"))
 		{
@@ -44,12 +82,24 @@
 		window.onload = start(); //khi page vừa được load thì bộ đếm sẽ chạy ngay lập tức
 
 		//Khi nộp bài thì sẽ có hành động click nào nút submit-test trong form load câu hỏi
-		function nopbai() {
-			var subm = confirm("Bạn có chắc chắn muốn nộp phần này?");
+		function nopbaiDoc() {
+			var subm = confirm("Bạn có chắc chắn muốn nộp phần ĐỌC? Bạn sẽ không thể sửa lại sau khi nộp!");
 			if(subm == true)
 			{
 				document.getElementById('submit-test').click();
 				saveCurrentTimer(); //Lưu thời gian còn lại vào localStorage
+				//document.location.href = "../ToeicThi/View/Exam/TOEIC-"+made+"/Toeic-"+made+"-testing-2.html";
+			}
+			else
+				return;
+		}
+		function nopbaiNghe() {
+			var subm = confirm("Bạn có chắc chắn muốn nộp phần NGHE để kết thúc bài thi?");
+			if(subm == true)
+			{
+				document.getElementById('submit-test').click();
+				localStorage.clear();
+				//document.location.href = "../ToeicThi/View/Exam/TOEIC-"+made+"/XemDiem-"+made+".html";
 			}
 			else
 				return;
