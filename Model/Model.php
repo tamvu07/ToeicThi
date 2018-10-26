@@ -12,6 +12,13 @@ class model extends connection
         return false;
     } // end login
 
+    protected function register($lname,$fname,$email,$pass,$gender){
+        $sql="INSERT INTO nguoidung (IdUser, Ho, Ten, GioiTinh, MatKhau, Quyen, Mail, KichHoat, Avatar, NgayThamGia) VALUES (NULL, '$lname', '$fname', '$gender', '$pass', '3', '$email', '0', NULL, CURRENT_TIMESTAMP)";
+        $kq=$this->con->query($sql);
+        if($this->con->affected_rows>0) return true;
+        return $this->con->error;
+    }
+
     protected function getTinTuc($param)
     {
         if ($param == 'vi') {
@@ -35,8 +42,15 @@ class model extends connection
         $sql = "select * from nguoidung where IdUser='$idUser'";
         $kq = $this->con->query($sql);
         if ($kq->num_rows > 0) return $kq;
-        return $this->con->error();
+        return $this->con->error;
     } // end getIdUser
+
+    protected function getUserByEmail($email){
+        $sql = "select * from nguoidung where Mail='$email'";
+        $kq = $this->con->query($sql);
+        if ($kq->num_rows > 0) return $kq;
+        return $this->con->error;
+    }
 
     protected function layDeThi(){
         $sql="select * from dethi";
@@ -52,16 +66,6 @@ class model extends connection
         return $this->con->error;
     } // end layDeThiTheoMaDe
 
-    protected function checkusername($username)
-    {
-        $username = $this->con->escape_string(trim(strip_tags($username)));
-        $sql = "select * from nguoidung where IdUser = '$username' ";
-        $kq = $this->con->query($sql);
-        if ($kq->num_rows != 0) {
-            return 1;
-        } else return 0;
-    } // end checkusername
-
     protected function layBinhLuan($maDe,$startRow,$pageSize){
         $maDe = $this->con->real_escape_string(trim($maDe));
         $sql="select * from binhluan where MaDe=$maDe ORDER BY MaBinhLuan DESC limit $startRow,$pageSize";
@@ -69,6 +73,20 @@ class model extends connection
         if(!$kq) die($this->con->error);
         return $kq;
     } // end layBinhLuan
+
+    protected function luuBinhLuan($idUser,$maDe,$bl){
+        $sql="INSERT INTO binhluan (MaBinhLuan, NguoiDang, NoiDung, NgayDang, NgayChinhSua, MaDe) VALUES (NULL, '$idUser', '$bl', CURRENT_TIMESTAMP, NULL, '$maDe');";
+        $kq=$this->con->query($sql);
+        if($this->con->affected_rows>0) return true;
+        return $this->con->error;
+    }
+
+    protected function layBaiLamTheoId($idUser){
+        $sql="select * from bailam where IdUser=$idUser";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return false;
+    }
 }
 
 //cac method

@@ -1,31 +1,29 @@
 <link rel="stylesheet" href="css/Thanh-Style-testing.css"/>
 
-<style>
-img {
-    opacity: 0.7;
-}
-img:hover {
-    opacity: 1;
-}
-</style>
-
 <?php
 if (isset($_GET['id'])) $maDe = $_GET['id'];
 if (isset($_GET['pageNum'])) $pageNum = $_GET['pageNum'];
 settype($pageNum, 'int');
 if ($pageNum < 0) $pageNum = 1;
 $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
+
+// css cho textarea
+if(!isset($_SESSION['login_id']))
+    echo '<script>
+    $(document).ready(function () {
+        $("textarea[name=comment]").css("color","red");
+        $("textarea[name=comment]").css("text-align","center");
+        $("textarea[name=comment]").css("padding-top","35px");
+        $("textarea[name=comment]").css("font-size","20px");
+    });
+</script>'; // end css cho textarea
+
+if(isset($_POST['comment'])){
+    $bl=$_POST['comment'];
+    $idUser=$_SESSION['login_id'];
+    $toeic->luu_BinhLuan($idUser,$maDe,$bl);
+}
 ?>
-
-<style>
-    img {
-        opacity: 0.7;
-    }
-
-    img:hover {
-        opacity: 1;
-    }
-</style>
 
 <div id="container">
     <div id="main-contain" class="col-md-8">
@@ -74,8 +72,7 @@ $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
                             ?>
                             <tr>
                                 <td style="width: 15%;"><img src="img/logo.dethi.jpeg"></td>
-                                <td style="width:25%">NICK NAME: <?= $row['Ho'] . " " . $row['Ten'] ?><BR>TRÌNH ĐỘ ANH
-                                    VĂN: ..<BR>NGÀY ĐĂNG: <?= $rowbl['NgayDang'] ?><BR>BÀI VIẾT: ..
+                                <td style="width:25%">Nick name: <?= $row['Ho'] . " " . $row['Ten'] ?><BR>Trình độ anh văn: ..<BR>Ngày đăng: <?= $rowbl['NgayDang'] ?>
                                 </td>
                                 <td style="width: 60%"><?= $rowbl['NoiDung'] ?></td>
                             </tr>
@@ -93,8 +90,8 @@ $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
 
                     <div id="user-comment">
                         <strong>Ý KIẾN - BÌNH LUẬN CỦA BẠN</strong><br>
-                        <form method="post" action="Controller/xulyBinhLuan.php">
-                            <textarea name="comment"></textarea>
+                        <form method="post" action="">
+                            <textarea name="comment"<?=(isset($_SESSION['login_id']))?"":"disabled"?>><?=(isset($_SESSION['login_id']))?"":"BẠN CHƯA ĐĂNG NHẬP"?></textarea>
                             <input type="submit" value="Gửi bình luận" <?=(isset($_SESSION['login_id']))?"":"disabled"?> >
                         </form>
                     </div>
@@ -125,14 +122,3 @@ $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
         <br>
     </div>
 </div>
-
-<!--<script language="JavaScript">-->
-<!--    $(document).ready(function () {-->
-<!--        var height=$("#user-comment").height();-->
-<!--        var width=$("#user-comment").width();-->
-<!--        $("#check-login-comment").height(height);-->
-<!--        $("#check-login-comment").width(width);-->
-<!--        $("#check-login-comment").html("BẠN CHƯA ĐĂNG NHẬP");-->
-<!--    });-->
-<!--</script>-->
-
