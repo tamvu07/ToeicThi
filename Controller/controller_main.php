@@ -200,6 +200,20 @@ class controller_main extends model
         if($kq) return $kq;
         return false;
     }
+
+     /*bat dau trang profile*/
+     function upload_profile_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh){
+        $con=new model();
+        $kq = $con->upload_profile_database_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh);
+        return $kq;
+    }
+    function profile_display_all(){
+        $con=new model();
+       $kq = $con->profile_display_all_database();
+        return $kq;
+    }
+
+     /*ket thuc trang profile*/
 }
 
 ?>
