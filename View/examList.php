@@ -6,7 +6,10 @@ $kq = $toeic->lay_DeThi();
 
 <div id="container" class="col-md-6">
     <p><a href="#">Trang chủ</a> / <a href="View/Exam"> Đề thi Toeic</a></p>
-    <p><h1>ĐỀ THI THỬ TOEIC</h1></p>
+    <p>
+    <h1>ĐỀ THI THỬ TOEIC</h1></p>
+
+    <!-- vong lap while cac de thi -->
     <?php while ($row = $kq->fetch_assoc()) {
         $dethi = str_replace(" ", "-", $row['TieuDe'])
         ?>
@@ -25,28 +28,43 @@ $kq = $toeic->lay_DeThi();
             </span>
             </div>
 
-            <?php
-            //        if(isset($_SESSION['login_id']))
-            //            echo "đã đăng nhập";
-            //        else
-            //            echo "chưa đăng nhập"
-            //        ?>
-
             <div id="score" class="col-md-3">
+                <?php
+                if (isset($_SESSION['login_id'])) {
+                    $kqUser = $toeic->lay_BaiLamTheoId($_SESSION['login_id']);
+                    if ($kqUser) $rowUser = $kqUser->fetch_assoc();
+                }
+                ?>
+
                 <table>
                     <tr style="border-bottom: 1px dotted lightgray">
-                        <td colspan="2">Tổng điểm<br>0/990</td>
+                        <td colspan="2">Tổng
+                            điểm<br><?= (isset($_SESSION['login_id'])) ? (($kqUser) ? (($rowUser['MaDe'] == $row['MaDe']) ? ($rowUser['DiemDoc'] + $rowUser['DiemNghe']) : 0) : 0) : 0 ?>
+                            /990
+                        </td>
                     </tr>
                     <tr>
-                        <td style="border-right: 1px dotted lightgray">Reading<br>0</td>
-                        <td>Listening<br>0</td>
+                        <td style="border-right: 1px dotted lightgray">
+                            Reading<br><?= (isset($_SESSION['login_id'])) ? (($kqUser) ? (($rowUser['MaDe'] == $row['MaDe']) ? $rowUser['DiemDoc'] : 0) : 0) : 0 ?>
+                        </td>
+                        <td>
+                            Listening<br><?= (isset($_SESSION['login_id'])) ? (($kqUser) ? (($rowUser['MaDe'] == $row['MaDe']) ? $rowUser['DiemNghe'] : 0) : 0) : 0 ?>
+                        </td>
                     </tr>
+
+                    <?php if (!isset($_SESSION['login_id'])) {
+                        echo '
                     <tr style="border-top: 1px dotted lightgray">
                         <td colspan="2">Bạn chưa làm bài thi này</td>
                     </tr>
+                    ';
+                    } ?>
+
                 </table>
                 <img src="img/Small-things-UI/to_bgarr_left.png">
             </div>
         </div>
     <?php } ?>
+    <!-- end vong lap while cac de thi -->
+
 </div>
