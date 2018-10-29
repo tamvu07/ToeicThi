@@ -1,4 +1,4 @@
-
+<!-- moi lay tu master ve  -->
 
 <?php
 $label_display_all  = "Thay Đổi Thông Tin !";
