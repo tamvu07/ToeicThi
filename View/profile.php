@@ -1,4 +1,4 @@
-<!-- moi lay tu master ve  -->
+<!-- moi lay tu master ve  , day la tam27_10-->
 
 <?php
 $label_display_all  = "Thay Đổi Thông Tin !";
