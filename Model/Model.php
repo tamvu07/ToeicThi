@@ -87,7 +87,35 @@ class model extends connection
         if($kq->num_rows>0) return $kq;
         return false;
     }
+
+   /*bat dau trang profile*/
+        function upload_profile_database_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh){
+    $pass = $this->con->escape_string(trim(strip_tags($txt_matkhau)));
+    $txt_matkhau2 = base64_encode($pass);
+
+    $idUser = $_SESSION['login_id'];
+    $sql = "UPDATE nguoidung set Ho='$txt_ho',Ten='$txt_ten',MatKhau='$txt_matkhau2',GioiTinh='$gioitinh', Avatar='$avatar' where IdUser = '$idUser' ";
+    $kq = $this->con->query($sql);
+    if($kq == true){
+        return true;
+    }else{
+        return false;
+    }
+
 }
+
+      function profile_display_all_database(){
+        $idUser = $_SESSION['login_id'];
+    $sql = "SELECT * from nguoidung where IdUser = '$idUser' ";
+    $kq = $this->con->query($sql);
+    if($kq->num_rows > 0) return $kq;
+    return $this->con->error();
+    }
+
+    /*ket thuc trang profile*/
+
+}
+
 
 //cac method
 ?>

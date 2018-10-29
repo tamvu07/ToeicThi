@@ -63,6 +63,7 @@ if(isset($_GET['p'])){
         case "toeic-testing": include "toeic-testing.php";break;
         case "exam": include "examList.php";break;
         case "scores": include "scores.php";break;
+        case "profile": include("profile.php"); break;
         default: include("main.php"); break;
     }
 }
