@@ -13,6 +13,31 @@
     <h1>ĐỀ THI THỬ TOEIC SỐ <span id="made"><?= $_GET['id'] ?></span></h1>
     <div id="countdown-timer"><span id="m" name="m">120</span>:<span id="s" name="s">00</span></div>
     </div>
+    <?php
+    	//Nếu đang ở phần nghe (part=1) thì load file MP3 chạy 1 lần lên
+    	if($_GET['part']==1)
+    		{
+    			$denghe = $_GET['id'];
+    ?>
+    <div id="mp3-player" class="col-md-8">
+    	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="600" height="100" id="flashContent">
+				<param name="movie" value="TOEIC-upload/swf/mp3_test.swf" />
+				<param name="flashvars" value="mp3url=TOEIC-upload/MP3/listening<?php echo $denghe; ?>.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
+				<!--[if !IE]>-->
+				<object type="application/x-shockwave-flash" data="TOEIC-upload/swf/mp3_test.swf" width="600" height="30">
+					<param name="flashvars" value="mp3url=TOEIC-upload/MP3/listening<?php echo $denghe; ?>.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
+				<!--<![endif]-->
+					<a href="http://www.adobe.com/go/getflashplayer">
+						<img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" />
+					</a>
+				<!--[if !IE]>-->
+				</object>
+				<!--<![endif]-->
+			</object>
+    </div>
+    <?php
+    	}
+    ?>
     <div id="main-contain-test" class="col-md-8">
         <?php
 
@@ -55,9 +80,9 @@
     			echo '<button id="test-bottom" class="col-md-8" onClick="nopbaiDoc();">Nộp bài phần ĐỌC </button>';
     		
 		if(!isset($_SESSION['Diem-Listening']) && $_GET['part']==2) //nếu chưa có điểm nghe mà truy cập phần đọc
-			header("location:Toeic-".$_GET['id']."-testing-1.html");
+			header("location:Toeic-testing-1.html");
 		if(isset($_SESSION['Diem-Listening']) && $_GET['part']==1) //nếu đã có điểm nghe mà vẫn ở trang thi nghe
-			header("location:Toeic-".$_GET['id']."-testing-2.html");
+			header("location:Toeic-testing-2.html");
 		if(isset($_SESSION['Diem-Reading']) && isset($_SESSION['Diem-Listening'])) //nếu đã có cả hai điểm trong session
 			header("location:XemDiem.html")
     	?>
@@ -71,7 +96,6 @@
     <script>
         var m=120;
         var s=0;
-        var made = document.getElementById("made").innerHTML;
         //lấy số thời gian còn lại trong localStorage của trình duyệt
 		if(localStorage.getItem("minutes-left"))
 		{
@@ -88,10 +112,13 @@
 			{
 				document.getElementById('submit-test').click();
 				saveCurrentTimer(); //Lưu thời gian còn lại vào localStorage
-				//document.location.href = "../ToeicThi/View/Exam/TOEIC-"+made+"/Toeic-"+made+"-testing-2.html";
 			}
 			else
 				return;
+		}
+		function nopbaiNghe_force() {
+			document.getElementById('submit-test').click();
+			saveCurrentTimer();
 		}
 		function nopbaiDoc() {
 			var subm = confirm("Bạn có chắc chắn muốn nộp phần ĐỌC để kết thúc bài thi?");
@@ -99,7 +126,6 @@
 			{
 				document.getElementById('submit-test').click();
 				localStorage.clear();
-				//document.location.href = "../ToeicThi/View/Exam/TOEIC-"+made+"/XemDiem-"+made+".html";
 			}
 			else
 				return;
@@ -111,6 +137,7 @@
  			var ss = document.getElementById("s").innerHTML;
 			localStorage.setItem("minutes-left",mm);
 			localStorage.setItem("seconds-left",ss);
+			localStorage.setItem("listening-tested",1);
 		}
 
 		//Bắt đầu thực hiện hành động đếm giờ
@@ -119,11 +146,19 @@
 				m=m-1;
 				s=59;
 			}
+			if(m==74 && s==59)
+			{
+				if(!localStorage.getItem("listening-tested"))
+				{
+					alert('Hết giờ phần thi NGHE, hệ thống tự động nộp bài!');
+					nopbaiNghe_force();
+				}
+			}
 			if(m==-1)
 			{
 				clearTimeout(timeout);
 				alert('hết giờ, hệ thống dã tự động nộp bài');
-				nopbai();
+				nopbaiDoc();
 			}
 			if(m < 10)
 				document.getElementById('m').innerText = '0' + m.toString();

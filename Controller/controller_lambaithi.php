@@ -1,24 +1,40 @@
 <?php
 
-require_once("../Model/model_general.php");
-class controller_lambaithi extends model_general {
-	
+require_once("../Model/model_lambaithi.php");
+class controller_lambaithi extends model_lambaithi {
+
+	//Lấy về danh sách câu hỏi, câu trả lời và đáp án phần 1 - Hình ảnh - LISTENING
+	function test_get_part1_listening_questions($made)
+	{
+		$p = new model_lambaithi();
+	}
+
+	//Lấy về danh sách câu hỏi, câu trả lời và đáp án phần 2 - Hội thoại - LISTENING
+	//Chỉ in ra 3 câu A, B, C
+	function test_get_part2_listening_questions($made)
+	{
+		$p = new model_lambaithi();
+	}
+
 	//Lấy về danh sách câu hỏi, câu trả lời và đáp án
-	//In câu hỏi, 4 câu trả lời
+	//In câu hỏi, 4 đáp án ABCD, dùng chung cho hầu hết các câu hỏi
 	function test_get_list_questions($loaicauhoi,$made)
 	{
-		$p = new model_general();
+		$p = new model_lambaithi();
 		$p->select($p->test_get_list_questions($loaicauhoi,$made));
 		if($loaicauhoi=='R')
 			$i=101;
 		else
 			$i=1;
 		while($rows=$p->load_rows()) {
-			echo 'Câu '.$i++.'.'.$rows["NoiDung"].'<br>';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> A. '.$rows["A"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> B. '.$rows["B"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'"> C. '.$rows["C"].' ';
-			echo '<input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"];
+			echo '<table cellspacing="5" cellpadding="10" style="font-size:110%;">';
+			echo '<tr><td rowspan="3"><div class="question_num"><b>Câu '.$i++.'. </b>'.'</div></td>';
+			echo '<td colspan="2">'.$rows["NoiDung"].'</td></tr><br>';
+			echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> A. '.$rows["A"].' </td>';
+			echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> B. '.$rows["B"].' </td></tr>';
+			echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'"> C. '.$rows["C"].' </td>';
+			echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"].'</td></tr>';
+			echo '</table>';
 			echo '<hr width="50%">';
 		}
 	}
@@ -27,7 +43,7 @@ class controller_lambaithi extends model_general {
 	function count_reading_scores($loaicauhoi,$made) {
 		$diemreading = 5;
 		$mark = 0;
-		$p = new model_general();
+		$p = new model_lambaithi();
 		$p->select($p->test_get_list_questions($loaicauhoi,$made));
 		while($ans=$p->load_rows())
 		{
@@ -55,7 +71,7 @@ class controller_lambaithi extends model_general {
 	{
 		$diemlistening = 5;
 		$mark = 0;
-		$p = new model_general();
+		$p = new model_lambaithi();
 		$p->select($p->test_get_list_questions($loaicauhoi,$made));
 		while($ans=$p->load_rows())
 		{
@@ -80,13 +96,13 @@ class controller_lambaithi extends model_general {
 
 	function test_save_scores($iduser,$made,$diemdoc,$diemnghe)
 	{
-		$p = new model_general();
+		$p = new model_lambaithi();
 		$p->test_save_scores($iduser,$made,$diemdoc,$diemnghe);
 	}
 
 	function test_get_scores($iduser,$made)
 	{
-		$p = new model_general();
+		$p = new model_lambaithi();
 		$p->select($p->test_get_scores($iduser,$made));
 		while($rows = $p->load_rows())
 		{

@@ -49,7 +49,7 @@ if(isset($_POST['comment'])){
 
 <!--                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150" height="150"></a>-->
 
-                <a href="<?= $url ?>/Toeic-<?= $maDe ?>-testing-1.html"><img src="img/green-start-button.png" width="150" height="150"></a>
+                <a href="<?= $url ?>/Toeic-testing-1.html"><img src="img/green-start-button.png" width="150" height="150"></a>
 
             </form>
             <br>
