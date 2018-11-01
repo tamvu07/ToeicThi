@@ -3,17 +3,13 @@
 require_once("../Model/model_lambaithi.php");
 class controller_lambaithi extends model_lambaithi {
 
-	//Lấy về danh sách câu hỏi, câu trả lời và đáp án phần 1 - Hình ảnh - LISTENING
-	function test_get_part1_listening_questions($made)
+	//Lấy mô tả của các phần câu hỏi
+	function test_get_part_description($loaicauhoi)
 	{
 		$p = new model_lambaithi();
-	}
-
-	//Lấy về danh sách câu hỏi, câu trả lời và đáp án phần 2 - Hội thoại - LISTENING
-	//Chỉ in ra 3 câu A, B, C
-	function test_get_part2_listening_questions($made)
-	{
-		$p = new model_lambaithi();
+		$p->select($p->test_get_part_description($loaicauhoi));
+		$rows=$p->load_rows();
+			echo '<br><div class="description"><b>'.$rows["MoTa"].'</b></div><br>';
 	}
 
 	//Lấy về danh sách câu hỏi, câu trả lời và đáp án
@@ -27,15 +23,56 @@ class controller_lambaithi extends model_lambaithi {
 		else
 			$i=1;
 		while($rows=$p->load_rows()) {
-			echo '<table cellspacing="5" cellpadding="10" style="font-size:110%;">';
-			echo '<tr><td rowspan="3"><div class="question_num"><b>Câu '.$i++.'. </b>'.'</div></td>';
-			echo '<td colspan="2">'.$rows["NoiDung"].'</td></tr><br>';
-			echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> A. '.$rows["A"].' </td>';
-			echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> B. '.$rows["B"].' </td></tr>';
-			echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'"> C. '.$rows["C"].' </td>';
-			echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"].'</td></tr>';
-			echo '</table>';
-			echo '<hr width="50%">';
+			//Dựa vào số câu hiện tại để in ra mô tả cho phần câu hỏi đó
+			if($i==1)
+				$this->test_get_part_description('L-HINHANH');
+			else if($i==11)
+				$this->test_get_part_description('L-HOIDAP');
+			else if($i==41)
+				$this->test_get_part_description('L-HOITHOAI');
+			else if($i==71)
+				$this->test_get_part_description('L-NOICHUYEN');
+			else if($i==101)
+				$this->test_get_part_description('R-DIENCAU');
+			else if($i==141)
+				$this->test_get_part_description('R-DIENDOANVAN');
+			else if($i==155)
+				$this->test_get_part_description('R-HOIDOANVAN');
+			if($rows['D']=='(D)')
+			{
+				echo '<table cellspacing="5" cellpadding="10" style="font-size:110%;">';
+				echo '<tr><td rowspan="3"><div class="question_num"><b>Câu '.$i++.'. </b>'.'</div></td>';
+				echo '<td colspan="2">'.$rows["NoiDung"].'</td></tr><br>';
+				echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> '.$rows["A"].' </td>';
+				echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> '.$rows["B"].' </td></tr>';
+				echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'"> '.$rows["C"].' </td>';
+				echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> '.$rows["D"].'</td></tr>';
+				echo '</table>';
+				echo '<hr width="50%">';
+			}
+			else if($rows['D']=='X')
+			{
+				echo '<table cellspacing="5" cellpadding="10" style="font-size:110%;">';
+				echo '<tr><td rowspan="3"><div class="question_num"><b>Câu '.$i++.'. </b>'.'</div></td>';
+				echo '<td colspan="2">'.$rows["NoiDung"].'</td></tr><br>';
+				echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> '.$rows["A"].' </td>';
+				echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> '.$rows["B"].' </td></tr>';
+				echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'"> '.$rows["C"].' </td></tr>';
+				echo '</table>';
+				echo '<hr width="50%">';
+			}
+			else
+			{
+				echo '<table cellspacing="5" cellpadding="10" style="font-size:110%;">';
+				echo '<tr><td rowspan="3"><div class="question_num"><b>Câu '.$i++.'. </b>'.'</div></td>';
+				echo '<td colspan="2">'.$rows["NoiDung"].'</td></tr><br>';
+				echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["A"].'"> A. '.$rows["A"].' </td>';
+				echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["B"].'"> B. '.$rows["B"].' </td></tr>';
+				echo '<tr><td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["C"].'"> C. '.$rows["C"].' </td>';
+				echo '<td><input type="radio" name="'.$rows["MaCauHoi"].'" value="'.$rows["D"].'"> D. '.$rows["D"].'</td></tr>';
+				echo '</table>';
+				echo '<hr width="50%">';
+			}
 		}
 	}
 	

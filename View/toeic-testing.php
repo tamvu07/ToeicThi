@@ -14,7 +14,7 @@
     <div id="countdown-timer"><span id="m" name="m">120</span>:<span id="s" name="s">00</span></div>
     </div>
     <?php
-    	//Nếu đang ở phần nghe (part=1) thì load file MP3 chạy 1 lần lên
+    	//Nếu đang ở phần nghe (part=1) thì load file MP3 lên
     	if($_GET['part']==1)
     		{
     			$denghe = $_GET['id'];
@@ -24,7 +24,7 @@
 				<param name="movie" value="TOEIC-upload/swf/mp3_test.swf" />
 				<param name="flashvars" value="mp3url=TOEIC-upload/MP3/listening<?php echo $denghe; ?>.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
 				<!--[if !IE]>-->
-				<object type="application/x-shockwave-flash" data="TOEIC-upload/swf/mp3_test.swf" width="600" height="30">
+				<object type="application/x-shockwave-flash" data="TOEIC-upload/swf/mp3_test.swf" width="600" height="33">
 					<param name="flashvars" value="mp3url=TOEIC-upload/MP3/listening<?php echo $denghe; ?>.mp3&amp;timesToPlay=2&amp;showPlay=true&amp;waitToPlay=true&amp;showID3=true&amp;addHttp=false" />
 				<!--<![endif]-->
 					<a href="http://www.adobe.com/go/getflashplayer">

@@ -84,6 +84,41 @@
     border-radius: 18px;
 }
 
+.description {
+    font-size:20px;
+    border: 1px solid blue;
+    border-radius:15px;
+    padding: 10px;
+    color: cadetblue;
+}
+
+/*-------------------*/
+
+/* Trang xem điểm */
+
+#score-table {
+    margin:100px;
+}
+
+.t-head {
+    background-color:paleturquoise;
+}
+
+.t-sum {
+    background-color:orange;
+    color:white;
+    font-size: 25px;
+}
+
+#score-table td {
+    border: 1px solid black;
+    text-align:center;
+    font-weight: bold;
+    font-size:17px;
+    color:red;
+    width:1%;
+}
+
 /*-------------------*/
 
 #container #main-contain #heading {
