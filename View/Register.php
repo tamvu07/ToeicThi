@@ -1,16 +1,48 @@
 <link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
 
 <?php
-if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])&&isset($_POST['password'])&&isset($_POST['repassword'])&&isset($_POST['gender'])){
+
+$firstname = isset($_REQUEST["firstname"]) ? $_REQUEST["firstname"] : '';
+$lastname = isset($_REQUEST["lastname"]) ? $_REQUEST["lastname"] : '';
+$email = isset($_REQUEST["email"]) ? $_REQUEST["email"] : '';
+$password = isset($_REQUEST["password"]) ? $_REQUEST["password"] : '';
+$repassword = isset($_REQUEST["repassword"]) ? $_REQUEST["repassword"] : '';
+
+if(isset($_POST['nut']))
+{
+
+
+if( $firstname == "" || $lastname == "" || $email == "" || $password == "" || $repassword == "" )
+{
+    echo '<script type="text/javascript">
+            alert("Vui Lòng Nhập Đủ thông Tin !");
+                        </script>
+                        ';
+}else
+{
     $fname=$_POST['firstname'];
     $lname=$_POST['lastname'];
     $email=$_POST['email'];
     $pass=$_POST['password'];
     $repass=$_POST['repassword'];
-    $gender=$_POST['gender'];
-
-    $kq=$toeic->xulyRegister($lname,$fname,$email,$pass,$repass,$gender);
+    $kq=$toeic->xulyRegister($fname,$lname,$email,$pass);
+    if($kq)
+    {
+    echo '<script type="text/javascript">
+            alert("ĐÃ ĐĂNG KÝ THÀNH CÔNG!");
+                        </script>
+                        ';
+    }else
+    {
+     echo '<script type="text/javascript">
+            alert("ĐĂNG KÝ THẤT BẠI!");
+                        </script>
+                        ';       
+    }
 }
+
+}
+
 ?>
 
 <div id="container" class="">
@@ -28,14 +60,11 @@ if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])
                     </tr>
 
                     <tr>
-                        <td colspan="3"><input type="text" name="lastname" placeholder="Last name" value="<?=(isset($_POST['lastname']))?$_POST['lastname']:""?>" autofocus></td>
+                        <td colspan="3"><input type="text" name="lastname" placeholder="Last name" autofocus></td>
                     </tr>
 
                     <tr>
-                        <td colspan="3"><input type="text" name="firstname" placeholder="First name" value="<?=(isset($_POST['firstname']))?$_POST['firstname']:""?>"></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><div id="gender"><span>Giới tính</span><input type="radio" name="gender" value="Nam" checked id="nam"> Nam<input id="nu" type="radio" name="gender" value="Nữ"> Nữ</div></td>
+                        <td colspan="3"><input type="text" name="firstname" placeholder="First name" ></td>
                     </tr>
                     <tr>
                         <td colspan="3"><input type="text" name="email" id="email" placeholder="Email">
@@ -53,7 +82,7 @@ if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])
 
                     <tr>
                         <td colspan="3" height="100">
-                            <button class="btn btn-success" type="submit">ĐĂNG KÍ</button>
+                            <button class="btn btn-success" type="submit" name="nut" id="nut">ĐĂNG KÍ</button>
                         </td>
                     </tr>
                 </table>
@@ -93,8 +122,8 @@ if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])
         width: 300px;
         border: 1px solid red;
         position: absolute;
-        top: 690px;
-        left: 70px;
+        top: 475px;
+        left: 309px;
         padding-top:4px;
         color:red;
     }
@@ -109,20 +138,100 @@ if(isset($_POST['firstname'])&&isset($_POST['lastname'])&&isset($_POST['email'])
                 "email=" + $('#email').val(),
                 function (d) {
                     if (d != "")
+                    {
                         $("#checkValidate").html(d).show();
+                        /*setTimeout(function(){
+                            $("#checkValidate").html("");
+                            $("#checkValidate").hide();
+                        },3000);*/
+                    }
+
                     else {
                         $("#checkValidate").html("");
                         $("#checkValidate").hide();
                     }
                 });
         });
+/*bat dau xu ly repass va pass*/
+               $('#password').blur(function(){
+                    var password = $('#password').val();
+                     var repassword = $('#repassword').val();
+                            $.get(
+                                'Controller/checkValidate.php',
+                                {pass:password,repass:repassword},
+                                function (d) {
+                                    if (d != "")
+                                    {
+                                        $("#checkValidate").html(d).show();
+                                        /*setTimeout(function(){
+                                            $("#checkValidate").html("");
+                                            $("#checkValidate").hide();
+                                        },3000);*/
+                                    }
 
+                                    else {
+                                        $("#checkValidate").html("");
+                                        $("#checkValidate").hide();
+                                    }
+                                });
+                        });
+
+
+                $('#repassword').blur(function(){
+                    var password = $('#password').val();
+                     var repassword = $('#repassword').val();
+                            $.get(
+                                'Controller/checkValidate.php',
+                                {pass:password,repass:repassword},
+                                function (d) {
+                                    if (d != "")
+                                    {
+                                        $("#checkValidate").html(d).show();
+                                        /*setTimeout(function(){
+                                            $("#checkValidate").html("");
+                                            $("#checkValidate").hide();
+                                        },3000);*/
+                                    }
+
+                                    else {
+                                        $("#checkValidate").html("");
+                                        $("#checkValidate").hide();
+                                    }
+                                });
+                        });
+
+/*ket thuc repass va pass*/
+/*bat dau xu ly email*/
+                $('#email').blur(function(){
+                    var email = $('#email').val();
+                            $.get(
+                                'Controller/checkValidate.php',
+                                {email:email},
+                                function (d) {
+                                    if (d != "")
+                                    {
+                                        $("#checkValidate").html(d).show();
+                                    }
+
+                                    else {
+                                        $("#checkValidate").html("");
+                                        $("#checkValidate").hide();
+                                    }
+                                });
+                        });
+
+/*ket thuc xu ly email*/
     });
     $(document).ready(function () {
-        $("form").submit(function () {
+        $("form").submit(function (event) {
             var text = $("#checkValidate").html();
-            if (text != "") return false;
-            return true;
+            if (text != "")
+            {
+                alert("Không Thể Thực Thi !");
+                event.preventDefault();
+                /*window.location = "http://localhost/ToeicThi/View/Register.html";*/
+            }
+            
         });
     });
 </script>
