@@ -64,6 +64,8 @@ if(isset($_GET['p'])){
         case "exam": include "examList.php";break;
         case "scores": include "scores.php";break;
         case "profile": include("profile.php"); break;
+        case "news": include("news2.html"); break;
+        case "news2": include("news.php"); break;
         default: include("main.php"); break;
     }
 }

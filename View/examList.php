@@ -4,7 +4,8 @@ $kq = $toeic->lay_DeThi();
 
 <link href="css/Thanh-Style-examList.css" rel="stylesheet"/>
 
-<div id="container" class="col-md-6">
+<div id="container">
+    <div id="main" class="col-md-8">
     <p><a href="#">Trang chủ</a> / <a href="View/Exam"> Đề thi Toeic</a></p>
     <p>
     <h1>ĐỀ THI THỬ TOEIC</h1></p>
@@ -13,7 +14,7 @@ $kq = $toeic->lay_DeThi();
     <?php while ($row = $kq->fetch_assoc()) {
         $dethi = str_replace(" ", "-", $row['TieuDe'])
         ?>
-        <div id="items" class="col-md-12">
+        <div id="items" class="col-md-12" style="border-radius:10px;">
             <div id="item-info" class="col-md-9">
                 <a href="View/Exam/<?= $dethi ?>" id="img"><img src="img/logo.dethi.jpeg" width="200" height="150"></a>
                 <p><h4><a href="View/Exam/<?= $dethi ?>"><?= $row['TieuDe'] ?></a></h4></p>
@@ -66,5 +67,5 @@ $kq = $toeic->lay_DeThi();
         </div>
     <?php } ?>
     <!-- end vong lap while cac de thi -->
-
+                </div>
 </div>

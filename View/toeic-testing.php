@@ -40,7 +40,6 @@
     ?>
     <div id="main-contain-test" class="col-md-8">
         <?php
-
 				require_once("../Controller/controller_lambaithi.php");
 				if($_GET['part']==1)
 				{
