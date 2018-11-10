@@ -71,22 +71,22 @@ class controller_main extends model
         }
     } // end function xulyLogin
 
-    function xulyRegister($lname, $fname, $email, $pass, $repass, $gender)
+    function xulyRegister($lname, $fname, $email, $pass)
     {
         $con = new model();
         $fname = $this->con->escape_string(trim(strip_tags($fname)));
         $lname = $this->con->escape_string(trim(strip_tags($lname)));
         $email = $this->con->escape_string(trim(strip_tags($email)));
-        $pass = $this->con->escape_string(trim(strip_tags($pass)));
-        $repass = $this->con->escape_string(trim(strip_tags($repass)));
-        $gender = $this->con->escape_string(trim(strip_tags($gender)));
+        $pass1 = $this->con->escape_string(trim(strip_tags($pass)));
 
-        $hash01 = md5($pass);
-        $hash02 = md5($repass);
+        $pass = md5($pass1);
 
-        $kq = $con->getUserByEmail($email);
+        return $con->register($lname,$fname,$email,$pass);
 
-        if (!hash_equals($hash01, $hash02)) {
+
+       /* $kq = $con->getUserByEmail($email);*/
+
+/*        if (!hash_equals($hash01, $hash02)) {
             echo "<script>
                 $(document).ready(function () {
                     $('#email').val('$email');
@@ -100,9 +100,9 @@ class controller_main extends model
                     $('#checkValidate').html('<strong>Email này đã có người dùng</strong>').show();
                 });
             </script>";
-        }
+        }*/
 
-        if (hash_equals($hash01, $hash02) && !$kq) {
+ /*       if (hash_equals($hash01, $hash02) && !$kq) {
             $kq = $con->register($lname, $fname, $email, $pass, $gender);
             if ($kq) {
                 if (isset($_SESSION['back'])) {
@@ -111,7 +111,7 @@ class controller_main extends model
                     header("location: $back");
                 }
             }
-        }
+        }*/
 
     } // end function xulyRegister
 
@@ -214,6 +214,17 @@ class controller_main extends model
     }
 
      /*ket thuc trang profile*/
+
+     /*bat dau kiem tra email co ton tai khong */
+     function getUserByEmail($email)
+     {
+        $con=new model();
+        $kq = $con->getUserByEmail($email);
+        return $kq;
+     }
+
+     /*ket thuc kiem tra email co ton tai khong*/
+
 }
 
 ?>
