@@ -1,4 +1,4 @@
-
+<!-- moi lay tu master ve  , day la tam27_10-->
 
 <?php
 $label_display_all  = "Thay Đổi Thông Tin !";
@@ -59,11 +59,11 @@ if( isset($_POST['profile_submit']) ){
       exit();
     }
     // check if file already exists
-    if(file_exists($target_file)){
+/*    if(file_exists($target_file)){
       $label_display_all = "Sorry, file already exists."."<br/>";
       $uploadok = 0;
       exit();
-    }
+    }*/
     // check file size  if($_FILES["avatar"]["size"] > $max*1024*1024){}
     if($_FILES["avatar"]["size"]> 100*1024*1024){
       $label_display_all = "Sorry, your file is too large."."<br/>";
