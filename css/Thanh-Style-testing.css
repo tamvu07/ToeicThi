@@ -23,7 +23,6 @@
     margin: 0px auto;
     background-color: white;
 	height: 600px; overflow:auto;
-	text-align:center;
 	padding:15px;
 	border-radius:10px;
 }
@@ -37,6 +36,15 @@
 	text-transform:uppercase;
 	font-weight:bold;
 	text-align:center;
+}
+
+#mp3-player {
+    border-radius:10px;
+    margin: 0px auto;
+    background-color: white;
+    padding:10px;
+    margin-bottom: 15px;
+    text-align:center;
 }
 
 #test-bottom {
@@ -65,6 +73,50 @@
 	border-radius:10px;
 	background-image: linear-gradient(141deg, #9fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
 	margin:auto;
+}
+
+.question_num {
+    height:60px;
+    width:90px;
+    padding-top:17px;
+    text-align: center;
+    border: 1px solid red;
+    border-radius: 18px;
+}
+
+.description {
+    font-size:20px;
+    border: 1px solid blue;
+    border-radius:15px;
+    padding: 10px;
+    color: cadetblue;
+}
+
+/*-------------------*/
+
+/* Trang xem điểm */
+
+#score-table {
+    margin:100px;
+}
+
+.t-head {
+    background-color:paleturquoise;
+}
+
+.t-sum {
+    background-color:orange;
+    color:white;
+    font-size: 25px;
+}
+
+#score-table td {
+    border: 1px solid black;
+    text-align:center;
+    font-weight: bold;
+    font-size:17px;
+    color:red;
+    width:1%;
 }
 
 /*-------------------*/

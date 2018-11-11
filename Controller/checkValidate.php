@@ -1,18 +1,40 @@
 <?php
-require_once "../Model/model.php";
-$toeic=new model();
+require_once "../Controller/controller_main.php";
+$toeic=new controller_main();
+
 if(isset($_GET['email'])){
     $email=$_GET['email'];
-    if($email=="") echo "<strong>CHƯA NHẬP EMAIL !</strong>";
-    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) echo "<strong>EMAIL KHÔNG PHÙ HỢP !</strong>";
+/*    if($email=="") echo "<strong>CHƯA NHẬP EMAIL !</strong>";
+    else*/
+    	if ( $email != "" && !filter_var($email, FILTER_VALIDATE_EMAIL) ) 
+    		{
+    			echo "<strong>EMAIL KHÔNG PHÙ HỢP !</strong>";
+    		}
 }
 
-if(isset($_GET['']))
+if(isset($_GET['email']))
+{
+	$email = $_GET['email'];
+	if($email != "")
+	{
+		$kq = $toeic->getUserByEmail($email);
+		if($kq)
+		{
+			echo "<strong>EMAIL ĐÃ TỒN TẠI !</strong>";
+		}
+	}
+}
 
-/**
- * Created by PhpStorm.
- * User: TheWindMaker
- * Date: 9/20/2018
- * Time: 11:27 PM
- */
+if(isset($_GET['pass']) && isset($_GET['repass']))
+{
+	$pass = $_GET['pass'];
+	$repass = $_GET['repass'];
+	if($pass != "" && $repass != "" )
+	{
+		if($pass != $repass)
+		{
+			echo "<strong>REPASSWORD KHÔNG ĐÚNG !</strong>";
+		}
+	}
+}
 ?>

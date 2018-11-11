@@ -12,8 +12,8 @@ class model extends connection
         return false;
     } // end login
 
-    protected function register($lname,$fname,$email,$pass,$gender){
-        $sql="INSERT INTO nguoidung (IdUser, Ho, Ten, GioiTinh, MatKhau, Quyen, Mail, KichHoat, Avatar, NgayThamGia) VALUES (NULL, '$lname', '$fname', '$gender', '$pass', '3', '$email', '0', NULL, CURRENT_TIMESTAMP)";
+    protected function register($lname,$fname,$email,$pass){
+        $sql="INSERT INTO nguoidung (IdUser, Ho, Ten, GioiTinh, MatKhau, Quyen, Mail, KichHoat, Avatar, NgayThamGia) VALUES (NULL, '$lname', '$fname',NULL, '$pass', '3', '$email', '0', NULL, CURRENT_TIMESTAMP)";
         $kq=$this->con->query($sql);
         if($this->con->affected_rows>0) return true;
         return $this->con->error;
