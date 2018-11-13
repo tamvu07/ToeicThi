@@ -42,30 +42,54 @@ class controller_admin extends model_admin
     }
 
     //In bảng người dùng trong giao diện admin
-    function print_users_table($rows, $p)
+    function print_users_table($param)
     {
-        echo '
-		<table class="table table-hover table-striped">
-			<thead>
-				<th>ID</th> 
-				<th>Họ tên</th>
-				<th>Giới tính</th>
-				<th>Email</th>
-				<th>Quyền</th>
-				<th>Ngày tham gia</th>
-				<th>Trạng thái</th>
-			</thead>
-			<tbody>';
-        while ($rows = $p->load_rows()) {
-            echo '<tr><td>' . $rows["IdUser"] . '</td>
-		<td>' . $rows["HoTen"] . '</td>
-		<td>' . $rows["GioiTinh"] . '</td>
-		<td>' . $rows["Mail"] . '</td>
-		<td>' . $rows["Quyen"] . '</td>
-		<td>' . $rows["NgayThamGia"] . '</td>
-		<td>' . $rows["KichHoat"] . '</td></tr>';
+        $ad = new model_admin();
+        if ($param == 0) {
+            $kq = $ad->get_list_users();
+            if (!$kq) die('Không có danh sách');
         }
-        echo '</tbody></table>';
+        if($param==1){
+            $kq=$ad->get_list_admins();
+            if(!$kq) die('Không có danh sách');
+        }
+        if($param==2){
+            $kq=$ad->get_list_teachers();
+            if(!$kq) die('Không có danh sách');
+        }
+        if($param==3){
+            $kq=$ad->get_list_students();
+            if(!$kq) die('Không có danh sách');
+        }
+
+        while ($row = $kq->fetch_array()) {
+            echo '<tr><td>' . $row["IdUser"] . '</td>
+		<td>' . $row["Ho"] . '</td>
+		<td>' . $row["Ten"] . '</td>
+		<td>' . $row["GioiTinh"] . '</td>
+		<td>' . $row["Mail"] . '</td>
+		<td>' . $row["KichHoat"] . '</td>
+		<td>' . $row["Quyen"] . '</td>
+		<td>' . $row["NgayThamGia"] . '</td></tr>';
+        }
+    }
+
+    function print_exam_table(){
+        $ad=new model_admin();
+        $kq=$ad->get_list_exam();
+        if(!$kq) die('Không có danh sách');
+
+        while ($row = $kq->fetch_array()) {
+            echo '<tr><td>' . $row["MaDe"] . '</td>
+		<td>' . $row["TieuDe"] . '</td>
+		<td>' . $row["MoTa"] . '</td>
+		<td>' . $row["ThoiLuong"] . '</td>
+		<td>' . $row["SoCau"] . '</td>
+		<td>' . $row["NguoiTao"] . '</td>
+		<td>' . $row["NgayTao"] . '</td>
+		<td>' . $row["SoLanThi"] . '</td>
+		<td>' . $row["TrangThai"] . '</td></tr>';
+        }
     }
 
     //Lấy danh sách tất cả người dùng
