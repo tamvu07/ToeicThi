@@ -5,9 +5,9 @@ $kq = $toeic->lay_DeThi();
 <link href="css/Thanh-Style-examList.css" rel="stylesheet"/>
 
 <div id="container" class="col-md-6">
-    <p><a href="#">Trang chủ</a> / <a href="View/Exam"> Đề thi Toeic</a></p>
+    <p><a href="View/">Trang chủ</a> / <a href="View/Exam">Lịch thi Toeic</a></p>
     <p>
-    <h1>ĐỀ THI THỬ TOEIC</h1></p>
+    <h1>LỊCH THI TOEIC</h1></p>
 
     <!-- vong lap while cac de thi -->
     <?php while ($row = $kq->fetch_assoc()) {
@@ -16,10 +16,10 @@ $kq = $toeic->lay_DeThi();
         <div id="items" class="col-md-12">
             <div id="item-info" class="col-md-9">
                 <a href="View/Exam/<?= $dethi ?>" id="img"><img src="img/logo.dethi.jpeg" width="200" height="150"></a>
-                <p><h4><a href="View/Exam/<?= $dethi ?>"><?= $row['TieuDe'] ?></a></h4></p>
-                <p><?= $row['MoTa'] ?><br>Người học làm bài thi mô phỏng bài thi TOEIC thực tế.<br>
+                <p><h4><a href="View/Exam/<?= $dethi ?>">Đề thi <?= $row['TieuDe'] ?></a></h4></p>
+                <p><?= $row['MoTa'] ?><br>Người học làm bài thi bài thi TOEIC thực tế.</p>
+                <p>Ngày thi: <?php $d=$row['NgayThi']; echo (date("d-m-y",$d));?></p>
                 <hr>
-                </p>
                 <span style="clear:both;">
                 <i class="far fa-eye" title="lượt thi"></i>&nbsp;<?= $row['SoLanThi'] ?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <i class="far fa-comments"

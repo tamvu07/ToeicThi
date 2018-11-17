@@ -1,39 +1,55 @@
 <?php
-require_once("model.php");
+require_once "../database/connection.php";
 
-class model_admin extends Model {
+class model_admin extends connection {
 	
-	function get_list_users() {
+	protected function get_list_users() {
 		$sql = "SELECT * FROM nguoidung";
-		return $sql;
-	}
-	
-	function get_list_admins() {
-		$sql = "SELECT * FROM nguoidung WHERE Quyen=1";
-		return $sql;
-	}
-	
-	function get_list_teachers() {
-		$sql = "SELECT * FROM nguoidung where Quyen=2";
-		return $sql;
-	}
-	
-	function get_list_students() {
-		$sql = "SELECT * FROM nguoidung WHERE Quyen=3";
-		return $sql;
-	}
-	
-	function get_list_roles() {
-		$sql = "SELECT * FROM quyen";
-		return $sql;
+		$kq = $this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
 	}
 
-	function add_user($hoten, $gioitinh, $matkhau, $quyen, $mail) {
-		$sql = "ALTER TABLE nguoidung AUTO_INCREMENT=1";
-		$this->execute_no_return($sql);
-		$sql = "INSERT INTO nguoidung(HoTen,GioiTinh,MatKhau,Quyen,Mail) 
-		VALUES('$hoten','$gioitinh','$matkhau','$quyen','$mail')";
-		$this->execute_no_return($sql);
+    protected function get_list_admins() {
+		$sql = "SELECT * FROM nguoidung WHERE Quyen=1";
+        $kq = $this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+	}
+
+    protected function get_list_teachers() {
+		$sql = "SELECT * FROM nguoidung where Quyen=2";
+        $kq = $this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+	}
+
+    protected function get_list_students() {
+		$sql = "SELECT * FROM nguoidung WHERE Quyen=3";
+        $kq = $this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+	}
+
+    protected function get_list_roles() {
+		$sql = "SELECT * FROM quyen";
+        $kq = $this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+	}
+
+    protected function get_list_exam() {
+        $sql = "SELECT * FROM dethi";
+        $kq = $this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+    }
+
+    protected function add_user($ho,$ten, $gioitinh, $matkhau, $quyen, $mail) {
+		$sql = "INSERT INTO nguoidung(IdUser,Ho,Ten,GioiTinh,MatKhau,Quyen,Mail,KichHoat,Avatar,NgayThamGia) VALUES( NULL, '$ho', '$ten', '$gioitinh', '$matkhau', '$quyen', '$mail', '1', NULL, CURRENT_TIMESTAMP)";
+        $kq = $this->con->query($sql);
+        if($this->con->affected_rows()>0) return true;
+        return $this->con->error();
 	}
 	
 	
