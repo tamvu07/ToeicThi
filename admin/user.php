@@ -4,12 +4,9 @@
             <div class="card">
                 <div class="header">
                     <h4 class="title text-center">QUẢN LÝ NGƯỜI DÙNG</h4>
-                    <form method="post">
-                        <button type="submit" class="btn btn-info btn-fill btn-wd" name="btn_add_user">
-                            <span class="pe-7s-plus"> Thêm người dùng</span>
-                        </button>
-                    </form>
-
+                    <a href="?p=themnguoidung"><button type="button" class="btn btn-info btn-fill btn-wd">
+                        <span class="pe-7s-plus"></span> Thêm người dùng
+                    </button></a>
                     <div class="content table-responsive table-full-width">
                         <div id="select-list-user">
                             <form class="form-inline" method="post">
@@ -31,6 +28,16 @@
                                     nhận
                                 </button>
                             </form>
+                            <?php
+                        if(isset($_GET['edituser']))
+                        {
+                            $ad->get_edit_user_by_id($_GET['edituser']);
+                        }
+                        if(isset($_GET['removeresu']))
+                        {
+                            $ad->delete_user_by_id($_GET['removeresu']);
+                        }
+                    ?>
                         </div>
                     </div>
                 </div>
@@ -56,11 +63,14 @@
                         <th>Kích hoạt</th>
                         <th>Quyền</th>
                         <th>Ngày tham gia</th>
+                        <th>Hành động</th>
                         </thead>
                         <tbody>
                         <?php
-                        if(isset($_POST['select_role'])) $param=$_POST['select_role'];
-                        else $param=0;
+                        if(isset($_POST['select_role'])) 
+                            $param=$_POST['select_role'];
+                        else 
+                            $param=0;
                         $ad->print_users_table($param);
                         ?>
                         </tbody>
@@ -69,7 +79,5 @@
             </div>
         </div>
     </div>
-
 </div>
-
 <link href="assets/css/admin-table.css" rel="stylesheet">

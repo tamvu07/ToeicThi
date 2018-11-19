@@ -12,7 +12,7 @@ if(isset($_GET['email'])){
     		}
 }
 
-if(isset($_GET['email']))
+/*if(isset($_GET['email']))
 {
 	$email = $_GET['email'];
 	if($email != "")
@@ -23,7 +23,7 @@ if(isset($_GET['email']))
 			echo "<strong>EMAIL ĐÃ TỒN TẠI !</strong>";
 		}
 	}
-}
+}*/
 
 if(isset($_GET['pass']) && isset($_GET['repass']))
 {

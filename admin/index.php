@@ -5,6 +5,18 @@ require_once("../Controller/controller_admin.php");
 $ad = new controller_admin();
 if (isset($_GET['p'])) $p = $_GET['p'];
 else $p = '';
+
+if(isset($_SESSION['login_level']))
+{
+    if($_SESSION['login_level']!=1)
+    {
+        header("location:../index.php");
+    }
+}
+else
+{
+    header("location:../index.php");
+}
 ?>
 <!doctype html>
 <html>
@@ -69,7 +81,7 @@ else $p = '';
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Xin chào admin!</a>
+                    <a class="navbar-brand" href="#">Xin chào <b><font color="red">Quản trị viên</font></b> -  <?php echo $_SESSION['login_lname'].' '.$_SESSION['login_fname']; ?>!</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-left">
@@ -110,7 +122,7 @@ else $p = '';
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="../Controller/xulyLogout.php">
                                 <p>Đăng xuất</p>
                             </a>
                         </li>
@@ -124,7 +136,10 @@ else $p = '';
             <?php
             switch ($p) {
                 case "nguoidung":
-                    include "user_list.php";
+                    include "user.php";
+                    break;
+                case "themnguoidung":
+                    include "user_add.php";
                     break;
                 case "dethi":
                     include "dethi_list.php";

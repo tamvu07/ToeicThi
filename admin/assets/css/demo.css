@@ -65,3 +65,7 @@
         position: initial;
     }
 }
+
+#edit-user-title {
+    font-weight:bold;
+}
