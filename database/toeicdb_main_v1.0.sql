@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 12, 2018 at 03:31 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 5.6.37
+-- Host: localhost
+-- Generation Time: Nov 15, 2018 at 01:48 PM
+-- Server version: 5.7.17-log
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `toeicdb`
+-- Database: `toeicdb_test2`
 --
 
 -- --------------------------------------------------------
@@ -125,6 +123,19 @@ INSERT INTO `cauhoinho` (`Id`, `LoaiCauHoi`, `MaCauHoi`, `NoiDung`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `danhsachduthi`
+--
+
+CREATE TABLE `danhsachduthi` (
+  `STT` int(11) UNSIGNED NOT NULL,
+  `MaDe` int(11) NOT NULL,
+  `IdUser` int(11) NOT NULL,
+  `VangMat` tinyint(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `dethi`
 --
 
@@ -134,10 +145,10 @@ CREATE TABLE `dethi` (
   `MoTa` varchar(200) NOT NULL,
   `ThoiLuong` int(11) NOT NULL DEFAULT '120',
   `SoCau` int(11) NOT NULL DEFAULT '200',
-  `MP3` varchar(255) DEFAULT NULL,
+  `NgayHetHan` datetime DEFAULT NULL,
   `NguoiTao` int(11) NOT NULL,
   `NgayTao` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `SoLanThi` int(11) NOT NULL DEFAULT '0',
+  `LuotDangKi` int(11) NOT NULL DEFAULT '0',
   `TrangThai` tinyint(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -145,9 +156,30 @@ CREATE TABLE `dethi` (
 -- Dumping data for table `dethi`
 --
 
-INSERT INTO `dethi` (`MaDe`, `TieuDe`, `MoTa`, `ThoiLuong`, `SoCau`, `MP3`, `NguoiTao`, `NgayTao`, `SoLanThi`, `TrangThai`) VALUES
-(1, 'TOEIC 1', 'Đề thi mẫu TOEIC số 1', 120, 200, 'http://localhost/ToeicThi/TOEIC-upload/MP3/listening1.mp3', 3, '2018-09-23 00:00:00', 0, 1),
-(2, 'TOEIC 2', 'Đề thi TOEIC mẫu số 2', 120, 200, 'http://localhost/ToeicThi/TOEIC-upload/MP3/listening2.mp3', 2, '2018-09-23 00:00:00', 0, 1);
+INSERT INTO `dethi` (`MaDe`, `TieuDe`, `MoTa`, `ThoiLuong`, `SoCau`, `NgayHetHan`, `NguoiTao`, `NgayTao`, `LuotDangKi`, `TrangThai`) VALUES
+(1, 'TOEIC 1', 'Đề thi mẫu TOEIC số 1', 120, 200, '0000-00-00 00:00:00', 3, '2018-09-23 00:00:00', 0, 1),
+(2, 'TOEIC 2', 'Đề thi TOEIC mẫu số 2', 120, 200, '0000-00-00 00:00:00', 2, '2018-09-23 00:00:00', 0, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `file`
+--
+
+CREATE TABLE `file` (
+  `IdFile` int(11) UNSIGNED NOT NULL,
+  `MaDe` int(11) NOT NULL,
+  `Mp3` varchar(255) NOT NULL,
+  `HinhAnh` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `file`
+--
+
+INSERT INTO `file` (`IdFile`, `MaDe`, `Mp3`, `HinhAnh`) VALUES
+(1, 1, 'http://localhost/ToeicThi/TOEIC-upload/MP3/listening1.mp3', ''),
+(2, 2, 'http://localhost/ToeicThi/TOEIC-upload/MP3/listening2.mp3', '');
 
 -- --------------------------------------------------------
 
@@ -326,7 +358,7 @@ CREATE TABLE `traloi` (
   `C` varchar(100) NOT NULL,
   `D` varchar(100) NOT NULL,
   `DapAn` varchar(100) NOT NULL,
-  `IdCauhoinho` int(11) UNSIGNED NOT NULL
+  `IdCauhoinho` int(11) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -376,13 +408,27 @@ ALTER TABLE `cauhoinho`
   ADD KEY `MaCauHoi` (`MaCauHoi`);
 
 --
+-- Indexes for table `danhsachduthi`
+--
+ALTER TABLE `danhsachduthi`
+  ADD PRIMARY KEY (`STT`),
+  ADD KEY `fk_MaDeFile_MaDe` (`MaDe`),
+  ADD KEY `fk_file_nguoidung` (`IdUser`);
+
+--
 -- Indexes for table `dethi`
 --
 ALTER TABLE `dethi`
   ADD PRIMARY KEY (`MaDe`),
   ADD UNIQUE KEY `TieuDe_UNIQUE` (`TieuDe`),
-  ADD UNIQUE KEY `MP3_UNIQUE` (`MP3`),
   ADD KEY `fk_dethi_nguoidung` (`NguoiTao`);
+
+--
+-- Indexes for table `file`
+--
+ALTER TABLE `file`
+  ADD PRIMARY KEY (`IdFile`),
+  ADD KEY `fk_made_file` (`MaDe`);
 
 --
 -- Indexes for table `loaicauhoi`
@@ -436,49 +482,51 @@ ALTER TABLE `traloi`
 --
 ALTER TABLE `bailam`
   MODIFY `IdBaiLam` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
 --
 -- AUTO_INCREMENT for table `binhluan`
 --
 ALTER TABLE `binhluan`
   MODIFY `MaBinhLuan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `cauhoi`
 --
 ALTER TABLE `cauhoi`
   MODIFY `MaCauHoi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=203;
-
 --
 -- AUTO_INCREMENT for table `cauhoinho`
 --
 ALTER TABLE `cauhoinho`
   MODIFY `Id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+--
+-- AUTO_INCREMENT for table `danhsachduthi`
+--
+ALTER TABLE `danhsachduthi`
+  MODIFY `STT` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `dethi`
 --
 ALTER TABLE `dethi`
   MODIFY `MaDe` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+--
+-- AUTO_INCREMENT for table `file`
+--
+ALTER TABLE `file`
+  MODIFY `IdFile` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `nguoidung`
 --
 ALTER TABLE `nguoidung`
   MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
 --
 -- AUTO_INCREMENT for table `thongbao`
 --
 ALTER TABLE `thongbao`
   MODIFY `MaThongBao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `tintuc`
 --
 ALTER TABLE `tintuc`
   MODIFY `MaTinTuc` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- Constraints for dumped tables
 --
@@ -487,7 +535,7 @@ ALTER TABLE `tintuc`
 -- Constraints for table `bailam`
 --
 ALTER TABLE `bailam`
-  ADD CONSTRAINT `fk_bailam_dethi1` FOREIGN KEY (`MaDe`) REFERENCES `dethi` (`MaDe`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_bailam_dethi` FOREIGN KEY (`MaDe`) REFERENCES `dethi` (`MaDe`),
   ADD CONSTRAINT `fk_bailam_nguoidung1` FOREIGN KEY (`IdUser`) REFERENCES `nguoidung` (`IdUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
@@ -506,10 +554,17 @@ ALTER TABLE `cauhoi`
   ADD CONSTRAINT `fk_cauhoi_nguoidung1` FOREIGN KEY (`NguoiTao`) REFERENCES `nguoidung` (`IdUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `dethi`
+-- Constraints for table `danhsachduthi`
 --
-ALTER TABLE `dethi`
-  ADD CONSTRAINT `fk_dethi_nguoidung` FOREIGN KEY (`NguoiTao`) REFERENCES `nguoidung` (`IdUser`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE `danhsachduthi`
+  ADD CONSTRAINT `fk_MaDeFile_MaDe` FOREIGN KEY (`MaDe`) REFERENCES `dethi` (`MaDe`),
+  ADD CONSTRAINT `fk_file_nguoidung` FOREIGN KEY (`IdUser`) REFERENCES `nguoidung` (`IdUser`);
+
+--
+-- Constraints for table `file`
+--
+ALTER TABLE `file`
+  ADD CONSTRAINT `fk_made_file` FOREIGN KEY (`MaDe`) REFERENCES `dethi` (`MaDe`);
 
 --
 -- Constraints for table `nguoidung`
@@ -537,7 +592,6 @@ ALTER TABLE `tintuc`
 ALTER TABLE `traloi`
   ADD CONSTRAINT `fk_traloi_cauhoi1` FOREIGN KEY (`MaCauHoi`) REFERENCES `cauhoi` (`MaCauHoi`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_traloi_cauhoinho` FOREIGN KEY (`IdCauhoinho`) REFERENCES `cauhoinho` (`Id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

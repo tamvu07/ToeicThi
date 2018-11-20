@@ -2,11 +2,13 @@
 session_start();
 ob_start();
 require_once "../Controller/controller_main.php";
-$toeic=new controller_main();
+$toeic = new controller_main();
 if (isset($_GET['p']))
     $p = $_GET['p'];
-if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Login.html" && $_SERVER['REQUEST_URI']!="/ToeicThi/View/Register.html"){
-    $_SESSION['back']=str_replace("localhost/ToeicThi/View/","",$_SERVER['REQUEST_URI']);
+if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Login.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Register.html") {
+    if($_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-1/Toeic-Register.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-2/Toeic-Register.html"){
+        $_SESSION['back'] = str_replace("localhost/ToeicThi/View/", "", $_SERVER['REQUEST_URI']);
+    }
 }
 $toeic->kiemtra_Login();
 ?>
@@ -30,7 +32,7 @@ $toeic->kiemtra_Login();
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/colors/cyan.css"/>
     <link rel="stylesheet" href="css/Thanh-Style-Header.css"/>
-    
+
     <!-- Favicons -->
     <link rel="shortcut icon" href="img/favicon.ico">
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
@@ -38,7 +40,8 @@ $toeic->kiemtra_Login();
     <link rel="apple-touch-icon" sizes="114x114" href="img/apple-touch-icon-114x114.png">
 
     <!-- Fontawesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     <!-- Lazyload (must be placed in head in order to work) -->
     <script src="js/lazysizes.min.js"></script>
@@ -51,26 +54,46 @@ $toeic->kiemtra_Login();
 <?php include "header.php" ?>
 <main class="main oh" id="main">
 
-<?php
-if(isset($_GET['p'])){
-    $p=$_GET['p'];
-    switch($p)
-    {
-        case "login": include("login.php"); break;
-        case "register": include("Register.php"); break;
-        case "contact": include("contact.php"); break;
-        case "testing": include("testing.php"); break;
-        case "toeic-testing": include "toeic-testing.php";break;
-        case "exam": include "examList.php";break;
-        case "scores": include "scores.php";break;
-        case "profile": include("profile.php"); break;
-        case "news": include("news2.html"); break;
-        case "news2": include("news.php"); break;
-        default: include("main.php"); break;
-    }
-}
-else include "main.php";
-?>
+    <?php
+    if (isset($_GET['p'])) {
+        $p = $_GET['p'];
+        switch ($p) {
+            case "login":
+                include("login.php");
+                break;
+            case "register":
+                include("Register.php");
+                break;
+            case "contact":
+                include("contact.php");
+                break;
+            case "testing":
+                include("testing.php");
+                break;
+            case "toeic-testing":
+                include "toeic-testing.php";
+                break;
+            case "exam":
+                include "examList.php";
+                break;
+            case "scores":
+                include "scores.php";
+                break;
+            case "profile":
+                include("profile.php");
+                break;
+            case "toeic-register":
+                include "toeic-register.php";
+                break;
+            case "introduction":
+                include "introduction.php";
+                break;
+            default:
+                include("main.php");
+                break;
+        }
+    } else include "main.php";
+    ?>
 
 </main>
 <!-- end main-wrapper -->

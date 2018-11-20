@@ -142,7 +142,7 @@ else
                     include "user_add.php";
                     break;
                 case "dethi":
-                    include "dethi_list.php";
+                    include "dethi.php";
                     break;
                 case "cauhoi":
                     include "cauhoi_list.php";
