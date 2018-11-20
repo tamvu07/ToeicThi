@@ -141,6 +141,10 @@
     margin: 5px auto;
 }
 
+#container #test #prepare-testing button{
+
+}
+
 #container #main-contain #describe {
     border: 1px solid red;
     text-align: center;

@@ -6,9 +6,8 @@ if (isset($_GET['pageNum'])) $pageNum = $_GET['pageNum'];
 settype($pageNum, 'int');
 if ($pageNum < 0) $pageNum = 1;
 $url = str_replace("/ToeicThi/", "", $_SERVER['REQUEST_URI']);
-
 // css cho textarea
-if(!isset($_SESSION['login_id']))
+if (!isset($_SESSION['login_id']))
     echo '<script>
     $(document).ready(function () {
         $("textarea[name=comment]").css("color","red");
@@ -18,40 +17,106 @@ if(!isset($_SESSION['login_id']))
     });
 </script>'; // end css cho textarea
 
-if(isset($_POST['comment'])){
-    $bl=$_POST['comment'];
-    $idUser=$_SESSION['login_id'];
-    $toeic->luu_BinhLuan($idUser,$maDe,$bl);
+$kq = $toeic->lay_DeThi_TheoMaDe($maDe);
+$row = $kq->fetch_assoc();
+$date = date_parse($row['NgayHetHan']);
+$NgayThi = $date['day'];
+$ThangThi = $date['month'];
+$NamThi = $date['year'];
+$GioThi = $date['hour'];
+$PhutThi = $date['minute'];
+$GiayThi = $date['second'];
+$NgayThi = mktime($GioThi, $PhutThi, $GiayThi, $ThangThi, $NgayThi, $NamThi);
+$thi = date("d/m/Y H:i:s", $NgayThi);
+$dateDiff=$NgayThi-time();
+$deadline=floor($dateDiff/(60*60*24));
+
+
+if (isset($_POST['comment'])) {
+    $bl = $_POST['comment'];
+    $idUser = $_SESSION['login_id'];
+    $toeic->luu_BinhLuan($idUser, $maDe, $bl);
+}
+
+if (isset($_POST['submit'])) {
+    $dateDiff=$NgayThi-time();
+    $deadline=floor($dateDiff/(60*60*24));
+    if (!isset($_SESSION['login_id']))
+        echo '<script>alert("Bạn chưa đăng nhập")</script>';
+    if ($deadline >=0){
+        header("location: ../TOEIC-$maDe/Toeic-Register.html");
+    }
+    else{
+        echo '<script>alert("Đã quá thời hạn để đăng kí, bạn vui lòng chọn đề thi khác")</script>';
+    }
+}
+
+if(isset($_POST['test'])){
+    $dateDiff=$NgayThi-time();
+    $deadline=floor($dateDiff/(60*60*24));
+
+    $dateDiff=abs($dateDiff);
+    $years = floor($dateDiff / (365 * 60 * 60 * 24));
+    $months = floor(($dateDiff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
+    $days = floor(($dateDiff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
+    $hours = floor(($dateDiff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24) / (60 * 60));
+    $minutes = floor(($dateDiff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24 - $days * 60 * 60 * 24 - $hours * 60 * 60) / 60);
+
+    if (!isset($_SESSION['login_id']))
+        echo '<script>alert("Bạn chưa đăng nhập")</script>';
+    if ($deadline < 0){
+        if($minutes>5){
+            echo '<script>alert("Bạn đã dự thi trễ sau 5 phút tính từ lúc bắt đầu thi, xin vui lòng chọn lịch thi khác")</script>';
+        }
+        else{
+            header("location: ../TOEIC-$maDe/Toeic-testing-$maDe.html");
+        }
+    }
+    else{
+        echo '<script>alert("Còn '.$years.' năm, '.$months.' tháng, '.$days.' ngày, '.$hours.' giờ, '.$minutes.' phút cho đến lúc thi");</script>';
+    }
+
 }
 ?>
 
 <div id="container">
     <div id="main-contain" class="col-md-8">
-        <p>&nbsp;<a href="#">Trang chủ</a> / <a href="View/Exam"> Đề thi Toeic</a> / <a href="View/Exam/TOEIC-<?=$maDe?>">
-                Toeic-<?=$maDe?></a></p>
+        <p>&nbsp;<a href="#">Trang chủ</a> / <a href="View/Exam"> Lịch thi Toeic</a> / <a
+                    href="View/Exam/TOEIC-<?= $maDe ?>/1">
+                Toeic-<?= $maDe ?></a></p>
         <!-- thi thu toeic -->
         <div id="test">
             <div id="heading">
                 <p>Đề thi thử Toeic <?= $maDe ?></p>
             </div>
-            <p style="padding: 0px 10px;">Chào mừng các bạn đến với đề thi thử TOEIC trong chương trình Luyện thi TOEIC online của Desus! Đây là
+            <p style="padding: 0px 10px;">Chào mừng các bạn đến với đề thi thử TOEIC trong chương trình Luyện thi TOEIC
+                online của Desus! Đây là
                 bài
                 thi mô phỏng dạng đề thi TOEIC thực tế do đội ngũ giáo viên của Desus kì công biên soạn. Bài làm của các
                 bạn
                 sẽ được chấm điểm và thông báo kết quả ngay sau khi các bạn nộp bài.</p>
 
-            <p id="describe"><?php $kq = $toeic->lay_DeThi();
-                $row = $kq->fetch_assoc();
-                echo $row['MoTa'] . " - Số câu hỏi: " . $row['SoCau'] . " câu - Thời lượng: " . $row['ThoiLuong'] . " phút - Lượt thi: " . $row['SoLanThi']; ?></p>
-            <p style="color:#ee4b53;text-align: center">Bạn hãy click vào nút Start bên dưới để bắt đầu làm bài. Chúc
-                các bạn đạt điểm số thật cao!</p>
-            <form style="text-align: center;" onsubmit="return false">
+            <p id="describe">
+                <?php
+                echo $row['MoTa'] . " - Số câu hỏi: " . $row['SoCau'] . " câu - Thời lượng: " . $row['ThoiLuong'] . " phút - Ngày thi: ".$thi." - Lượt đăng kí: " . $row['LuotDangKi'];
+                ?>
+            </p>
+            <?php
+            if($deadline>=0)
+                echo '<p style="color:#ee4b53;text-align: center">Bạn hãy click vào nút đăng kí bên dưới để đặt lịch làm bài. Chúc
+                các bạn đạt điểm số thật cao!</p>';
+            else
+                echo '<p style="color:#ee4b53;text-align: center">Đề đã được phát ra, bạn vui lòng đăng kí sớm hơn thời gian hiện tại</p>';
+            ?>
 
-<!--                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150" height="150"></a>-->
+            <form style="text-align: center;" method="post" id="prepare-testing">
 
-                <a href="<?= $url ?>/Toeic-testing-1.html"><img src="img/green-start-button.png" width="150" height="150"></a>
+                <!--                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150" height="150"></a>-->
 
+                <button type="submit" name="submit"><img src="img/register-button.png" width="250" height="150"></button>
+                <button type="submit" name="test" class="btn" style="width: 250px;height: 115px;margin-left:100px;color:#ff6200">Làm bài thi</button>
             </form>
+
             <br>
         </div>          <!-- end thi thu toeic -->
 
@@ -72,7 +137,7 @@ if(isset($_POST['comment'])){
                             ?>
                             <tr>
                                 <td style="width: 15%;"><img src="img/logo.dethi.jpeg"></td>
-                                <td style="width:25%">Nick name: <?= $row['Ho'] . " " . $row['Ten'] ?><BR>Trình độ anh văn: ..<BR>Ngày đăng: <?= $rowbl['NgayDang'] ?>
+                                <td style="width:25%"><strong>Nick name:</strong> <?= $row['Ho'] . " " . $row['Ten'] ?><BR><strong>Trình độ Toeic:</strong> ..<BR><strong>Ngày đăng:</strong> <?= $rowbl['NgayDang'] ?>
                                 </td>
                                 <td style="width: 60%"><?= $rowbl['NoiDung'] ?></td>
                             </tr>
@@ -91,8 +156,10 @@ if(isset($_POST['comment'])){
                     <div id="user-comment">
                         <strong>Ý KIẾN - BÌNH LUẬN CỦA BẠN</strong><br>
                         <form method="post" action="">
-                            <textarea name="comment"<?=(isset($_SESSION['login_id']))?"":"disabled"?>><?=(isset($_SESSION['login_id']))?"":"BẠN CHƯA ĐĂNG NHẬP"?></textarea>
-                            <input type="submit" value="Gửi bình luận" <?=(isset($_SESSION['login_id']))?"":"disabled"?> >
+                            <textarea
+                                    name="comment"<?= (isset($_SESSION['login_id'])) ? "" : "disabled" ?>><?= (isset($_SESSION['login_id'])) ? "" : "BẠN CHƯA ĐĂNG NHẬP" ?></textarea>
+                            <input type="submit"
+                                   value="Gửi bình luận" <?= (isset($_SESSION['login_id'])) ? "" : "disabled" ?> >
                         </form>
                     </div>
                 </div>

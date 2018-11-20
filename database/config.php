@@ -5,4 +5,5 @@
 	define("sql_database","toeicdb");
 	define("BASE_URL","http://localhost/ToeicThi/");
 	define("BASE_DIR","/ToeicThi/");
+	date_default_timezone_set("Asia/Ho_Chi_Minh");
 ?>
