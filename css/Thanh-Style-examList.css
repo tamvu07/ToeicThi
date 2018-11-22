@@ -1,18 +1,25 @@
 #container{
-    margin:0px auto;
+    background-image: url("../img/layout/background.jpg");
     background-color: white;
     padding-bottom: 25px;
     padding-top: 25px;
 }
 
-#container h1{
+#main {
+    margin:auto;
+    background-color:white;
+    height: auto;
+    padding-bottom:10px;
+}
+
+#main h1{
     text-align: center;
     color:#ff783c;
     font-style: italic;
     text-decoration: underline;
 }
 
-#container #items{
+#main #items{
     box-sizing: border-box;
     padding:10px 10px;
     display:flex;
@@ -20,26 +27,26 @@
     background-color:#eaeaea;
 }
 
-#container #items:nth-child(2n+1){
+#main #items:nth-child(2n+1){
     background-color: #d6f8ff;
 }
 
-#container #items #item-info{
+#main #items #item-info{
     float:left;
 }
 
-#container #items #item-info #img{
+#main #items #item-info #img{
     float:left;
     margin-right:15px;
 }
 
-#container #items #score{
+#main #items #score{
     height:auto;
     float:right;
     box-sizing: border-box;
 }
 
-#container #items #score table{
+#main #items #score table{
     width:100%;
     height:100%;
     text-align: center;
@@ -48,10 +55,11 @@
 }
 
 
-#container #items #score img{
+#main #items #score img{
     position:relative;
     z-index: 0;
     top:-90px;
     right:10px;
     height: 25px;
 }
+

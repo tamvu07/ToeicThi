@@ -9,6 +9,7 @@
                             <span class="pe-7s-plus"> Thêm đề thi</span>
                         </button>
                     </form>
+                    <br>
                 </div>
             </div>
         </div>
@@ -36,7 +37,7 @@
                         </thead>
                         <tbody>
                         <?php
-                        $ad->print_exam_table();
+                            $ad->print_exam_table();
                         ?>
                         </tbody>
                     </table>
