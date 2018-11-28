@@ -1,0 +1,30 @@
+#wraper {
+    background-color: white;
+    position: relative;
+    padding: 15px 5px;
+}
+
+h2, p {
+    text-align: center;
+}
+
+h2 {
+    color: #f0af76;
+}
+
+#wraper table {
+    width: 500px;
+    margin: 0px auto;
+}
+
+#wraper table tr td:nth-child(2n+1) {
+    width: 35%;
+}
+
+h5 {
+    color: red;
+}
+
+#wraper p a {
+    margin: 5px 10px;
+}

@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="css/Thanh-Style-Login.css"/>
 
 <?php
-if(isset($_POST['email'])&&isset($_POST['password'])){
-    $email=$_POST['email'];
+if(isset($_POST['email-thanh'])&&isset($_POST['password'])){
+    $email=$_POST['email-thanh'];
     $pass=$_POST['password'];
-    $kq=$toeic->xulyLogin($email,$pass);
+    $toeic->xulyLogin($email,$pass);
 }
 ?>
 
@@ -21,7 +21,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
                     <td colspan="3"><h1>ĐĂNG NHẬP</h1></td>
                 </tr>
                 <tr>
-                    <td colspan="3"><i class="fa fa-envelope icon" style="position: relative;left:30px;"></i><input type="text" name="email" id="email" placeholder="Email" autofocus><br>
+                    <td colspan="3"><i class="fa fa-envelope icon" style="position: relative;left:30px;"></i><input type="text" name="email-thanh" id="email" placeholder="Email" autofocus><br>
                         <div id="checkValidate" class="alert alert-warning"></div>
                     </td>
                 </tr>
@@ -65,7 +65,7 @@ if(isset($_POST['email'])&&isset($_POST['password'])){
         $('#email').blur(function () {
             $.get(
                 'Controller/checkValidate.php',
-                "email=" + $('#email').val(),
+                "email-thanh=" + $('#email').val(),
                 function (d) {
                     if (d != "")
                         $("#checkValidate").html(d).show();

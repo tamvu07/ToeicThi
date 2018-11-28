@@ -2,13 +2,16 @@
 
 <?php
 $label_display_all  = "Thay Đổi Thông Tin !";
+<<<<<<< HEAD
 //$_SESSION['login_id']=2;
+=======
+>>>>>>> 8ce7f365de790b23d799ce7182d30784d49a4258
 $kq=$toeic->lay_UserTheoId($_SESSION['login_id']);
 $row=$kq->fetch_assoc();
 $txt_ho1 = $row['Ho'];
 $txt_ten1 = $row['Ten'];
 /*$email = $row['Mail'];*/
-$txt_matkhau1 = base64_decode($row['MatKhau']);
+$txt_matkhau1 = $row['MatKhau'];
 
 $avatar = $row['Avatar'];
 $gioitinh = $row['GioiTinh'];
@@ -104,7 +107,7 @@ if( isset($_POST['profile_submit']) ){
     /* $avatar = $rows['Avatar'];*/
     $txt_ho1 = $rows['Ho'];
     $txt_ten1 = $rows['Ten'];
-    $txt_matkhau1 = base64_decode($rows['MatKhau']);
+    $txt_matkhau1 = $rows['MatKhau'];
     $avatar = $rows['Avatar'];
     $gioitinh = $rows['GioiTinh'];
 

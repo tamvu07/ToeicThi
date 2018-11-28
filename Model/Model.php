@@ -53,7 +53,7 @@ class model extends connection
     }
 
     protected function layDeThi(){
-        $sql="select * from dethi";
+        $sql="select * from dethi ORDER BY MaDe DESC";
         $kq=$this->con->query($sql);
         if($kq->num_rows>0) return $kq;
         return $this->con->error;
@@ -63,7 +63,7 @@ class model extends connection
         $sql="select * from dethi where MaDe=$maDe";
         $kq=$this->con->query($sql);
         if($kq->num_rows>0) return $kq;
-        return $this->con->error;
+        return $this->con->error();
     } // end layDeThiTheoMaDe
 
     protected function layBinhLuan($maDe,$startRow,$pageSize){
@@ -89,7 +89,7 @@ class model extends connection
     }
 
    /*bat dau trang profile*/
-        function upload_profile_database_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh){
+    protected function upload_profile_database_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh){
     $pass = $this->con->escape_string(trim(strip_tags($txt_matkhau)));
     $txt_matkhau2 = base64_encode($pass);
 
@@ -104,7 +104,7 @@ class model extends connection
 
 }
 
-      function profile_display_all_database(){
+    protected function profile_display_all_database(){
         $idUser = $_SESSION['login_id'];
     $sql = "SELECT * from nguoidung where IdUser = '$idUser' ";
     $kq = $this->con->query($sql);
@@ -114,6 +114,34 @@ class model extends connection
 
     /*ket thuc trang profile*/
 
+    protected function layDanhSachDuThi_Theo_IdUser($idUser){
+        $sql="select * from danhsachduthi where IdUser='$idUser'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return false;
+    } // end layDanhSachDuThi_Theo_IdUser
+
+    protected function dangki_DuThi($idUser,$made){
+        $sql="INSERT INTO danhsachduthi (STT, MaDe, IdUser, VangMat) VALUES (NULL, '$made', '$idUser', NULL)";
+        $kq=$this->con->query($sql);
+        if($this->con->affected_rows>0) return true;
+        return false;
+
+    } // end dangki_DuThi
+
+    protected function getDanhSachDuThi(){
+        $sql="select * from danhsachduthi";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+    } // end getDanhSachDuThi
+
+    protected function getDanhSachDuThiTheoIdUser($idUser){
+        $sql="select * from danhsachduthi where IdUser='$idUser'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error();
+    } // end getDanhSachDuThiTheoIdUser
 }
 
 

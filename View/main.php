@@ -462,7 +462,7 @@
     <!-- De thi thu -->
     <section class="section mb-0">
         <div class="title-wrap title-wrap--line title-wrap--pr">
-            <h3 class="section-title"><a href="View/Exam">ĐỀ THI THỬ</a></h3>
+            <h3 class="section-title"><a href="View/Exam">LỊCH THI TOEIC</a></h3>
         </div>
 
         <!-- Slider -->
@@ -478,10 +478,10 @@
                         <div class="thumb-text-holder">
                             <h2 class="thumb-entry-title">
                                 <?php $dethi = str_replace(" ", "-", $row['TieuDe']) ?>
-                                <a href="View/Exam/<?= $dethi ?>"><strong>Đề Thi <?= $row['TieuDe'] ?></strong></a>
+                                <a href="View/Exam/<?= $dethi ?>/1"><strong>Đề Thi <?= $row['TieuDe'] ?></strong></a>
                             </h2>
                         </div>
-                        <a href="View/Exam/<?= $dethi ?>" class="thumb-url"></a>
+                        <a href="View/Exam/<?= $dethi ?>/1" class="thumb-url"></a>
                     </div>
                 </article>
             <?php } ?>
