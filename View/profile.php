@@ -2,7 +2,7 @@
 
 <?php
 $label_display_all  = "Thay Đổi Thông Tin !";
-$_SESSION['login_id']=2;
+//$_SESSION['login_id']=2;
 $kq=$toeic->lay_UserTheoId($_SESSION['login_id']);
 $row=$kq->fetch_assoc();
 $txt_ho1 = $row['Ho'];
