@@ -4,13 +4,13 @@ require_once("../Model/model_lambaithi.php");
 class controller_lambaithi extends model_lambaithi {
 
 	//Lấy mô tả của các phần câu hỏi
-	function test_get_part_description($loaicauhoi)
-	{
-		$p = new model_lambaithi();
-		$p->select($p->test_get_part_description($loaicauhoi));
-		$rows=$p->load_rows();
-			echo '<br><div class="description"><b>'.$rows["MoTa"].'</b></div><br>';
-	}
+//	function test_get_part_description($loaicauhoi)
+//	{
+//		$p = new model_lambaithi();
+//		$p->select($p->test_get_part_description($loaicauhoi));
+//		$rows=$p->load_rows();
+//			echo '<br><div class="description"><b>'.$rows["MoTa"].'</b></div><br>';
+//	}
 
 	//Lấy về danh sách câu hỏi, câu trả lời và đáp án
 	//In câu hỏi, 4 đáp án ABCD, dùng chung cho hầu hết các câu hỏi

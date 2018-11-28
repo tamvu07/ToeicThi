@@ -40,7 +40,6 @@
     ?>
     <div id="main-contain-test" class="col-md-8">
         <?php
-
 				require_once("../Controller/controller_lambaithi.php");
 				if($_GET['part']==1)
 				{
@@ -64,12 +63,12 @@
 					{
 						// tính điểm dựa trên số câu người dùng chọn và theo cấu trúc chuẩn TOEIC
 						if($_GET['part']==1)
-							$p->count_listening_scores($loaicauhoi,$made); 
+							$p->count_listening_scores($loaicauhoi,$made);
 						else
 							$p->count_reading_scores($loaicauhoi,$made);
 					}
 				}
-				
+
 			?>
     </div>
     <center>
@@ -78,7 +77,7 @@
     			echo '<button id="test-bottom" class="col-md-8" onClick="nopbaiNghe();">Nộp bài phần NGHE </button>';
     		else
     			echo '<button id="test-bottom" class="col-md-8" onClick="nopbaiDoc();">Nộp bài phần ĐỌC </button>';
-    		
+
 		if(!isset($_SESSION['Diem-Listening']) && $_GET['part']==2) //nếu chưa có điểm nghe mà truy cập phần đọc
 			header("location:Toeic-testing-1.html");
 		if(isset($_SESSION['Diem-Listening']) && $_GET['part']==1) //nếu đã có điểm nghe mà vẫn ở trang thi nghe
@@ -174,3 +173,10 @@
 			}, 1000);
     	}
     </script>
+
+
+
+
+
+
+
