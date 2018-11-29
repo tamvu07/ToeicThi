@@ -51,7 +51,7 @@
 					$phan = 'Đọc';
 					$loaicauhoi = 'R';
 				}
-				if(isset($_GET['id']))
+				if(isset($_GET['id'])) // id: ma de
 				{
 					$made = $_GET['id'];
 					$p = new controller_lambaithi();

@@ -50,7 +50,7 @@
                     <center>
                     <form method="POST" action="admin_actions.php">
                         <table id="add-user-table" width="50%">
-                            <tr><td>Email:</td><td><input type="text" class="form-control" name="txtEmail" id="txtEmail" placeholder="Email.."></td></tr>
+                            <tr><td>Email:</td><td><input type="email" class="form-control" name="txtEmail" id="txtEmail" placeholder="Email.."></td></tr>
                             <tr><td>Mật khẩu:</td><td><input type="text" class="form-control" name="txtPassword" placeholder="Password.."></td></tr>
                             <tr><td>Họ:</td><td><input type="text" class="form-control" name="txtHo" placeholder="Last Name.."></td></tr>
                             <tr><td>Tên:</td><td><input type="text" class="form-control" name="txtTen" placeholder="First Name"></td></tr>
@@ -68,7 +68,7 @@
                         </table>
                         <div id="email-result"></div>
                         <br><button type="submit" class="btn btn-success btn-fill btn-wd" name="submit-add-user" id="submit-add-user">
-                        <span class="pe-7s-plus"> Hoàn tất </span> <span class="pe-7s-plus">
+                        <i class="fa fa-save"></i>Hoàn tất<i class="fa fa-save"></i>
                     </button>
                     <br><br>
                     </form>

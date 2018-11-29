@@ -22,15 +22,23 @@
         $kichhoat = $_POST['kichhoat'];
         $quyen = $_POST['role'];
         $edit = new controller_admin();
-        // echo '
-        // ID: '.$id.'<br>
-        // Ten: '.$ten.'<br>
-        // Ho: '.$ho.'<br>
-        // Gioi Tinh: '.$gioitinh.'<br>
-        // KH: '.$kichhoat.'<br>
-        // Q: '.$quyen.'<br>
-        // ';
         $ketQuaSua = $edit->action_edit_user_by_id($id,$ho,$ten,$gioitinh,$kichhoat,$quyen);
         header("location:index.php?p=nguoidung");
+    }
+
+    if(isset($_POST['submit-add-dethi']))
+    {
+        session_start();
+        $ten = $_POST['txtTenDe'];
+        $mota = $_POST['txtMoTa'];
+        $thoiluong = $_POST['txtThoiLuong'];
+        $socau = $_POST['txtSoCau'];
+        $ngayhethan = $_POST['txtngayHetHan'];
+        $nguoitao = $_SESSION['login_id'];
+        $trangthai = 0;
+        // echo $ten.'<br>'.$mota.'<br>'.$thoiluong.'<br>'.$socau.'<br>'.$ngayhethan.'<br>'.$nguoitao.'<br>'.$trangthai;
+        $add_dethi = new controller_admin();
+        $add_dethi->add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai);
+        header("location:index.php?p=dethi");
     }
 ?>

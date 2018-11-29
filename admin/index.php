@@ -6,16 +6,18 @@ $ad = new controller_admin();
 if (isset($_GET['p'])) $p = $_GET['p'];
 else $p = '';
 
-if(isset($_SESSION['login_level']))
+if(!isset($_SESSION['login_level']))
 {
-    if($_SESSION['login_level']!=1)
-    {
-        header("location:../index.php");
-    }
+    header('This is not the page you are looking for', true, 404);
+    exit();
 }
 else
 {
-    header("location:../index.php");
+    if($_SESSION['login_level']!=1)
+    {
+        header('This is not the page you are looking for', true, 404);
+        exit();
+    }
 }
 ?>
 <!doctype html>
@@ -43,9 +45,8 @@ else
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet"/>
+    <link href="assets/css/dethi-style.css" rel="stylesheet" type="text/css">
 
 
     <!--     Fonts and icons     -->
@@ -143,6 +144,9 @@ else
                     break;
                 case "dethi":
                     include "dethi.php";
+                    break;
+                case "themdethi":
+                    include "dethi_add.php";
                     break;
                 case "cauhoi":
                     include "cauhoi_list.php";

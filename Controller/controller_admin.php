@@ -17,6 +17,9 @@ class controller_admin extends model_admin
             case "dethi":
                 $a3 = "class=active";
                 break;
+            case "themdethi":
+                $a3 = "class=active";
+                break;
             case "cauhoi":
                 $a4 = "class=active";
                 break;
@@ -67,17 +70,17 @@ class controller_admin extends model_admin
 
         while ($row = $kq->fetch_array()) {
             echo '<tr><td>' . $row["IdUser"] . '</td>
-		<td>' . $row["Ho"] . '</td>
-		<td>' . $row["Ten"] . '</td>
-		<td>' . $row["GioiTinh"] . '</td>
-		<td>' . $row["Mail"] . '</td>
-		<td>' . $row["KichHoat"] . '</td>
-		<td>' . $row["Quyen"] . '</td>
-        <td>' . $row["NgayThamGia"] . '</td>
-        <td><a href="?p=nguoidung&edituser='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Sửa người dùng" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["IdUser"].'"><i class="fa fa-edit"></i></button></a>
-        <a href="?p=nguoidung&removeresu='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Xóa người dùng" class="btn btn-danger btn-fill" id="'.$row["IdUser"].'"><i class="fa fa-times"></i></button></a>
-        </tr>
-        ';
+            <td>' . $row["Ho"] . '</td>
+            <td>' . $row["Ten"] . '</td>
+            <td>' . $row["GioiTinh"] . '</td>
+            <td>' . $row["Mail"] . '</td>
+            <td>' . $row["KichHoat"] . '</td>
+            <td>' . $row["Quyen"] . '</td>
+            <td>' . $row["NgayThamGia"] . '</td>
+            <td><a href="?p=nguoidung&edituser='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Sửa người dùng" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["IdUser"].'"><i class="fa fa-edit"></i></button></a>
+            <a href="?p=nguoidung&removeresu='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Xóa người dùng" class="btn btn-danger btn-fill" id="'.$row["IdUser"].'"><i class="fa fa-times"></i></button></a></td>
+            </tr>
+            ';
         }
     }
 
@@ -87,15 +90,19 @@ class controller_admin extends model_admin
         if(!$kq) die('Không có danh sách');
 
         while ($row = $kq->fetch_array()) {
-            echo '<tr><td>' . $row["MaDe"] . '</td>
-		<td>' . $row["TieuDe"] . '</td>
-		<td>' . $row["MoTa"] . '</td>
-		<td>' . $row["ThoiLuong"] . '</td>
-		<td>' . $row["SoCau"] . '</td>
-		<td>' . $row["NguoiTao"] . '</td>
-		<td>' . $row["NgayTao"] . '</td>
-		<td>' . $row["SoLanThi"] . '</td>
-		<td>' . $row["TrangThai"] . '</td></tr>';
+            echo '<tr><td>' . $row["MaDe"] . '</td> 
+            <td>' . $row["TieuDe"] . '</td>
+            <td>' . $row["ThoiLuong"] . '</td>
+            <td>' . $row["SoCau"] . '</td>
+            <td>' . $row["NguoiTao"] . '</td>
+            <td>' . $row["NgayTao"] . '</td>
+            <td>' . $row["NgayHetHan"] . '</td>
+            <td>' . $row["LuotDangKi"] . '</td>
+            <td>' . $row["TrangThai"] . '</td>
+            <td><a href="?p=dethi&made='.$row['MaDe'].'"><button type="button" rel="tooltip" title="Sửa đề thi" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["MaDe"].'"><i class="fa fa-edit"></i></button>
+            <a href="?p=dethi&removeihted='.$row["MaDe"].'">
+            <button type="button" rel="tooltip" title="Xóa đề thi" class="btn btn-danger btn-fill" id="'.$row["MaDe"].'"><i class="fa fa-times"></i></button></a></td>
+            </tr>';
         }
     }
 
@@ -238,6 +245,20 @@ class controller_admin extends model_admin
         return false;
     }
 
+    function get_question_numbers($made,$loaicauhoi)
+    {
+        $getq = new model_admin();
+        $kq = $getq->get_question_numbers($made,$loaicauhoi);
+        return $kq;
+    }
+    
+    function add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai)
+    {
+        $add_dt = new model_admin();
+        $kq = $add_dt->add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai);
+        if($kq) return true;
+        return false;
+    }
 }
 
 ?>

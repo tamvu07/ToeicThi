@@ -92,5 +92,23 @@ class model_admin extends connection {
         return false;
     }
 
+    protected function get_question_numbers($made,$loaicauhoi)
+    {
+        $sql = "select ch.MaCauHoi,ch.NoiDung,tl.A,tl.B,tl.C,tl.D,tl.DapAn FROM cauhoi ch JOIN traloi tl ON ch.MaCauHoi=tl.MaCauHoi WHERE ch.MaDe='$made' AND ch.LoaiCauHoi='$loaicauhoi'
+        ";
+        $kq = $this->con->query($sql);
+        return $kq->num_rows;
+    }
+
+    protected function add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai)
+    {
+        $sql = "INSERT INTO dethi(TieuDe,MoTa,ThoiLuong,SoCau,NgayHetHan,NguoiTao,TrangThai) 
+        VALUES ('$ten','$mota',$thoiluong,$socau,'$ngayhethan',$nguoitao,$trangthai)";
+        $kq = $this->con->query($sql);
+        if($kq->affected_rows!=0)
+            return true;
+        return false;
+    }
+
 }
 ?>

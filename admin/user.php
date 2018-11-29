@@ -5,7 +5,7 @@
                 <div class="header">
                     <h4 class="title text-center">QUẢN LÝ NGƯỜI DÙNG</h4>
                     <a href="?p=themnguoidung"><button type="button" class="btn btn-info btn-fill btn-wd">
-                        <span class="pe-7s-plus"></span> Thêm người dùng
+                        <i class="fa fa-plus"></i> Thêm người dùng
                     </button></a>
                     <div class="content table-responsive table-full-width">
                         <div id="select-list-user">
@@ -29,15 +29,15 @@
                                 </button>
                             </form>
                             <?php
-                        if(isset($_GET['edituser']))
-                        {
-                            $ad->get_edit_user_by_id($_GET['edituser']);
-                        }
-                        if(isset($_GET['removeresu']))
-                        {
-                            $ad->delete_user_by_id($_GET['removeresu']);
-                        }
-                    ?>
+                                if(isset($_GET['edituser']))
+                                {
+                                    $ad->get_edit_user_by_id($_GET['edituser']);
+                                }
+                                if(isset($_GET['removeresu']))
+                                {
+                                    $ad->delete_user_by_id($_GET['removeresu']);
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
