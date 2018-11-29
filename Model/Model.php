@@ -91,10 +91,9 @@ class model extends connection
    /*bat dau trang profile*/
     protected function upload_profile_database_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh){
     $pass = $this->con->escape_string(trim(strip_tags($txt_matkhau)));
-    $txt_matkhau2 = base64_encode($pass);
 
     $idUser = $_SESSION['login_id'];
-    $sql = "UPDATE nguoidung set Ho='$txt_ho',Ten='$txt_ten',MatKhau='$txt_matkhau2',GioiTinh='$gioitinh', Avatar='$avatar' where IdUser = '$idUser' ";
+    $sql = "UPDATE nguoidung set Ho='$txt_ho',Ten='$txt_ten',MatKhau='$pass',GioiTinh='$gioitinh', Avatar='$avatar' where IdUser = '$idUser' ";
     $kq = $this->con->query($sql);
     if($kq == true){
         return true;

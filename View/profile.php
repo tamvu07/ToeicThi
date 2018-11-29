@@ -16,14 +16,11 @@ $gioitinh = $row['GioiTinh'];
 <?php
 /*bat dau upload ho */
 if( isset($_POST['profile_submit']) ){
-
-
   $txt_ho = $txt_ho1;
   $txt_ten = $txt_ten1;
   $txt_matkhau = $txt_matkhau1;
-
-    /*$avatar = $row['Avatar'];
-    $gioitinh = $row['GioiTinh'];*/
+  /*$avatar = $row['Avatar'];
+  $gioitinh = $row['GioiTinh'];*/
 
   if( isset($_POST['txt_ho']) ){
     $txt_ho = $_POST['txt_ho'];
@@ -58,7 +55,7 @@ if( isset($_POST['profile_submit']) ){
       exit();
     }
     // check if file already exists
-/*    if(file_exists($target_file)){
+    /*    if(file_exists($target_file)){
       $label_display_all = "Sorry, file already exists."."<br/>";
       $uploadok = 0;
       exit();
@@ -76,20 +73,21 @@ if( isset($_POST['profile_submit']) ){
       exit();
     }
     // check if $uploadOK is set to 0 by an errror
-    if($uploadok == 0){
+    if($uploadok == 0)
+    {
       $label_display_all = "Sorry, your file was not uploaded"."<br/>";
     }
-    else{
-      if( move_uploaded_file($_FILES["avatar"]["tmp_name"],$target_file) ){
-              $avatar = $target_file;
-     }else {
-      $label_display_all = "Sorry, there was an error uploading your file img 2 va ho."."<br/>";
-            }
-        }
+    else
+    {
+      if( move_uploaded_file($_FILES["avatar"]["tmp_name"],$target_file) )
+        $avatar = $target_file;
+      else
+        $label_display_all = "Sorry, there was an error uploading your file img 2 va ho."."<br/>";
     }
+  }
     /*ket thuc xu ly img*/
 
-/*bat dau luu va hien thi*/
+ /*bat dau luu va hien thi*/
   $kq = $toeic->upload_profile_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh);
   if($kq){
     $label_display_all  = " Đã Cập Nhập !";
@@ -543,9 +541,9 @@ input[type="file"]/*, input[type="email"]*/ {
     });  
 
     $(document).ready(function(){
-      document.getElementById('txt_ho').addEventListener('change',Upload_Ho,false);
-      document.getElementById('txt_ten').addEventListener('change',Upload_Ten,false);
-      document.getElementById('txt_matkhau').addEventListener('change',show_modal_repassword,false);
+      document.getElementById('txt_ho').addEventListener('keyup',Upload_Ho,false);
+      document.getElementById('txt_ten').addEventListener('keyup',Upload_Ten,false);
+      document.getElementById('txt_matkhau').addEventListener('keyup',show_modal_repassword,false);
       document.getElementById('txt_rematkhau').addEventListener('blur',test_show_modal_repassword,false);
       document.getElementById('avatar_id').addEventListener('change',AvatarUpload,false);
       document.getElementById('gioitinh_id_1').addEventListener('click',gioitinhpload,false);
