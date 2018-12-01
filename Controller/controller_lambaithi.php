@@ -1,7 +1,13 @@
 <?php
-
 require_once("../Model/model_lambaithi.php");
+
 class controller_lambaithi extends model_lambaithi {
+    function get_test_file($made){
+        $con=new model_lambaithi();
+        $kq=$con->lay_file_theoMaDe();
+        if(!$kq) return $this->con->error();
+        return $kq;
+    } // function get_test_file
 
 	//Lấy mô tả của các phần câu hỏi
 //	function test_get_part_description($loaicauhoi)
@@ -17,12 +23,12 @@ class controller_lambaithi extends model_lambaithi {
 	function test_get_list_questions($loaicauhoi,$made)
 	{
 		$p = new model_lambaithi();
-		$p->select($p->test_get_list_questions($loaicauhoi,$made));
+		$kq=$p->test_get_list_questions($loaicauhoi,$made);
 		if($loaicauhoi=='R')
 			$i=101;
 		else
 			$i=1;
-		while($rows=$p->load_rows()) {
+		while($rows=$kq->fetch_array()) {
 			//Dựa vào số câu hiện tại để in ra mô tả cho phần câu hỏi đó
 			if($i==1)
 				$this->test_get_part_description('L-HINHANH');
@@ -103,7 +109,7 @@ class controller_lambaithi extends model_lambaithi {
 		}
 			$_SESSION['Diem-Reading'] = $diemreading;
 	}
-
+    //Tính điểm bài làm (sử dụng để tính phần thi nghe hoặc đọc)
 	function count_listening_scores($loaicauhoi,$made)
 	{
 		$diemlistening = 5;

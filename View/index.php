@@ -6,7 +6,7 @@ $toeic = new controller_main();
 if (isset($_GET['p']))
     $p = $_GET['p'];
 if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Login.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Register.html") {
-    if($_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-1/Toeic-Register.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-2/Toeic-Register.html"){
+    if($_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-1/Toeic-Register.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-1/Toeic-Register.html"){
         $_SESSION['back'] = str_replace("localhost/ToeicThi/View/", "", $_SERVER['REQUEST_URI']);
     }
 }
@@ -87,6 +87,9 @@ $toeic->kiemtra_Login();
                 break;
             case "introduction":
                 include "introduction.php";
+                break;
+            case "captcha":
+                include "checkCaptcha.php";
                 break;
             default:
                 include("main.php");

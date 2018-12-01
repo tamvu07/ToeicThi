@@ -48,8 +48,7 @@
 }
 
 #test-bottom {
-	margin: 0px auto;
-	margin-top:10px;
+	margin: 15px auto;
     background-color: #9CF;
 	color:white;
 	font-size:30px;
@@ -91,6 +90,7 @@
     padding: 10px;
     color: cadetblue;
 }
+
 
 /*-------------------*/
 
@@ -260,3 +260,5 @@ input[type="button"]:hover {
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
 }
+
+

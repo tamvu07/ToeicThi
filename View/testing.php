@@ -28,8 +28,8 @@ $PhutThi = $date['minute'];
 $GiayThi = $date['second'];
 $NgayThi = mktime($GioThi, $PhutThi, $GiayThi, $ThangThi, $NgayThi, $NamThi);
 $thi = date("d/m/Y H:i:s", $NgayThi);
-$dateDiff=$NgayThi-time();
-$deadline=floor($dateDiff/(60*60*24));
+$dateDiff = $NgayThi - time();
+$deadline = floor($dateDiff / (60 * 60 * 24));
 
 
 if (isset($_POST['comment'])) {
@@ -39,23 +39,24 @@ if (isset($_POST['comment'])) {
 }
 
 if (isset($_POST['submit'])) {
-    $dateDiff=$NgayThi-time();
-    $deadline=floor($dateDiff/(60*60*24));
+    $dateDiff = $NgayThi - time();
+    $deadline = floor($dateDiff / (60 * 60 * 24));
     if (!isset($_SESSION['login_id']))
         echo '<script>alert("Bạn chưa đăng nhập")</script>';
-    if ($deadline >=0){
-        header("location: ../TOEIC-$maDe/Toeic-Register.html");
-    }
-    else{
-        echo '<script>alert("Đã quá thời hạn để đăng kí, bạn vui lòng chọn đề thi khác")</script>';
+    else {
+        if ($deadline >= 0) {
+            header("location: ../TOEIC-$maDe/Toeic-Register.html");
+        } else {
+            echo '<script>alert("Đã quá thời hạn để đăng kí, bạn vui lòng chọn đề thi khác")</script>';
+        }
     }
 }
 
-if(isset($_POST['test'])){
-    $dateDiff=$NgayThi-time();
-    $deadline=floor($dateDiff/(60*60*24));
+if (isset($_POST['test'])) {
+    $dateDiff = $NgayThi - time();
+    $deadline = floor($dateDiff / (60 * 60 * 24));
 
-    $dateDiff=abs($dateDiff);
+    $dateDiff = abs($dateDiff);
     $years = floor($dateDiff / (365 * 60 * 60 * 24));
     $months = floor(($dateDiff - $years * 365 * 60 * 60 * 24) / (30 * 60 * 60 * 24));
     $days = floor(($dateDiff - $years * 365 * 60 * 60 * 24 - $months * 30 * 60 * 60 * 24) / (60 * 60 * 24));
@@ -64,20 +65,52 @@ if(isset($_POST['test'])){
 
     if (!isset($_SESSION['login_id']))
         echo '<script>alert("Bạn chưa đăng nhập")</script>';
-    if ($deadline < 0){
-        if($minutes>5){
-            echo '<script>alert("Bạn đã dự thi trễ sau 5 phút tính từ lúc bắt đầu thi, xin vui lòng chọn lịch thi khác")</script>';
-        }
-        else{
-            header("location: ../TOEIC-$maDe/Toeic-testing-$maDe.html");
+    else {
+        $check = $toeic->check_Toeic_Register($_SESSION['login_id'], $maDe);
+        if (!$check) {
+            if ($deadline < 0) {
+                if ($minutes > 5) {
+                    echo '<script>alert("Bạn dự thi quá trễ, xin vui lòng chọn lịch thi khác")</script>';
+                } else {
+                    header("location: Captcha.html");
+                }
+            } else {
+                if ($years == 0) {
+                    if ($months == 0) {
+                        if ($days == 0) {
+                            if ($hours == 0) {
+                                echo '<script>alert("Còn ' . $minutes . ' phút cho đến lúc thi");</script>';
+                            } else {
+                                echo '<script>alert("Còn ' . $hours . ' giờ, ' . $minutes . ' phút cho đến lúc thi");</script>';
+                            }
+                        } else {
+                            echo '<script>alert("Còn ' . $days . ' ngày, ' . $hours . ' giờ, ' . $minutes . ' phút cho đến lúc thi");</script>';
+                        }
+                    } else {
+                        echo '<script>alert("Còn ' . $months . ' tháng, ' . $days . ' ngày, ' . $hours . ' giờ, ' . $minutes . ' phút cho đến lúc thi");</script>';
+                    }
+                } else
+                    echo '<script>alert("Còn ' . $years . ' năm, ' . $months . ' tháng, ' . $days . ' ngày, ' . $hours . ' giờ, ' . $minutes . ' phút cho đến lúc thi");</script>';
+            }
+        } else {
+            echo '<script>alert("Bạn chưa đăng kí thi đề này ")</script>';
         }
     }
-    else{
-        echo '<script>alert("Còn '.$years.' năm, '.$months.' tháng, '.$days.' ngày, '.$hours.' giờ, '.$minutes.' phút cho đến lúc thi");</script>';
-    }
-
 }
 ?>
+
+<style>
+    #container #captcha{
+        width: 100%;
+        height:1000px;
+        position: absolute;
+        z-index: 1024;
+        background-color: white;
+        color: black;
+        border: 2px solid red;
+    }
+</style>
+
 
 <div id="container">
     <div id="main-contain" class="col-md-8">
@@ -98,11 +131,11 @@ if(isset($_POST['test'])){
 
             <p id="describe">
                 <?php
-                echo $row['MoTa'] . " - Số câu hỏi: " . $row['SoCau'] . " câu - Thời lượng: " . $row['ThoiLuong'] . " phút - Ngày thi: ".$thi." - Lượt đăng kí: " . $row['LuotDangKi'];
+                echo $row['MoTa'] . " - Số câu hỏi: " . $row['SoCau'] . " câu - Thời lượng: " . $row['ThoiLuong'] . " phút - Ngày thi: " . $thi . " - Lượt đăng kí: " . $row['LuotDangKi'];
                 ?>
             </p>
             <?php
-            if($deadline>=0)
+            if ($deadline >= 0)
                 echo '<p style="color:#ee4b53;text-align: center">Bạn hãy click vào nút đăng kí bên dưới để đặt lịch làm bài. Chúc
                 các bạn đạt điểm số thật cao!</p>';
             else
@@ -113,8 +146,11 @@ if(isset($_POST['test'])){
 
                 <!--                <a href="View/index.php?p=begin-test"><img src="img/green-start-button.png" width="150" height="150"></a>-->
 
-                <button type="submit" name="submit"><img src="img/register-button.png" width="250" height="150"></button>
-                <button type="submit" name="test" class="btn" style="width: 250px;height: 115px;margin-left:100px;color:#ff6200">Làm bài thi</button>
+                <button type="submit" name="submit"><img src="img/register-button.png" width="250" height="150">
+                </button>
+                <button type="submit" name="test" class="btn"
+                        style="width: 250px;height: 115px;margin-left:100px;color:#ff6200">Làm bài thi
+                </button>
             </form>
 
             <br>
@@ -137,7 +173,9 @@ if(isset($_POST['test'])){
                             ?>
                             <tr>
                                 <td style="width: 15%;"><img src="img/logo.dethi.jpeg"></td>
-                                <td style="width:25%"><strong>Nick name:</strong> <?= $row['Ho'] . " " . $row['Ten'] ?><BR><strong>Trình độ Toeic:</strong> ..<BR><strong>Ngày đăng:</strong> <?= $rowbl['NgayDang'] ?>
+                                <td style="width:25%"><strong>Nick name:</strong> <?= $row['Ho'] . " " . $row['Ten'] ?>
+                                    <BR><strong>Trình độ Toeic:</strong> ..<BR><strong>Ngày
+                                        đăng:</strong> <?= $rowbl['NgayDang'] ?>
                                 </td>
                                 <td style="width: 60%"><?= $rowbl['NoiDung'] ?></td>
                             </tr>
