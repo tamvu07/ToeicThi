@@ -83,14 +83,14 @@ class model_admin extends connection {
         return false;
     }
 
-    protected function delete_user_by_id($id)
-    {
-        $sql = "DELETE FROM nguoidung WHERE IdUser='$id'";
-        $kq = $this->con->query($sql);
-        if($kq->affected_rows!=0)
-            return true;
-        return false;
-    }
+    // protected function delete_user_by_id($id)
+    // {
+    //     $sql = "DELETE FROM nguoidung WHERE IdUser='$id'";
+    //     $kq = $this->con->query($sql);
+    //     if($kq->affected_rows!=0)
+    //         return true;
+    //     return false;
+    // }
 
     protected function get_question_numbers($made,$loaicauhoi)
     {
@@ -106,6 +106,25 @@ class model_admin extends connection {
         VALUES ('$ten','$mota',$thoiluong,$socau,'$ngayhethan',$nguoitao,$trangthai)";
         $kq = $this->con->query($sql);
         if($kq->affected_rows!=0)
+            return true;
+        return false;
+    }
+
+    protected function get_dethi_by_id($made)
+    {
+        $sql = "SELECT MaDe, TieuDe, MoTa, DATE_FORMAT(NgayHetHan, '%Y-%m-%dT%H:%i') as NgayHetHan, NguoiTao, TrangThai FROM dethi WHERE MaDe=$made LIMIT 1";
+        $kq = $this->con->query($sql);
+        if($kq->num_rows!=0)
+            return $kq;
+        return 0;
+    }
+
+    protected function action_edit_dethi_by_id($made,$tende,$mota,$ngayhethan,$trangthai)
+    {
+        $sql = "UPDATE dethi SET TieuDe='$tende', MoTa='$mota', NgayHetHan='$ngayhethan', TrangThai=$trangthai
+        WHERE MaDe='$made'";
+        $kq = $this->con->query($sql);
+        if($kq->affected_rows>0)
             return true;
         return false;
     }

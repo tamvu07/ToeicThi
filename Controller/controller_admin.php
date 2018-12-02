@@ -77,8 +77,7 @@ class controller_admin extends model_admin
             <td>' . $row["KichHoat"] . '</td>
             <td>' . $row["Quyen"] . '</td>
             <td>' . $row["NgayThamGia"] . '</td>
-            <td><a href="?p=nguoidung&edituser='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Sửa người dùng" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["IdUser"].'"><i class="fa fa-edit"></i></button></a>
-            <a href="?p=nguoidung&removeresu='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Xóa người dùng" class="btn btn-danger btn-fill" id="'.$row["IdUser"].'"><i class="fa fa-times"></i></button></a></td>
+            <td><a href="?p=nguoidung&edituser='.$row["IdUser"].'"><button type="button" rel="tooltip" title="Sửa người dùng" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["IdUser"].'"><i class="fa fa-edit"></i></button></a></td>
             </tr>
             ';
         }
@@ -99,9 +98,7 @@ class controller_admin extends model_admin
             <td>' . $row["NgayHetHan"] . '</td>
             <td>' . $row["LuotDangKi"] . '</td>
             <td>' . $row["TrangThai"] . '</td>
-            <td><a href="?p=dethi&made='.$row['MaDe'].'"><button type="button" rel="tooltip" title="Sửa đề thi" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["MaDe"].'"><i class="fa fa-edit"></i></button>
-            <a href="?p=dethi&removeihted='.$row["MaDe"].'">
-            <button type="button" rel="tooltip" title="Xóa đề thi" class="btn btn-danger btn-fill" id="'.$row["MaDe"].'"><i class="fa fa-times"></i></button></a></td>
+            <td><a href="?p=dethi&made='.$row['MaDe'].'"><button type="button" rel="tooltip" title="Xem đề thi" class="btn btn-info btn-fill edit" name="btn-edit" id="'.$row["MaDe"].'"><i class="fa fa-edit"></i></button></td>
             </tr>';
         }
     }
@@ -237,13 +234,13 @@ class controller_admin extends model_admin
         return false;
     }
 
-    function delete_user_by_id($id)
-    {
-        $del = new model_admin();
-        $kq = $del->delete_user_by_id($id);
-        if($kq) return true;
-        return false;
-    }
+    // function delete_user_by_id($id)
+    // {
+    //     $del = new model_admin();
+    //     $kq = $del->delete_user_by_id($id);
+    //     if($kq) return true;
+    //     return false;
+    // }
 
     function get_question_numbers($made,$loaicauhoi)
     {
@@ -257,6 +254,22 @@ class controller_admin extends model_admin
         $add_dt = new model_admin();
         $kq = $add_dt->add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai);
         if($kq) return true;
+        return false;
+    }
+
+    function get_dethi_by_id($made)
+    {
+        $dt = new model_admin();
+        $kq = $dt->get_dethi_by_id($made);
+        return $kq;
+    }
+
+    function action_edit_dethi_by_id($made,$tende,$mota,$ngayhethan,$trangthai)
+    {
+        $edit_de = new model_admin();
+        $kq = $edit_de->action_edit_dethi_by_id($made,$tende,$mota,$ngayhethan,$trangthai);
+        if($kq)
+            return true;
         return false;
     }
 }

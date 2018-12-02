@@ -33,10 +33,6 @@
                                 {
                                     $ad->get_edit_user_by_id($_GET['edituser']);
                                 }
-                                if(isset($_GET['removeresu']))
-                                {
-                                    $ad->delete_user_by_id($_GET['removeresu']);
-                                }
                             ?>
                         </div>
                     </div>

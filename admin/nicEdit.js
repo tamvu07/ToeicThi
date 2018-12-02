@@ -559,8 +559,9 @@ var nicEditorInstance = bkClass.extend({
         this.blur()
     },
     init: function() {
-		this.elm.setAttribute("contentEditable", "true");
-		this.elm.id = 'noidung';
+        this.elm.setAttribute("contentEditable", "true");
+        this.elm.id = "noidung";
+        this.elm.setAttribute("name","noidung");
         if (this.getContent() == "") {
             this.setContent("<br />")
         }

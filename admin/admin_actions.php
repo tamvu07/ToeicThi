@@ -1,5 +1,16 @@
 <?php
     require_once("../Controller/controller_admin.php");
+
+    function thanhCong($link) {
+        echo '<script>alert("Thực hiện thành công!");</script>';
+        echo '<script>document.location.href = "'.$link.'";</script>';
+    }
+
+    function thatBai($link) {
+        echo '<script>alert("Thực hiện thất bại!");</script>';
+        echo '<script>document.location.href = "'.$link.'";</script>';
+    }
+
 	if(isset($_POST['submit-add-user']))
 	{
         $fname = $_POST['txtTen'];
@@ -10,7 +21,8 @@
         $mail = $_POST['txtEmail'];
         $add = new controller_admin();
         $ketQuaThem = $add->add_user($fname,$lname,$gender,$pass,$role,$mail);
-        header("location:index.php?p=nguoidung");
+        if(!$ketQuaThem) thanhCong('index.php?p=dethi');
+        else thatBai('index.php?p=dethi');
     }
     
     if(isset($_POST['submit-edit-user']))
@@ -23,7 +35,8 @@
         $quyen = $_POST['role'];
         $edit = new controller_admin();
         $ketQuaSua = $edit->action_edit_user_by_id($id,$ho,$ten,$gioitinh,$kichhoat,$quyen);
-        header("location:index.php?p=nguoidung");
+        if(!$ketQuaSua) thanhCong('index.php?p=dethi');
+        else thatBai('index.php?p=dethi');
     }
 
     if(isset($_POST['submit-add-dethi']))
@@ -38,7 +51,22 @@
         $trangthai = 0;
         // echo $ten.'<br>'.$mota.'<br>'.$thoiluong.'<br>'.$socau.'<br>'.$ngayhethan.'<br>'.$nguoitao.'<br>'.$trangthai;
         $add_dethi = new controller_admin();
-        $add_dethi->add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai);
-        header("location:index.php?p=dethi");
+        $ketqua = $add_dethi->add_dethi($ten,$mota,$thoiluong,$socau,$ngayhethan,$nguoitao,$trangthai);
+        if(!$ketqua) thanhCong('index.php?p=dethi');
+        else thatBai('index.php?p=dethi');
+    }
+
+    if(isset($_POST['submit-edit-dethi']))
+    {
+        $made = $_POST['txtMa'];
+        $tende = $_POST['txtTen'];
+        $mota = $_POST['txtMoTa'];
+        $ngayhethan = str_replace('T',' ',$_POST['txtNgayHH']);
+        $trangthai = $_POST['TrangThaiDe'];
+        // echo $made.'<br>'.$tende.'<br>'.$mota.'<br>'.$ngayhethan.'<br>'.$trangthai;
+        $edit_dethi = new controller_admin();
+        $ketqua = $edit_dethi->action_edit_dethi_by_id($made,$tende,$mota,$ngayhethan,$trangthai);
+        if(!$ketqua) thanhCong('index.php?p=dethi');
+        else thatBai('index.php?p=dethi');
     }
 ?>

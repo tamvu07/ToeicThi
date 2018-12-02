@@ -149,13 +149,13 @@ else
                     include "dethi_add.php";
                     break;
                 case "cauhoi":
-                    include "cauhoi_list.php";
+                    include "cauhoi.php";
                     break;
                 case "tintuc":
-                    include "tintuc_list.php";
+                    include "tintuc.php";
                     break;
                 case "thongbao":
-                    include "thongbao_list.php";
+                    include "thongbao.php";
                     break;
                 default:
                     include "dashboard.php";
