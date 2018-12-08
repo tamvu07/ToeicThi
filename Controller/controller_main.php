@@ -262,15 +262,6 @@ class controller_main extends model
         return $kq;
     } // end function lay_DanhSach_DuThi()
 
-    function lay_DanhSach_DuThi_IdUser($idUser)
-    {
-        $con = new Model();
-        $idUser = trim(strip_tags($idUser));
-        $kq = $con->getDanhSachDuThiTheoIdUser($idUser);
-        if (!$kq) die($this->con->error());
-        return $kq;
-    } // end function lay_DanhSach_DuThi()
-
     function thongtin_DangKiThi_ThanhCong($idUser, $made)
     {
         $idUser = trim(strip_tags($idUser));
@@ -345,17 +336,19 @@ class controller_main extends model
                 $announce = "Bạn chưa làm bài thi này";
                 if (isset($_SESSION['login_id'])) {
                     $bailam = $con->layBaiLamTheoId($_SESSION['login_id']);
-                    while ($rowBL = $bailam->fetch_array()) {
-                        if ($rowBL['MaDe'] == $rowDS['MaDe']) {
-                            $doc = $rowBL['DiemDoc'];
-                            $nghe = $rowBL['DiemNghe'];
-                            $tong = $doc + $nghe;
-                            if ($tong > $GLOBALS['tongDiem']) {
-                                $GLOBALS['diemDoc'] = $doc;
-                                $GLOBALS['diemNghe'] = $nghe;
-                                $GLOBALS['tongDiem'] = $tong;
+                    if ($bailam) {
+                        while ($rowBL = $bailam->fetch_array()) {
+                            if ($rowBL['MaDe'] == $rowDS['MaDe']) {
+                                $doc = $rowBL['DiemDoc'];
+                                $nghe = $rowBL['DiemNghe'];
+                                $tong = $doc + $nghe;
+                                if ($tong > $GLOBALS['tongDiem']) {
+                                    $GLOBALS['diemDoc'] = $doc;
+                                    $GLOBALS['diemNghe'] = $nghe;
+                                    $GLOBALS['tongDiem'] = $tong;
+                                }
+                                $announce = "Số điểm cao nhất của bạn";
                             }
-                            $announce = "Số điểm cao nhất của bạn";
                         }
                     }
                 }
@@ -418,8 +411,206 @@ class controller_main extends model
             }
 
         }
-    }
+    } // end function thongtin_LichThiToeic
 
+    function get_test_file($made)
+    {
+        $con = new Model();
+        $made = trim(strip_tags($made));
+        $kq = $con->lay_file_theoMaDe($made);
+        if (!$kq) return $this->con->error();
+        return $kq;
+    } // end function get_test_file
+
+    function lay_DanhSach_LoaiCauHoi()
+    {
+        $con = new Model();
+        $kq = $con->layLoaiCauHoi();
+        if (!$kq) return $this->con->error();
+        return $kq;
+    } // end function lay_DanhSach_LoaiCauHoi
+
+    //Lấy về danh sách câu hỏi, câu trả lời và đáp án
+    //In câu hỏi, 4 đáp án ABCD, dùng chung cho hầu hết các câu hỏi
+    function lay_DanhSach_CauHoi($made)
+    {
+        $p = new Model();
+        $num = 1;
+
+        $part = $p->layLoaiCauHoi();
+        $kqfile = $this->get_test_file($made);
+        $file = $kqfile->fetch_array();
+        if (!$file) die('không lấy được dữ liệu');
+
+        $CH = $p->test_get_list_questions($made);
+        if (!$CH) return false;
+        else {
+            // bat dau lay tung cau hoi trong bang cauhoi
+            while ($rows = $CH->fetch_array()) {
+                if ($num == 1) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+                if ($num == 11) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+                if ($num == 41) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+                if ($num == 71) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+                if ($num == 101) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+                if ($num == 141) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+                if ($num == 153) {
+                    $rowP = $part->fetch_array();
+                    echo '<br>' . '<div id="part">' . $rowP['MoTa'] . '</div>' . '<br>';
+                }
+
+                if ($rows['LoaiCauHoi'] != "R-DIENDOANVAN" && $rows['LoaiCauHoi'] != "R-HOIDOANVAN") {
+                    $kqDA = $p->test_get_list_DapAn($rows['MaCauHoi']);
+                    if ($kqDA) {
+                        $rowDA = $kqDA->fetch_array();
+                        $_SESSION['cau' . $num] = $rowDA['DapAn'];
+                        if ($rowDA["A"] == null || $rowDA["B"] == null || $rowDA["C"] == null || $rowDA["D"] == null) {
+                            $rowDA["A"] = 'A';
+                            $rowDA["B"] = 'B';
+                            $rowDA["C"] = 'C';
+                            $rowDA["D"] = 'D';
+                        }
+                    } else die('Không thể lấy được Đáp án để chấm điểm');
+                    if ($num < 11) {
+                        $imgArr = explode(";", $file['HinhAnh'], 10);
+                        $countImg = count($imgArr);
+                        $imgArr[$countImg - 1] = str_replace(";", "", $imgArr[$countImg - 1]);
+                        echo '
+                        <div id="question">
+                            Câu ' . $num . '. ' . $rows["NoiDung"] . '<br><img src="img/file/' . $imgArr[$num - 1] . '.jpg">
+                        </div>
+                        <div id="answer" style="margin-left:25px;">
+                            <input id="' . $num . '-A" type="radio" name="' . $num . '" value="' . $rowDA["A"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-A"> A. ' . $rowDA["A"] . ' </label><br>
+                            <input id="' . $num . '-B" type="radio" name="' . $num . '" value="' . $rowDA["B"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-B"> B. ' . $rowDA["B"] . ' </label><br>
+                            <input id="' . $num . '-C" type="radio" name="' . $num . '" value="' . $rowDA["C"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-C"> C. ' . $rowDA["C"] . ' </label><br>
+                            <input id="' . $num . '-D" type="radio" name="' . $num . '" value="' . $rowDA["D"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-D"> D. ' . $rowDA["D"] . ' </label><br>
+                        </div><br>';
+                    } else {
+                        echo '
+                        <div id="question">
+                            Câu ' . $num . '. ' . $rows["NoiDung"] . '
+                        </div>
+                        <div id="answer" style="margin-left:25px;">
+                            <input id="' . $num . '-A" type="radio" name="' . $num . '" value="' . $rowDA["A"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-A"> A. ' . $rowDA["A"] . ' </label><br>
+                            <input id="' . $num . '-B" type="radio" name="' . $num . '" value="' . $rowDA["B"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-B"> B. ' . $rowDA["B"] . ' </label><br>
+                            <input id="' . $num . '-C" type="radio" name="' . $num . '" value="' . $rowDA["C"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-C"> C. ' . $rowDA["C"] . ' </label><br>
+                            <input id="' . $num . '-D" type="radio" name="' . $num . '" value="' . $rowDA["D"] . '"><label style="font-size:18px;padding-left:10px;margin-top:-6px" for="' . $num . '-D"> D. ' . $rowDA["D"] . ' </label><br>
+                        </div><br>';
+                    }
+
+                    $num++;
+                } else {
+                    $kqSub = $p->test_get_list_sub_questions($rows['MaCauHoi'], $totalSub);
+                    if (!$kqSub) die('Không lấy được câu hỏi');
+                    else {
+                        $count_sub = $num + $totalSub - 1;
+                        echo '<br><h5>Questions ' . $num . '-' . $count_sub . ': refer to the following paragraphs</h5>' . '<br>' . $rows['NoiDung'] . '<br>';
+                        while ($rowSub = $kqSub->fetch_array()) {
+                            $kqDA = $p->test_get_list_DapAn($rows['MaCauHoi'], $rowSub['Id']);
+                            if ($kqDA) {
+                                $rowDA = $kqDA->fetch_array();
+                                $_SESSION['cau' . $num] = $rowDA['DapAn'];
+                            } else die('Không thể lấy được Đáp án để chấm điểm');
+                            echo "
+                                <div id='question'>
+                                    Câu " . $num . ". " . $rowSub['NoiDung'] . "
+                                </div>
+                                <div id='answer' style='margin-left:25px;'><br>
+                                    <input id='" . $num . "-A' type='radio' name='" . $num . "' value='" . $rowDA['A'] . "'><label style='font-size:18px;padding-left:10px;margin-top:-6px' for='" . $num . "-A'> A. " . $rowDA['A'] . " </label><br>
+                                    <input id='" . $num . "-B' type='radio' name='" . $num . "' value='" . $rowDA['B'] . "'><label style='font-size:18px;padding-left:10px;margin-top:-6px' for='" . $num . "-B'> B. " . $rowDA['B'] . " </label><br>
+                                    <input id='" . $num . "-C' type='radio' name='" . $num . "' value='" . $rowDA['C'] . "'><label style='font-size:18px;padding-left:10px;margin-top:-6px' for='" . $num . "-C'> C. " . $rowDA['C'] . " </label><br>
+                                    <input id='" . $num . "-D' type='radio' name='" . $num . "' value='" . $rowDA['D'] . "'><label style='font-size:18px;padding-left:10px;margin-top:-6px' for='" . $num . "-D'> D. " . $rowDA['D'] . " </label><br>
+                                </div><br>";
+                            $num++;
+                        }
+                    }
+                }
+            } // end 1 cau hoi trong bang cauhoi
+        }
+    } // end function test_get_list_questions
+
+    function tinh_diem_thi(){
+        $markR=0;
+        $markL=0;
+        $diemReading=0;
+        $diemListening=0;
+
+        // Tính Điểm Listening
+        for($i=1;$i<=100;$i++){
+            if(isset($_POST[$i])){
+                if(strcmp($_POST[$i],$_SESSION['cau'.$i])==0){
+                    ++$markL;
+                    if($markL <= 9) $diemListening=5;
+                    else if($markL==25 || $markL==28 || $markL==39 || $markL==43 || $markL==47 || $markL==52 || $markL==55 || $markL==64 || $markL==89 || $markL==92 || $markL==94)
+                        $diemListening+=10;
+                    else if($markL>9 && $markL<=97)
+                        $diemListening+=5;
+                    else
+                        $diemListening+=0;
+                }
+            }
+        }
+
+        // Tính điểm Reading
+        for($i=101;$i<=200;$i++){
+            if(isset($_POST[$i])){
+                if(strcmp($_POST[$i],$_SESSION['cau'.$i])==0){
+                    ++$markR;
+                    if($markR <= 9) $diemReading=5;
+                    else if($markR==25 || $markR==28 || $markR==39 || $markR==43 || $markR==47 || $markR==52 || $markR==55 || $markR==64 || $markR==89 || $markR==92 || $markR==94)
+                        $diemReading+=10;
+                    else if($markR>9 && $markR<=97)
+                        $diemReading+=5;
+                    else
+                        $diemReading+=0;
+                }
+            }
+        }
+
+        $_SESSION['ReadingScore'] = $diemReading;
+        $_SESSION['ListeningScore'] = $diemListening;
+    } // end function tinh_diem_thi
+
+    function test_save_scores($iduser,$made,$diemdoc,$diemnghe)
+    {
+        $p = new Model();
+        $kq=$p->test_save_scores($iduser,$made,$diemdoc,$diemnghe);
+        if($kq) return true;
+        else return false;
+    } // end function test_save_scores
+
+    function Thong_tin_diem_thi_sau_khi_thi($diemnghe,$diemdoc,$tongdiem){
+        if (isset($_SESSION['login_id'])) $iduser = $_SESSION['login_id'];
+        else exit();
+        $made = $_GET['id'];
+        echo '
+			<table id="score-table" cellpadding="10px">
+				<tr><td colspan="2" class="t-head"><h2>Kết quả của ' . $_SESSION["login_lname"] . ' ' . $_SESSION["login_fname"] . ' sau khi hoàn thành đề TOEIC Số ' . $made . '</h2></td></tr>
+				<tr><td>Điểm NGHE: ' . $diemnghe . '</></td><td>Điểm ĐỌC: ' . $diemdoc . '</td></tr>
+				<tr><td colspan="2" class="t-sum">Tổng điểm: ' . $tongdiem . '</td></tr>
+			</table>
+		';
+        $kq=$this->test_save_scores($iduser,$made,$diemdoc,$diemnghe);
+        if($kq) echo "<br><h3 class='text-center'>Điểm của bạn đã được lưu</h3><br>";
+        else echo "<br><h3 class='text-center'>Lỗi hệ thống. Không lưu được điểm số của bạn</h3><br>";
+    } // end function Thong_tin_diem_thi_sau_khi_thi
 }
 
 ?>

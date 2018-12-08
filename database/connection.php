@@ -17,16 +17,6 @@ class connection
         $this->result = $this->con->query($sql);
     }
 
-    public function load_rows()
-    {
-        if ($this->result->num_rows > 0) {
-            $row = $this->result->fetch_assoc();
-        } else {
-            $row = 0;
-        }
-        return $row;
-    }
-
     public function execute_no_return($sql)
     {
         $this->con->query($sql);
