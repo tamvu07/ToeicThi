@@ -30,15 +30,7 @@
                 </ul>
             </li>
             <li>
-                <a class="sidenav__menu-url">Test</a>
-                <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i
-                            class="ui-arrow-down"></i></button>
-                <ul class="sidenav__menu-dropdown">
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Listening</a></li>
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Reading</a></li>
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Writing</a></li>
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Speaking</a></li>
-                </ul>
+                <a class="sidenav__menu-url" href="View/Exam">Thi Toeic</a>
             </li>
             <!-- Categories -->
             <li>
@@ -86,8 +78,7 @@
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
                         } else {
-                            if(isset($_SESSION['back'])) $return=$_SESSION['back'];
-                            else $return="#";
+                            if(isset($_SESSION['back'])){ $return=$_SESSION['back']; } else $return="#";
                             echo '<a id="hello-user" class="btn btn-sm btn-light" href="View/profile.html" onfocus="false"><i class="fas fa-address-card"></i><span>'.$_SESSION['login_lname'].' '.$_SESSION['login_fname'].'</span></a>
                                 <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return='.$return.'" onfocus="false"><span>Đăng xuất</span></a>';
                         }
@@ -204,7 +195,7 @@
                             </ul> <!-- end megamenu -->
                         </li>
                         <li>
-                            <a href="View/Exam">Toeic</a>
+                            <a href="View/Exam">Thi Toeic</a>
                         </li>
                         <li>
                             <a href="View/Contact.html">Liên hệ</a>

@@ -1,7 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-   <style>
+<?php
+if(isset($_POST['send'])){
+    $check=true;
+    $name=$_POST['name'];
+    $email=$_REQUEST['email'];
+    $message=$_REQUEST['message'];
+    if ($email == NULL) {
+        $check=false;
+        echo '<script>alert("Bạn chưa nhập email")</script>';
+    } elseif (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
+        $check=false;
+        echo '<script>alert("Bạn nhập email chưa đúng")</script>';
+    }
+    if ($name == NULL) {
+        $check=false;
+        echo '<script>alert("Bạn chưa nhập tên")</script>';
+    }
+    if ($message == NULL) {
+        $check=false;
+        echo '<script>alert("Bạn chưa nhập nội dung")</script>';
+    }
+    if($check){
+        $toeic->GuiMail("phamducthanh159@gmail.com", "phamducthanh1230@gmail.com", "ADMIN", "DEUS CONTACT", "Người gửi: ".$email."<br>Nội dung: ".$message, "phamducthanh1230@gmail.com", "phamducthanh1230", $error);
+        if ($error != "") {
+            die('<script>alert('.$error.')</script>');
+        }
+        else{
+            echo '<script>alert("Đã gửi mail")</script>';
+        }
+    }
+
+
+}
+
+?>
+
+
+<style>
 	    body{
 	    	background-image: url(img/layout/background.jpg);
 			position:relative;
@@ -30,8 +64,7 @@
 			text-align: center;
 		}
    </style>
-  </head>
-<body>
+
 	
 
 
@@ -59,21 +92,21 @@
        <form method="post" action="">
          <div class="form-group">
          	 <label><i class="ui ui-star"></i> Họ Tên</label>
-         	<input type="text" class="form-control" placeholder="Your Name..">
+         	<input type="text" class="form-control" name="name" placeholder="Your Name..">
          </div>
 
          <div class="form-group">
          	<label><i class="ui ui-whatsapp"></i> Email</label>
-         	<input type="text" class="form-control" placeholder="Your Email..">
+         	<input type="text" class="form-control" name="email" placeholder="Your Email..">
          </div>
 
          <div class="form-group">
          	<label><i class="ui ui-email"></i> Tin nhắn</label>
-         	<textarea  class="form-control" rows="7" placeholder="Message.."></textarea>
+         	<textarea  class="form-control" rows="7" name="message" placeholder="Message.."></textarea>
          </div>
 
          <div class="form-group">
-         	<button class="btn btn-primary btn-block" name="btn-send">Gửi tin nhắn</button>
+         	<button class="btn btn-primary btn-block" name="send">Gửi tin nhắn</button>
          </div>
          </form>
        </div>
@@ -82,8 +115,3 @@
 
 </div><br><br>
 
-
-
-
-</body>
-</html>

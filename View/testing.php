@@ -69,7 +69,7 @@ if (isset($_POST['test'])) {
         $check = $toeic->check_Toeic_Register($_SESSION['login_id'], $maDe);
         if (!$check) {
             if ($deadline < 0) {
-                if ($minutes > 5) {
+                if ($minutes > 5 || $deadline < -1) {
                     echo '<script>alert("Bạn dự thi quá trễ, xin vui lòng chọn lịch thi khác")</script>';
                 } else {
                     header("location: Captcha.html");

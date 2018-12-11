@@ -1,0 +1,20 @@
+#wraper{
+    background-color: white;
+    margin: 0px auto;
+    padding: 20px 10px;
+}
+
+p{
+    padding-left: 20px;
+}
+
+#iframe{
+    float: left;
+    width: 400px;
+    margin: 0px auto;
+    margin-left: 100px;
+}
+
+#map{
+    margin-top:200px;
+}

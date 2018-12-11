@@ -1,4 +1,11 @@
 <?php
+if(isset($_SESSION['login_id'])){
+    $idUser=$_SESSION['login_id'];
+}
+else{
+    echo '<script>alert("Bạn chưa đăng nhập");document.location="View/"</script>';
+
+}
 if(isset($_SESSION['ReadingScore'])&&isset($_SESSION['ListeningScore'])){
     $diemdoc=$_SESSION['ReadingScore'];
     $diemnghe=$_SESSION['ListeningScore'];
@@ -16,3 +23,12 @@ else die('Không có điểm thi !!');
 </div>
 
 <link rel="stylesheet" href="css/Thanh-Style-testing.css"/>
+
+<style>
+    #thong-tin-diem{
+        color:deepskyblue;
+    }
+    #thong-tin-diem a:hover{
+        color: orangered;
+    }
+</style>

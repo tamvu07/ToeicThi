@@ -1,4 +1,11 @@
 <?php
+if(isset($_SESSION['login_id'])){
+    $idUser=$_SESSION['login_id'];
+}
+else{
+    echo '<script>alert("Bạn chưa đăng nhập");document.location="View/"</script>';
+
+}
 if (!isset($_SESSION['captcha_error'])) $_SESSION['captcha_error']=0;
 else{
     if($_SESSION['captcha_error']>3){

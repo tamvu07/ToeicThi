@@ -3,14 +3,18 @@ session_start();
 ob_start();
 require_once "../Controller/controller_main.php";
 $toeic = new controller_main();
+
+$toeic->kiemtra_Login();
+
 if (isset($_GET['p']))
     $p = $_GET['p'];
-if (!isset($_SESSION['login_id']) && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Login.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Register.html") {
-    if($_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-1/Toeic-Register.html" && $_SERVER['REQUEST_URI'] != "/ToeicThi/View/Exam/TOEIC-1/Toeic-Register.html"){
-        $_SESSION['back'] = str_replace("localhost/ToeicThi/View/", "", $_SERVER['REQUEST_URI']);
-    }
+
+if (strcmp($_SERVER['REQUEST_URI'], '/ToeicThi/View/profile.html') == 0 || strcmp($_SERVER['REQUEST_URI'], '/ToeicThi/View/Login.html') == 0 ){
+
 }
-$toeic->kiemtra_Login();
+else{
+    $_SESSION['back'] = $_SERVER['REQUEST_URI'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

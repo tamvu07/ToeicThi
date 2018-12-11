@@ -14,4 +14,13 @@
     margin: 0px auto;
 }
 
+#listen-btn{
+    color:red;
+    font-weight: bold;
+    background-color: #ffc369;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+}
+
 
