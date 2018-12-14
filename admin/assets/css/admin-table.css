@@ -1,3 +1,20 @@
 thead{
     background-color: #f0f0f0;
 }
+
+#table-question-details {
+    border: 2px lightblue solid;
+    width: 80%;
+    margin: 0px auto;
+    padding: 10px;  
+    border-collapse:separate;
+    border-radius:10px;
+}
+
+#table-question-details thead {
+    text-align:center;
+}
+
+#table-question-details td {
+    padding:10px;
+}

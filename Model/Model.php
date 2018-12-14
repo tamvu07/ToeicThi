@@ -167,7 +167,7 @@ class model extends connection
         $sql="select * from file where MaDe='$made'";
         $kq=$this->con->query($sql);
         if($kq->num_rows>0) return $kq;
-        return $this->con->error();
+        return $this->con->error;
     } // end lay_file_theoMaDe
 
     protected function test_get_list_questions($made)

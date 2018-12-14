@@ -393,7 +393,7 @@ class controller_main extends model
         $con = new Model();
         $made = trim(strip_tags($made));
         $kq = $con->lay_file_theoMaDe($made);
-        if (!$kq) return $this->con->error();
+        if (!$kq) return $this->con->error;
         return $kq;
     } // end function get_test_file
 

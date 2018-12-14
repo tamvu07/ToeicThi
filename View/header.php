@@ -78,7 +78,10 @@
                             echo '<a class="btn btn-sm btn-light" href="View/Login.html" onfocus="false"><span>Đăng nhập</span></a>
                                 <a  class="btn btn-sm btn-light" href="View/Register.html" onfocus="false"><span>Đăng kí</span></a>';
                         } else {
-                            if(isset($_SESSION['back'])){ $return=$_SESSION['back']; } else $return="#";
+                            if(isset($_SESSION['back'])) $return=$_SESSION['back'];
+                            else $return="#";
+                            if($_SESSION['login_level']==1)
+                                echo '<a class="btn btn-sm btn-light" href="admin" onfocus="false" style="width:120px;color:lightblue;"><span><i class="fa fa-window-maximize"></i>Quản trị</span></a>';
                             echo '<a id="hello-user" class="btn btn-sm btn-light" href="View/profile.html" onfocus="false"><i class="fas fa-address-card"></i><span>'.$_SESSION['login_lname'].' '.$_SESSION['login_fname'].'</span></a>
                                 <a  class="btn btn-sm btn-light" href="Controller/xulyLogout.php?return='.$return.'" onfocus="false"><span>Đăng xuất</span></a>';
                         }

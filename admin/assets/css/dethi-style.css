@@ -1,0 +1,30 @@
+#edit-dethi-tb {
+    margin: 0px auto;
+    width:90%;
+}
+
+#edit-dethi-tb td {
+    padding: 10px;
+    border: 2px black solid;
+}
+
+#edit-dethi-tb thead {
+    font-weight: bold;
+    text-align: center;
+    font-size: 120%;
+    background-color:mediumaquamarine;
+}
+
+#btn-dethi-details {
+    font-weight:bold;
+    text-align:center;
+    width:50%;
+    margin:10px;
+    margin-left:auto;
+    margin-right:auto;
+    display:block;
+}
+
+progress {
+    width:100%;
+}

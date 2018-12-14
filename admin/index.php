@@ -6,16 +6,18 @@ $ad = new controller_admin();
 if (isset($_GET['p'])) $p = $_GET['p'];
 else $p = '';
 
-if(isset($_SESSION['login_level']))
+if(!isset($_SESSION['login_level']))
 {
-    if($_SESSION['login_level']!=1)
-    {
-        header("location:../index.php");
-    }
+    header('This is not the page you are looking for', true, 404);
+    exit();
 }
 else
 {
-    header("location:../index.php");
+    if($_SESSION['login_level']!=1)
+    {
+        header('This is not the page you are looking for', true, 404);
+        exit();
+    }
 }
 ?>
 <!doctype html>
@@ -43,9 +45,9 @@ else
     <!--  Light Bootstrap Table core CSS    -->
     <link href="assets/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
 
-
-    <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="assets/css/demo.css" rel="stylesheet"/>
+    <link href="assets/css/dethi-style.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/bootstrap-select.css" rel="stylesheet" type="text/css">
 
 
     <!--     Fonts and icons     -->
@@ -144,14 +146,20 @@ else
                 case "dethi":
                     include "dethi.php";
                     break;
+                case "themdethi":
+                    include "dethi_add.php";
+                    break;
                 case "cauhoi":
-                    include "cauhoi_list.php";
+                    include "cauhoi.php";
+                    break;
+                case "themcauhoi":
+                    include "cauhoi_add.php";
                     break;
                 case "tintuc":
-                    include "tintuc_list.php";
+                    include "tintuc.php";
                     break;
                 case "thongbao":
-                    include "thongbao_list.php";
+                    include "thongbao.php";
                     break;
                 default:
                     include "dashboard.php";
@@ -205,6 +213,7 @@ else
 
 <!--  Notifications Plugin    -->
 <script src="assets/js/bootstrap-notify.js"></script>
+<script src="assets/js/bootstrap-select.js"></script>
 
 <!-- Light Bootstrap Table Core javascript and methods for Demo purpose -->
 <script src="assets/js/light-bootstrap-dashboard.js?v=1.4.0"></script>

@@ -5,13 +5,13 @@
                 <div class="header">
                     <h4 class="title text-center">QUẢN LÝ NGƯỜI DÙNG</h4>
                     <a href="?p=themnguoidung"><button type="button" class="btn btn-info btn-fill btn-wd">
-                        <span class="pe-7s-plus"></span> Thêm người dùng
+                        <i class="fa fa-plus"></i> Thêm người dùng
                     </button></a>
                     <div class="content table-responsive table-full-width">
                         <div id="select-list-user">
                             <form class="form-inline" method="post">
                                 <span>Hiển thị danh sách</span>
-                                <select name="select_role" class="form-control form-control-lg"
+                                <select name="select_role" class="selectpicker" data-live-search="false"
                                         id="user_select_box">
                                     <option value="0">Tất cả người dùng</option>
                                     <option <?php if (isset($_POST['select_role']) && $_POST['select_role'] == '1') echo "selected=\"selected\""; ?>
@@ -29,15 +29,11 @@
                                 </button>
                             </form>
                             <?php
-                        if(isset($_GET['edituser']))
-                        {
-                            $ad->get_edit_user_by_id($_GET['edituser']);
-                        }
-                        if(isset($_GET['removeresu']))
-                        {
-                            $ad->delete_user_by_id($_GET['removeresu']);
-                        }
-                    ?>
+                                if(isset($_GET['edituser']))
+                                {
+                                    $ad->get_edit_user_by_id($_GET['edituser']);
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
