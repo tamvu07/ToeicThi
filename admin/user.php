@@ -11,7 +11,7 @@
                         <div id="select-list-user">
                             <form class="form-inline" method="post">
                                 <span>Hiển thị danh sách</span>
-                                <select name="select_role" class="form-control form-control-lg"
+                                <select name="select_role" class="selectpicker" data-live-search="false"
                                         id="user_select_box">
                                     <option value="0">Tất cả người dùng</option>
                                     <option <?php if (isset($_POST['select_role']) && $_POST['select_role'] == '1') echo "selected=\"selected\""; ?>

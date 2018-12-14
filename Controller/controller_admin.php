@@ -23,6 +23,9 @@ class controller_admin extends model_admin
             case "cauhoi":
                 $a4 = "class=active";
                 break;
+            case "themcauhoi":
+                $a4 = "class=active";
+                break;
             case "tintuc":
                 $a5 = "class=active";
                 break;
@@ -103,6 +106,52 @@ class controller_admin extends model_admin
         }
     }
 
+    function print_exam_options() {
+        $p = new model_admin();
+        $kq = $p->get_list_exam();
+        while($row = $kq->fetch_array()) {
+            echo '<option value="'.$row['MaDe'].'" '.($_POST['select_de']==$row['MaDe'] ? "selected" : "").'>'.$row['TieuDe'].'</option>
+                    ';
+        }
+    }
+
+    function print_exam_options_by_status($trangthai) {
+        $p = new model_admin();
+        $kq = $p->get_list_exam_by_status($trangthai);
+        while($row = $kq->fetch_array()) {
+            echo '<option value="'.$row['MaDe'].'" '.($_POST['select_de']==$row['MaDe'] ? "selected" : "").'>'.$row['TieuDe'].'</option>
+                    ';
+        }
+    }
+
+    function print_question_table($loaicauhoi,$dethi) {
+        $et = new model_admin();
+        $kq = NULL;
+        if($loaicauhoi=='TATCA')
+            $kq = $et->get_all_questions_by_made($dethi);
+        else
+            $kq = $et->get_question_by_type_made($loaicauhoi,$dethi);
+        while($row = $kq->fetch_assoc())
+        {
+            echo '<tr><td>'.$row["MaCauHoi"].'</td>
+            <td>' . $row["MaDe"] . '</td>
+            <td>' . $row["LoaiCauHoi"] . '</td>
+            <td>' . $row["NoiDung"] . '</td>
+            <td>' . $row["A"] . '</td>
+            <td>' . $row["B"] . '</td>
+            <td>' . $row["C"] . '</td>
+            <td>' . $row["D"] . '</td>
+            <td>' . $row["DapAn"] . '</td>
+            <td>' . $row["TrangThai"] . '</td>
+            <td><a href="?p=cauhoi&macauhoi='.$row['MaCauHoi'].'"><button type="button" rel="tooltip" title="Sửa câu hỏi" class="btn btn-info btn-fill edit" name="btn-edit-question" id="'.$row["MaCauHoi"].'"><i class="fa fa-edit"></i></button></td>
+            </tr>';
+        }
+    }
+
+    function print_question_details($macauhoi) {
+
+    }
+
     //Lấy danh sách tất cả người dùng
     function get_list_users()
     {
@@ -167,18 +216,8 @@ class controller_admin extends model_admin
             $ho = $info["Ho"];
             $ten = $info["Ten"];
             $gioitinh = $info["GioiTinh"];
-            if($gioitinh=='Nam')
-                $gioitinhkhac='Nữ';
-            else
-                $gioitinhkhac='Nam';
             $kichhoat = $info["KichHoat"];
-            if($kichhoat==0)
-                $kichhoatkhac=1;
-            else $kichhoatkhac=0;
             $quyen = $info["Quyen"];
-            if($quyen==1){$quyen2=2; $quyen3=3;}
-            if($quyen==2){$quyen2=1; $quyen3=3;}
-            if($quyen==3){$quyen2=2; $quyen3=1;}
             echo '
             <br>
             <fieldset>
@@ -200,19 +239,19 @@ class controller_admin extends model_admin
             <td><input type="text" class="form-control" name="txtHo" value="' . $info["Ho"] . '" style="width:150px;"></td>
             <td><input type="text" class="form-control" name="txtTen" value="' . $info["Ten"] . '" style="width:150px;"></td>
             <td><select name="gender" class="form-control">
-            <option value="'.$gioitinh.'">'.$gioitinh.'</option>
-            <option value="'.$gioitinhkhac.'">'.$gioitinhkhac.'</option>
+            <option value="Nam" '.($info['GioiTinh']=='Nam' ? "selected" : "").'>Nam</option>
+            <option value="Nữ" '.($info['GioiTinh']=='Nữ' ? "selected" : "").'>Nữ</option>
             </select></td>
             <td>' . $info["Mail"] . '</td>
             <td><select name="kichhoat" class="form-control">
-            <option value="'.$kichhoat.'">'.$kichhoat.'</option>
-            <option value="'.$kichhoatkhac.'">'.$kichhoatkhac.'</option>
+            <option value="1" '.($info['KichHoat']==1 ? "selected" : "").'>1</option>
+            <option value="0" '.($info['KichHoat']==0 ? "selected" : "").'>0</option>
             </select>
             </td>
             <td><select name="role" class="form-control">
-            <option value="'.$quyen.'">'.$quyen.'</option>
-            <option value="'.$quyen2.'">'.$quyen2.'</option>
-            <option value="'.$quyen3.'">'.$quyen3.'</option>
+            <option value="1" '.($info['Quyen']==1 ? "selected" : "").'>1</option>
+            <option value="2" '.($info['Quyen']==2 ? "selected" : "").'>2</option>
+            <option value="3" '.($info['Quyen']==3 ? "selected" : "").'>3</option>
             </select>
             </td>
             <td>' . $info["NgayThamGia"] . '</td>
@@ -269,6 +308,105 @@ class controller_admin extends model_admin
         $edit_de = new model_admin();
         $kq = $edit_de->action_edit_dethi_by_id($made,$tende,$mota,$ngayhethan,$trangthai);
         if($kq)
+            return true;
+        return false;
+    }
+
+    function get_edit_question_by_id($macauhoi)
+    {
+        $get = new model_admin();
+        $kq = $get->get_question_by_id($macauhoi);
+        $info=$kq->fetch_assoc();
+        $made = $info['MaDe'];
+        $loaicauhoi = $info['LoaiCauHoi'];
+        $noidung = $info['NoiDung'];
+        $a = $info['A'];
+        $b = $info['B'];
+        $c = $info['C'];
+        $d = $info['D'];
+        $dapan = $info['DapAn'];
+        $check_sub_question = $get->check_question_sub_available($macauhoi); //Kiểm tra xem có câu hỏi con hay không, nếu có trả về 'true' và ngược lại
+        echo '
+                <form method="POST" action="admin_actions.php">
+                <table id="table-question-details" class="table table-hover">
+                    <thead>
+                        <tr><td colspan="2"><h3>CHI TIẾT CÂU HỎI MÃ SỐ '.$macauhoi.'</h3></td></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Mã câu hỏi:</td><td><input type="text" class="form-control" readOnly="true" value="'.$macauhoi.'"></td></tr>
+                        <tr><td>Mã đề:</td><td><input type="text" class="form-control" value="'.$made.'">
+                        </td></tr>
+                        <tr><td>Loại câu hỏi:</td><td>
+                            <select id="edit_select_question_type" class="selectpicker form-control">
+                            <option value="L-HINHANH" '.($loaicauhoi=='L-HINHANH' ? "selected" : "").'>PART 1 - LISTENING - HÌNH ẢNH</option>
+                            <option value="L-HOITHOAI" '.($loaicauhoi=='L-HOITHOAI' ? "selected" : "").'>PART 2 - LISTENING - HỘI THOẠI</option>
+                            <option value="L-HOIDAP" '.($loaicauhoi=='L-HOIDAP' ? "selected" : "").'>PART 3 - LISTENING - HỎI ĐÁP</option>
+                            <option value="L-NOICHUYEN" '.($loaicauhoi=='L-NOICHUYEN' ? "selected" : "").'>PART 4 - LISTENING - BÀI NÓI CHUYỆN</option>
+                            <option value="R-DIENCAU" '.($loaicauhoi=='R-DIENCAU' ? "selected" : "").'>PART 5 - READING - ĐIỀN CÂU</option>
+                            <option value="R-DIENDOANVAN" '.($loaicauhoi=='R-DIENDOANVAN' ? "selected" : "").'>PART 6 - READING - ĐOẠN VĂN</option>
+                            <option value="R-HOIDOANVAN" '.($loaicauhoi=='R-HOIDOANVAN' ? "selected" : "").'>PART 7 - READING - ĐỌC HIỂU</option>
+                            </select>
+                        </td></tr>
+                        <tr><td>Nội dung:</td><td>
+                            <textarea class="form-control" rows="5">'.$noidung.'</textarea>
+                        </td><tr/>';
+                        if($check_sub_question==true)
+                        {
+                            $sub_questions = $get->get_all_sub_question_by_question_id($macauhoi);
+                            echo '<tr><td>Tổng số câu hỏi nhỏ:</td><td><input type="text" class="form-control" value="'.$sub_questions->num_rows.'" readOnly="true"></td></tr>';
+                            $i=1;
+                            while($rows = $sub_questions->fetch_assoc()) {
+                            echo '
+                            <tr><td>Câu hỏi nhỏ '.$i.':</td><td class="form-inline"><input type="text" class="form-control" style="width:70%;" value="'.$rows["NoiDungNho"].'"> <button type="button" class="btn btn-info btn-fill edit" name="btn-submit-edit-sub-question" data-toggle="modal" data-target="#suacauhoi'.$rows['MaCauHoiNho'].'" data-backdrop="false"><i class="fa fa-eye"></i>Xem câu hỏi '.$i.'</button></td></tr>
+                            
+                            <div class="modal fade" id="suacauhoi'.$rows['MaCauHoiNho'].'" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">×</button>
+                                            <h4 class="modal-title">Mã câu hỏi '.$rows['MaCauHoi'].' - Câu hỏi nhỏ số '.$i.'</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form method="POST">
+                                            <p>Câu hỏi: <input type="text" class="form-control" value="'.$rows['NoiDungNho'].'"></p>
+                                            <p>A: <input type="text" class="form-control" value="'.$rows["A"].'"></p>
+                                            <p>B: <input type="text" class="form-control" value="'.$rows["B"].'"></p>
+                                            <p>C: <input type="text" class="form-control" value="'.$rows["C"].'"></p>
+                                            <p>D: <input type="text" class="form-control" value="'.$rows["D"].'"></p>
+                                            <p>Đáp án: <input type="text" class="form-control" value="'.$rows["DapAn"].'"></p>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default btn-fill" data-dismiss="modal">Đóng</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            ';
+                            $i++;
+                            }
+                            echo '<tr><td colspan="2" class="text-center"><a href="index.php?p=themcauhoi&macauhoi='.$macauhoi.'"><button type="button" class="btn btn-success btn-fill"><i class="fa fa-plus"></i>Thêm câu hỏi nhỏ</button></a></td></tr>';
+                        }
+                        else
+                        {
+                            echo '
+                            <tr><td>A:</td><td><input type="text" class="form-control" value="'.$a.'"></td></tr>
+                            <tr><td>B:</td><td><input type="text" class="form-control" value="'.$b.'"></td></tr>
+                            <tr><td>C:</td><td><input type="text" class="form-control" value="'.$c.'"></td></tr>
+                            <tr><td>D:</td><td><input type="text" class="form-control" value="'.$d.'"></td></tr>
+                            <tr><td>Đáp án:</td><td><input type="text" class="form-control" value="'.$dapan.'"></td></tr>
+                            <tr><td colspan="2" style="text-align:center;"><button type="submit" rel="tooltip" title="Submit changes" class="btn btn-info btn-fill edit" name="btn-submit-edit-question" id=""><i class="fa fa-edit"></i>Hoàn tất sửa</button></td></tr>
+                            ';
+                        }
+                        echo '</tbody></table></form>';
+
+    }
+
+    function add_single_question($made,$noidung,$loaicauhoi,$nguoitao,$a,$b,$c,$d,$dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->add_single_question($made,$noidung,$loaicauhoi,$nguoitao,$a,$b,$c,$d,$dapan);
+        if($kq==true)
             return true;
         return false;
     }

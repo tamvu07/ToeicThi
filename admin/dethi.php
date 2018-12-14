@@ -1,4 +1,7 @@
-
+<script type="text/javascript" src="nicEdit.js"></script>
+<script type="text/javascript">
+	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+</script>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12">
@@ -121,8 +124,9 @@
                     <option value="1" '.($chitiet['TrangThai']==1 ? "selected" : "").'>MỞ</option>
                     <option value="0" '.($chitiet['TrangThai']==0 ? "selected" : "").'>ĐÓNG</option>
                 </select><br>
-                <button type="submit" class="btn btn-success btn-fill btn-wd" style="display:block; margin:auto;" name="submit-edit-dethi"><i class="fa fa-save"></i>CẬP NHẬT ĐỀ THI</button></form>
-                </td></tr></table>';
+                <button type="submit" class="btn btn-success btn-fill btn-wd" style="display:block; margin:auto;" name="submit-edit-dethi" id="submit-edit-dethi"><i class="fa fa-save"></i>CẬP NHẬT ĐỀ THI</button></form>
+                </td></tr></table>
+                ';
             }
             // if(!isset($_POST['btn-dethi-details']) && isset($_GET['made']))
             // {
@@ -137,4 +141,10 @@
     </div>
 
 </div>
+<script>
+    const submitDeThi = document.getElementById("submit-edit-dethi");
+    submitDeThi.onclick = () => {
+        nicEditors.findEditor('txtMoTa').saveContent();
+    }
+</script>
 <link href="assets/css/admin-table.css" rel="stylesheet">

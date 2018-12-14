@@ -21,8 +21,8 @@
         $mail = $_POST['txtEmail'];
         $add = new controller_admin();
         $ketQuaThem = $add->add_user($fname,$lname,$gender,$pass,$role,$mail);
-        if(!$ketQuaThem) thanhCong('index.php?p=dethi');
-        else thatBai('index.php?p=dethi');
+        if($ketQuaThem) thanhCong('index.php?p=nguoidung');
+        else thatBai('index.php?p=nguoidung');
     }
     
     if(isset($_POST['submit-edit-user']))
@@ -35,8 +35,8 @@
         $quyen = $_POST['role'];
         $edit = new controller_admin();
         $ketQuaSua = $edit->action_edit_user_by_id($id,$ho,$ten,$gioitinh,$kichhoat,$quyen);
-        if(!$ketQuaSua) thanhCong('index.php?p=dethi');
-        else thatBai('index.php?p=dethi');
+        if(!$ketQuaSua) thanhCong('index.php?p=nguoidung');
+        else thatBai('index.php?p=nguoidung');
     }
 
     if(isset($_POST['submit-add-dethi']))
@@ -68,5 +68,25 @@
         $ketqua = $edit_dethi->action_edit_dethi_by_id($made,$tende,$mota,$ngayhethan,$trangthai);
         if(!$ketqua) thanhCong('index.php?p=dethi');
         else thatBai('index.php?p=dethi');
+    }
+
+    if(isset($_POST['submit-add-single-question']))
+    {
+        session_start();
+        $made = $_POST['select-de'];
+        $noidung = $_POST['txtNoiDung'];
+        $loaicauhoi = $_POST['select-type'];
+        $a = $_POST['singleA'];
+        $b = $_POST['singleB'];
+        $c = $_POST['singleC'];
+        $d = $_POST['singleD'];
+        $dapan = $_POST['singleDapAn'];
+        $nguoitao = $_SESSION['login_id'];
+        $add_question = new controller_admin();
+        $kq = $add_question->add_single_question($made,$noidung,$loaicauhoi,$nguoitao,$a,$b,$c,$d,$dapan);
+        if($kq)
+            thanhCong('index.php?p=cauhoi');
+        else
+            thatBai('index.php?p=cauhoi');
     }
 ?>
