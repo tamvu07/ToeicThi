@@ -5,10 +5,16 @@
                 <div class="header">
                     <h4 class="title text-center">QUẢN LÝ CÂU HỎI</h4>
                     <a href="?p=themcauhoi">
-                        <button type="submit" class="btn btn-info btn-fill btn-wd" name="btn_add_question">
-                        <i class="fa fa-plus"></i> Thêm câu hỏi
+                        <button type="button" class="btn btn-info btn-fill btn-wd" name="btn_add_question">
+                        <i class="fa fa-plus"></i> Thêm câu hỏi đơn
                         </button>
-                    </a><br>
+                    </a>
+                    <a href="?p=themcauhoi&nhom=1">
+                        <button type="submit" class="btn btn-info btn-fill btn-wd" name="btn_add_question">
+                            <i class="fa fa-plus"></i> Thêm câu hỏi nhóm
+                        </button>
+                    </a>
+                    <br>
                     <div class="content table-responsive table-full-width">
                         <div id="select-list-question">
                             <form class="form-inline" method="post">

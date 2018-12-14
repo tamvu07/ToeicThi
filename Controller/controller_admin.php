@@ -118,10 +118,15 @@ class controller_admin extends model_admin
     function print_exam_options_by_status($trangthai) {
         $p = new model_admin();
         $kq = $p->get_list_exam_by_status($trangthai);
-        while($row = $kq->fetch_array()) {
-            echo '<option value="'.$row['MaDe'].'" '.($_POST['select_de']==$row['MaDe'] ? "selected" : "").'>'.$row['TieuDe'].'</option>
+        if($kq)
+        {
+            while($row = $kq->fetch_array()) {
+                echo '<option value="'.$row['MaDe'].'" '.($_POST['select_de']==$row['MaDe'] ? "selected" : "").'>'.$row['TieuDe'].'</option>
                     ';
+            }
         }
+        else
+            echo '<option>Chưa có đề thi mới, vui lòng thêm đề thi';
     }
 
     function print_question_table($loaicauhoi,$dethi) {
@@ -406,6 +411,39 @@ class controller_admin extends model_admin
     {
         $p = new model_admin();
         $kq = $p->add_single_question($made,$noidung,$loaicauhoi,$nguoitao,$a,$b,$c,$d,$dapan);
+        if($kq==true)
+            return true;
+        return false;
+    }
+
+    function add_parent_question($made,$loaicauhoi,$noidung,$nguoitao)
+    {
+        $p = new model_admin();
+        $kq = $p->add_parent_question($made,$loaicauhoi,$noidung,$nguoitao);
+        if($kq==true)
+            return true;
+        return false;
+    }
+
+    function get_last_question_id()
+    {
+        $p = new model_admin();
+        $a = $p->get_last_question_id();
+        $kq = $a->fetch_array();
+        return $kq['MaCauHoi'];
+    }
+
+    function get_fresh_question_by_id($macauhoi)
+    {
+        $p = new model_admin();
+        $kq = $p->get_fresh_question_by_id($macauhoi);
+        return $kq;
+    }
+
+    function add_child_question($macauhoi,$loaicauhoi,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->add_child_question($macauhoi,$loaicauhoi,$noidung,$a,$b,$c,$d,$dapan);
         if($kq==true)
             return true;
         return false;

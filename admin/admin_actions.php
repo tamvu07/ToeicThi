@@ -11,6 +11,10 @@
         echo '<script>document.location.href = "'.$link.'";</script>';
     }
 
+function redirect($link) {
+    echo '<script>document.location.href = "'.$link.'";</script>';
+}
+
 	if(isset($_POST['submit-add-user']))
 	{
         $fname = $_POST['txtTen'];
@@ -88,5 +92,56 @@
             thanhCong('index.php?p=cauhoi');
         else
             thatBai('index.php?p=cauhoi');
+    }
+
+    if(isset($_POST['submit-add-parent-question']))
+    {
+        session_start();
+        $nguoitao = $_SESSION['login_id'];
+        $made = $_POST['select-de'];
+        $loaicauhoi = $_POST['select-type'];
+        $noidung = $_POST['txtDoanVan'];
+        $_SESSION['subQuestionCount'] = $_POST['select-sub-question-count'];
+        $p = new controller_admin();
+        $kq = $p->add_parent_question($made,$loaicauhoi,$noidung,$nguoitao);
+        if($kq)
+        {
+            $_SESSION['MaCauHoi'] = $p->get_last_question_id();
+            thanhCong('index.php?p=themcauhoi&nhom=1&subquestion');
+        }
+        else
+            thatBai('index.php?p=cauhoi');
+    }
+
+    if(isset($_POST['submit-add-child-question']))
+    {
+        $p = new controller_admin();
+        session_start();
+        $_SESSION['subQuestionCount'] = $_SESSION['subQuestionCount'] - 1;
+        if($_SESSION['subQuestionCount']==-1)
+        {
+            unset($_SESSION['MaCauHoi']);
+            unset($_SESSION['subQuestionCount']);
+            echo '<script>alert("Đã thêm đủ câu hỏi nhỏ!")</script>';
+            redirect('index.php?p=cauhoi');
+        }
+        else
+        {
+            $macauhoi = $_SESSION['MaCauHoi'];
+            $content = $p->get_fresh_question_by_id($macauhoi);
+            $contentt = $content->fetch_assoc();
+            $loaicauhoi = $contentt['LoaiCauHoi'];
+            $noidung = $_POST['txtNoiDungSub'];
+            $a = $_POST['subA'];
+            $b = $_POST['subB'];
+            $c = $_POST['subC'];
+            $d = $_POST['subD'];
+            $dapan = $_POST['subDapAn'];
+            $check = $p->add_child_question($macauhoi,$loaicauhoi,$noidung,$a,$b,$c,$d,$dapan);
+            if($check)
+                thanhCong('index.php?p=themcauhoi&nhom=1&subquestion');
+            else
+                thatBai('index.php?p=cauhoi');
+        }
     }
 ?>

@@ -48,8 +48,9 @@ class model_admin extends connection {
     protected function get_list_exam_by_status($trangthai) {
         $sql = "SELECT * FROM dethi WHERE TrangThai=$trangthai";
         $kq = $this->con->query($sql);
-        if($kq->num_rows>0) return $kq;
-        return $this->con->error();
+        if($kq->num_rows>0)
+            return $kq;
+        return 0;
     }
 
     protected function add_user($ho,$ten, $gioitinh, $matkhau, $quyen, $mail) {
@@ -196,6 +197,47 @@ class model_admin extends connection {
             return false;
         $sql = "INSERT INTO traloi(MaCauHoi,A,B,C,D,DapAn) VALUES 
                 ((SELECT MaCauHoi FROM cauhoi ORDER BY MaCauHoi DESC LIMIT 1),'$a','$b','$c','$d','$dapan')";
+        $kqtl = $this->con->query($sql);
+        if(!$kqtl)
+            return false;
+        return true;
+    }
+
+    protected function add_parent_question($made,$loaicauhoi,$noidung,$nguoitao)
+    {
+        $sql = "ALTER TABLE cauhoi AUTO_INCREMENT=1;";
+        $this->con->query($sql);
+        $sql = "INSERT INTO cauhoi(MaDe,LoaiCauHoi,NoiDung,NguoiTao) VALUES('$made','$loaicauhoi','$noidung','$nguoitao')";
+        $kq = $this->con->query($sql);
+        if($kq)
+            return true;
+        return false;
+    }
+
+    protected function get_last_question_id()
+    {
+        $sql = "SELECT MaCauHoi FROM cauhoi ORDER BY MaCauHoi DESC LIMIT 1";
+        $kq = $this->con->query($sql);
+        return $kq;
+    }
+
+    protected function get_fresh_question_by_id($macauhoi)
+    {
+        $sql = "SELECT NoiDung,LoaiCauHoi FROM cauhoi WHERE MaCauHoi='$macauhoi'";
+        $kq = $this->con->query($sql);
+        return $kq;
+    }
+
+    protected function add_child_question($macauhoi,$loaicauhoi,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $sql = "ALTER TABLE cauhoinho AUTO_INCREMENT=1; ALTER TABLE traloi AUTO_INCREMENT=1;";
+        $this->con->query($sql);
+        $sql = "INSERT INTO cauhoinho(LoaiCauHoi,MaCauHoi,NoiDung) VALUES('$loaicauhoi','$macauhoi','$noidung')";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        $sql = "INSERT INTO traloi(MaCauHoi, A, B, C, D, DapAn, IdCauhoinho)
+                VALUES('$macauhoi','$a','$b','$c','$d','$dapan',(SELECT Id FROM cauhoinho ORDER BY Id DESC LIMIT 1))";
         $kqtl = $this->con->query($sql);
         if(!$kqtl)
             return false;
