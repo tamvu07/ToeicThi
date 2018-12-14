@@ -655,10 +655,12 @@ class controller_main extends model
             if ($kq) {
                 // dùng để kich hoạt tài khoản
                 $iduser = $con->get_last_IdUser();
+                $_SESSION['RegisterID']=$iduser;
+                echo '<script>alert('.$_SESSION['RegisterID'].')</script>';
                 $tieudethu = "Kích hoạt tài khoản";
                 $noidungthu = file_get_contents("dangky_thukichhoat.html");
-                $link = "http://" . $_SERVER['SERVER_NAME'] . "/ToeicThi/View/kichhoat.php?id=$iduser&rd=$rd";
-                $noidungthu = str_replace(array("{email}", "{password}", "{hoten}", "{link}"), array($email, $pass, $lastName . " " . $firstName, $link), $noidungthu);
+                $link = "http://" . $_SERVER['SERVER_NAME'] . "/ToeicThi/View/kichhoat.php?rd=$rd";
+                $noidungthu = str_replace(array("{email}", "{hoten}", "{link}"), array($email, $lastName . " " . $firstName, $link), $noidungthu);
                 $from = "phamducthanh1230@gmail.com"; //dùng mail test, đừng dùng mail chính thức
                 $p = "phamducthanh1230";
                 $error = "";

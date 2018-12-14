@@ -1,6 +1,10 @@
-<?php require_once "../Controller/controller_main.php";
+<?php
+session_start();
+require_once "../Controller/controller_main.php";
 $toeic = new controller_main();
-$sorecord = $toeic->DanhDauKichHoatUser($_GET['id'], $_GET['rd']);
+if(isset($_SESSION['RegisterID'])) $idUser=$_SESSION['RegisterID'];
+else die('<script>alert("ban la ai vay ???")</script>');
+$sorecord = $toeic->DanhDauKichHoatUser($idUser, $_GET['rd']);
 ?>
 <!doctype html>
 <html>
