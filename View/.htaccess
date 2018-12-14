@@ -16,3 +16,8 @@ RewriteRule ^Contact.html$ index.php?p=contact [L]
 RewriteRule ^profile.html$ index.php?p=profile [L]
 RewriteRule ^Introduction.html$ index.php?p=introduction [L]
 RewriteRule ^Exam/TOEIC-([0-9]+)/Toeic-Register.html$ index.php?p=toeic-register&made=$1 [L]
+
+
+DirectoryIndex index.php
+AddDefaultCharset UTF-8
+Options -Indexes

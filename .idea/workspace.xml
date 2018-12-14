@@ -23,99 +23,128 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DatabaseLocalColorSettings">
-    <colors>
-      <entry key="6c9438e0-1ea6-438c-849f-b28095c3703f" value="Theme" />
-    </colors>
-  </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="true" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="toeicdb@localhost" type="feb32156:DbDataSourceImpl" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="toeicdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="toeicdb@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="toeicdb: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-    </expand>
-    <select />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="ToeicThi" />
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/PHPMailer-master/composer.json</pharConfigPath>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/cauhoi.php">
+      <file leaf-file-name="controller_main.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/controller_main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-389">
-              <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/cauhoi_add.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-140">
-              <caret line="36" column="131" selection-start-line="36" selection-start-column="121" selection-end-line="36" selection-end-column="131" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/admin/admin_actions.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="78" column="31" lean-forward="true" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Controller/controller_admin.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="397" column="264" lean-forward="true" selection-start-line="397" selection-start-column="264" selection-end-line="397" selection-end-column="264" />
+            <state relative-caret-position="572">
+              <caret line="158" column="20" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#lay_UserTheoId#0;n#controller_main#0;n#!!top" />
+                <element signature="n#kiemtra_Login#0;n#controller_main#0;n#!!top" />
+                <element signature="n#xulyLogin#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_TinTuc#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_DeThi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_DeThi_TheoMaDe#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_binhluan#0;n#controller_main#0;n#!!top" />
+                <element signature="n#phan_Trang#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_BaiLamTheoId#0;n#controller_main#0;n#!!top" />
+                <element signature="n#upload_profile_all#0;n#controller_main#0;n#!!top" />
+                <element signature="n#profile_display_all#0;n#controller_main#0;n#!!top" />
+                <element signature="n#getUserByEmail#0;n#controller_main#0;n#!!top" />
+                <element signature="n#check_Toeic_Register#0;n#controller_main#0;n#!!top" />
+                <element signature="n#dangki_DuThi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_DanhSach_DuThi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#thongtin_DangKiThi_ThanhCong#0;n#controller_main#0;n#!!top" />
+                <element signature="n#get_test_file#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_DanhSach_LoaiCauHoi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#lay_DanhSach_CauHoi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#tinh_diem_thi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#test_save_scores#0;n#controller_main#0;n#!!top" />
+                <element signature="n#Thong_tin_diem_thi_sau_khi_thi#0;n#controller_main#0;n#!!top" />
+                <element signature="n#DangKyThanhVien#0;n#controller_main#0;n#!!top" />
+                <element signature="n#GuiMail#0;n#controller_main#0;n#!!top" />
+                <element signature="n#DanhDauKichHoatUser#0;n#controller_main#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Model/model_admin.php">
+      <file leaf-file-name="Thanh-Style-introduction.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/Thanh-Style-introduction.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="191" column="71" selection-start-line="191" selection-start-column="71" selection-end-line="191" selection-end-column="71" />
+            <state relative-caret-position="286">
+              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/cauhoi.sql">
+      <file leaf-file-name="testing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/testing.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-column="58" />
+            <state relative-caret-position="-1694">
+              <caret line="81" column="70" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/View/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="674">
+              <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thanh-login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Thanh-login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xulyLogout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Controller/xulyLogout.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="46" column="89" lean-forward="true" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="toeic-testing.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/View/toeic-testing.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="542">
+              <caret line="56" selection-start-line="56" selection-end-line="56" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thanh-toeic-testing.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/Thanh-toeic-testing.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Thanh-Style-toeic-testing.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/Thanh-Style-toeic-testing.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -126,11 +155,13 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>Trang</find>
       <find>feature</find>
       <find>BÀI</find>
       <find>entry__body</find>
@@ -154,19 +185,19 @@
       <find>nopbaiDoc</find>
       <find>label</find>
       <find>test-bottom</find>
-      <find>img</find>
-      <find>add</find>
-      <find>add_de</find>
-      <find>dethi</find>
-      <find>question</find>
-      <find>get_list_exam</find>
-      <find>option</find>
+      <find>#gender</find>
+      <find>Toeic</find>
+      <find>&lt;li class=&quot;sidenav__menu--is-open&quot;&gt;</find>
+      <find>.btn-group-sm</find>
+      <find>txt_ho</find>
+      <find>$label_display_all</find>
     </findStrings>
     <replaceStrings>
       <replace>container</replace>
     </replaceStrings>
     <dirStrings>
       <dir>D:\XAMPP\htdocs\ToeicThi</dir>
+      <dir>D:\XAMPP\htdocs\ToeicThi\css</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -182,50 +213,48 @@
         <option value="$PROJECT_DIR$/View/policy.php" />
         <option value="$PROJECT_DIR$/css/Thanh-Style-Login.css" />
         <option value="$PROJECT_DIR$/Controller/xulyLogin.php" />
-        <option value="$PROJECT_DIR$/View/Register.php" />
         <option value="$PROJECT_DIR$/Controller/xulyBinhLuan.php" />
         <option value="$PROJECT_DIR$/admin/assets/css/admin-table.css" />
         <option value="$PROJECT_DIR$/admin/user_list.php" />
         <option value="$PROJECT_DIR$/admin/index.php" />
         <option value="$PROJECT_DIR$/admin/dethi_list.php" />
         <option value="$PROJECT_DIR$/Controller/checkValidate.php" />
-        <option value="$PROJECT_DIR$/View/login.php" />
-        <option value="$PROJECT_DIR$/View/introduction.php" />
         <option value="$PROJECT_DIR$/View/examList.php" />
-        <option value="$PROJECT_DIR$/Controller/xulyLogout.php" />
         <option value="$PROJECT_DIR$/View/main.php" />
         <option value="$PROJECT_DIR$/database/config.php" />
         <option value="$PROJECT_DIR$/View/abcd.php" />
         <option value="$PROJECT_DIR$/View/check-toeic-testing.php" />
-        <option value="$PROJECT_DIR$/View/header.php" />
         <option value="$PROJECT_DIR$/css/Thanh-Style-toeic-register.css" />
-        <option value="$PROJECT_DIR$/View/toeic-register.php" />
         <option value="$PROJECT_DIR$/css/Thanh-Style-examList.css" />
         <option value="$PROJECT_DIR$/database/connection.php" />
         <option value="$PROJECT_DIR$/Model/model_lambaithi.php" />
         <option value="$PROJECT_DIR$/Controller/controller_lambaithi.php" />
         <option value="$PROJECT_DIR$/css/Thanh-Style-testing.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/css/Thanh-Style-toeic-testing.css" />
-        <option value="$PROJECT_DIR$/View/scores.php" />
-        <option value="$PROJECT_DIR$/View/testing.php" />
-        <option value="$PROJECT_DIR$/View/.htaccess" />
-        <option value="$PROJECT_DIR$/View/index.php" />
         <option value="$PROJECT_DIR$/View/captcha.php" />
-        <option value="$PROJECT_DIR$/View/checkCaptcha.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6c9438e0-1ea6-438c-849f-b28095c3703f/console.sql" />
-        <option value="$USER_HOME$/Desktop/testnodejs.js" />
+        <option value="$PROJECT_DIR$/View/.htaccess" />
+        <option value="$PROJECT_DIR$/View/dangky_thukichhoat.html" />
+        <option value="$PROJECT_DIR$/View/kichhoat.php" />
+        <option value="$PROJECT_DIR$/View/contact.php" />
+        <option value="$PROJECT_DIR$/View/toeic-register.php" />
+        <option value="$PROJECT_DIR$/View/testing.php" />
+        <option value="$PROJECT_DIR$/View/Register.php" />
+        <option value="$PROJECT_DIR$/css/Tam-Style-Profile.css" />
+        <option value="$PROJECT_DIR$/View/header.php" />
         <option value="$PROJECT_DIR$/Model/Model.php" />
+        <option value="$PROJECT_DIR$/Controller/xulyLogout.php" />
+        <option value="$PROJECT_DIR$/View/checkCaptcha.php" />
+        <option value="$PROJECT_DIR$/View/profile.php" />
+        <option value="$PROJECT_DIR$/View/scores.php" />
+        <option value="$PROJECT_DIR$/View/index.php" />
+        <option value="$PROJECT_DIR$/View/introduction.php" />
+        <option value="$PROJECT_DIR$/css/Thanh-Style-introduction.css" />
         <option value="$PROJECT_DIR$/Controller/controller_main.php" />
+        <option value="$PROJECT_DIR$/css/Thanh-Style-toeic-testing.css" />
+        <option value="$PROJECT_DIR$/js/Thanh-toeic-testing.js" />
         <option value="$PROJECT_DIR$/View/toeic-testing.php" />
-        <option value="6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/bailam.sql" />
-        <option value="$PROJECT_DIR$/admin/cauhoi.php" />
-        <option value="$PROJECT_DIR$/admin/cauhoi_add.php" />
-        <option value="6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/cauhoi.sql" />
-        <option value="$PROJECT_DIR$/admin/admin_actions.php" />
-        <option value="$PROJECT_DIR$/Controller/controller_admin.php" />
-        <option value="$PROJECT_DIR$/Model/model_admin.php" />
+        <option value="$PROJECT_DIR$/js/Thanh-login.js" />
+        <option value="$PROJECT_DIR$/View/login.php" />
       </list>
     </option>
   </component>
@@ -262,7 +291,12 @@
             <path>
               <item name="ToeicThi" type="b2602c69:ProjectViewProjectNode" />
               <item name="ToeicThi" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="ToeicThi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ToeicThi" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -282,15 +316,15 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\XAMPP\htdocs\ToeicThi\View" />
-      <recent name="D:\XAMPP\htdocs\ThiToeic" />
-      <recent name="D:\XAMPP\htdocs\ThiToeic\View" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\XAMPP\htdocs\ToeicThi\Controller" />
       <recent name="D:\XAMPP\htdocs\ToeicThi\database" />
       <recent name="D:\XAMPP\htdocs\ThiToeic\Control" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\XAMPP\htdocs\ToeicThi\View" />
+      <recent name="D:\XAMPP\htdocs\ThiToeic" />
+      <recent name="D:\XAMPP\htdocs\ThiToeic\View" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -393,48 +427,40 @@
       <workItem from="1543239126475" duration="5740000" />
       <workItem from="1543456869203" duration="14862000" />
       <workItem from="1543503581480" duration="2233000" />
-      <workItem from="1544519354594" duration="9511000" />
-      <workItem from="1544589188658" duration="5785000" />
-      <workItem from="1544631901635" duration="1711000" />
-      <workItem from="1544674289712" duration="901000" />
-      <workItem from="1544675462230" duration="836000" />
-      <workItem from="1544676329700" duration="241000" />
-      <workItem from="1544676578064" duration="1511000" />
-      <workItem from="1544678131575" duration="18316000" />
+      <workItem from="1543808126715" duration="2482000" />
+      <workItem from="1543826122864" duration="4272000" />
+      <workItem from="1543890896987" duration="5824000" />
+      <workItem from="1544062524432" duration="5345000" />
+      <workItem from="1544238182158" duration="569000" />
+      <workItem from="1544324025950" duration="3365000" />
+      <workItem from="1544345626311" duration="5957000" />
+      <workItem from="1544408218055" duration="5165000" />
+      <workItem from="1544581146067" duration="3181000" />
+      <workItem from="1544599479353" duration="365000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="366993000" />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
+    <option name="totallyTimeSpent" value="364706000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49558824" visible="true" weight="0.17181209" />
-      <window_info id="Structure" order="1" sideWeight="0.50441176" side_tool="true" weight="0.16979866" />
-      <window_info id="Favorites" order="2" sideWeight="0.50441176" side_tool="true" weight="0.16979866" />
-      <window_info id="Version Control" order="3" weight="0.14832215" />
-      <window_info active="true" anchor="bottom" id="Database Console" order="0" visible="true" weight="0.36764705" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.32963374" />
-      <window_info anchor="bottom" id="Run" order="3" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.3286119" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32963374" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.32941177" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1716418" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32963374" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -444,47 +470,54 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="50" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/admin/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2838">
+          <caret line="129" column="45" selection-start-line="129" selection-start-column="45" selection-end-line="129" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/admin/user_list.php" />
+    <entry file="file://$PROJECT_DIR$/admin/dethi_list.php" />
+    <entry file="file://$PROJECT_DIR$/Controller/checkValidate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="115" lean-forward="true" selection-start-line="7" selection-start-column="115" selection-end-line="7" selection-end-column="115" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/xulyBinhLuan.php" />
+    <entry file="file://$PROJECT_DIR$/View/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="2" lean-forward="true" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/check-toeic-testing.php" />
+    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-toeic-register.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/Thanh-Style-examList.css">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -492,38 +525,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/login.php">
+    <entry file="file://$PROJECT_DIR$/Model/model_admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        <state relative-caret-position="924">
+          <caret line="42" column="33" selection-start-line="42" selection-start-column="33" selection-end-line="42" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/Register.php">
+    <entry file="file://$PROJECT_DIR$/View/examList.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="24" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/toeic-register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/connection.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="154">
+          <caret line="7" column="41" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -541,17 +553,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-toeic-testing.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/Thanh-Style-testing.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/controller_admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1672">
+          <caret line="76" column="32" selection-start-line="76" selection-start-column="32" selection-end-line="76" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -562,177 +574,188 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/testing.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="74" column="53" selection-start-line="74" selection-start-column="53" selection-end-line="74" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/checkCaptcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/View/captcha.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="45" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/user.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="uml://DATABASE/6c9438e0-1ea6-438c-849f-b28095c3703f.SCHEMA:toeicdb">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID>DATABASE</ID>
-          <OriginalElement>6c9438e0-1ea6-438c-849f-b28095c3703f.SCHEMA:toeicdb</OriginalElement>
-          <nodes>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.tintuc</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.loaicauhoi</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.binhluan</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.thongbao</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.bailam</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.nguoidung</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.cauhoi</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.quyen</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.traloi</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.danhsachduthi</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.dethi</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.file</node>
-            <node x="" y="">6c9438e0-1ea6-438c-849f-b28095c3703f.TABLE:toeicdb.cauhoinho</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.6932971014492753" x="722.0" y="452.0" />
-          <SelectedNodes />
-          <Categories>
-            <Category>Key columns</Category>
-            <Category>Columns</Category>
-          </Categories>
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/cauhoinho">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/cauhoi">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/quyen">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6c9438e0-1ea6-438c-849f-b28095c3703f/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/testnodejs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="24" selection-end-line="1" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/nguoidung">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/assets/css/admin-table.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_lambaithi/countdown.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Controller/controller_lambaithi.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1141">
-          <caret line="152" column="51" lean-forward="true" selection-start-line="152" selection-start-column="51" selection-end-line="152" selection-end-column="51" />
-          <folding>
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="2156">
+          <caret line="98" column="50" selection-start-line="98" selection-start-column="50" selection-end-line="98" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/connection.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/view.php" />
+    <entry file="file://$PROJECT_DIR$/Controller/controller.php" />
+    <entry file="file://$PROJECT_DIR$/View/untitled.php" />
+    <entry file="file://$PROJECT_DIR$/View/dangky_thukichhoat.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="78" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/abcd.php" />
+    <entry file="file://$PROJECT_DIR$/View/contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="27" lean-forward="true" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/kichhoat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/main.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9966">
+          <caret line="453" column="39" selection-start-line="453" selection-start-column="39" selection-end-line="453" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="286">
+          <caret line="13" column="72" lean-forward="true" selection-start-line="13" selection-start-column="72" selection-end-line="13" selection-end-column="72" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/toeic-testing.php">
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="43" column="37" lean-forward="true" selection-start-line="43" selection-start-column="37" selection-end-line="43" selection-end-column="37" />
+        <state relative-caret-position="339">
+          <caret line="2912" column="19" lean-forward="true" selection-start-line="2912" selection-start-column="19" selection-end-line="2912" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/examList.php">
+    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-Login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        <state relative-caret-position="462">
+          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/View/index.php">
+    <entry file="file://$PROJECT_DIR$/css/Tam-Style-Profile.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-294">
-          <caret line="52" lean-forward="true" selection-start-line="52" selection-end-line="52" />
+        <state relative-caret-position="4290">
+          <caret line="195" column="7" selection-start-line="195" selection-start-column="7" selection-end-line="195" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1804">
+          <caret line="82" column="143" lean-forward="true" selection-start-line="82" selection-start-column="143" selection-end-line="82" selection-end-column="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/Register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/captcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="45" lean-forward="true" selection-start-line="9" selection-start-column="45" selection-end-line="9" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/checkCaptcha.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/View/scores.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="58" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="58" />
+        <state relative-caret-position="66">
+          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/toeic-register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/Model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="151" column="23" selection-start-line="151" selection-start-column="23" selection-end-line="151" selection-end-column="23" />
+        <state relative-caret-position="154">
+          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+          <folding>
+            <element signature="n#register#0;n#model#0;n#!!top" />
+            <element signature="n#getTinTuc#0;n#model#0;n#!!top" />
+            <element signature="n#getUserById#0;n#model#0;n#!!top" />
+            <element signature="n#getUserByEmail#0;n#model#0;n#!!top" />
+            <element signature="n#checkEmail#0;n#model#0;n#!!top" />
+            <element signature="n#layLoaiCauHoi#0;n#model#0;n#!!top" />
+            <element signature="n#layDeThi#0;n#model#0;n#!!top" />
+            <element signature="n#layDeThiTheoMaDe#0;n#model#0;n#!!top" />
+            <element signature="n#layBinhLuan#0;n#model#0;n#!!top" />
+            <element signature="n#luuBinhLuan#0;n#model#0;n#!!top" />
+            <element signature="n#layBaiLamTheoId#0;n#model#0;n#!!top" />
+            <element signature="n#upload_profile_database_all#0;n#model#0;n#!!top" />
+            <element signature="n#profile_display_all_database#0;n#model#0;n#!!top" />
+            <element signature="n#layDanhSachDuThi_Theo_IdUser#0;n#model#0;n#!!top" />
+            <element signature="n#dangki_DuThi#0;n#model#0;n#!!top" />
+            <element signature="n#getDanhSachDuThi#0;n#model#0;n#!!top" />
+            <element signature="n#lay_file_theoMaDe#0;n#model#0;n#!!top" />
+            <element signature="n#test_get_list_questions#0;n#model#0;n#!!top" />
+            <element signature="n#test_get_list_sub_questions#0;n#model#0;n#!!top" />
+            <element signature="n#test_get_list_DapAn#0;n#model#0;n#!!top" />
+            <element signature="n#test_save_scores#0;n#model#0;n#!!top" />
+            <element signature="n#Activation_User#0;n#model#0;n#!!top" />
+            <element signature="n#get_last_IdUser#0;n#model#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/introduction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1342">
+          <caret line="61" column="49" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-introduction.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/controller_main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="598" column="39" lean-forward="true" selection-start-line="598" selection-start-column="39" selection-end-line="598" selection-end-column="39" />
+        <state relative-caret-position="572">
+          <caret line="158" column="20" selection-start-line="158" selection-start-column="20" selection-end-line="158" selection-end-column="20" />
           <folding>
+            <element signature="n#lay_UserTheoId#0;n#controller_main#0;n#!!top" />
+            <element signature="n#kiemtra_Login#0;n#controller_main#0;n#!!top" />
+            <element signature="n#xulyLogin#0;n#controller_main#0;n#!!top" />
+            <element signature="n#lay_TinTuc#0;n#controller_main#0;n#!!top" />
+            <element signature="n#lay_DeThi#0;n#controller_main#0;n#!!top" />
+            <element signature="n#lay_DeThi_TheoMaDe#0;n#controller_main#0;n#!!top" />
             <element signature="n#lay_binhluan#0;n#controller_main#0;n#!!top" />
-            <element signature="n#luu_BinhLuan#0;n#controller_main#0;n#!!top" />
+            <element signature="n#phan_Trang#0;n#controller_main#0;n#!!top" />
             <element signature="n#lay_BaiLamTheoId#0;n#controller_main#0;n#!!top" />
             <element signature="n#upload_profile_all#0;n#controller_main#0;n#!!top" />
             <element signature="n#profile_display_all#0;n#controller_main#0;n#!!top" />
@@ -741,139 +764,85 @@
             <element signature="n#dangki_DuThi#0;n#controller_main#0;n#!!top" />
             <element signature="n#lay_DanhSach_DuThi#0;n#controller_main#0;n#!!top" />
             <element signature="n#thongtin_DangKiThi_ThanhCong#0;n#controller_main#0;n#!!top" />
-            <element signature="e#630#636#0" expanded="true" />
-            <element signature="e#659#665#0" expanded="true" />
-            <element signature="e#665#671#0" expanded="true" />
-            <element signature="e#671#677#0" expanded="true" />
-            <element signature="e#677#683#0" expanded="true" />
-            <element signature="e#683#689#0" expanded="true" />
-            <element signature="e#689#695#0" expanded="true" />
-            <element signature="e#788#794#0" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#2;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#get_test_file#0;n#controller_main#0;n#!!top" />
             <element signature="n#lay_DanhSach_LoaiCauHoi#0;n#controller_main#0;n#!!top" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#3;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#3;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#lay_DanhSach_CauHoi#0;n#controller_main#0;n#!!top" />
             <element signature="n#tinh_diem_thi#0;n#controller_main#0;n#!!top" />
             <element signature="n#test_save_scores#0;n#controller_main#0;n#!!top" />
+            <element signature="n#Thong_tin_diem_thi_sau_khi_thi#0;n#controller_main#0;n#!!top" />
+            <element signature="n#DangKyThanhVien#0;n#controller_main#0;n#!!top" />
+            <element signature="n#GuiMail#0;n#controller_main#0;n#!!top" />
+            <element signature="n#DanhDauKichHoatUser#0;n#controller_main#0;n#!!top" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/email-checker.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/dethi_add.php">
+    <entry file="file://$PROJECT_DIR$/css/Thanh-Style-toeic-testing.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="25" column="38" selection-start-line="25" selection-start-column="35" selection-end-line="25" selection-end-column="38" />
+        <state relative-caret-position="418">
+          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/admin/dashboard.php">
+    <entry file="file://$PROJECT_DIR$/js/dropdown.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-506">
-          <caret line="5" column="48" lean-forward="true" selection-start-line="5" selection-start-column="48" selection-end-line="5" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/bailam.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" lean-forward="true" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/superglobals/_superglobals.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="1933" column="1" selection-start-line="1933" selection-start-column="1" selection-end-line="1933" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/tables.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="166" column="16" selection-start-line="166" selection-start-column="16" selection-end-line="166" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Model/model_general.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="360" column="16" selection-start-line="360" selection-start-column="16" selection-end-line="360" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2737">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://6c9438e0-1ea6-438c-849f-b28095c3703f/schema/toeicdb/table/cauhoi.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/cauhoi_add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-140">
-          <caret line="36" column="131" selection-start-line="36" selection-start-column="121" selection-end-line="36" selection-end-column="131" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/admin_actions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="78" column="31" lean-forward="true" selection-start-line="78" selection-start-column="31" selection-end-line="78" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/admin/cauhoi.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="81" column="32" lean-forward="true" selection-start-line="81" selection-start-column="32" selection-end-line="81" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Controller/controller_admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="397" column="264" lean-forward="true" selection-start-line="397" selection-start-column="264" selection-end-line="397" selection-end-column="264" />
+        <state relative-caret-position="-1452">
           <folding>
-            <element signature="n#style#0;n#input#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="46" column="89" lean-forward="true" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Thanh-toeic-testing.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="35" column="5" lean-forward="true" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Controller/xulyLogout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/testing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1694">
+          <caret line="81" column="70" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/Thanh-login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="22" column="3" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/toeic-testing.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="542">
+          <caret line="56" selection-start-line="56" selection-end-line="56" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/View/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="61" lean-forward="true" selection-start-line="61" selection-end-line="61" />
         </state>
       </provider>
     </entry>

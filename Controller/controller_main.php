@@ -21,10 +21,21 @@ class controller_main extends model
             $kq = $con->getUserById($id);
             if ($kq->num_rows > 0) {
                 $row = $kq->fetch_assoc();
-                $this->xulyLogin($row['Mail'], $row['MatKhau']);
-                setcookie('login_id', $row['IdUser'], time() + 2592000, "/");
+                $kq = $con->login($row['Mail'], $row['MatKhau']);
+                if($kq){
+                    $row=$kq->fetch_array();
+                    if ($row['KichHoat'] == 1) {
+                        $_SESSION['login_id'] = $row['IdUser'];
+                        $_SESSION['login_level'] = $row['Quyen'];
+                        $_SESSION['login_email'] = $row['Mail'];
+                        $_SESSION['login_lname'] = $row['Ho'];
+                        $_SESSION['login_fname'] = $row['Ten'];
+                        $_SESSION['avatar'] = $row['Avatar'];
+                        setcookie('login_id', $row['IdUser'], time() + 2592000, "/");
+                    }
+                    return $this->con->error;
+                }
             }
-            return $this->con->error;
         }
     } // end function kiemtra_Login()
 
@@ -58,6 +69,9 @@ class controller_main extends model
                     unset($_SESSION['back']);
                     header("location: $back");
                 }
+                else{
+                    header("location: View/");
+                }
             } else {
                 echo "<script>
                 $(document).ready(function () {
@@ -68,50 +82,6 @@ class controller_main extends model
             }
         }
     } // end function xulyLogin
-
-    function xulyRegister($lname, $fname, $email, $pass)
-    {
-        $con = new model();
-        $fname = $this->con->escape_string(trim(strip_tags($fname)));
-        $lname = $this->con->escape_string(trim(strip_tags($lname)));
-        $email = $this->con->escape_string(trim(strip_tags($email)));
-        $pass1 = $this->con->escape_string(trim(strip_tags($pass)));
-
-        $pass = md5($pass1);
-
-        return $con->register($lname, $fname, $email, $pass);
-
-
-        /* $kq = $con->getUserByEmail($email);*/
-
-        /*        if (!hash_equals($hash01, $hash02)) {
-                    echo "<script>
-                        $(document).ready(function () {
-                            $('#email').val('$email');
-                            $('#checkValidate').html('<strong>Hai mật khẩu chưa trùng nhau</strong>').show();
-                        });
-                    </script>";
-                } elseif ($kq) {
-                    echo "<script>
-                        $(document).ready(function () {
-                            $('#email').val('$email');
-                            $('#checkValidate').html('<strong>Email này đã có người dùng</strong>').show();
-                        });
-                    </script>";
-                }*/
-
-        /*       if (hash_equals($hash01, $hash02) && !$kq) {
-                   $kq = $con->register($lname, $fname, $email, $pass, $gender);
-                   if ($kq) {
-                       if (isset($_SESSION['back'])) {
-                           $back = $_SESSION['back'];
-                           unset($_SESSION['back']);
-                           header("location: $back");
-                       }
-                   }
-               }*/
-
-    } // end function xulyRegister
 
     function lay_TinTuc($language)
     {
@@ -184,7 +154,7 @@ class controller_main extends model
     function luu_BinhLuan($idUser, $maDe, $bl)
     {
         $con = new model();
-        $bl = $this->con->real_escape_string(trim(strip_tags($bl)));
+        $bl = $this->con->escape_string(trim(strip_tags($bl)));
         $idUser = trim(strip_tags($idUser));
         $maDe = trim(strip_tags($maDe));
         $kq = $con->luuBinhLuan($idUser, $maDe, $bl);
@@ -204,6 +174,11 @@ class controller_main extends model
     /*bat dau trang profile*/
     function upload_profile_all($txt_ho, $txt_ten, $txt_matkhau, $avatar, $gioitinh)
     {
+        $txt_matkhau = $this->con->escape_string(trim(strip_tags($txt_matkhau)));
+        $txt_ho = $this->con->escape_string(trim(strip_tags($txt_ho)));
+        $txt_ten = $this->con->escape_string(trim(strip_tags($txt_ten)));
+        $avatar = $this->con->escape_string(trim(strip_tags($avatar)));
+        $gioitinh = $this->con->escape_string(trim(strip_tags($gioitinh)));
         $con = new model();
         $kq = $con->upload_profile_database_all($txt_ho, $txt_ten, $txt_matkhau, $avatar, $gioitinh);
         return $kq;
@@ -546,40 +521,41 @@ class controller_main extends model
         }
     } // end function test_get_list_questions
 
-    function tinh_diem_thi(){
-        $markR=0;
-        $markL=0;
-        $diemReading=0;
-        $diemListening=0;
+    function tinh_diem_thi()
+    {
+        $markR = 0;
+        $markL = 0;
+        $diemReading = 0;
+        $diemListening = 0;
 
         // Tính Điểm Listening
-        for($i=1;$i<=100;$i++){
-            if(isset($_POST[$i])){
-                if(strcmp($_POST[$i],$_SESSION['cau'.$i])==0){
+        for ($i = 1; $i <= 100; $i++) {
+            if (isset($_POST[$i])) {
+                if (strcmp($_POST[$i], $_SESSION['cau' . $i]) == 0) {
                     ++$markL;
-                    if($markL <= 9) $diemListening=5;
-                    else if($markL==25 || $markL==28 || $markL==39 || $markL==43 || $markL==47 || $markL==52 || $markL==55 || $markL==64 || $markL==89 || $markL==92 || $markL==94)
-                        $diemListening+=10;
-                    else if($markL>9 && $markL<=97)
-                        $diemListening+=5;
+                    if ($markL <= 9) $diemListening = 5;
+                    else if ($markL == 25 || $markL == 28 || $markL == 39 || $markL == 43 || $markL == 47 || $markL == 52 || $markL == 55 || $markL == 64 || $markL == 89 || $markL == 92 || $markL == 94)
+                        $diemListening += 10;
+                    else if ($markL > 9 && $markL <= 97)
+                        $diemListening += 5;
                     else
-                        $diemListening+=0;
+                        $diemListening += 0;
                 }
             }
         }
 
         // Tính điểm Reading
-        for($i=101;$i<=200;$i++){
-            if(isset($_POST[$i])){
-                if(strcmp($_POST[$i],$_SESSION['cau'.$i])==0){
+        for ($i = 101; $i <= 200; $i++) {
+            if (isset($_POST[$i])) {
+                if (strcmp($_POST[$i], $_SESSION['cau' . $i]) == 0) {
                     ++$markR;
-                    if($markR <= 9) $diemReading=5;
-                    else if($markR==25 || $markR==28 || $markR==39 || $markR==43 || $markR==47 || $markR==52 || $markR==55 || $markR==64 || $markR==89 || $markR==92 || $markR==94)
-                        $diemReading+=10;
-                    else if($markR>9 && $markR<=97)
-                        $diemReading+=5;
+                    if ($markR <= 9) $diemReading = 5;
+                    else if ($markR == 25 || $markR == 28 || $markR == 39 || $markR == 43 || $markR == 47 || $markR == 52 || $markR == 55 || $markR == 64 || $markR == 89 || $markR == 92 || $markR == 94)
+                        $diemReading += 10;
+                    else if ($markR > 9 && $markR <= 97)
+                        $diemReading += 5;
                     else
-                        $diemReading+=0;
+                        $diemReading += 0;
                 }
             }
         }
@@ -588,29 +564,164 @@ class controller_main extends model
         $_SESSION['ListeningScore'] = $diemListening;
     } // end function tinh_diem_thi
 
-    function test_save_scores($iduser,$made,$diemdoc,$diemnghe)
+    function test_save_scores($iduser, $made, $diemdoc, $diemnghe)
     {
         $p = new Model();
-        $kq=$p->test_save_scores($iduser,$made,$diemdoc,$diemnghe);
-        if($kq) return true;
+        $kq = $p->test_save_scores($iduser, $made, $diemdoc, $diemnghe);
+        if ($kq) return true;
         else return false;
     } // end function test_save_scores
 
-    function Thong_tin_diem_thi_sau_khi_thi($diemnghe,$diemdoc,$tongdiem){
+    function Thong_tin_diem_thi_sau_khi_thi($diemnghe, $diemdoc, $tongdiem)
+    {
         if (isset($_SESSION['login_id'])) $iduser = $_SESSION['login_id'];
         else exit();
         $made = $_GET['id'];
         echo '
 			<table id="score-table" cellpadding="10px">
 				<tr><td colspan="2" class="t-head"><h2>Kết quả của ' . $_SESSION["login_lname"] . ' ' . $_SESSION["login_fname"] . ' sau khi hoàn thành đề TOEIC Số ' . $made . '</h2></td></tr>
-				<tr><td>Điểm NGHE: ' . $diemnghe . '</></td><td>Điểm ĐỌC: ' . $diemdoc . '</td></tr>
+				<tr><td>Điểm NGHE: ' . $diemnghe . '</td><td>Điểm ĐỌC: ' . $diemdoc . '</td></tr>
 				<tr><td colspan="2" class="t-sum">Tổng điểm: ' . $tongdiem . '</td></tr>
 			</table>
 		';
-        $kq=$this->test_save_scores($iduser,$made,$diemdoc,$diemnghe);
-        if($kq) echo "<br><h3 class='text-center'>Điểm của bạn đã được lưu</h3><br>";
-        else echo "<br><h3 class='text-center'>Lỗi hệ thống. Không lưu được điểm số của bạn</h3><br>";
+        $kq = $this->test_save_scores($iduser, $made, $diemdoc, $diemnghe);
+        if ($kq) echo "<h3 class='text-center'>Điểm của bạn đã được lưu</h3>";
+        else echo "<h3 class='text-center'>Lỗi hệ thống. Không lưu được điểm số của bạn</h3>";
+
+        echo '<br><h4 class="text-center" id="thong-tin-diem"><a href="View/">Trang chủ</a></h4>';
     } // end function Thong_tin_diem_thi_sau_khi_thi
+
+    //--------------------------------------------------------------//
+
+    function DangKyThanhVien(&$loi)
+    {
+        $con = new model();
+        $thanhcong = true;
+
+        // lấy dữ liệu
+        $lastName = $this->con->escape_string(trim(strip_tags($_POST['lastname'])));
+        $firstName = $this->con->escape_string(trim(strip_tags($_POST['firstname'])));
+        $pass = $this->con->escape_string(trim(strip_tags($_POST['password'])));
+        $repass = $this->con->escape_string(trim(strip_tags($_POST['repassword'])));
+        $email = $this->con->escape_string(trim(strip_tags($_POST['email'])));
+
+        //kiễm tra dữ liệu
+
+        //kiêm tra mật khẩu và gõ lại mật khẩu
+        if ($pass == NULL) {
+            $thanhcong = false;
+            $loi['pass'] = "Bạn chưa nhập mật khẩu";
+        } elseif (strlen($pass) < 6) {
+            $thanhcong = false;
+            $loi['pass'] = "Mật khẩu của bạn phải nhiều hơn 5 ký tự";
+        }
+        if ($repass == NULL) {
+            $thanhcong = false;
+            $loi['repass'] = "Nhập lại mật khẩu đi";
+        } elseif ($pass != $repass) {
+            $thanhcong = false;
+            $loi['repass'] = "Mật khẩu 2 lần không giống";
+        }
+
+        //kiêm tra hoten
+        if ($lastName == NULL) {
+            $thanhcong = false;
+            $loi['ho'] = "Chưa nhập họ";
+        }
+        if ($firstName == NULL) {
+            $thanhcong = false;
+            $loi['ten'] = "Chưa nhập tên";
+        }
+
+        //kiêm tra email
+        if ($email == NULL) {
+            $thanhcong = false;
+            $loi['email'] = "Bạn chưa nhập email";
+        } elseif (filter_var($email, FILTER_VALIDATE_EMAIL) == FALSE) {
+            $thanhcong = false;
+            $loi['email'] = "Bạn nhập email không đúng";
+        } else {
+            $kq = $con->checkEmail($email);
+            if (!$kq) {
+                $thanhcong = false;
+                $loi['email'] = "Email này đã có người dùng";
+            }
+        }
+
+        // chèn dữ liệu
+        if ($thanhcong == true) {
+            $rd = md5(rand(1, 9999));
+            $kq = $con->register($lastName, $firstName, $email, $pass, $rd);
+            if ($kq) {
+                // dùng để kich hoạt tài khoản
+                $iduser = $con->get_last_IdUser();
+                $tieudethu = "Kích hoạt tài khoản";
+                $noidungthu = file_get_contents("dangky_thukichhoat.html");
+                $link = "http://" . $_SERVER['SERVER_NAME'] . "/ToeicThi/View/kichhoat.php?id=$iduser&rd=$rd";
+                $noidungthu = str_replace(array("{email}", "{password}", "{hoten}", "{link}"), array($email, $pass, $lastName . " " . $firstName, $link), $noidungthu);
+                $from = "phamducthanh1230@gmail.com"; //dùng mail test, đừng dùng mail chính thức
+                $p = "phamducthanh1230";
+                $error = "";
+                $this->GuiMail($email, $from, $tennguoigui = "BQT DEUS", $tieudethu, $noidungthu, $from, $p, $error);
+                if ($error != "") {
+                    $loi['guimail'] = $error;
+                    die('<script>alert(' . $loi['guimail'] . ')</script>');
+                }
+            } else {
+                die('Lỗi insert user: ' . $kq);
+            }
+
+        }
+        return $thanhcong;
+    }//DangKyThanhVien
+
+    function GuiMail($to, $from, $from_name, $subject, $body, $username, $password, &$error)
+    {
+        $error = "";
+        require_once "../PHPMailer-master/class.phpmailer.php";
+        require_once "../PHPMailer-master/class.smtp.php";
+        try {
+            $mail = new PHPMailer();
+            $mail->IsSMTP();
+            $mail->SMTPDebug = 0;  //  1=errors and messages, 2=messages only
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Host = 'smtp.gmail.com';
+            $mail->Port = 465;
+            $mail->Username = $username;
+            $mail->Password = $password;
+            $mail->SetFrom($from, $from_name);
+            $mail->Subject = $subject;
+            $mail->MsgHTML($body);// noi dung chinh cua mail
+            $mail->AddAddress($to);
+            $mail->CharSet = "utf-8";
+            $mail->IsHTML(true);
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                ));
+            if (!$mail->Send()) {
+                $error = 'Loi:' . $mail->ErrorInfo;
+                return false;
+            } else {
+                $error = '';
+                return true;
+            }
+        } catch (phpmailerException $e) {
+            echo "<pre>" . $e->errorMessage();
+        }
+    }//function GuiMail
+
+    function DanhDauKichHoatUser($id, $rd)
+    {
+        $con = new model();
+        $idUser = $this->con->real_escape_string(trim(strip_tags($id)));
+        $rd = $id = $this->con->real_escape_string(trim(strip_tags($rd)));
+        $kq = $con->Activation_User($idUser, $rd);
+        return $kq;
+    }
 }
 
 ?>

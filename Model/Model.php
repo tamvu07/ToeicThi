@@ -5,15 +5,15 @@ class model extends connection
 {
     protected function login($email, $pass)
     {
-        //$pass = md5($pass);
         $sql = "select * from nguoidung where Mail='$email' and MatKhau='$pass'";
         $kq = $this->con->query($sql);
         if ($kq->num_rows > 0) return $kq;
         return false;
     } // end login
 
-    protected function register($lname,$fname,$email,$pass){
-        $sql="INSERT INTO nguoidung (IdUser, Ho, Ten, GioiTinh, MatKhau, Quyen, Mail, KichHoat, Avatar, NgayThamGia) VALUES (NULL, '$lname', '$fname',NULL, '$pass', '3', '$email', '0', NULL, CURRENT_TIMESTAMP)";
+    protected function register($lname,$fname,$email,$pass,$rd){
+        $pass=md5($pass);
+        $sql="INSERT INTO nguoidung (IdUser, Ho, Ten, GioiTinh, MatKhau, Quyen, Mail, KichHoat, Avatar, NgayThamGia, ActivationKey) VALUES (NULL, '$lname', '$fname',NULL, '$pass', '3', '$email', '0', NULL, CURRENT_TIMESTAMP, '$rd')";
         $kq=$this->con->query($sql);
         if($this->con->affected_rows>0) return true;
         return $this->con->error;
@@ -51,6 +51,13 @@ class model extends connection
         if ($kq->num_rows > 0) return $kq;
         return $this->con->error;
     } // end getUserByEmail
+
+    protected function checkEmail($email){
+        $sql = "select IdUser from nguoidung where Mail ='$email'";
+        $kq = $this->con->query($sql);
+        if ($kq->num_rows > 0) return false;
+        else return true;
+    } // end checkEmail
 
     protected function layLoaiCauHoi(){
         $sql="select * from loaicauhoi";
@@ -97,17 +104,31 @@ class model extends connection
 
    /*bat dau trang profile*/
     protected function upload_profile_database_all($txt_ho,$txt_ten,$txt_matkhau,$avatar,$gioitinh){
-    $pass = $this->con->escape_string(trim(strip_tags($txt_matkhau)));
-
     $idUser = $_SESSION['login_id'];
-    $sql = "UPDATE nguoidung set Ho='$txt_ho',Ten='$txt_ten',MatKhau='$pass',GioiTinh='$gioitinh', Avatar='$avatar' where IdUser = '$idUser' ";
-    $kq = $this->con->query($sql);
-    if($kq == true){
-        return true;
-    }else{
-        return false;
-    }
+    $kq=$this->getUserById($idUser);
+    if($kq->num_rows>0){
+        $row=$kq->fetch_array();
+        if(strcmp($txt_matkhau,$row['MatKhau'])==0){
+            $sql = "UPDATE nguoidung set Ho='$txt_ho',Ten='$txt_ten',GioiTinh='$gioitinh', Avatar='$avatar' where IdUser = '$idUser' ";
+            $kq = $this->con->query($sql);
+            if($kq == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        else{
+            $pass = md5($txt_matkhau);
+            $sql = "UPDATE nguoidung set Ho='$txt_ho',Ten='$txt_ten',MatKhau='$pass',GioiTinh='$gioitinh', Avatar='$avatar' where IdUser = '$idUser' ";
+            $kq = $this->con->query($sql);
+            if($kq == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
+    }
 }
 
     protected function profile_display_all_database(){
@@ -186,6 +207,18 @@ class model extends connection
         $this->con->query($sql);
         if($this->con->affected_rows>0) return true;
         return false;
+    }
+
+    protected function Activation_User($id, $rd)
+    {
+        $sql = "update nguoidung set KichHoat='1' where IdUser='$id' and ActivationKey='$rd' and KichHoat='0'";
+        $kq = $this->con->query($sql);
+        if($this->con->affected_rows>0) return true;
+        return false;
+    }
+
+    protected function get_last_IdUser(){
+        return $this->con->insert_id;
     }
 }
 //cac method

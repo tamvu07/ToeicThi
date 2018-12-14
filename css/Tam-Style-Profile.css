@@ -1,0 +1,199 @@
+body {
+    background-image: url(../img/layout/background.jpg);
+    position: relative;
+}
+
+hr {
+    background: white;
+}
+
+.contact-form {
+    background: rgba(0, 0, 0, .6);
+    color: white;
+    margin-top: 100px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px 3px grey;
+}
+
+p {
+    color: white;
+}
+
+label {
+    font-size: 15px;
+    color: white;
+    display: inline-block;
+    margin-bottom: .5rem;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.form {
+    width: 100%;
+}
+
+.form-check-label {
+    margin-bottom: 0;
+}
+
+.form-check-inline {
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: 0;
+    margin-right: .75rem;
+    padding: 7%;
+}
+
+.form-check-inline .form-check-input1 {
+    position: static;
+    margin-top: 0;
+    margin-right: .3125rem;
+    margin-left: 0;
+    width: 85%;
+    display: block;
+    margin: -91%;
+}
+
+.form-check-inline .form-check-input2 {
+    position: static;
+    margin-top: 0;
+    margin-right: .3125rem;
+    margin-left: 0;
+    width: 129%;
+    display: block;
+    margin: -132%;
+}
+
+.fa-unlock-alt {
+    font-size: 15px;
+    padding-right: 10px;
+}
+
+.fa-user-circle {
+    font-size: 15px;
+    padding-right: 10px;
+}
+
+.circle {
+    height: 34px;
+    -webkit-border-radius: 50%;
+    width: 34px;
+    margin-left: -38px;
+    margin-top: 2px;
+    background-color: darkseagreen;
+}
+
+.fa-pencil {
+    font-size: 27px;
+    color: beige;
+    margin-top: 4px;
+    margin-left: 6px;
+}
+
+/* mouse over link */
+#a_sua_ho:hover {
+    color: hotpink;
+}
+
+/* selected link */
+#a_sua_ho:active {
+    color: blue;
+}
+
+#a_sua_ten:hover {
+    color: hotpink;
+}
+
+/* selected link */
+#a_sua_ten:active {
+    color: blue;
+}
+
+/* mouse over link */
+#a_sua_matkhau:hover {
+    color: hotpink;
+}
+
+/* selected link */
+#a_sua_matkhau:active {
+    color: blue;
+}
+
+/* mouse over link */
+#a_sua_avatar:hover {
+    color: hotpink;
+}
+
+/* selected link */
+#a_sua_avatar:active {
+    color: blue;
+}
+
+/* mouse over link */
+#a_sua_gioitinh:hover {
+    color: hotpink;
+}
+
+/* selected link */
+#a_sua_gioitinh:active {
+    color: blue;
+}
+
+input[type="file"] /*, input[type="email"]*/
+{
+    border-radius: 20px;
+    padding-left: 40px;
+    width: 80%;
+}
+
+#label_img_display {
+    width: 246px;
+    display: block;
+}
+
+#avatar_id {
+    border-radius: 20px;
+    width: 80%;
+    /* background: transparent;*/
+    border: 0;
+}
+
+#txt_ho {
+    border-radius: 20px;
+    width: 80%;
+    /* background: transparent;*/
+    border: 0;
+}
+
+#txt_ten {
+    border-radius: 20px;
+    width: 80%;
+    /* background: transparent;*/
+    border: 0;
+}
+
+#txt_matkhau {
+    border-radius: 20px;
+    width: 80%;
+    /* background: transparent;*/
+    border: 0;
+}
+
+#hinh {
+    border-radius: 32px;
+    border: 8px solid black;
+}
+
+#circle_gioitinh {
+    margin-left: 14px;
+}
+
+.circle a{
+    width:25px;
+    height:25px;
+}

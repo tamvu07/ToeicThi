@@ -4,6 +4,7 @@
 if(isset($_POST['email-thanh'])&&isset($_POST['password'])){
     $email=$_POST['email-thanh'];
     $pass=$_POST['password'];
+    $pass=md5($pass);
     $toeic->xulyLogin($email,$pass);
 }
 ?>
@@ -50,7 +51,7 @@ if(isset($_POST['email-thanh'])&&isset($_POST['password'])){
         position: absolute;
         z-index: 2;
         height: 30px;
-        width: 300px;
+        width: auto;
         text-align: left;
         top: 348px;
         left: 90px;
@@ -59,28 +60,4 @@ if(isset($_POST['email-thanh'])&&isset($_POST['password'])){
     }
 </style>
 
-<script>
-    $("#checkValidate").hide();
-    $(document).ready(function () {
-        $('#email').blur(function () {
-            $.get(
-                'Controller/checkValidate.php',
-                "email-thanh=" + $('#email').val(),
-                function (d) {
-                    if (d != "")
-                        $("#checkValidate").html(d).show();
-                    else {
-                        $("#checkValidate").html("");
-                        $("#checkValidate").hide();
-                    }
-                });
-        });
-    });
-    $(document).ready(function () {
-        $("form").submit(function () {
-            var text = $("#checkValidate").html();
-            if (text != "") return false;
-            return true;
-        });
-    });
-</script>
+<script src="js/Thanh-login.js"></script>

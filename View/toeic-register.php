@@ -1,6 +1,10 @@
 <?php
 if(isset($_GET['made'])) $made=$_GET['made'];
 if(isset($_SESSION['login_id'])) $idUser=$_SESSION['login_id'];
+else{
+    echo '<script>alert("Bạn chưa đăng nhập");document.location="View/"</script>';
+
+}
 $kq=$toeic->check_Toeic_Register($_SESSION['login_id'],$made);
 if(!$kq) echo '<script>alert("Bạn đã đăng kí đề thi này rồi")</script>';
 else {

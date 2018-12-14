@@ -30,15 +30,7 @@
                 </ul>
             </li>
             <li>
-                <a class="sidenav__menu-url">Test</a>
-                <button class="sidenav__menu-toggle" aria-haspopup="true" aria-label="Open dropdown"><i
-                            class="ui-arrow-down"></i></button>
-                <ul class="sidenav__menu-dropdown">
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Listening</a></li>
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Reading</a></li>
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Writing</a></li>
-                    <li><a href="shortcodes.html" class="sidenav__menu-url">Speaking</a></li>
-                </ul>
+                <a class="sidenav__menu-url" href="View/Exam">Thi Toeic</a>
             </li>
             <!-- Categories -->
             <li>
@@ -206,7 +198,7 @@
                             </ul> <!-- end megamenu -->
                         </li>
                         <li>
-                            <a href="View/Exam">Toeic</a>
+                            <a href="View/Exam">Thi Toeic</a>
                         </li>
                         <li>
                             <a href="View/Contact.html">Liên hệ</a>
