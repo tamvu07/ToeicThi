@@ -89,4 +89,20 @@
         else
             thatBai('index.php?p=cauhoi');
     }
+
+    if (isset($_POST['submit-add-tintuc'])){
+        session_start();
+        $tieuDe=$_POST['txtTieuDe'];
+        $noiDung=$_POST['txtNoiDung'];
+        $tomTat=$_POST['txtTomTat'];
+        $img=$_POST['img'];
+        if($_POST['role']==1) $ngonNgu='vi';
+        else $ngonNgu='en';
+        $control=new controller_admin();
+        $kq=$control->add_news($tieuDe,$noiDung,$tomTat,$img,$ngonNgu);
+        if($kq)
+            thanhCong('index.php?p=tintuc');
+        else
+            thatBai('index.php?p=themtintuc');
+    }
 ?>

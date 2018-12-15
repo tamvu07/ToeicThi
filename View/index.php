@@ -95,6 +95,9 @@ else{
             case "captcha":
                 include "checkCaptcha.php";
                 break;
+            case "news":
+                include "news.php";
+                break;
             default:
                 include("main.php");
                 break;

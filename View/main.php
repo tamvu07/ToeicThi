@@ -116,10 +116,12 @@
 
         <!-- Slider -->
         <div id="owl-posts-3-items" class="owl-carousel owl-theme owl-carousel--arrows-outside">
-            <?php while ($row = $kq->fetch_assoc()) { ?>
+            <?php while ($row = $kq->fetch_assoc()) {
+                $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);
+                ?>
                 <article class="entry card card--1">
                     <div class="entry__img-holder card__img-holder">
-                        <a href="single-post-music.html">
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html">
                             <div class="thumb-container thumb-70">
                                 <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
                                      src="<?= $row['AnhMinhHoa'] ?>"
@@ -143,7 +145,7 @@
                             </ul>
                             <h2 class="entry__title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
@@ -153,7 +155,13 @@
                                         echo $rowi['Ho']." ".$rowi['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
-                                    Jan 21, 2018
+                                    <?php
+                                    $date = date_parse($row['NgayTao']);
+                                    $ngay = $date['day'];
+                                    $thang = $date['month'];
+                                    $nam = $date['year'];
+                                    echo date("d-m-Y",mktime(0,0,0,$thang,$ngay,$nam));
+                                    ?>
                                 </li>
                             </ul>
                         </div>
@@ -183,12 +191,11 @@
         </div>
 
         <div class="row row-20">
-
-            <?php $row = $kq->fetch_assoc(); ?>
+            <?php $row=$kq->fetch_assoc(); $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
-                        <a href="single-post-music.html">
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>">
                             <div class="thumb-container thumb-65">
                                 <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
                                      src="<?= $row['AnhMinhHoa'] ?>"
@@ -201,7 +208,7 @@
                         <div class="entry__header">
                             <h2 class="entry__title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
@@ -211,7 +218,13 @@
                                         echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
-                                    Jan 21, 2018
+                                    <?php
+                                    $date = date_parse($row['NgayTao']);
+                                    $ngay = $date['day'];
+                                    $thang = $date['month'];
+                                    $nam = $date['year'];
+                                    echo date("d-m-Y",mktime(0,0,0,$thang,$ngay,$nam));
+                                    ?>
                                 </li>
                             </ul>
                         </div>
@@ -222,7 +235,7 @@
                 </article>
             </div>
 
-            <?php $row = $kq->fetch_assoc(); ?>
+            <?php $row = $kq->fetch_assoc(); $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);?>
             <div class="col-md-6">
                 <article class="entry thumb thumb--size-3 thumb--mb-20">
                     <div class="entry__img-holder thumb__img-holder"
@@ -231,19 +244,19 @@
                         <div class="thumb-text-holder thumb-text-holder--2">
                             <h2 class="thumb-entry-title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                         </div>
-                        <a href="single-post-music.html" class="thumb-url"></a>
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>" class="thumb-url"></a>
                     </div>
                 </article>
             </div>
 
-            <?php $row = $kq->fetch_assoc(); ?>
+            <?php $row = $kq->fetch_assoc(); $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
-                        <a href="single-post-music.html">
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>">
                             <div class="thumb-container thumb-65">
                                 <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
                                      src="<?= $row['AnhMinhHoa'] ?>"
@@ -256,7 +269,7 @@
                         <div class="entry__header">
                             <h2 class="entry__title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
@@ -266,12 +279,18 @@
                                         echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
-                                    Jan 21, 2018
+                                    <?php
+                                    $date = date_parse($row['NgayTao']);
+                                    $ngay = $date['day'];
+                                    $thang = $date['month'];
+                                    $nam = $date['year'];
+                                    echo date("d-m-Y",mktime(0,0,0,$thang,$ngay,$nam));
+                                    ?>
                                 </li>
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?= $row['TomTat'] ?></p>
+                            <p><?= $row['TomTat'] ?><p>
                         </div>
                     </div>
                 </article>
@@ -280,7 +299,7 @@
 
         <div class="row row-20">
 
-            <?php $row = $kq->fetch_assoc(); ?>
+            <?php $row = $kq->fetch_assoc(); $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);?>
             <div class="col-md-6">
                 <article class="entry thumb thumb--size-3 thumb--mb-20">
                     <div class="entry__img-holder thumb__img-holder"
@@ -289,19 +308,19 @@
                         <div class="thumb-text-holder thumb-text-holder--2">
                             <h2 class="thumb-entry-title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                         </div>
-                        <a href="single-post-music.html" class="thumb-url"></a>
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>" class="thumb-url"></a>
                     </div>
                 </article>
             </div>
 
-            <?php $row = $kq->fetch_assoc(); ?>
+            <?php $row = $kq->fetch_assoc(); $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
-                        <a href="single-post-music.html">
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>">
                             <div class="thumb-container thumb-65">
                                 <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
                                      src="<?= $row['AnhMinhHoa'] ?>"
@@ -314,7 +333,7 @@
                         <div class="entry__header">
                             <h2 class="entry__title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
@@ -324,22 +343,28 @@
                                         echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
-                                    Jan 21, 2018
+                                    <?php
+                                    $date = date_parse($row['NgayTao']);
+                                    $ngay = $date['day'];
+                                    $thang = $date['month'];
+                                    $nam = $date['year'];
+                                    echo date("d-m-Y",mktime(0,0,0,$thang,$ngay,$nam));
+                                    ?>
                                 </li>
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?= $row['TomTat'] ?></p>
+                            <p><?= $row['TomTat'] ?><p>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <?php $row = $kq->fetch_assoc(); ?>
+            <?php $row = $kq->fetch_assoc(); $TieuDeKhongDau=$toeic->changeTitle($row['TieuDe']);?>
             <div class="col-md-3">
                 <article class="entry">
                     <div class="entry__img-holder">
-                        <a href="single-post-music.html">
+                        <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>">
                             <div class="thumb-container thumb-65">
                                 <img onerror="this.src='img/defaultImg.jpg'" data-src="<?= $row['AnhMinhHoa'] ?>"
                                      src="<?= $row['AnhMinhHoa'] ?>"
@@ -352,7 +377,7 @@
                         <div class="entry__header">
                             <h2 class="entry__title"
                                 style="white-space: nowrap;overflow:hidden;text-overflow:ellipsis;">
-                                <a href="single-post-music.html"><?= $row['TieuDe'] ?></a>
+                                <a href="View/News/<?=$row['MaTinTuc']?>/<?=$TieuDeKhongDau?>.html" title="<?= $row['TieuDe'] ?>"><?= $row['TieuDe'] ?></a>
                             </h2>
                             <ul class="entry__meta">
                                 <li class="entry__meta-author">
@@ -362,12 +387,18 @@
                                         echo $row1['Ho']." ".$row1['Ten']; ?></a>
                                 </li>
                                 <li class="entry__meta-date">
-                                    Jan 21, 2018
+                                    <?php
+                                    $date = date_parse($row['NgayTao']);
+                                    $ngay = $date['day'];
+                                    $thang = $date['month'];
+                                    $nam = $date['year'];
+                                    echo date("d-m-Y",mktime(0,0,0,$thang,$ngay,$nam));
+                                    ?>
                                 </li>
                             </ul>
                         </div>
                         <div class="entry__excerpt">
-                            <p><?= $row['TomTat'] ?></p>
+                            <p><?= $row['TomTat'] ?><p>
                         </div>
                     </div>
                 </article>

@@ -202,5 +202,82 @@ class model_admin extends connection {
         return true;
     }
 
+    protected function get_news($param){
+	    if($param==0) $sql="select * from tintuc";
+	    elseif($param==1) $sql="select * from tintuc where NgonNgu='vi' order by MaTinTuc desc";
+	    elseif($param==2) $sql="select * from tintuc where NgonNgu='en' order by MaTinTuc desc";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error;
+    } // end function get_news
+
+    protected function add_new_news($tieuDe,$noiDung,$tomTat,$img,$idUser,$ngonNgu){
+        $sql = "INSERT INTO tintuc(TieuDe,NoiDung,TomTat,AnhMinhHoa,NguoiTao,NgayTao,NgonNgu) 
+        VALUES ('$tieuDe','$noiDung','$tomTat','$img','$idUser',CURRENT_TIMESTAMP ,'$ngonNgu')";
+        $kq = $this->con->query($sql);
+        if($this->con->affected_rows>0)
+            return true;
+        return false;
+    } // end function add_new_news
+
+    protected function count_admin(){
+	    $sql="select count(*) from nguoidung where Quyen='1'";
+	    $kq=$this->con->query($sql);
+        if($kq->num_rows>0){
+            $row=$kq->fetch_row();
+            return $row[0];
+        }
+	    else return $this->con->error;
+    } // end function count_admin
+
+    protected function count_hocvien(){
+        $sql="select count(*) from nguoidung where Quyen='3'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0){
+            $row=$kq->fetch_row();
+            return $row[0];
+        }
+        else return $this->con->error;
+    } // end function count_admin
+
+    protected function count_giaovien(){
+        $sql="select count(*) from nguoidung where Quyen='2'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0){
+            $row=$kq->fetch_row();
+            return $row[0];
+        }
+        else return $this->con->error;
+    } // end function count_admin
+
+    protected function count_dsDuThi_De1(){
+        $sql="select count(*) from danhsachduthi where MaDe='1'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0){
+            $row=$kq->fetch_row();
+            return $row[0];
+        }
+        else return $this->con->error;
+    } // end function count_dsDuThi_De1
+
+    protected function count_dsDuThi_De2(){
+        $sql="select count(*) from danhsachduthi where MaDe='2'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0){
+            $row=$kq->fetch_row();
+            return $row[0];
+        }
+        else return $this->con->error;
+    } // end function count_dsDuThi_De2
+
+    protected function count_binhluan_MaDe($made){
+        $sql="select count(*) from binhluan where MaDe='$made'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0){
+            $row=$kq->fetch_row();
+            return $row[0];
+        }
+        else return $this->con->error;
+    } // end function count_dsDuThi_De2
 }
 ?>
