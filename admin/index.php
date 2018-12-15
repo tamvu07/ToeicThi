@@ -35,6 +35,7 @@ else
     <!--   Core JS Files   -->
     <script src="assets/js/jquery.3.2.1.min.js" type="text/javascript"></script>
     <script src="assets/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="assets/js/Chart.min.js" type="text/javascript"></script>
 
     <!-- Bootstrap core CSS     -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
@@ -157,6 +158,9 @@ else
                     break;
                 case "tintuc":
                     include "tintuc.php";
+                    break;
+                case "themtintuc":
+                    include "tintuc_add.php";
                     break;
                 case "thongbao":
                     include "thongbao.php";

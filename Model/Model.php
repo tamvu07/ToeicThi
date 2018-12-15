@@ -22,15 +22,15 @@ class model extends connection
     protected function getTinTuc($param)
     {
         if ($param == 'vi') {
-            $sql = "select * from tintuc where NgonNgu='vi'";
+            $sql = "select * from tintuc where NgonNgu='vi' order by MaTinTuc desc";
             $kq = $this->con->query($sql);
             if ($kq->num_rows > 0) return $kq;
         } elseif ($param == 'en') {
-            $sql = "select * from tintuc where NgonNgu='en'";
+            $sql = "select * from tintuc where NgonNgu='en' order by MaTinTuc desc";
             $kq = $this->con->query($sql);
             if ($kq->num_rows > 0) return $kq;
         } else {
-            $sql = "select * from tintuc";
+            $sql = "select * from tintuc order by MaTinTuc desc";
             $kq = $this->con->query($sql);
             if ($kq->num_rows > 0) return $kq;
         }
@@ -219,6 +219,13 @@ class model extends connection
 
     protected function get_last_IdUser(){
         return $this->con->insert_id;
+    }
+
+    protected function get_TinTuc_by_Id($id){
+        $sql="select * from tintuc where MaTinTuc='$id'";
+        $kq=$this->con->query($sql);
+        if($kq->num_rows>0) return $kq;
+        return $this->con->error;
     }
 }
 //cac method
