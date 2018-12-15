@@ -69,7 +69,7 @@
                                     <tr><td>Loại câu hỏi:</td><td>
                                             <select class="selectpicker form-control" name="select-type">
                                                 <option value="R-DIENDOANVAN">Part 6 - Reading - Điền đoạn văn</option>
-                                                <option value="R-HOIDOANVAN">Part 7 - Reading - Hỏi đoạn văn</option>
+                                                <option value="R-HOIDOANVAN">Part 7 - Reading - Đọc hiểu đoạn văn</option>
                                             </select>
                                     </td></tr>
                                     <tr><td>Số câu hỏi nhỏ:</td><td>
@@ -124,5 +124,4 @@
         alert('Đã thêm đủ!');
         document.location.href = 'index.php?p=cauhoi';
     }
-
 </script>

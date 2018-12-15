@@ -113,7 +113,7 @@ class model_admin extends connection {
         $sql = "INSERT INTO dethi(TieuDe,MoTa,ThoiLuong,SoCau,NgayHetHan,NguoiTao,TrangThai) 
         VALUES ('$ten','$mota',$thoiluong,$socau,'$ngayhethan',$nguoitao,$trangthai)";
         $kq = $this->con->query($sql);
-        if($kq->affected_rows!=0)
+        if($kq)
             return true;
         return false;
     }
@@ -157,7 +157,7 @@ class model_admin extends connection {
 
     protected function get_question_by_id($macauhoi)
     {
-        $sql = "SELECT ch.MaCauHoi, ch.MaDe, ch.LoaiCauHoi, ch.NoiDung, tl.A, tl.B, tl.C, tl.D, tl.DapAn
+        $sql = "SELECT ch.MaCauHoi, ch.MaDe, ch.LoaiCauHoi, ch.TrangThai, ch.NoiDung, tl.A, tl.B, tl.C, tl.D, tl.DapAn
         FROM cauhoi ch JOIN traloi tl
         ON ch.MaCauHoi=tl.MaCauHoi WHERE ch.MaCauHoi='$macauhoi'";
         $kq = $this->con->query($sql);
@@ -244,5 +244,31 @@ class model_admin extends connection {
         return true;
     }
 
+    protected  function action_edit_single_question_by_id($macauhoi,$made,$loaicauhoi,$trangthai,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $sql = "UPDATE cauhoi SET MaDe='$made', LoaiCauHoi='$loaicauhoi', TrangThai='$trangthai', NoiDung='$noidung'
+                WHERE MaCauHoi='$macauhoi'";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        $sql = "UPDATE traloi SET A='$a', B='$b', C='$c', D='$d', DapAn='$dapan' WHERE MaCauHoi='$macauhoi'";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        return true;
+    }
+
+    protected function action_edit_sub_question_by_id($macauhoinho,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $sql = "UPDATE cauhoinho SET NoiDung='$noidung' WHERE Id='$macauhoinho'";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        $sql = "UPDATE traloi SET A='$a', B='$b', C='$c', D='$d', DapAn='$dapan' WHERE IdCauhoinho='$macauhoinho'";
+        $kq = $this->con->query($sql);
+        if(!kq)
+            return false;
+        return true;
+    }
 }
 ?>

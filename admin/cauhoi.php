@@ -119,5 +119,9 @@
 <script type="text/javascript" src="nicEdit.js"></script>
 <script type="text/javascript">
 	bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+    const submitQuestion = document.getElementById("btn-submit-edit-single-question");
+    submitQuestion.onclick = () => {
+        nicEditors.findEditor('txtNoiDung').saveContent();
+    }
 </script>
 <link href="assets/css/admin-table.css" rel="stylesheet">

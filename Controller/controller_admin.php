@@ -324,6 +324,7 @@ class controller_admin extends model_admin
         $info=$kq->fetch_assoc();
         $made = $info['MaDe'];
         $loaicauhoi = $info['LoaiCauHoi'];
+        $trangthai = $info['TrangThai'];
         $noidung = $info['NoiDung'];
         $a = $info['A'];
         $b = $info['B'];
@@ -338,11 +339,11 @@ class controller_admin extends model_admin
                         <tr><td colspan="2"><h3>CHI TIẾT CÂU HỎI MÃ SỐ '.$macauhoi.'</h3></td></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Mã câu hỏi:</td><td><input type="text" class="form-control" readOnly="true" value="'.$macauhoi.'"></td></tr>
-                        <tr><td>Mã đề:</td><td><input type="text" class="form-control" value="'.$made.'">
+                        <tr><td>Mã câu hỏi:</td><td><input type="text" class="form-control" name="txtMaCauHoi" readOnly="true" value="'.$macauhoi.'"></td></tr>
+                        <tr><td>Mã đề:</td><td><input type="text" class="form-control" name="txtMaDe" value="'.$made.'">
                         </td></tr>
                         <tr><td>Loại câu hỏi:</td><td>
-                            <select id="edit_select_question_type" class="selectpicker form-control">
+                            <select id="edit_select_question_type" name="select-type" class="selectpicker form-control">
                             <option value="L-HINHANH" '.($loaicauhoi=='L-HINHANH' ? "selected" : "").'>PART 1 - LISTENING - HÌNH ẢNH</option>
                             <option value="L-HOITHOAI" '.($loaicauhoi=='L-HOITHOAI' ? "selected" : "").'>PART 2 - LISTENING - HỘI THOẠI</option>
                             <option value="L-HOIDAP" '.($loaicauhoi=='L-HOIDAP' ? "selected" : "").'>PART 3 - LISTENING - HỎI ĐÁP</option>
@@ -352,8 +353,14 @@ class controller_admin extends model_admin
                             <option value="R-HOIDOANVAN" '.($loaicauhoi=='R-HOIDOANVAN' ? "selected" : "").'>PART 7 - READING - ĐỌC HIỂU</option>
                             </select>
                         </td></tr>
+                        <tr><td>Trạng thái:</td><td>
+                            <select id="edit_select_question_type" name="select-status" class="selectpicker form-control">
+                            <option value="1" '.($trangthai==1 ? "selected" : "").'>MỞ</option>
+                            <option value="0" '.($trangthai!=1 ? "selected" : "").'>ĐÓNG</option>
+                            </select>
+                        </td></tr>
                         <tr><td>Nội dung:</td><td>
-                            <textarea class="form-control" rows="5">'.$noidung.'</textarea>
+                            <textarea class="form-control" rows="5" name="txtNoiDung">'.$noidung.'</textarea>
                         </td><tr/>';
                         if($check_sub_question==true)
                         {
@@ -362,7 +369,7 @@ class controller_admin extends model_admin
                             $i=1;
                             while($rows = $sub_questions->fetch_assoc()) {
                             echo '
-                            <tr><td>Câu hỏi nhỏ '.$i.':</td><td class="form-inline"><input type="text" class="form-control" style="width:70%;" value="'.$rows["NoiDungNho"].'"> <button type="button" class="btn btn-info btn-fill edit" name="btn-submit-edit-sub-question" data-toggle="modal" data-target="#suacauhoi'.$rows['MaCauHoiNho'].'" data-backdrop="false"><i class="fa fa-eye"></i>Xem câu hỏi '.$i.'</button></td></tr>
+                            <tr><td>Câu hỏi nhỏ '.$i.':</td><td class="form-inline"><input type="text" class="form-control" style="width:70%;" value="'.$rows["NoiDungNho"].'" readonly="true"> <button type="button" class="btn btn-info btn-fill edit" name="btn-submit-edit-sub-question" data-toggle="modal" data-target="#suacauhoi'.$rows['MaCauHoiNho'].'" data-backdrop="false"><i class="fa fa-eye"></i>Xem câu hỏi '.$i.'</button></td></tr>
                             
                             <div class="modal fade" id="suacauhoi'.$rows['MaCauHoiNho'].'" role="dialog">
                                 <div class="modal-dialog">
@@ -372,13 +379,16 @@ class controller_admin extends model_admin
                                             <h4 class="modal-title">Mã câu hỏi '.$rows['MaCauHoi'].' - Câu hỏi nhỏ số '.$i.'</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST">
-                                            <p>Câu hỏi: <input type="text" class="form-control" value="'.$rows['NoiDungNho'].'"></p>
-                                            <p>A: <input type="text" class="form-control" value="'.$rows["A"].'"></p>
-                                            <p>B: <input type="text" class="form-control" value="'.$rows["B"].'"></p>
-                                            <p>C: <input type="text" class="form-control" value="'.$rows["C"].'"></p>
-                                            <p>D: <input type="text" class="form-control" value="'.$rows["D"].'"></p>
-                                            <p>Đáp án: <input type="text" class="form-control" value="'.$rows["DapAn"].'"></p>
+                                            <form method="POST" action="admin_actions.php">
+                                            <p>Mã đoạn văn: <input type="text" class="form-control" name="parentID-'.$i.'" value="'.$rows['MaCauHoi'].'" readonly="true"></p>
+                                            <p>Mã câu hỏi nhỏ: <input type="text" class="form-control" name="subID-'.$i.'" value="'.$rows['MaCauHoiNho'].'" readonly="true"></p>
+                                            <p>Câu hỏi: <input type="text" class="form-control" name="subQuestion-'.$i.'" value="'.$rows['NoiDungNho'].'"></p>
+                                            <p>A: <input type="text" class="form-control" name="subA-'.$i.'" value="'.$rows["A"].'"></p>
+                                            <p>B: <input type="text" class="form-control" name="subB-'.$i.'" value="'.$rows["B"].'"></p>
+                                            <p>C: <input type="text" class="form-control" name="subC-'.$i.'" value="'.$rows["C"].'"></p>
+                                            <p>D: <input type="text" class="form-control" name="subD-'.$i.'" value="'.$rows["D"].'"></p>
+                                            <p>Đáp án: <input type="text" class="form-control"name="subDapAn-'.$i.'" value="'.$rows["DapAn"].'"></p>
+                                            <p><button type="submit" class="btn btn-success btn-fill" name="action-edit-sub-question-'.$i.'">Cập nhật</button></p>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -390,17 +400,17 @@ class controller_admin extends model_admin
                             ';
                             $i++;
                             }
-                            echo '<tr><td colspan="2" class="text-center"><a href="index.php?p=themcauhoi&macauhoi='.$macauhoi.'"><button type="button" class="btn btn-success btn-fill"><i class="fa fa-plus"></i>Thêm câu hỏi nhỏ</button></a></td></tr>';
+                            echo '<tr><td colspan="2" class="text-center"><button type="submit" class="btn btn-success btn-fill" name="btn-add-sub-question-by-id"><i class="fa fa-plus"></i>Thêm câu hỏi nhỏ</button></td></tr>';
                         }
                         else
                         {
                             echo '
-                            <tr><td>A:</td><td><input type="text" class="form-control" value="'.$a.'"></td></tr>
-                            <tr><td>B:</td><td><input type="text" class="form-control" value="'.$b.'"></td></tr>
-                            <tr><td>C:</td><td><input type="text" class="form-control" value="'.$c.'"></td></tr>
-                            <tr><td>D:</td><td><input type="text" class="form-control" value="'.$d.'"></td></tr>
-                            <tr><td>Đáp án:</td><td><input type="text" class="form-control" value="'.$dapan.'"></td></tr>
-                            <tr><td colspan="2" style="text-align:center;"><button type="submit" rel="tooltip" title="Submit changes" class="btn btn-info btn-fill edit" name="btn-submit-edit-question" id=""><i class="fa fa-edit"></i>Hoàn tất sửa</button></td></tr>
+                            <tr><td>A:</td><td><input type="text" class="form-control" name="singleA" value="'.$a.'"></td></tr>
+                            <tr><td>B:</td><td><input type="text" class="form-control" name="singleB" value="'.$b.'"></td></tr>
+                            <tr><td>C:</td><td><input type="text" class="form-control" name="singleC" value="'.$c.'"></td></tr>
+                            <tr><td>D:</td><td><input type="text" class="form-control" name="singleD" value="'.$d.'"></td></tr>
+                            <tr><td>Đáp án:</td><td><input type="text" class="form-control" name="singleDapAn" value="'.$dapan.'"></td></tr>
+                            <tr><td colspan="2" style="text-align:center;"><button type="submit" rel="tooltip" title="Submit changes" class="btn btn-info btn-fill edit" name="btn-submit-edit-single-question" id=""><i class="fa fa-edit"></i>Hoàn tất sửa</button></td></tr>
                             ';
                         }
                         echo '</tbody></table></form>';
@@ -445,6 +455,24 @@ class controller_admin extends model_admin
         $p = new model_admin();
         $kq = $p->add_child_question($macauhoi,$loaicauhoi,$noidung,$a,$b,$c,$d,$dapan);
         if($kq==true)
+            return true;
+        return false;
+    }
+
+    function action_edit_single_question_by_id($macauhoi,$made,$loaicauhoi,$trangthai,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->action_edit_single_question_by_id($macauhoi,$made,$loaicauhoi,$trangthai,$noidung,$a,$b,$c,$d,$dapan);
+        if($kq)
+            return true;
+        return false;
+    }
+
+    function action_edit_sub_question_by_id($macauhoinho,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->action_edit_sub_question_by_id($macauhoinho,$noidung,$a,$b,$c,$d,$dapan);
+        if($kq)
             return true;
         return false;
     }
