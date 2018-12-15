@@ -13,7 +13,7 @@ if(!isset($_SESSION['login_level']))
 }
 else
 {
-    if($_SESSION['login_level']!=1)
+    if($_SESSION['login_level']!=1 && $_SESSION['login_level']!=2)
     {
         header('This is not the page you are looking for', true, 404);
         exit();
