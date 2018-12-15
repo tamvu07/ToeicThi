@@ -1,7 +1,6 @@
 <?php
 require_once("../Model/model_admin.php");
 $rows = null;
-
 class controller_admin extends model_admin
 {
     // Thanh menu ben trai
@@ -32,9 +31,6 @@ class controller_admin extends model_admin
             case "themtintuc":
                 $a5 = "class=active";
                 break;
-            case "thongbao":
-                $a6 = "class=active";
-                break;
             default:
                 $a1 = "class=active";
                 break;
@@ -43,14 +39,19 @@ class controller_admin extends model_admin
             <div class="logo">
                 <a href="#" class="simple-text">ADMIN</a>
             </div>
-            <ul class="nav">
+            <ul class="nav">';
+        session_start();
+        if($_SESSION['login_level']==1)
+            echo '
                 <li ' . (isset($a1) ? $a1 : "") . '><a href="index.php"><i class="pe-7s-home"></i><p>Trang chính</p></a></li>
                 <li ' . (isset($a2) ? $a2 : "") . '><a href="index.php?p=nguoidung"><i class="pe-7s-user"></i><p>Người dùng</p></a></li>
                 <li ' . (isset($a3) ? $a3 : "") . '><a href="index.php?p=dethi"><i class="pe-7s-note2"></i><p>Đề thi</p></a></li>
                 <li ' . (isset($a4) ? $a4 : "") . '><a href="index.php?p=cauhoi"><i class="pe-7s-news-paper"></i><p>Câu hỏi</p></a></li>
-                <li ' . (isset($a5) ? $a5 : "") . '><a href="index.php?p=tintuc"><i class="pe-7s-sun"></i><p>Tin tức</p></a></li>
-                <li ' . (isset($a6) ? $a6 : "") . '><a href="index.php?p=thongbao"><i class="pe-7s-bell"></i><p>Thông báo</p></a></li>
-            </ul>';
+                <li ' . (isset($a5) ? $a5 : "") . '><a href="index.php?p=tintuc"><i class="pe-7s-sun"></i><p>Tin tức</p></a></li>';
+        else
+            echo '<li ' . (isset($a3) ? $a3 : "") . '><a href="index.php?p=dethi"><i class="pe-7s-note2"></i><p>Đề thi</p></a></li>
+                <li ' . (isset($a4) ? $a4 : "") . '><a href="index.php?p=cauhoi"><i class="pe-7s-news-paper"></i><p>Câu hỏi</p></a></li>';
+        echo '</ul>';
     }
 
     //In bảng người dùng trong giao diện admin
@@ -124,10 +125,13 @@ class controller_admin extends model_admin
     {
         $p = new model_admin();
         $kq = $p->get_list_exam_by_status($trangthai);
-        while ($row = $kq->fetch_array()) {
-            echo '<option value="' . $row['MaDe'] . '" ' . ($_POST['select_de'] == $row['MaDe'] ? "selected" : "") . '>' . $row['TieuDe'] . '</option>
+        if ($kq) {
+            while ($row = $kq->fetch_array()) {
+                echo '<option value="' . $row['MaDe'] . '" ' . ($_POST['select_de'] == $row['MaDe'] ? "selected" : "") . '>' . $row['TieuDe'] . '</option>
                     ';
-        }
+            }
+        } else
+            echo '<option>Chưa có đề thi mới, vui lòng thêm đề thi';
     }
 
     function print_question_table($loaicauhoi, $dethi)
@@ -324,6 +328,7 @@ class controller_admin extends model_admin
         $info = $kq->fetch_assoc();
         $made = $info['MaDe'];
         $loaicauhoi = $info['LoaiCauHoi'];
+        $trangthai = $info['TrangThai'];
         $noidung = $info['NoiDung'];
         $a = $info['A'];
         $b = $info['B'];
@@ -338,11 +343,11 @@ class controller_admin extends model_admin
                         <tr><td colspan="2"><h3>CHI TIẾT CÂU HỎI MÃ SỐ ' . $macauhoi . '</h3></td></tr>
                     </thead>
                     <tbody>
-                        <tr><td>Mã câu hỏi:</td><td><input type="text" class="form-control" readOnly="true" value="' . $macauhoi . '"></td></tr>
-                        <tr><td>Mã đề:</td><td><input type="text" class="form-control" value="' . $made . '">
+                        <tr><td>Mã câu hỏi:</td><td><input type="text" class="form-control" name="txtMaCauHoi" readOnly="true" value="' . $macauhoi . '"></td></tr>
+                        <tr><td>Mã đề:</td><td><input type="text" class="form-control" name="txtMaDe" value="' . $made . '">
                         </td></tr>
                         <tr><td>Loại câu hỏi:</td><td>
-                            <select id="edit_select_question_type" class="selectpicker form-control">
+                            <select id="edit_select_question_type" name="select-type" class="selectpicker form-control">
                             <option value="L-HINHANH" ' . ($loaicauhoi == 'L-HINHANH' ? "selected" : "") . '>PART 1 - LISTENING - HÌNH ẢNH</option>
                             <option value="L-HOITHOAI" ' . ($loaicauhoi == 'L-HOITHOAI' ? "selected" : "") . '>PART 2 - LISTENING - HỘI THOẠI</option>
                             <option value="L-HOIDAP" ' . ($loaicauhoi == 'L-HOIDAP' ? "selected" : "") . '>PART 3 - LISTENING - HỎI ĐÁP</option>
@@ -352,8 +357,14 @@ class controller_admin extends model_admin
                             <option value="R-HOIDOANVAN" ' . ($loaicauhoi == 'R-HOIDOANVAN' ? "selected" : "") . '>PART 7 - READING - ĐỌC HIỂU</option>
                             </select>
                         </td></tr>
+                        <tr><td>Trạng thái:</td><td>
+                            <select id="edit_select_question_type" name="select-status" class="selectpicker form-control">
+                            <option value="1" ' . ($trangthai == 1 ? "selected" : "") . '>MỞ</option>
+                            <option value="0" ' . ($trangthai != 1 ? "selected" : "") . '>ĐÓNG</option>
+                            </select>
+                        </td></tr>
                         <tr><td>Nội dung:</td><td>
-                            <textarea class="form-control" rows="5">' . $noidung . '</textarea>
+                            <textarea class="form-control" rows="5" name="txtNoiDung">' . $noidung . '</textarea>
                         </td><tr/>';
         if ($check_sub_question == true) {
             $sub_questions = $get->get_all_sub_question_by_question_id($macauhoi);
@@ -361,7 +372,7 @@ class controller_admin extends model_admin
             $i = 1;
             while ($rows = $sub_questions->fetch_assoc()) {
                 echo '
-                            <tr><td>Câu hỏi nhỏ ' . $i . ':</td><td class="form-inline"><input type="text" class="form-control" style="width:70%;" value="' . $rows["NoiDungNho"] . '"> <button type="button" class="btn btn-info btn-fill edit" name="btn-submit-edit-sub-question" data-toggle="modal" data-target="#suacauhoi' . $rows['MaCauHoiNho'] . '" data-backdrop="false"><i class="fa fa-eye"></i>Xem câu hỏi ' . $i . '</button></td></tr>
+                            <tr><td>Câu hỏi nhỏ ' . $i . ':</td><td class="form-inline"><input type="text" class="form-control" style="width:70%;" value="' . $rows["NoiDungNho"] . '" readonly="true"> <button type="button" class="btn btn-info btn-fill edit" name="btn-submit-edit-sub-question" data-toggle="modal" data-target="#suacauhoi' . $rows['MaCauHoiNho'] . '" data-backdrop="false"><i class="fa fa-eye"></i>Xem câu hỏi ' . $i . '</button></td></tr>
                             
                             <div class="modal fade" id="suacauhoi' . $rows['MaCauHoiNho'] . '" role="dialog">
                                 <div class="modal-dialog">
@@ -371,13 +382,16 @@ class controller_admin extends model_admin
                                             <h4 class="modal-title">Mã câu hỏi ' . $rows['MaCauHoi'] . ' - Câu hỏi nhỏ số ' . $i . '</h4>
                                         </div>
                                         <div class="modal-body">
-                                            <form method="POST">
-                                            <p>Câu hỏi: <input type="text" class="form-control" value="' . $rows['NoiDungNho'] . '"></p>
-                                            <p>A: <input type="text" class="form-control" value="' . $rows["A"] . '"></p>
-                                            <p>B: <input type="text" class="form-control" value="' . $rows["B"] . '"></p>
-                                            <p>C: <input type="text" class="form-control" value="' . $rows["C"] . '"></p>
-                                            <p>D: <input type="text" class="form-control" value="' . $rows["D"] . '"></p>
-                                            <p>Đáp án: <input type="text" class="form-control" value="' . $rows["DapAn"] . '"></p>
+                                            <form method="POST" action="admin_actions.php">
+                                            <p>Mã đoạn văn: <input type="text" class="form-control" name="parentID-' . $i . '" value="' . $rows['MaCauHoi'] . '" readonly="true"></p>
+                                            <p>Mã câu hỏi nhỏ: <input type="text" class="form-control" name="subID-' . $i . '" value="' . $rows['MaCauHoiNho'] . '" readonly="true"></p>
+                                            <p>Câu hỏi: <input type="text" class="form-control" name="subQuestion-' . $i . '" value="' . $rows['NoiDungNho'] . '"></p>
+                                            <p>A: <input type="text" class="form-control" name="subA-' . $i . '" value="' . $rows["A"] . '"></p>
+                                            <p>B: <input type="text" class="form-control" name="subB-' . $i . '" value="' . $rows["B"] . '"></p>
+                                            <p>C: <input type="text" class="form-control" name="subC-' . $i . '" value="' . $rows["C"] . '"></p>
+                                            <p>D: <input type="text" class="form-control" name="subD-' . $i . '" value="' . $rows["D"] . '"></p>
+                                            <p>Đáp án: <input type="text" class="form-control"name="subDapAn-' . $i . '" value="' . $rows["DapAn"] . '"></p>
+                                            <p><button type="submit" class="btn btn-success btn-fill" name="action-edit-sub-question-' . $i . '">Cập nhật</button></p>
                                             </form>
                                         </div>
                                         <div class="modal-footer">
@@ -389,15 +403,15 @@ class controller_admin extends model_admin
                             ';
                 $i++;
             }
-            echo '<tr><td colspan="2" class="text-center"><a href="index.php?p=themcauhoi&macauhoi=' . $macauhoi . '"><button type="button" class="btn btn-success btn-fill"><i class="fa fa-plus"></i>Thêm câu hỏi nhỏ</button></a></td></tr>';
+            echo '<tr><td colspan="2" class="text-center"><button type="submit" class="btn btn-success btn-fill" name="btn-add-sub-question-by-id"><i class="fa fa-plus"></i>Thêm câu hỏi nhỏ</button></td></tr>';
         } else {
             echo '
-                            <tr><td>A:</td><td><input type="text" class="form-control" value="' . $a . '"></td></tr>
-                            <tr><td>B:</td><td><input type="text" class="form-control" value="' . $b . '"></td></tr>
-                            <tr><td>C:</td><td><input type="text" class="form-control" value="' . $c . '"></td></tr>
-                            <tr><td>D:</td><td><input type="text" class="form-control" value="' . $d . '"></td></tr>
-                            <tr><td>Đáp án:</td><td><input type="text" class="form-control" value="' . $dapan . '"></td></tr>
-                            <tr><td colspan="2" style="text-align:center;"><button type="submit" rel="tooltip" title="Submit changes" class="btn btn-info btn-fill edit" name="btn-submit-edit-question" id=""><i class="fa fa-edit"></i>Hoàn tất sửa</button></td></tr>
+                            <tr><td>A:</td><td><input type="text" class="form-control" name="singleA" value="' . $a . '"></td></tr>
+                            <tr><td>B:</td><td><input type="text" class="form-control" name="singleB" value="' . $b . '"></td></tr>
+                            <tr><td>C:</td><td><input type="text" class="form-control" name="singleC" value="' . $c . '"></td></tr>
+                            <tr><td>D:</td><td><input type="text" class="form-control" name="singleD" value="' . $d . '"></td></tr>
+                            <tr><td>Đáp án:</td><td><input type="text" class="form-control" name="singleDapAn" value="' . $dapan . '"></td></tr>
+                            <tr><td colspan="2" style="text-align:center;"><button type="submit" rel="tooltip" title="Submit changes" class="btn btn-info btn-fill edit" name="btn-submit-edit-single-question" id=""><i class="fa fa-edit"></i>Hoàn tất sửa</button></td></tr>
                             ';
         }
         echo '</tbody></table></form>';
@@ -413,7 +427,58 @@ class controller_admin extends model_admin
         return false;
     }
 
-    function print_news_table($param=0)
+    function add_parent_question($made, $loaicauhoi, $noidung, $nguoitao)
+    {
+        $p = new model_admin();
+        $kq = $p->add_parent_question($made, $loaicauhoi, $noidung, $nguoitao);
+        if ($kq == true)
+            return true;
+        return false;
+    }
+
+    function get_last_question_id()
+    {
+        $p = new model_admin();
+        $a = $p->get_last_question_id();
+        $kq = $a->fetch_array();
+        return $kq['MaCauHoi'];
+    }
+
+    function get_fresh_question_by_id($macauhoi)
+    {
+        $p = new model_admin();
+        $kq = $p->get_fresh_question_by_id($macauhoi);
+        return $kq;
+    }
+
+    function add_child_question($macauhoi, $loaicauhoi, $noidung, $a, $b, $c, $d, $dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->add_child_question($macauhoi, $loaicauhoi, $noidung, $a, $b, $c, $d, $dapan);
+        if ($kq == true)
+            return true;
+        return false;
+    }
+
+    function action_edit_single_question_by_id($macauhoi, $made, $loaicauhoi, $trangthai, $noidung, $a, $b, $c, $d, $dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->action_edit_single_question_by_id($macauhoi, $made, $loaicauhoi, $trangthai, $noidung, $a, $b, $c, $d, $dapan);
+        if ($kq)
+            return true;
+        return false;
+    }
+
+    function action_edit_sub_question_by_id($macauhoinho, $noidung, $a, $b, $c, $d, $dapan)
+    {
+        $p = new model_admin();
+        $kq = $p->action_edit_sub_question_by_id($macauhoinho, $noidung, $a, $b, $c, $d, $dapan);
+        if ($kq)
+            return true;
+        return false;
+    } // end function print_news_table
+
+    function print_news_table($param = 0)
     {
         $ad = new model_admin();
         $kq = $ad->get_news($param);
@@ -432,40 +497,41 @@ class controller_admin extends model_admin
                     <tbody>
             ';
         while ($row = $kq->fetch_array()) {
-            $table=$table.'
+            $table = $table . '
                     <tr>
-                        <td id="matintuc-tin">'.$row["MaTinTuc"].'</td>
-                        <td id="tieude-tin">'.$row["TieuDe"].'</td>
-                        <td id="noidung-tin"><div id="noidung-tins">'.$row["NoiDung"].'</div></td>
-                        <td id="tomtat-tin">'.$row["TomTat"].'</td>
-                        <td id="anhminhhoa-tin"><img src="'.$row["AnhMinhHoa"].'"></td>
-                        <td id="nguoitao-tin">'.$row["NguoiTao"].'</td>
-                        <td id="ngaytao-tin">'.$row["NgayTao"].'</td>
-                        <td id="ngaychinhsua-tin">'.$row["NgayChinhSua"].'</td>
-                        <td id="ngonngu-tin">'.$row["NgonNgu"].'</td>
+                        <td id="matintuc-tin">' . $row["MaTinTuc"] . '</td>
+                        <td id="tieude-tin">' . $row["TieuDe"] . '</td>
+                        <td id="noidung-tin"><div id="noidung-tins">' . $row["NoiDung"] . '</div></td>
+                        <td id="tomtat-tin">' . $row["TomTat"] . '</td>
+                        <td id="anhminhhoa-tin"><img src="' . $row["AnhMinhHoa"] . '"></td>
+                        <td id="nguoitao-tin">' . $row["NguoiTao"] . '</td>
+                        <td id="ngaytao-tin">' . $row["NgayTao"] . '</td>
+                        <td id="ngaychinhsua-tin">' . $row["NgayChinhSua"] . '</td>
+                        <td id="ngonngu-tin">' . $row["NgonNgu"] . '</td>
                     </tr>
             ';
         }
-        $table=$table."</tbody></table>";
+        $table = $table . "</tbody></table>";
         echo $table;
-    } // end function print_news_table
+    }
 
-    function add_news($tieuDe,$noiDung,$tomTat,$img,$ngonNgu){
+    function add_news($tieuDe, $noiDung, $tomTat, $img, $ngonNgu)
+    {
         $con = new model_admin();
-        $tieuDe=$this->con->escape_string(strip_tags(trim($tieuDe)));
-        $noiDung=$this->con->escape_string(strip_tags(trim($noiDung)));
-        $tomTat=$this->con->escape_string(strip_tags(trim($tomTat)));
-        $img=$this->con->escape_string(strip_tags(trim($img)));
-        $ngonNgu=$this->con->escape_string(strip_tags(trim($ngonNgu)));
+        $tieuDe = $this->con->escape_string(strip_tags(trim($tieuDe)));
+        $noiDung = $this->con->escape_string(strip_tags(trim($noiDung)));
+        $tomTat = $this->con->escape_string(strip_tags(trim($tomTat)));
+        $img = $this->con->escape_string(strip_tags(trim($img)));
+        $ngonNgu = $this->con->escape_string(strip_tags(trim($ngonNgu)));
 
-        $thanhcong=true;
-        if($tieuDe==null ||$noiDung==null ||$tomTat==null ||$img==null ||$ngonNgu==null){
+        $thanhcong = true;
+        if ($tieuDe == null || $noiDung == null || $tomTat == null || $img == null || $ngonNgu == null) {
             echo '<script>alert("Xin nhập đầy đủ thông tin")</script>';
             $thanhcong = false;
         }
-        if($thanhcong){
-            $kq=$con->add_new_news($tieuDe,$noiDung,$tomTat,$img,$_SESSION['login_id'],$ngonNgu);
-            if(!$kq) {
+        if ($thanhcong) {
+            $kq = $con->add_new_news($tieuDe, $noiDung, $tomTat, $img, $_SESSION['login_id'], $ngonNgu);
+            if (!$kq) {
                 echo '<script>alert("Loi insert db")</script>';
                 $thanhcong = false;
             }
@@ -474,32 +540,34 @@ class controller_admin extends model_admin
         return $thanhcong;
     } // end function add_news
 
-    function users_statistic(){
+    function users_statistic()
+    {
         $con = new model_admin();
-        $admin=$con->count_admin();
-        $hocvien=$con->count_hocvien();
-        $giaovien=$con->count_giaovien();
-        $arr = array('0'=>$admin,'1'=>$giaovien,'2'=>$hocvien);
+        $admin = $con->count_admin();
+        $hocvien = $con->count_hocvien();
+        $giaovien = $con->count_giaovien();
+        $arr = array('0' => $admin, '1' => $giaovien, '2' => $hocvien);
         return $arr;
     } // end function users_statistic
 
-    function ds_duthi_statistic(){
+    function ds_duthi_statistic()
+    {
         $con = new model_admin();
-        $de1=$con->count_dsDuThi_De1();
-        $de2=$con->count_dsDuThi_De2();
-        $arr = array('0'=>$de1,'1'=>$de2);
+        $de1 = $con->count_dsDuThi_De1();
+        $de2 = $con->count_dsDuThi_De2();
+        $arr = array('0' => $de1, '1' => $de2);
         return $arr;
     } // end function ds_duthi_statistic
 
-    function binhluan_statistic($made){
-        $made=$this->con->escape_string(strip_tags(trim($made)));
-        $con= new model_admin();
-        $kq=$con->count_binhluan_MaDe($made);
-        if($kq){
+    function binhluan_statistic($made)
+    {
+        $made = $this->con->escape_string(strip_tags(trim($made)));
+        $con = new model_admin();
+        $kq = $con->count_binhluan_MaDe($made);
+        if ($kq) {
             return $kq;
         }
         return $this->con->error;
     }
 }
-
 ?>

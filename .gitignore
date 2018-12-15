@@ -2,3 +2,4 @@
 database/config.php
 View/.htaccess
 database/config.php
+*.xml

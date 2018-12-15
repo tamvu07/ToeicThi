@@ -48,8 +48,9 @@ class model_admin extends connection {
     protected function get_list_exam_by_status($trangthai) {
         $sql = "SELECT * FROM dethi WHERE TrangThai=$trangthai";
         $kq = $this->con->query($sql);
-        if($kq->num_rows>0) return $kq;
-        return $this->con->error();
+        if($kq->num_rows>0)
+            return $kq;
+        return 0;
     }
 
     protected function add_user($ho,$ten, $gioitinh, $matkhau, $quyen, $mail) {
@@ -112,7 +113,7 @@ class model_admin extends connection {
         $sql = "INSERT INTO dethi(TieuDe,MoTa,ThoiLuong,SoCau,NgayHetHan,NguoiTao,TrangThai) 
         VALUES ('$ten','$mota',$thoiluong,$socau,'$ngayhethan',$nguoitao,$trangthai)";
         $kq = $this->con->query($sql);
-        if($kq->affected_rows!=0)
+        if($kq)
             return true;
         return false;
     }
@@ -156,7 +157,7 @@ class model_admin extends connection {
 
     protected function get_question_by_id($macauhoi)
     {
-        $sql = "SELECT ch.MaCauHoi, ch.MaDe, ch.LoaiCauHoi, ch.NoiDung, tl.A, tl.B, tl.C, tl.D, tl.DapAn
+        $sql = "SELECT ch.MaCauHoi, ch.MaDe, ch.LoaiCauHoi, ch.TrangThai, ch.NoiDung, tl.A, tl.B, tl.C, tl.D, tl.DapAn
         FROM cauhoi ch JOIN traloi tl
         ON ch.MaCauHoi=tl.MaCauHoi WHERE ch.MaCauHoi='$macauhoi'";
         $kq = $this->con->query($sql);
@@ -202,6 +203,73 @@ class model_admin extends connection {
         return true;
     }
 
+    protected function add_parent_question($made,$loaicauhoi,$noidung,$nguoitao)
+    {
+        $sql = "ALTER TABLE cauhoi AUTO_INCREMENT=1;";
+        $this->con->query($sql);
+        $sql = "INSERT INTO cauhoi(MaDe,LoaiCauHoi,NoiDung,NguoiTao) VALUES('$made','$loaicauhoi','$noidung','$nguoitao')";
+        $kq = $this->con->query($sql);
+        if($kq)
+            return true;
+        return false;
+    }
+
+    protected function get_last_question_id()
+    {
+        $sql = "SELECT MaCauHoi FROM cauhoi ORDER BY MaCauHoi DESC LIMIT 1";
+        $kq = $this->con->query($sql);
+        return $kq;
+    }
+
+    protected function get_fresh_question_by_id($macauhoi)
+    {
+        $sql = "SELECT NoiDung,LoaiCauHoi FROM cauhoi WHERE MaCauHoi='$macauhoi'";
+        $kq = $this->con->query($sql);
+        return $kq;
+    }
+
+    protected function add_child_question($macauhoi,$loaicauhoi,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $sql = "ALTER TABLE cauhoinho AUTO_INCREMENT=1; ALTER TABLE traloi AUTO_INCREMENT=1;";
+        $this->con->query($sql);
+        $sql = "INSERT INTO cauhoinho(LoaiCauHoi,MaCauHoi,NoiDung) VALUES('$loaicauhoi','$macauhoi','$noidung')";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        $sql = "INSERT INTO traloi(MaCauHoi, A, B, C, D, DapAn, IdCauhoinho)
+                VALUES('$macauhoi','$a','$b','$c','$d','$dapan',(SELECT Id FROM cauhoinho ORDER BY Id DESC LIMIT 1))";
+        $kqtl = $this->con->query($sql);
+        if(!$kqtl)
+            return false;
+        return true;
+    }
+
+    protected  function action_edit_single_question_by_id($macauhoi,$made,$loaicauhoi,$trangthai,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $sql = "UPDATE cauhoi SET MaDe='$made', LoaiCauHoi='$loaicauhoi', TrangThai='$trangthai', NoiDung='$noidung'
+                WHERE MaCauHoi='$macauhoi'";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        $sql = "UPDATE traloi SET A='$a', B='$b', C='$c', D='$d', DapAn='$dapan' WHERE MaCauHoi='$macauhoi'";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        return true;
+    }
+
+    protected function action_edit_sub_question_by_id($macauhoinho,$noidung,$a,$b,$c,$d,$dapan)
+    {
+        $sql = "UPDATE cauhoinho SET NoiDung='$noidung' WHERE Id='$macauhoinho'";
+        $kq = $this->con->query($sql);
+        if(!$kq)
+            return false;
+        $sql = "UPDATE traloi SET A='$a', B='$b', C='$c', D='$d', DapAn='$dapan' WHERE IdCauhoinho='$macauhoinho'";
+        $kq = $this->con->query($sql);
+        if(!kq)
+            return false;
+        return true;
+    }
     protected function get_news($param){
 	    if($param==0) $sql="select * from tintuc";
 	    elseif($param==1) $sql="select * from tintuc where NgonNgu='vi' order by MaTinTuc desc";
